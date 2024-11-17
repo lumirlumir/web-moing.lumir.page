@@ -1,5 +1,8 @@
 {
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "homepage": "https://lumirlumir.github.io/Web_Capstone",
   "repository": "https://github.com/lumirlumir/Web_Capstone",
   "scripts": {
