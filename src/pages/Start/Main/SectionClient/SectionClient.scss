@@ -5,28 +5,32 @@
   @include selector-invisible-section;
   @include selector-scrollbar;
 
+  /*
+    \000A: line feed
+    \00A0: blank space
+  */
+
   > div {
     width: 100%;
     height: 100%;
     outline: none;
 
-    div::before {
-      content: '\000A>\00a0';
-    }
-
-    &:not(:empty)::before {
-      content: '$ Interviewee\000A\000A>\00a0';
-    }
     &:empty::before {
-      content: attr(placeholder);
+      content: '$\00A0' attr(placeholder);
       opacity: 0.5;
     }
-
+    &:not(:empty)::before {
+      content: '$\00A0' attr(placeholder) '\000A\000A>\00A0';
+    }
     &::after {
       content: '';
       display: block;
-      cursor: text;
       height: $main-section-padding;
+      cursor: text;
+    }
+
+    div::before {
+      content: '\000A>\00A0';
     }
   }
 }
