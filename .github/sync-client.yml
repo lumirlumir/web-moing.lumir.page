@@ -8,6 +8,8 @@ lumirlumir/lumirlumir-configs:
   - source: ./.github/CODEOWNERS
     dest: ./configs/.github/CODEOWNERS
   # ./
+  - source: ./.editorconfig
+    dest: ./configs/.editorconfig
   - source: ./.nvmrc
     dest: ./configs/.nvmrc
   - source: ./CODE_OF_CONDUCT.md
