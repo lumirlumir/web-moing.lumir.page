@@ -15,6 +15,10 @@ lumirlumir/lumirlumir-configs:
   # ./
   - source: ./.editorconfig
     dest: ./configs/.editorconfig
+  - source: ./.markdownlint.json
+    dest: ./configs/.markdownlint.json
+  - source: ./.markdownlintignore
+    dest: ./configs/.markdownlintignore
   - source: ./.nvmrc
     dest: ./configs/.nvmrc
   - source: ./.prettierignore
