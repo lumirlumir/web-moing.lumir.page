@@ -12,6 +12,8 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/.editorconfig
   - source: ./.nvmrc
     dest: ./configs/.nvmrc
+  - source: ./.prettierignore
+    dest: ./configs/.prettierignore
   - source: ./CODE_OF_CONDUCT.md
     dest: ./configs/CODE_OF_CONDUCT.md
   - source: ./jsconfig.json
