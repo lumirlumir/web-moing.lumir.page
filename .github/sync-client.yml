@@ -7,6 +7,11 @@ lumirlumir/lumirlumir-configs:
   # ./.github
   - source: ./.github/CODEOWNERS
     dest: ./configs/.github/CODEOWNERS
+  # ./.vscode
+  - source: ./.vscode/extensions.json
+    dest: ./configs/.vscode/web-extensions.json
+  - source: ./.vscode/settings.json
+    dest: ./configs/.vscode/settings.json
   # ./
   - source: ./.editorconfig
     dest: ./configs/.editorconfig
