@@ -2,7 +2,12 @@ const http = require('http');
 const url = require('url');
 const qs = require('qs');
 const dotenv = require('dotenv');
-const { fetchQuestionMain, fetchQuestionSub, fetchAnswer, fetchFeedback } = require('./services/openaiService');
+const {
+  fetchQuestionMain,
+  fetchQuestionSub,
+  fetchAnswer,
+  fetchFeedback,
+} = require('./services/openaiService');
 
 dotenv.config();
 
@@ -27,13 +32,17 @@ http
         case '/question/main': {
           const { type, history } = queryParsed;
 
-          fetchQuestionMain(type, typeof history === 'undefined' ? [] : history).then(result => response(res, 200, result));
+          fetchQuestionMain(type, typeof history === 'undefined' ? [] : history).then(
+            result => response(res, 200, result),
+          );
           break;
         }
         case '/question/sub': {
           const { question, answerUser } = queryParsed;
 
-          fetchQuestionSub(question, answerUser).then(result => response(res, 200, result));
+          fetchQuestionSub(question, answerUser).then(result =>
+            response(res, 200, result),
+          );
           break;
         }
         case '/answer': {
@@ -45,7 +54,9 @@ http
         case '/feedback': {
           const { answerSystem, answerUser } = queryParsed;
 
-          fetchFeedback(answerSystem, answerUser).then(result => response(res, 200, result));
+          fetchFeedback(answerSystem, answerUser).then(result =>
+            response(res, 200, result),
+          );
           break;
         }
         default: {

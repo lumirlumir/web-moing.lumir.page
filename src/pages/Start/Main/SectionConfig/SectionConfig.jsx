@@ -28,23 +28,44 @@ function SectionConfig({ config }) {
 
   /* Return */
   return (
-    <CompDivNeon className={`SectionConfig ${configState.visibility ? '' : 'invisible'}`} neonSize="m" neonColor="banana">
+    <CompDivNeon
+      className={`SectionConfig ${configState.visibility ? '' : 'invisible'}`}
+      neonSize="m"
+      neonColor="banana"
+    >
       <div>
         <div>
           {questionTypeKeys.map(key => (
-            <CheckBox key={key} onChange={() => handleConfigState({ questionType: { [key]: !configState.questionType[key] } })} isChecked={configState.questionType[key]}>
+            <CheckBox
+              key={key}
+              onChange={() =>
+                handleConfigState({
+                  questionType: { [key]: !configState.questionType[key] },
+                })
+              }
+              isChecked={configState.questionType[key]}
+            >
               {key.toUpperCase()}
             </CheckBox>
           ))}
         </div>
         <div>
-          <ButtonCount onClick={e => handleButtonCount(e, 'questionMain')} count={configState.questionMain}>
+          <ButtonCount
+            onClick={e => handleButtonCount(e, 'questionMain')}
+            count={configState.questionMain}
+          >
             QUESTION-MAIN:
           </ButtonCount>
-          <ButtonCount onClick={e => handleButtonCount(e, 'questionSub')} count={configState.questionSub}>
+          <ButtonCount
+            onClick={e => handleButtonCount(e, 'questionSub')}
+            count={configState.questionSub}
+          >
             QUESTION-SUB:
           </ButtonCount>
-          <ButtonCount onClick={e => handleButtonCount(e, 'timeLimit')} count={configState.timeLimit}>
+          <ButtonCount
+            onClick={e => handleButtonCount(e, 'timeLimit')}
+            count={configState.timeLimit}
+          >
             TIME-LIMIT:
           </ButtonCount>
         </div>

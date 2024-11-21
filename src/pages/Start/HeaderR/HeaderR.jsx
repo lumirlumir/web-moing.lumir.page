@@ -23,8 +23,14 @@ function HeaderR({ scenario, interview }) {
 
   /* Return */
   return (
-    <header className={`HeaderR ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}>
-      <CompButtonLight style={{ width: '60px', height: '60px' }} onClick={onClick} hoverEffect={listening}>
+    <header
+      className={`HeaderR ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
+    >
+      <CompButtonLight
+        style={{ width: '60px', height: '60px' }}
+        onClick={onClick}
+        hoverEffect={listening}
+      >
         <CompFontNeon neonColor="white">
           <CiMicrophoneOn size="40px" />
         </CompFontNeon>

@@ -16,8 +16,16 @@ function SectionClient({ scenario, interview }) {
 
   /* Return */
   return (
-    <CompDivNeon className={`SectionClient ${visibility ? '' : 'invisible'}`} neonColor="black">
-      <div ref={contentRef} contentEditable="true" spellCheck="false" placeholder="$ Interviewee" />
+    <CompDivNeon
+      className={`SectionClient ${visibility ? '' : 'invisible'}`}
+      neonColor="black"
+    >
+      <div
+        ref={contentRef}
+        contentEditable="true"
+        spellCheck="false"
+        placeholder="$ Interviewee"
+      />
     </CompDivNeon>
   );
 }

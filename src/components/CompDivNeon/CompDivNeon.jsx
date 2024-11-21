@@ -27,7 +27,10 @@ function CompDivNeon({ children, className, neonColor, neonSize, borderWidth }) 
   };
 
   return (
-    <div style={style} className={`${className} CompDivNeon ${neonColor}Color ${neonSize}`}>
+    <div
+      style={style}
+      className={`${className} CompDivNeon ${neonColor}Color ${neonSize}`}
+    >
       {children}
     </div>
   );
@@ -35,7 +38,21 @@ function CompDivNeon({ children, className, neonColor, neonSize, borderWidth }) 
 CompDivNeon.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  neonColor: PropTypes.oneOf(['red', 'brightOrange', 'orange', 'banana', 'yellow', 'green', 'sky', 'blue', 'violet', 'purple', 'silver', 'white', 'black']),
+  neonColor: PropTypes.oneOf([
+    'red',
+    'brightOrange',
+    'orange',
+    'banana',
+    'yellow',
+    'green',
+    'sky',
+    'blue',
+    'violet',
+    'purple',
+    'silver',
+    'white',
+    'black',
+  ]),
   neonSize: PropTypes.oneOf(['xl', 'l', 'm', 's', 'xs']),
   borderWidth: PropTypes.string,
 };

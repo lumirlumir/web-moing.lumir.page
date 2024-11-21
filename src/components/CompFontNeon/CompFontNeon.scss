@@ -42,7 +42,8 @@
   }
 
   svg {
-    filter: drop-shadow(0 0 calc(2px * size(#{$size})) $color-start) drop-shadow(0 0 calc(8px * size(#{$size})) $color-end);
+    filter: drop-shadow(0 0 calc(2px * size(#{$size})) $color-start)
+      drop-shadow(0 0 calc(8px * size(#{$size})) $color-end);
   }
 }
 

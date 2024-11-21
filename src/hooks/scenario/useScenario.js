@@ -19,7 +19,10 @@ const useScenario = () => {
   });
 
   /* Func */
-  const getSubsectionObj = useCallback(() => CHAPTER[state.section][state.subsection], [state]);
+  const getSubsectionObj = useCallback(
+    () => CHAPTER[state.section][state.subsection],
+    [state],
+  );
   const toNextSubsection = useCallback(() => {
     setState(prevState => {
       const newSectionState = state.section + 1;

@@ -27,7 +27,10 @@ const useInterviewHistory = () => {
     return historyRef.current.length % colRef.current === 0;
   }, [historyRef]);
   const isInterviewDone = useCallback(() => {
-    return historyRef.current.length === questionTypeRef.current.length * rowRef.current * colRef.current;
+    return (
+      historyRef.current.length ===
+      questionTypeRef.current.length * rowRef.current * colRef.current
+    );
   }, [historyRef]);
   const getQuestionMainHistory = useCallback(() => {
     const questionMainHistory = [];
@@ -40,8 +43,12 @@ const useInterviewHistory = () => {
   }, [historyRef]);
   const getInterviewInfo = useCallback(() => {
     return {
-      questionType: questionTypeRef.current[Math.floor(historyRef.current.length / (rowRef.current * colRef.current))],
-      questionMain: (Math.floor(historyRef.current.length / colRef.current) % rowRef.current) + 1,
+      questionType:
+        questionTypeRef.current[
+          Math.floor(historyRef.current.length / (rowRef.current * colRef.current))
+        ],
+      questionMain:
+        (Math.floor(historyRef.current.length / colRef.current) % rowRef.current) + 1,
       questionSub: (historyRef.current.length % colRef.current) + 1,
     };
   }, [historyRef]);
@@ -60,7 +67,8 @@ const useInterviewHistory = () => {
     };
 
     for (let i = 0; i < historyRef.current.length; i += 1) {
-      const questionType = questionTypeRef.current[Math.floor(i / (rowRef.current * colRef.current))];
+      const questionType =
+        questionTypeRef.current[Math.floor(i / (rowRef.current * colRef.current))];
       const questionMain = (Math.floor(i / colRef.current) % rowRef.current) + 1;
       const questionSub = (i % colRef.current) + 1;
 

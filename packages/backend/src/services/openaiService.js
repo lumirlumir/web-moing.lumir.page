@@ -1,6 +1,9 @@
 const openaiJson = require('../data/openai.json');
 const openaiInstance = require('./openaiInstance');
-const { createMessagesObject, stringArrayToMessagesObjectArray } = require('../utils/openaiUtils');
+const {
+  createMessagesObject,
+  stringArrayToMessagesObjectArray,
+} = require('../utils/openaiUtils');
 
 const fetch = async messages => {
   const response = await openaiInstance.chat.completions.create({
@@ -17,7 +20,11 @@ const fetch = async messages => {
  * @param {string[]} history
  * @returns
  */
-const fetchQuestionMain = async (type, history) => fetch([...openaiJson.fetchQuestionMain[type.toLowerCase()].messages, ...stringArrayToMessagesObjectArray('assistant', history)]);
+const fetchQuestionMain = async (type, history) =>
+  fetch([
+    ...openaiJson.fetchQuestionMain[type.toLowerCase()].messages,
+    ...stringArrayToMessagesObjectArray('assistant', history),
+  ]);
 
 /**
  *
@@ -25,14 +32,22 @@ const fetchQuestionMain = async (type, history) => fetch([...openaiJson.fetchQue
  * @param {string} answerUser
  * @returns
  */
-const fetchQuestionSub = async (question, answerUser) => fetch([...openaiJson.fetchQuestionSub.messages, createMessagesObject('user', `Previous Question\n\n${question}\n\nUSER's Answer\n\n${answerUser}`)]);
+const fetchQuestionSub = async (question, answerUser) =>
+  fetch([
+    ...openaiJson.fetchQuestionSub.messages,
+    createMessagesObject(
+      'user',
+      `Previous Question\n\n${question}\n\nUSER's Answer\n\n${answerUser}`,
+    ),
+  ]);
 
 /**
  *
  * @param {string} question
  * @returns
  */
-const fetchAnswer = async question => fetch([...openaiJson.fetchAnswer.messages, createMessagesObject('user', question)]);
+const fetchAnswer = async question =>
+  fetch([...openaiJson.fetchAnswer.messages, createMessagesObject('user', question)]);
 
 /**
  *
@@ -40,7 +55,14 @@ const fetchAnswer = async question => fetch([...openaiJson.fetchAnswer.messages,
  * @param {string} answerUser
  * @returns
  */
-const fetchFeedback = async (answerSystem, answerUser) => fetch([...openaiJson.fetchFeedback.messages, createMessagesObject('user', `Correct Answer\n\n${answerSystem}\n\nUSER's Answer\n\n${answerUser}`)]);
+const fetchFeedback = async (answerSystem, answerUser) =>
+  fetch([
+    ...openaiJson.fetchFeedback.messages,
+    createMessagesObject(
+      'user',
+      `Correct Answer\n\n${answerSystem}\n\nUSER's Answer\n\n${answerUser}`,
+    ),
+  ]);
 
 module.exports = {
   fetchQuestionMain,
