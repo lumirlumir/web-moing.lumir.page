@@ -4,7 +4,12 @@ import Typewriter from 'typewriter-effect';
 import CompDivNeon from '@/components/CompDivNeon';
 import useScroll from '@/hooks/utils/useScroll';
 import useHistoryState from '@/hooks/utils/useHistoryState';
-import { scenarioPropTypes, configPropTypes, interviewPropTypes, timerPropTypes } from '@/utils/propTypes';
+import {
+  scenarioPropTypes,
+  configPropTypes,
+  interviewPropTypes,
+  timerPropTypes,
+} from '@/utils/propTypes';
 
 import './SectionServer.scss';
 
@@ -18,7 +23,8 @@ function SectionServer({ scenario, config, interview, timer }) {
   const { auto, api, result } = getSubsectionObj().global;
   const { visibility, content } = getSubsectionObj().Main.SectionServer;
   const { configState } = config;
-  const { getInterviewInfo, getQuestion, isInterviewDone, getInterviewHistory } = interview;
+  const { getInterviewInfo, getQuestion, isInterviewDone, getInterviewHistory } =
+    interview;
   const { resetTimer } = timer;
 
   /* Hooks */
@@ -27,7 +33,10 @@ function SectionServer({ scenario, config, interview, timer }) {
   const { historyState, addHistory } = useHistoryState();
   // useMemo
   const text = useMemo(() => {
-    if (api) return getQuestion() === null ? '' : `> ${getInterviewInfo().questionType.toUpperCase()}분야 ${getInterviewInfo().questionMain}-${getInterviewInfo().questionSub}번 문제입니다. ${getQuestion()}\n\n`;
+    if (api)
+      return getQuestion() === null
+        ? ''
+        : `> ${getInterviewInfo().questionType.toUpperCase()}분야 ${getInterviewInfo().questionMain}-${getInterviewInfo().questionSub}번 문제입니다. ${getQuestion()}\n\n`;
 
     if (result) return getInterviewHistory();
 
@@ -44,7 +53,10 @@ function SectionServer({ scenario, config, interview, timer }) {
 
   /* Return */
   return (
-    <CompDivNeon className={`SectionServer ${visibility && !configState.visibility ? '' : 'invisible'} ${result ? 'wide' : ''}`} neonColor="black">
+    <CompDivNeon
+      className={`SectionServer ${visibility && !configState.visibility ? '' : 'invisible'} ${result ? 'wide' : ''}`}
+      neonColor="black"
+    >
       <div>{historyState.slice(0, -1)}</div>
       <div>
         <Typewriter

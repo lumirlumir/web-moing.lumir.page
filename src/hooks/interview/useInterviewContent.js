@@ -8,7 +8,12 @@ const useInterviewContent = () => {
   // useContent
   const { contentRef, getTextContent, getHTMLContent, setHTMLContent } = useContent();
   // useSpeechToText
-  const { transcript, listening, resetTranscript, toggleListening: toggle } = useSpeechToText();
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    toggleListening: toggle,
+  } = useSpeechToText();
   // useRef
   const prevContent = useRef(null);
   // useEffect

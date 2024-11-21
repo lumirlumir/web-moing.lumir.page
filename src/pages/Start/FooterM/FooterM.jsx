@@ -17,7 +17,12 @@ function FooterM({ scenario, timer }) {
   /* Return */
   return (
     <footer className={`FooterM ${visibility ? '' : 'invisible'}`}>
-      <CompFontNeon neonColor={getTimer().minute === 0 ? 'red' : 'white'} neonSize="s" fontFamily="audiowide" fontSize="35px">
+      <CompFontNeon
+        neonColor={getTimer().minute === 0 ? 'red' : 'white'}
+        neonSize="s"
+        fontFamily="audiowide"
+        fontSize="35px"
+      >
         {getTimer().timer}
       </CompFontNeon>
     </footer>

@@ -31,13 +31,28 @@ const useInterviewObj = () => {
     }));
   }, []);
   const isInterviewObjEmpty = useCallback(() => {
-    return interviewObjState.question === null && interviewObjState.answerSystem === null && interviewObjState.answerUser === null && interviewObjState.feedback === null;
+    return (
+      interviewObjState.question === null &&
+      interviewObjState.answerSystem === null &&
+      interviewObjState.answerUser === null &&
+      interviewObjState.feedback === null
+    );
   }, [interviewObjState]);
   const isInterviewObjFull = useCallback(() => {
-    return interviewObjState.question !== null && interviewObjState.answerSystem !== null && interviewObjState.answerUser !== null && interviewObjState.feedback !== null;
+    return (
+      interviewObjState.question !== null &&
+      interviewObjState.answerSystem !== null &&
+      interviewObjState.answerUser !== null &&
+      interviewObjState.feedback !== null
+    );
   }, [interviewObjState]);
   const isOnlyFeedbackEmpty = useCallback(() => {
-    return interviewObjState.question !== null && interviewObjState.answerSystem !== null && interviewObjState.answerUser !== null && interviewObjState.feedback === null;
+    return (
+      interviewObjState.question !== null &&
+      interviewObjState.answerSystem !== null &&
+      interviewObjState.answerUser !== null &&
+      interviewObjState.feedback === null
+    );
   }, [interviewObjState]);
   const getQuestion = useCallback(() => {
     return interviewObjState.question;

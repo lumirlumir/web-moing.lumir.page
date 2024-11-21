@@ -12,7 +12,13 @@ import './ButtonCount.scss';
 function ButtonCount({ children, onClick, count }) {
   /* Return */
   return (
-    <CompFontNeon className={`ButtonCount ${count >= 1 ? '' : 'off'}`} neonColor={count >= 1 ? 'banana' : 'black'} neonSize="s" fontFamily="Audiowide" fontSize="40px">
+    <CompFontNeon
+      className={`ButtonCount ${count >= 1 ? '' : 'off'}`}
+      neonColor={count >= 1 ? 'banana' : 'black'}
+      neonSize="s"
+      fontFamily="Audiowide"
+      fontSize="40px"
+    >
       <label>
         <input type="button" onClick={onClick} />
         <span>{children}</span>
