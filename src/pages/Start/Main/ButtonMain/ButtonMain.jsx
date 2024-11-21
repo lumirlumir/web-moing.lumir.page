@@ -2,7 +2,11 @@ import React, { useCallback, useMemo } from 'react';
 
 import CompButtonLight from '@/components/CompButtonLight';
 import CompFontNeon from '@/components/CompFontNeon';
-import { scenarioPropTypes, configPropTypes, interviewPropTypes } from '@/utils/propTypes';
+import {
+  scenarioPropTypes,
+  configPropTypes,
+  interviewPropTypes,
+} from '@/utils/propTypes';
 
 import './ButtonMain.scss';
 
@@ -46,14 +50,27 @@ function ButtonMain({ scenario, config, interview }) {
         // TODO
       }
     },
-    [toNextSubsection, toLastSubsection, content, configState, handleConfigState, isConfigDone, initInterview],
+    [
+      toNextSubsection,
+      toLastSubsection,
+      content,
+      configState,
+      handleConfigState,
+      isConfigDone,
+      initInterview,
+    ],
   );
 
   /* Return */
   return (
     <div className={`ButtonMain ${visibility ? '' : 'invisible'}`}>
       <CompButtonLight style={{ padding: '20px 30px' }} onClick={e => onClick(e)}>
-        <CompFontNeon neonColor="white" neonSize="s" fontFamily="Audiowide" fontSize="40px">
+        <CompFontNeon
+          neonColor="white"
+          neonSize="s"
+          fontFamily="Audiowide"
+          fontSize="40px"
+        >
           {content}
         </CompFontNeon>
       </CompButtonLight>

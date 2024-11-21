@@ -12,7 +12,13 @@ import './CheckBox.scss';
 function CheckBox({ children, onChange, isChecked }) {
   /* Return */
   return (
-    <CompFontNeon className="CheckBox" neonColor={isChecked ? 'banana' : 'black'} neonSize="s" fontFamily="Audiowide" fontSize="40px">
+    <CompFontNeon
+      className="CheckBox"
+      neonColor={isChecked ? 'banana' : 'black'}
+      neonSize="s"
+      fontFamily="Audiowide"
+      fontSize="40px"
+    >
       <label>
         <input type="checkbox" onChange={onChange} />
         <span>{children}</span>

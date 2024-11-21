@@ -22,14 +22,24 @@ import './CompFontNeon.scss';
  *   null
  * </CompFontNeon>
  */
-function CompFontNeon({ children, className, neonColor, neonSize, fontFamily, fontSize }) {
+function CompFontNeon({
+  children,
+  className,
+  neonColor,
+  neonSize,
+  fontFamily,
+  fontSize,
+}) {
   const style = {
     fontFamily,
     fontSize,
   };
 
   return (
-    <span style={style} className={`${className} CompFontNeon ${neonColor}Color ${neonSize}`}>
+    <span
+      style={style}
+      className={`${className} CompFontNeon ${neonColor}Color ${neonSize}`}
+    >
       {children}
     </span>
   );
@@ -37,7 +47,21 @@ function CompFontNeon({ children, className, neonColor, neonSize, fontFamily, fo
 CompFontNeon.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  neonColor: PropTypes.oneOf(['red', 'brightOrange', 'orange', 'banana', 'yellow', 'green', 'sky', 'blue', 'violet', 'purple', 'silver', 'white', 'black']),
+  neonColor: PropTypes.oneOf([
+    'red',
+    'brightOrange',
+    'orange',
+    'banana',
+    'yellow',
+    'green',
+    'sky',
+    'blue',
+    'violet',
+    'purple',
+    'silver',
+    'white',
+    'black',
+  ]),
   neonSize: PropTypes.oneOf(['xl', 'l', 'm', 's', 'xs']),
   fontFamily: PropTypes.string,
   fontSize: PropTypes.string,

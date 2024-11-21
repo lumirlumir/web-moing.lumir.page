@@ -25,7 +25,9 @@ function FooterR({ scenario, interview, timer }) {
 
   /* Return */
   return (
-    <footer className={`FooterR ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}>
+    <footer
+      className={`FooterR ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
+    >
       <CompButtonLight style={{ width: '60px', height: '60px' }} onClick={onClick}>
         <CompFontNeon neonColor="white">
           <IoIosCheckmarkCircleOutline size="39px" />

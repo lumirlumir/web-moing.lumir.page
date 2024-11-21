@@ -7,7 +7,20 @@
     "allowed_elements": ["image", "sup", "u", "code"]
   },
   "MD044": {
-    "names": ["VScode", "Github", "JavaScript", "ECMAScript", "jQuery", ".js", "React", "React.js", "Node", "Node.js", "DOM", "BOM"]
+    "names": [
+      "VScode",
+      "Github",
+      "JavaScript",
+      "ECMAScript",
+      "jQuery",
+      ".js",
+      "React",
+      "React.js",
+      "Node",
+      "Node.js",
+      "DOM",
+      "BOM"
+    ]
   },
   "MD048": {
     "style": "backtick"

@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
 
 import useScroll from '@/hooks/utils/useScroll';
-import { scenarioPropTypes, configPropTypes, interviewPropTypes, timerPropTypes } from '@/utils/propTypes';
+import {
+  scenarioPropTypes,
+  configPropTypes,
+  interviewPropTypes,
+  timerPropTypes,
+} from '@/utils/propTypes';
 
 import ButtonMain from './ButtonMain';
 import Heading from './Heading';
@@ -34,7 +39,12 @@ function Main({ scenario, config, interview, timer }) {
     <main className="Main">
       <div ref={scrollRef}>
         <Heading scenario={scenario} />
-        <SectionServer scenario={scenario} config={config} interview={interview} timer={timer} />
+        <SectionServer
+          scenario={scenario}
+          config={config}
+          interview={interview}
+          timer={timer}
+        />
         <SectionClient scenario={scenario} interview={interview} />
         <SectionConfig config={config} />
         <SectionResult />
