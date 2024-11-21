@@ -20,7 +20,8 @@ const createMessagesObject = (role, text) => ({
  * @param {string[]} array
  * @returns
  */
-const stringArrayToMessagesObjectArray = (role, array) => array.map(text => createMessagesObject(role, text));
+const stringArrayToMessagesObjectArray = (role, array) =>
+  array.map(text => createMessagesObject(role, text));
 
 module.exports = {
   createMessagesObject,

@@ -22,7 +22,9 @@ function FooterL({ scenario }) {
 
   /* Return */
   return (
-    <footer className={`FooterL ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}>
+    <footer
+      className={`FooterL ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
+    >
       <CompButtonLight style={{ width: '60px', height: '60px' }} onClick={reload}>
         <CompFontNeon neonColor="white">
           <GrPowerReset size="32px" />

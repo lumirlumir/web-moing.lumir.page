@@ -18,7 +18,9 @@ function HeaderL({ scenario, config }) {
 
   /* Return */
   return (
-    <header className={`HeaderL ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}>
+    <header
+      className={`HeaderL ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
+    >
       <CompButtonLight
         style={{ width: '60px', height: '60px' }}
         onClick={() => {

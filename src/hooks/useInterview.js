@@ -5,23 +5,51 @@ import useInterviewHistory from '@/hooks/interview/useInterviewHistory';
 import useInterviewObj from '@/hooks/interview/useInterviewObj';
 import useTrigger from '@/hooks/utils/useTrigger';
 
-import { fetchQuestionMain, fetchQuestionSub, fetchAnswer, fetchFeedback } from '@/services/openaiService';
+import {
+  fetchQuestionMain,
+  fetchQuestionSub,
+  fetchAnswer,
+  fetchFeedback,
+} from '@/services/openaiService';
 
 const useInterview = () => {
   /* Hooks */
   // useInterviewContent
-  const { contentRef, getTextContent, setHTMLContent, listening, toggleListening } = useInterviewContent();
+  const { contentRef, getTextContent, setHTMLContent, listening, toggleListening } =
+    useInterviewContent();
   // useInterviewHistory
-  const { interviewHistoryRef, initInterviewHistory, addInterviewHistory, isQuestionMain, isInterviewDone, getQuestionMainHistory, getInterviewInfo, getInterviewHistory } = useInterviewHistory();
+  const {
+    interviewHistoryRef,
+    initInterviewHistory,
+    addInterviewHistory,
+    isQuestionMain,
+    isInterviewDone,
+    getQuestionMainHistory,
+    getInterviewInfo,
+    getInterviewHistory,
+  } = useInterviewHistory();
   // useInterviewObj
-  const { interviewObjState, initInterviewObj, addInterviewObj, isInterviewObjEmpty, isInterviewObjFull, isOnlyFeedbackEmpty, getQuestion } = useInterviewObj();
+  const {
+    interviewObjState,
+    initInterviewObj,
+    addInterviewObj,
+    isInterviewObjEmpty,
+    isInterviewObjFull,
+    isOnlyFeedbackEmpty,
+    getQuestion,
+  } = useInterviewObj();
   // useTrigger
   const { triggerState, trigger } = useTrigger();
 
   /* Func Private */
   // generateChain
   const fetchChainFirst = useCallback(() => {
-    const generateQuestion = isQuestionMain() ? fetchQuestionMain(getInterviewInfo().questionType, getQuestionMainHistory()) : fetchQuestionSub(interviewHistoryRef.current.at(-1).question, interviewHistoryRef.current.at(-1).answerUser);
+    const generateQuestion = isQuestionMain()
+      ? fetchQuestionMain(getInterviewInfo().questionType, getQuestionMainHistory())
+      : fetchQuestionSub(
+          interviewHistoryRef.current.at(-1).question,
+          interviewHistoryRef.current.at(-1).answerUser,
+        );
 
     generateQuestion
       .then(result => {
@@ -34,11 +62,19 @@ const useInterview = () => {
           addInterviewObj({ answerSystem: result });
         });
       });
-  }, [interviewHistoryRef, isQuestionMain, getQuestionMainHistory, getInterviewInfo, addInterviewObj]);
+  }, [
+    interviewHistoryRef,
+    isQuestionMain,
+    getQuestionMainHistory,
+    getInterviewInfo,
+    addInterviewObj,
+  ]);
   const fetchChainSecond = useCallback(() => {
-    fetchFeedback(interviewObjState.answerSystem, interviewObjState.answerUser).then(result => {
-      addInterviewObj({ feedback: JSON.parse(result) });
-    });
+    fetchFeedback(interviewObjState.answerSystem, interviewObjState.answerUser).then(
+      result => {
+        addInterviewObj({ feedback: JSON.parse(result) });
+      },
+    );
   }, [interviewObjState, addInterviewObj]);
 
   /* Hooks - useEffect */
@@ -65,7 +101,18 @@ const useInterview = () => {
       // console.log('initInterviewObj()');
       initInterviewObj();
     }
-  }, [addInterviewHistory, isInterviewDone, interviewObjState, initInterviewObj, isInterviewObjEmpty, isInterviewObjFull, isOnlyFeedbackEmpty, fetchChainFirst, fetchChainSecond, triggerState]);
+  }, [
+    addInterviewHistory,
+    isInterviewDone,
+    interviewObjState,
+    initInterviewObj,
+    isInterviewObjEmpty,
+    isInterviewObjFull,
+    isOnlyFeedbackEmpty,
+    fetchChainFirst,
+    fetchChainSecond,
+    triggerState,
+  ]);
 
   /* Func Public */
   const initInterview = useCallback(
