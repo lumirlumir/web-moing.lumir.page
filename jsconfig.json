@@ -1,15 +1,15 @@
-// VScode와 연동(mouse hovering 하였을 때, 관련 정보를 표시할 수 있게 하기 위함)
+// Integrate with VScode so that related information can be displayed when hovering the mouse.
 {
   "compilerOptions": {
-    "baseUrl": ".", // 기본 경로를 현재 디렉터리로 설정
+    "baseUrl": ".", // Set the base path to the current root directory.
     "paths": {
-      "@/*": ["src/*"] // '@' 별칭을 'src' 디렉터리로 매핑
+      "@/*": ["src/*"] // Map the '@' alias to the 'src' directory.
     }
   },
   "include": [
-    "src/**/*" // jsconfig가 프로젝트의 파일을 인식하도록 설정
+    "src/**/*" // Ensure that the jsconfig recognizes the project's src files.
   ],
   "exclude": [
-    "node_modules" // node_modules 디렉터리 제외
+    "node_modules" // Exclude the node_modules directory.
   ]
 }
