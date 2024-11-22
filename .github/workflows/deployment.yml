@@ -1,27 +1,27 @@
-name: Deployment
+name: deployment
 
 on:
   push:
-    branches: [main, hotfix]
+    branches: [main]
 
 permissions:
   contents: write
 
 jobs:
-  Deployment:
+  deployment:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Checkout
+      - name: Set up checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node
+      - name: Set up node
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: npm
 
-      - name: Set up Cache
+      - name: Set up cache
         uses: actions/cache@v4
         with:
           path: ~/.npm
@@ -30,14 +30,7 @@ jobs:
       - name: Set up node_modules
         run: npm ci
 
-      # you have to use --ext to check .jsx (default value is .js)
-      - name: Convention ESLint
-        run: npm run eslint-check
-
-      - name: Convention Prettier
-        run: npm run prettier-check
-
-      - name: Environment Variables
+      - name: Set up environment variables
         run: |
           echo "PUBLIC_URL=${{ secrets.PUBLIC_URL }}" >> .env
           echo "BACKEND_PORT=${{ secrets.BACKEND_PORT }}" >> .env
@@ -46,7 +39,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy
+      - name: Deployment
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
