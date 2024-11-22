@@ -3,17 +3,19 @@
   "workspaces": [
     "packages/*"
   ],
+  "engines": {
+    "node": ">=20.18.0"
+  },
   "homepage": "https://lumirlumir.github.io/Web_Capstone",
   "repository": "https://github.com/lumirlumir/Web_Capstone",
   "scripts": {
     "start": "npx webpack serve --mode=development --open",
     "build": "npx webpack build --mode=production --config ./webpack.config.js",
+    "deploy": "gh-pages -d build",
     "eslint-check": "npx eslint . --ext .js,.jsx",
     "eslint-fix": "npx eslint . --fix --ext .js,.jsx",
     "prettier-check": "npx prettier . --check",
-    "prettier-fix": "npx prettier . --write",
-    "deploy": "gh-pages -d build",
-    "git-add": "npm run eslint-fix && npm run prettier-fix && git add ."
+    "prettier-fix": "npx prettier . --write"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
