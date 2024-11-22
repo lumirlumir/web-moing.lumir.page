@@ -6,8 +6,8 @@
   "engines": {
     "node": ">=20.18.0"
   },
-  "homepage": "https://lumirlumir.github.io/Web_Capstone",
-  "repository": "https://github.com/lumirlumir/Web_Capstone",
+  "homepage": "https://lumirlumir.github.io/web-moing.lumir.page",
+  "repository": "https://github.com/lumirlumir/web-moing.lumir.page",
   "scripts": {
     "start": "npx webpack serve --mode=development --open",
     "build": "npx webpack build --mode=production --config ./webpack.config.js",

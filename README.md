@@ -1,6 +1,6 @@
 # ChatGPT를 활용한 인터뷰 서비스 개발
 
-이 문서는 '전북대학교' '산학실전캡스톤2(2분반)' '김용현 김영수 김영아' 팀의 'ChatGPT를 활용한 인터뷰 서비스 개발' 프로젝트에 관한 문서이다. 해당 프로젝트에 관련된 모든 내용들은 [***Github Repository***](https://github.com/lumirlumir/Web_Capstone)를 통해 관리된다.
+이 문서는 '전북대학교' '산학실전캡스톤2(2분반)' '김용현 김영수 김영아' 팀의 'ChatGPT를 활용한 인터뷰 서비스 개발' 프로젝트에 관한 문서이다. 해당 프로젝트에 관련된 모든 내용들은 [***Github Repository***](https://github.com/lumirlumir/web-moing.lumir.page)를 통해 관리된다.
 
 ## 0. Index
 
@@ -26,8 +26,8 @@
 
 ### 1-1. Links
 
-- [***Github Repository***](https://github.com/lumirlumir/Web_Capstone)
-- [***Github Issues***](https://github.com/lumirlumir/Web_Capstone/issues)
+- [***Github Repository***](https://github.com/lumirlumir/web-moing.lumir.page)
+- [***Github Issues***](https://github.com/lumirlumir/web-moing.lumir.page/issues)
 - [***Github Projects***](https://github.com/users/lumirlumir/projects/2)
 - [***PPT_Mid***](https://www.miricanvas.com/v/134hi5w)
 
@@ -44,6 +44,7 @@
 - 팀장: 김용현
 - 팀원: 김용현, 김영수, 김영아
 - 역할:
+
   이름 | 담당 | 수행역할 | 비고
   :---: | :--- | :--- | :---:
   김용현 | Web Front-End Development | React.js 기반의 SPA Front-End Web Page 개발, 각종 마크다운 문서ㆍ한글 문서ㆍ 계획서ㆍ보고서 작성, Repository 관리, 발표 등. | 팀장
@@ -54,25 +55,25 @@
 
 ***Github Issues***와 ***Github Projects***를 통한 세부적인 스케쥴 관리 진행.
 
-- [***Github Issues***](https://github.com/lumirlumir/Web_Capstone/issues)
+- [***Github Issues***](https://github.com/lumirlumir/web-moing.lumir.page/issues)
 - [***Github Projects***](https://github.com/users/lumirlumir/projects/2)
 
 개략적인 일정은 아래와 같다.
 
-추진 내용([Milestone](https://github.com/lumirlumir/Web_Capstone/milestones)) | \~3.25 | \~4.15 | \~4.30 | \~5.15 | \~5.31 | \~6.17
+추진 내용([Milestone](https://github.com/lumirlumir/web-moing.lumir.page/milestones)) | \~3.25 | \~4.15 | \~4.30 | \~5.15 | \~5.31 | \~6.17
 --- | :---: | :---: | :---: | :---: | :---: | :---:
-[Common_Acquisition of development related knowledge](https://github.com/lumirlumir/Web_Capstone/milestone/3) | O | O | O | O
-[Front-End_Design](https://github.com/lumirlumir/Web_Capstone/milestone/2) | | O | O
-[Front-End_Implementation](https://github.com/lumirlumir/Web_Capstone/milestone/5) | | | | O | O
-[Back-End_ChatGPT](https://github.com/lumirlumir/Web_Capstone/milestone/4) | | | O | O
-[Common_Testing and debugging](https://github.com/lumirlumir/Web_Capstone/milestone/6) | | | | | O
-[Common_Feedback](https://github.com/lumirlumir/Web_Capstone/milestone/7) | | | | | | O
+[Common_Acquisition of development related knowledge](https://github.com/lumirlumir/web-moing.lumir.page/milestone/3) | O | O | O | O
+[Front-End_Design](https://github.com/lumirlumir/web-moing.lumir.page/milestone/2) | | O | O
+[Front-End_Implementation](https://github.com/lumirlumir/web-moing.lumir.page/milestone/5) | | | | O | O
+[Back-End_ChatGPT](https://github.com/lumirlumir/web-moing.lumir.page/milestone/4) | | | O | O
+[Common_Testing and debugging](https://github.com/lumirlumir/web-moing.lumir.page/milestone/6) | | | | | O
+[Common_Feedback](https://github.com/lumirlumir/web-moing.lumir.page/milestone/7) | | | | | | O
 
 ### 1-5. Meeting Info
 
 ***Github Issues***를 통한 팀 활동 내역 및 주간 회의 내역 관리 진행. (`docs/JBNU` 디렉터리 내부의 문서들은 행정 처리를 위해 기존 내용들을 따로 가공하여 처리한 `.hwp` 및 `.pdf` 문서들이다.)
 
-- [***Github Issues***](https://github.com/lumirlumir/Web_Capstone/issues?q=is%3Aissue+label%3AJBNU+)
+- [***Github Issues***](https://github.com/lumirlumir/web-moing.lumir.page/issues?q=is%3Aissue+label%3AJBNU+)
 
 ## 2. Requirements Specification
 
