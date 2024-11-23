@@ -15,6 +15,7 @@
     "lint": "concurrently \"npm:lint-*\"",
     "lint-eslint": "npx eslint . --ext .js,.jsx",
     "lint-prettier": "npx prettier . --check",
+    "lint-markdownlint": "npx markdownlint **/*.md",
     "fix": "concurrently \"npm:fix-*\"",
     "fix-eslint": "npx eslint . --fix --ext .js,.jsx",
     "fix-prettier": "npx prettier . --write"
@@ -50,6 +51,7 @@
     "gh-pages": "^6.1.1",
     "html-webpack-plugin": "^5.6.0",
     "lerna": "^8.1.9",
+    "markdownlint-cli": "^0.43.0",
     "prettier": "^3.2.5",
     "sass": "^1.76.0",
     "sass-loader": "^14.2.1",
