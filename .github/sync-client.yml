@@ -9,6 +9,8 @@ lumirlumir/lumirlumir-configs:
   # ./.github
   - source: ./.github/CODEOWNERS
     dest: ./configs/.github/CODEOWNERS
+  - source: ./.github/dependabot.yml
+    dest: ./configs/.github/dependabot.yml
   # ./.vscode
   - source: ./.vscode/extensions.json
     dest: ./configs/.vscode/web-extensions.json
