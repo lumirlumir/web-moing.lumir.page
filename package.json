@@ -9,6 +9,7 @@
   "homepage": "https://lumirlumir.github.io/web-moing.lumir.page",
   "repository": "https://github.com/lumirlumir/web-moing.lumir.page",
   "scripts": {
+    "prepare": "husky",
     "start": "npx webpack serve --mode=development --open",
     "build": "npx webpack build --mode=production --config ./webpack.config.js",
     "deploy": "gh-pages -d build",
@@ -52,7 +53,9 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "gh-pages": "^6.1.1",
     "html-webpack-plugin": "^5.6.0",
+    "husky": "^9.1.7",
     "lerna": "^8.1.9",
+    "lint-staged": "^15.2.10",
     "markdownlint-cli": "^0.43.0",
     "prettier": "^3.2.5",
     "sass": "^1.76.0",
