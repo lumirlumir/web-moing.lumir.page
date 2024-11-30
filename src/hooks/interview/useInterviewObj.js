@@ -30,33 +30,31 @@ const useInterviewObj = () => {
       ...obj,
     }));
   }, []);
-  const isInterviewObjEmpty = useCallback(() => {
-    return (
+  const isInterviewObjEmpty = useCallback(
+    () =>
       interviewObjState.question === null &&
       interviewObjState.answerSystem === null &&
       interviewObjState.answerUser === null &&
-      interviewObjState.feedback === null
-    );
-  }, [interviewObjState]);
-  const isInterviewObjFull = useCallback(() => {
-    return (
+      interviewObjState.feedback === null,
+    [interviewObjState],
+  );
+  const isInterviewObjFull = useCallback(
+    () =>
       interviewObjState.question !== null &&
       interviewObjState.answerSystem !== null &&
       interviewObjState.answerUser !== null &&
-      interviewObjState.feedback !== null
-    );
-  }, [interviewObjState]);
-  const isOnlyFeedbackEmpty = useCallback(() => {
-    return (
+      interviewObjState.feedback !== null,
+    [interviewObjState],
+  );
+  const isOnlyFeedbackEmpty = useCallback(
+    () =>
       interviewObjState.question !== null &&
       interviewObjState.answerSystem !== null &&
       interviewObjState.answerUser !== null &&
-      interviewObjState.feedback === null
-    );
-  }, [interviewObjState]);
-  const getQuestion = useCallback(() => {
-    return interviewObjState.question;
-  }, [interviewObjState]);
+      interviewObjState.feedback === null,
+    [interviewObjState],
+  );
+  const getQuestion = useCallback(() => interviewObjState.question, [interviewObjState]);
 
   /* Return */
   return {

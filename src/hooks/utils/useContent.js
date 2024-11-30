@@ -10,12 +10,8 @@ const useContent = () => {
   const contentRef = useRef(null);
 
   /* Func */
-  const getTextContent = useCallback(() => {
-    return contentRef.current.innerText;
-  }, []);
-  const getHTMLContent = useCallback(() => {
-    return contentRef.current.innerHTML;
-  }, []);
+  const getTextContent = useCallback(() => contentRef.current.innerText, []);
+  const getHTMLContent = useCallback(() => contentRef.current.innerHTML, []);
   const setHTMLContent = useCallback(val => {
     contentRef.current.innerHTML = val;
   }, []);

@@ -6,7 +6,6 @@ module.exports = {
     'react-hooks',
     'jsx-a11y',
     'import',
-    'prettier',
   ],
   extends: [
     // extends has priority. Last index has the highest priority.
@@ -17,7 +16,6 @@ module.exports = {
     'plugin:import/recommended',
     'airbnb/hooks',
     'airbnb',
-    'plugin:prettier/recommended',
     'prettier',
   ],
   rules: {
