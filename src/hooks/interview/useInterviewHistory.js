@@ -23,15 +23,16 @@ const useInterviewHistory = () => {
     rowRef.current = questionMain;
     colRef.current = questionSub + 1;
   }, []);
-  const isQuestionMain = useCallback(() => {
-    return historyRef.current.length % colRef.current === 0;
-  }, [historyRef]);
-  const isInterviewDone = useCallback(() => {
-    return (
+  const isQuestionMain = useCallback(
+    () => historyRef.current.length % colRef.current === 0,
+    [historyRef],
+  );
+  const isInterviewDone = useCallback(
+    () =>
       historyRef.current.length ===
-      questionTypeRef.current.length * rowRef.current * colRef.current
-    );
-  }, [historyRef]);
+      questionTypeRef.current.length * rowRef.current * colRef.current,
+    [historyRef],
+  );
   const getQuestionMainHistory = useCallback(() => {
     const questionMainHistory = [];
 
@@ -41,8 +42,8 @@ const useInterviewHistory = () => {
 
     return questionMainHistory;
   }, [historyRef]);
-  const getInterviewInfo = useCallback(() => {
-    return {
+  const getInterviewInfo = useCallback(
+    () => ({
       questionType:
         questionTypeRef.current[
           Math.floor(historyRef.current.length / (rowRef.current * colRef.current))
@@ -50,8 +51,9 @@ const useInterviewHistory = () => {
       questionMain:
         (Math.floor(historyRef.current.length / colRef.current) % rowRef.current) + 1,
       questionSub: (historyRef.current.length % colRef.current) + 1,
-    };
-  }, [historyRef]);
+    }),
+    [historyRef],
+  );
   const getInterviewHistory = useCallback(() => {
     let str = '';
 
