@@ -13,14 +13,14 @@
     "start": "npx webpack serve --mode=development --open",
     "build": "npx webpack build --mode=production --config ./webpack.config.js",
     "deploy": "gh-pages -d build",
-    "lint": "concurrently \"npm:lint-*\"",
-    "lint-eslint": "npx eslint . --ext .js,.jsx",
-    "lint-prettier": "npx prettier . --check",
-    "lint-editorconfig": "npx editorconfig-checker -config .editorconfig-checker.json",
-    "lint-markdownlint": "npx markdownlint **/*.md",
-    "fix": "concurrently \"npm:fix-*\"",
-    "fix-eslint": "npx eslint . --fix --ext .js,.jsx",
-    "fix-prettier": "npx prettier . --write"
+    "lint": "concurrently \"npm:lint:*\"",
+    "lint:eslint": "npx eslint . --ext .js,.jsx",
+    "lint:prettier": "npx prettier . --check",
+    "lint:editorconfig": "npx editorconfig-checker -config .editorconfig-checker.json",
+    "lint:markdownlint": "npx markdownlint **/*.md",
+    "fix": "concurrently \"npm:fix:*\"",
+    "fix:eslint": "npx eslint . --fix --ext .js,.jsx",
+    "fix:prettier": "npx prettier . --write"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
