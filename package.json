@@ -59,7 +59,7 @@
     "markdownlint-cli": "^0.43.0",
     "prettier": "^3.2.5",
     "prettier-config-bananass": "^0.0.1",
-    "sass": "^1.76.0",
+    "sass": "^1.83.4",
     "sass-loader": "^14.2.1",
     "style-loader": "^4.0.0",
     "webpack": "^5.91.0",
