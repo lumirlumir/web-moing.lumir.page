@@ -1,5 +1,5 @@
-const http = require('http');
-const url = require('url');
+const http = require('node:http');
+const url = require('node:url');
 const qs = require('qs');
 const dotenv = require('dotenv');
 const {
@@ -21,11 +21,11 @@ http
   .createServer((req, res) => {
     res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL); // CORS
 
-    const { pathname, query } = url.parse(req.url);
+    const { pathname, query } = url.parse(req.url); // eslint-disable-line n/no-deprecated-api -- TODO: delete it later.
     const queryParsed = qs.parse(query); // for array
 
-    console.log(`TIME: ${new Date()}\nMETHOD: ${req.method}\nURL: ${req.url}`);
-    console.log(queryParsed, '\n');
+    console.log(`TIME: ${new Date()}\nMETHOD: ${req.method}\nURL: ${req.url}`); // eslint-disable-line no-console -- for debugging.
+    console.log(queryParsed, '\n'); // eslint-disable-line no-console -- for debugging.
 
     if (req.method === 'GET') {
       switch (pathname) {
