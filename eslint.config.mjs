@@ -1,12 +1,18 @@
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import bananass from 'eslint-config-bananass';
 
+import bananass from 'eslint-config-bananass';
+import mark from 'eslint-plugin-mark';
+
+/** @type {import("eslint").Linter.Config[]} */
 export default [
   {
+    name: 'global/ignores',
     ignores: ['**/build/', '**/coverage/'],
   },
   bananass.configs.jsx.react,
+  bananass.configs.tsx.react,
+  mark.configs.recommendedGfm,
   {
     settings: {
       node: {
@@ -16,8 +22,6 @@ export default [
           alias: {
             '@': resolve(dirname(fileURLToPath(import.meta.url)), 'src'),
           },
-          extensions: ['.js', '.jsx'],
-          mainFiles: ['index'],
         },
       },
     },
