@@ -10,8 +10,8 @@ export default [
     name: 'global/ignores',
     ignores: ['**/build/', '**/coverage/'],
   },
-  bananass.configs.jsx.react,
-  bananass.configs.tsx.react,
+  bananass.configs.jsxReact,
+  bananass.configs.tsxReact,
   mark.configs.recommendedGfm,
   {
     settings: {
