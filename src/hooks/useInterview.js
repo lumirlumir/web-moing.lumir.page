@@ -10,7 +10,7 @@ import {
   fetchQuestionSub,
   fetchAnswer,
   fetchFeedback,
-} from '@/services/openaiService';
+} from '@/utils/openaiService';
 
 const useInterview = () => {
   /* Hooks */
