@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'react';
 import useInterviewContent from '@/hooks/interview/useInterviewContent';
 import useInterviewHistory from '@/hooks/interview/useInterviewHistory';
 import useInterviewObj from '@/hooks/interview/useInterviewObj';
-import useTrigger from '@/hooks/utils/useTrigger';
+import useTrigger from '@/hooks/useTrigger';
 
 import {
   fetchQuestionMain,

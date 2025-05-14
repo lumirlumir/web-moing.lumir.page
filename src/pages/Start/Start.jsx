@@ -3,7 +3,7 @@ import React from 'react';
 import useScenario from '@/hooks/scenario/useScenario';
 import useConfig from '@/hooks/useConfig';
 import useInterview from '@/hooks/useInterview';
-import useTimer from '@/hooks/utils/useTimer';
+import useTimer from '@/hooks/useTimer';
 
 import FooterL from './FooterL';
 import FooterM from './FooterM';

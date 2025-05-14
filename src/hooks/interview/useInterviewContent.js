@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-import useContent from '@/hooks/utils/useContent';
-import useSpeechToText from '@/hooks/utils/useSpeechToText';
+import useContent from '@/hooks/useContent';
+import useSpeechToText from '@/hooks/useSpeechToText';
 
 const useInterviewContent = () => {
   /* Hooks */
