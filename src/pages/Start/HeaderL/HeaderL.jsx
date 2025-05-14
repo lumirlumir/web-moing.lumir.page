@@ -13,7 +13,7 @@ import './HeaderL.scss';
  */
 function HeaderL({ scenario, config }) {
   /* Props */
-  const { visibility, clickability } = scenario.getSubsectionObj().HeaderL;
+  const { visibility, clickability } = scenario.getSectionObj().HeaderL;
   const { configState, handleConfigState } = config;
 
   /* Return */

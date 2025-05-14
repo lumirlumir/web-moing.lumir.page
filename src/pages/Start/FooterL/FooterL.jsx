@@ -13,7 +13,7 @@ import './FooterL.scss';
  */
 function FooterL({ scenario }) {
   /* Props */
-  const { visibility, clickability } = scenario.getSubsectionObj().FooterL;
+  const { visibility, clickability } = scenario.getSectionObj().FooterL;
 
   /* Func */
   const reload = () => {

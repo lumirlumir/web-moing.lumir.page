@@ -13,7 +13,7 @@ import './HeaderR.scss';
  */
 function HeaderR({ scenario, interview }) {
   /* Props */
-  const { visibility, clickability } = scenario.getSubsectionObj().HeaderR;
+  const { visibility, clickability } = scenario.getSectionObj().HeaderR;
   const { listening, toggleListening } = interview;
 
   /* Function */

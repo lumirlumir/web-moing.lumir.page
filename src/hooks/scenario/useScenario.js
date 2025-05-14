@@ -1,66 +1,61 @@
 import { useCallback, useState } from 'react';
-
-import scenario from '@/data/scenario.json';
-
-/* Constants */
-const { chapter: CHAPTER } = Object.freeze(scenario);
+import scenario from '@/data/scenario';
 
 /**
- * scenario > chapter > section > subsection => scenario[chapter][section][subsection]
- *
+ * scenario > chapter > section => scenario[chapter][section]
  * @returns
  */
 const useScenario = () => {
   /* Hooks */
   // useState
   const [state, setState] = useState({
+    chapter: 0,
     section: 0,
-    subsection: 0,
   });
 
   /* Func */
-  const getSubsectionObj = useCallback(
-    () => CHAPTER[state.section][state.subsection],
+  const getSectionObj = useCallback(
+    () => scenario[state.chapter][state.section],
     [state],
   );
-  const toNextSubsection = useCallback(() => {
+  const toNextSection = useCallback(() => {
     setState(prevState => {
-      const newSectionState = state.section + 1;
-      const newSubsectionState = state.subsection + 1;
+      const newSectionState = state.chapter + 1;
+      const newSubsectionState = state.section + 1;
 
-      if (newSubsectionState < CHAPTER[state.section].length) {
+      if (newSubsectionState < scenario[state.chapter].length) {
         return {
           ...prevState,
-          subsection: newSubsectionState,
+          section: newSubsectionState,
         };
       }
-      if (newSectionState < CHAPTER.length) {
+      if (newSectionState < scenario.length) {
         return {
           ...prevState,
-          section: newSectionState,
-          subsection: 0,
+          chapter: newSectionState,
+          section: 0,
         };
       }
       return prevState;
     });
   }, [state]);
-  const toLastSubsection = useCallback(() => {
+  const toLastSection = useCallback(() => {
     setState(prevState => {
-      const newSubsectionState = CHAPTER[state.section].length - 1;
+      const newSubsectionState = scenario[state.chapter].length - 1;
 
       return {
         ...prevState,
-        subsection: newSubsectionState,
+        section: newSubsectionState,
       };
     });
   }, [state]);
 
   /* Return */
   return {
-    subsectionState: state.subsection,
-    getSubsectionObj,
-    toNextSubsection,
-    toLastSubsection,
+    subsectionState: state.section,
+    getSectionObj,
+    toNextSection,
+    toLastSection,
   };
 };
 

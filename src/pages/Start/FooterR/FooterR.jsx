@@ -13,7 +13,7 @@ import './FooterR.scss';
  */
 function FooterR({ scenario, interview, timer }) {
   /* Props */
-  const { visibility, clickability } = scenario.getSubsectionObj().FooterR;
+  const { visibility, clickability } = scenario.getSectionObj().FooterR;
   const { submit } = interview;
   const { stopTimer } = timer;
 

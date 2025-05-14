@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 
 export const scenarioPropTypes = PropTypes.shape({
   subsectionState: PropTypes.number.isRequired,
-  getSubsectionObj: PropTypes.func.isRequired,
-  toNextSubsection: PropTypes.func.isRequired,
-  toLastSubsection: PropTypes.func.isRequired,
+  getSectionObj: PropTypes.func.isRequired,
+  toNextSection: PropTypes.func.isRequired,
+  toLastSection: PropTypes.func.isRequired,
 });
 
 export const configPropTypes = PropTypes.shape({
