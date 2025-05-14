@@ -2,8 +2,8 @@ import React, { useEffect, useLayoutEffect, useMemo } from 'react';
 import Typewriter from 'typewriter-effect';
 
 import CompDivNeon from '@/components/CompDivNeon';
-import useScroll from '@/hooks/utils/useScroll';
-import useHistoryState from '@/hooks/utils/useHistoryState';
+import useScroll from '@/hooks/useScroll';
+import useHistoryState from '@/hooks/useHistoryState';
 import {
   scenarioPropTypes,
   configPropTypes,

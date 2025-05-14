@@ -1,9 +1,9 @@
 import { useCallback, useEffect } from 'react';
 
-import useInterviewContent from '@/hooks/interview/useInterviewContent';
-import useInterviewHistory from '@/hooks/interview/useInterviewHistory';
-import useInterviewObj from '@/hooks/interview/useInterviewObj';
-import useTrigger from '@/hooks/utils/useTrigger';
+import useInterviewContent from '@/hooks/useInterviewContent';
+import useInterviewHistory from '@/hooks/useInterviewHistory';
+import useInterviewObj from '@/hooks/useInterviewObj';
+import useTrigger from '@/hooks/useTrigger';
 
 import {
   fetchQuestionMain,

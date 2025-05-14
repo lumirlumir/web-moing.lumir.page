@@ -1,6 +1,6 @@
 import { useCallback, useRef } from 'react';
 
-import useHistoryRef from '@/hooks/utils/useHistoryRef';
+import useHistoryRef from '@/hooks/useHistoryRef';
 
 /**
  *

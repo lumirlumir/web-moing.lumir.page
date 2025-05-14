@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import useScroll from '@/hooks/utils/useScroll';
+import useScroll from '@/hooks/useScroll';
 import {
   scenarioPropTypes,
   configPropTypes,
