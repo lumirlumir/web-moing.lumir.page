@@ -16,7 +16,7 @@ import './ButtonMain.scss';
  */
 function ButtonMain({ scenario, config, interview }) {
   /* Props */
-  const { getSectionObj, toNextSection, toLastSubsection } = scenario;
+  const { getSectionObj, toNextSection, toLastSection } = scenario;
   const { content, visibility: _visibility } = getSectionObj().Main.ButtonMain;
   const { configState, handleConfigState, isConfigDone } = config;
   const { initInterview } = interview;
@@ -37,7 +37,7 @@ function ButtonMain({ scenario, config, interview }) {
       }
       if (content === 'START') {
         if (e.ctrlKey) {
-          toLastSubsection();
+          toLastSection();
           return;
         }
         if (isConfigDone()) {
@@ -52,7 +52,7 @@ function ButtonMain({ scenario, config, interview }) {
     },
     [
       toNextSection,
-      toLastSubsection,
+      toLastSection,
       content,
       configState,
       handleConfigState,

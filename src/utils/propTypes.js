@@ -4,7 +4,7 @@ export const scenarioPropTypes = PropTypes.shape({
   subsectionState: PropTypes.number.isRequired,
   getSectionObj: PropTypes.func.isRequired,
   toNextSection: PropTypes.func.isRequired,
-  toLastSubsection: PropTypes.func.isRequired,
+  toLastSection: PropTypes.func.isRequired,
 });
 
 export const configPropTypes = PropTypes.shape({
