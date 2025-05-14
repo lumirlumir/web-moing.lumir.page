@@ -54,7 +54,7 @@ const useScenario = () => {
   return {
     subsectionState: state.section,
     getSectionObj,
-    toNextSubsection: toNextSection,
+    toNextSection,
     toLastSubsection: toLastSection,
   };
 };

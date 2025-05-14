@@ -16,7 +16,7 @@ import './ButtonMain.scss';
  */
 function ButtonMain({ scenario, config, interview }) {
   /* Props */
-  const { getSectionObj, toNextSubsection, toLastSubsection } = scenario;
+  const { getSectionObj, toNextSection, toLastSubsection } = scenario;
   const { content, visibility: _visibility } = getSectionObj().Main.ButtonMain;
   const { configState, handleConfigState, isConfigDone } = config;
   const { initInterview } = interview;
@@ -33,7 +33,7 @@ function ButtonMain({ scenario, config, interview }) {
   const onClick = useCallback(
     e => {
       if (content === 'PRESS') {
-        toNextSubsection();
+        toNextSection();
       }
       if (content === 'START') {
         if (e.ctrlKey) {
@@ -44,14 +44,14 @@ function ButtonMain({ scenario, config, interview }) {
           handleConfigState({ visibility: false });
           initInterview(configState);
         }
-        toNextSubsection();
+        toNextSection();
       }
       if (content === 'DOWNLOAD') {
         // TODO
       }
     },
     [
-      toNextSubsection,
+      toNextSection,
       toLastSubsection,
       content,
       configState,

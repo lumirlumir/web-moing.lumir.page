@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 export const scenarioPropTypes = PropTypes.shape({
   subsectionState: PropTypes.number.isRequired,
   getSectionObj: PropTypes.func.isRequired,
-  toNextSubsection: PropTypes.func.isRequired,
+  toNextSection: PropTypes.func.isRequired,
   toLastSubsection: PropTypes.func.isRequired,
 });
 

@@ -19,7 +19,7 @@ import './SectionServer.scss';
  */
 function SectionServer({ scenario, config, interview, timer }) {
   /* Props */
-  const { subsectionState, getSectionObj, toNextSubsection } = scenario;
+  const { subsectionState, getSectionObj, toNextSection } = scenario;
   const { auto, api, result } = getSectionObj().global;
   const { visibility, content } = getSectionObj().Main.SectionServer;
   const { configState } = config;
@@ -48,8 +48,8 @@ function SectionServer({ scenario, config, interview, timer }) {
   }, [subsectionState, text, addHistory]);
   // useEffect
   useEffect(() => {
-    if (api && isInterviewDone()) toNextSubsection();
-  }, [getQuestion, isInterviewDone, toNextSubsection, api]);
+    if (api && isInterviewDone()) toNextSection();
+  }, [getQuestion, isInterviewDone, toNextSection, api]);
 
   /* Return */
   return (
@@ -72,7 +72,7 @@ function SectionServer({ scenario, config, interview, timer }) {
               .pauseFor(1000) // original: 1000
               .start()
               .callFunction(() => {
-                if (auto) toNextSubsection();
+                if (auto) toNextSection();
                 if (api && text !== '') resetTimer(configState.timeLimit);
                 scroll();
               });
