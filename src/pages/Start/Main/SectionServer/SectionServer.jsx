@@ -19,9 +19,9 @@ import './SectionServer.scss';
  */
 function SectionServer({ scenario, config, interview, timer }) {
   /* Props */
-  const { subsectionState, getSubsectionObj, toNextSubsection } = scenario;
-  const { auto, api, result } = getSubsectionObj().global;
-  const { visibility, content } = getSubsectionObj().Main.SectionServer;
+  const { subsectionState, getSectionObj, toNextSubsection } = scenario;
+  const { auto, api, result } = getSectionObj().global;
+  const { visibility, content } = getSectionObj().Main.SectionServer;
   const { configState } = config;
   const { getInterviewInfo, getQuestion, isInterviewDone, getInterviewHistory } =
     interview;

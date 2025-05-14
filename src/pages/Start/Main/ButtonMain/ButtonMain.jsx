@@ -16,8 +16,8 @@ import './ButtonMain.scss';
  */
 function ButtonMain({ scenario, config, interview }) {
   /* Props */
-  const { getSubsectionObj, toNextSubsection, toLastSubsection } = scenario;
-  const { content, visibility: _visibility } = getSubsectionObj().Main.ButtonMain;
+  const { getSectionObj, toNextSubsection, toLastSubsection } = scenario;
+  const { content, visibility: _visibility } = getSectionObj().Main.ButtonMain;
   const { configState, handleConfigState, isConfigDone } = config;
   const { initInterview } = interview;
 

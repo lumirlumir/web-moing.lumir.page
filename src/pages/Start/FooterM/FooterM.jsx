@@ -11,7 +11,7 @@ import './FooterM.scss';
  */
 function FooterM({ scenario, timer }) {
   /* Props */
-  const { visibility } = scenario.getSubsectionObj().FooterM;
+  const { visibility } = scenario.getSectionObj().FooterM;
   const { getTimer } = timer;
 
   /* Return */
