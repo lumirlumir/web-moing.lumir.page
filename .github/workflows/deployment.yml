@@ -35,7 +35,6 @@ jobs:
 
       - name: Set up environment variables
         run: |
-          echo "PUBLIC_URL=${{ secrets.PUBLIC_URL }}" >> .env
           echo "BACKEND_PORT=${{ secrets.BACKEND_PORT }}" >> .env
           echo "BACKEND_IP=${{ secrets.BACKEND_IP }}" >> .env
 
