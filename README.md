@@ -1,15 +1,15 @@
 # ChatGPT를 활용한 인터뷰 서비스 개발
 
-이 문서는 '전북대학교' '산학실전캡스톤2(2분반)' '김용현 김영수 김영아' 팀의 'ChatGPT를 활용한 인터뷰 서비스 개발' 프로젝트에 관한 문서이다. 해당 프로젝트에 관련된 모든 내용들은 [***Github Repository***](https://github.com/lumirlumir/web-moing.lumir.page)를 통해 관리된다.
+이 문서는 '전북대학교' '산학실전캡스톤2(2분반)' '김용현 김영수 김영아' 팀의 'ChatGPT를 활용한 인터뷰 서비스 개발' 프로젝트에 관한 문서입니다. 해당 프로젝트에 대한 모든 내용들은 [***GitHub Repository***](https://github.com/lumirlumir/web-moing.lumir.page)를 통해 관리합니다.
 
 ## 0. Index
 
 - [0. Index](#0-index)
 - [1. Basic Information](#1-basic-information)
   - [1-1. Links](#1-1-links)
-  - [1-2. Project Info](#1-2-project-info)
-  - [1-3. Team Info](#1-3-team-info)
-  - [1-4. Scheduling Info](#1-4-scheduling-info)
+  - [1-2. Project](#1-2-project)
+  - [1-3. Team](#1-3-team)
+  - [1-4. Scheduling](#1-4-scheduling)
   - [1-5. Meeting Info](#1-5-meeting-info)
 - [2. Requirements Specification](#2-requirements-specification)
   - [2-1. 참여 기관의 제안 내용](#2-1-참여-기관의-제안-내용)
@@ -17,46 +17,60 @@
   - [2-3. 기대 효과 및 활용 방안](#2-3-기대-효과-및-활용-방안)
   - [2-4. 멘토링 진행 내역](#2-4-멘토링-진행-내역)
 - [3. Design](#3-design)
-  - [3-1. Web Front-End Development](#3-1-web-front-end-development)
-  - [3-2. Chat-GPT Prompt Engineering](#3-2-chatgpt-prompt-engineering)
-  - [3-3. Administrative Processing and Data Research](#3-3-administrative-processing-and-data-research)
-- [4. Implementation](#4-implementation)
+  - [3-1. Development Environment](#3-1-development-environment)
+  - [3-2. GitHub](#3-2-github)
+  - [3-3. Convention](#3-3-convention)
+  - [3-4. Others](#3-4-others)
 
 ## 1. Basic Information
 
 ### 1-1. Links
 
-- [***Github Repository***](https://github.com/lumirlumir/web-moing.lumir.page)
-- [***Github Issues***](https://github.com/lumirlumir/web-moing.lumir.page/issues)
-- [***Github Projects***](https://github.com/users/lumirlumir/projects/2)
-- [***PPT_Mid***](https://www.miricanvas.com/v/134hi5w)
+- [***GitHub Pages***](https://lumirlumir.github.io/web-moing.lumir.page/): 웹 사이트
+- [***GitHub Repository***](https://github.com/lumirlumir/web-moing.lumir.page)
+- [***GitHub PR***](https://github.com/lumirlumir/web-moing.lumir.page/pulls)
+- [***GitHub Issues***](https://github.com/lumirlumir/web-moing.lumir.page/issues)
+- [***GitHub Projects***](https://github.com/users/lumirlumir/projects/2)
+- [***PPT Midterm***](https://www.miricanvas.com/v/134hi5w): 중간 발표 PPT
+- [***PPT Final***](https://www.miricanvas.com/v/13bnjrd): 최종 발표 PPT
+- [***PPT Contest***](https://www.miricanvas.com/v/13d3dql): 대회 발표 PPT
+- [***Demonstration Video***](https://www.youtube.com/watch?v=dg9tw4BjRX4): 시연 영상
 
-### 1-2. Project Info
+### 1-2. Project
 
 - 과제명: ChatGPT를 활용한 인터뷰 서비스 개발
 - 지원 유형: 산학 과제
 - 과제 분야: 인공지능, 웹서비스
-- 수행 기간: 2024년 03월 25일 ~ 2024년 06월 17일
+- 수행 기간: 2024년 03월 25일 ~ 2024년 06월 10일
 
-### 1-3. Team Info
+### 1-3. Team
+
+이름 | 담당 | 비고
+:---: | :--- | :---:
+김용현 | FE Design & Dev, BE Dev, OpenAI Prompt Engineering | 팀장
+김영수 | Administrative Processing, Research | 팀원
+김영아 | OpenAI Fine Tuning | 팀원
 
 - 팀명: 김용현 김영수 김영아
 - 팀장: 김용현
-- 팀원: 김용현, 김영수, 김영아
-- 역할:
+- 팀원: 김영수, 김영아
+- 세부 진행 내역:
+  - 김용현:
+    - React.js 기반의 SPA 디자인 및 개발.
+    - GCP Node.js http 모듈 기반의 서버 개발.
+    - OpenAI Prompt EngineeringㆍChaining 진행.
+    - 각종 마크다운 문서ㆍ한글 문서ㆍ계획서ㆍ보고서 작성.
+    - GitHub PR, Issues 등 관리.
+    - 발표 등.
+  - 김영수: 행정 처리, 재무(예산) 관리, 자료 조사 등.
+  - 김영아: OpenAI Prototype, Fine Tuning 등.
 
-  이름 | 담당 | 수행역할 | 비고
-  :---: | :--- | :--- | :---:
-  김용현 | Web Front-End Development | React.js 기반의 SPA Front-End Web Page 개발, 각종 마크다운 문서ㆍ한글 문서ㆍ 계획서ㆍ보고서 작성, Repository 관리, 발표 등. | 팀장
-  김영수 | Administrative Processing, Research | 행정 처리, 재무 관리, 자료 조사 등.| 팀원
-  김영아 | ChatGPT Prompt Engineering | ChatGPT Prompt Engineering, ChatGPT 관련 API 개발 등. | 팀원
+### 1-4. Scheduling
 
-### 1-4. Scheduling Info
+***GitHub Issues***와 ***GitHub Projects***를 활용한 세부적인 스케쥴 관리 진행.
 
-***Github Issues***와 ***Github Projects***를 통한 세부적인 스케쥴 관리 진행.
-
-- [***Github Issues***](https://github.com/lumirlumir/web-moing.lumir.page/issues)
-- [***Github Projects***](https://github.com/users/lumirlumir/projects/2)
+- [***GitHub Issues***](https://github.com/lumirlumir/web-moing.lumir.page/issues)
+- [***GitHub Projects***](https://github.com/users/lumirlumir/projects/2)
 
 개략적인 일정은 아래와 같다.
 
@@ -71,9 +85,11 @@
 
 ### 1-5. Meeting Info
 
-***Github Issues***를 통한 팀 활동 내역 및 주간 회의 내역 관리 진행. (`docs/JBNU` 디렉터리 내부의 문서들은 행정 처리를 위해 기존 내용들을 따로 가공하여 처리한 `.hwp` 및 `.pdf` 문서들이다.)
+***GitHub Issues***를 통한 팀 활동 내역 및 주간 회의 내역 관리 진행. (`docs/JBNU` 디렉터리 내부의 문서들은 행정 처리를 위해 기존 내용들을 따로 가공하여 처리한 `.hwp` 및 `.pdf` 문서들이다.)
 
-- [***Github Issues***](https://github.com/lumirlumir/web-moing.lumir.page/issues?q=is%3Aissue+label%3AJBNU+)
+1. [***GitHub Issues***](https://github.com/lumirlumir/web-moing.lumir.page/issues?q=is%3Aissue+label%3AJBNU+): ***GitHub Issues***를 통한 팀 활동 내역 및 주간 회의 내역 관리 진행. (작성용)
+
+1. [**`docs/JBNU`**](https://github.com/lumirlumir/web-moing.lumir.page/tree/main/docs/JBNU): `docs/JBNU` 디렉토리를 통한 대학 행정 처리 문서 관리 진행. 팀 활동 내역 및 주간 회의 내역을 `.hwp` 및 `.pdf`로 가공한 문서들도 포함된다. 모든 파일은 암호화 되어있다. (제출용)
 
 ## 2. Requirements Specification
 
@@ -125,96 +141,90 @@ IT 기업의 일반적인 채용 절차를 살펴보자. 이는 대체로 '서�
 
 ### 2-4. 멘토링 진행 내역
 
-해당 주제를 제시한 참여 기관의 불참으로 기업과의 협업이 불가능해져, 대신에, 네이버에 재직중인 시니어 개발자 두 분과 함께 멘토링을 진행하였다.
+해당 주제를 제시한 참여 기관의 불참으로 기업과의 협업이 불가능해졌다. 대신, 네이버에 재직중인 시니어 개발자 두 분과 함께 얘기를 나눌 기회가 생겨 멘토링을 진행하였다.
 
 #### 2-4-1. Front-End
 
-Front-End 개발은 현재 설계한 방식대로 계속 진행한다면 상당히 좋은 결과가 있을 것이라 하였다. 상황에 맞는 다양한 툴들을 사용하고 있고, 해당 툴들을 사용하는 이유와 사용법들도 잘 숙지하고 있기 때문에, 구현 과정만 잘 진행한다면 큰 문제가 없을 것이라 하였다. 단, 서비스의 성능을 높이기 위해서 캐시 기능을 어떻게 활용할 것인지와 다양한 서비스들을 위해 Browser의 내장 Storage를 활용하는 방법을 고민해보라고 하였다.
+Front-End 개발은 현재 설계한 방식대로 계속 진행한다면 좋은 결실을 맺을 것이라 하였다. 상황에 맞는 다양한 도구들을 사용하고 있고, 사용 이유와 방법들도 숙지하고 있기에, 구현 과정만 무리없이 진행된다면 걸림돌이 될 부분은 크게 없을 것이라 하였다. 단, 서비스의 성능을 높이기 위해서 캐시 기능을 어떻게 활용할 것인지 생각해보고, 다양한 서비스들을 위해 Browser의 내장 Storage를 활용하는 방법을 고민해보라고 하였다.
 
-#### 2-4-2. Back-End(ChatGPT)
+#### 2-4-2. Back-End & OpenAI
 
-현재 주제로 프로젝트 진행 시, 가장 눈여겨 볼만한 부분은 ChatGPT 관련 부분이라고 하였다. 만약, 해당 프로젝트를 제대로 진행하게 될 경우, 프롬프트 엔지니어링 부분이 프론트엔드 부분에 비해 훨씬 높은 중요도를 갖게 될 것이라 하였다. 만약, 인터뷰이의 답변에 대한 등급을 판단하는 과정에서 어려움을 느낄경우, Back-End에 Database를 도입할 것을 권하였으며, 이를 기반으로 등급을 어떻게 비교ㆍ판단할 것인지 깊이있게 고민해보라고 하였다.
+현재 주제에서 가장 눈여겨 볼만한 부분은 ChatGPT(OpenAI) 관련 부분이라고 하였다. 만약, 해당 프로젝트를 제대로 진행하게 될 경우, OpenAI 부분이 프론트엔드 부분에 비해 상당한 중요도를 갖게 될 것이라 하였다. 만약, 인터뷰이의 답변에 대한 등급을 판단하는 과정에서 어려움을 느낄경우, Back-End에 Database를 도입할 것을 권하였으며, 이를 기반으로 등급을 어떻게 비교ㆍ판단할 것인지 깊이있게 고민해보라고 하였다.
 
 ## 3. Design
 
-과제의 설계 및 구현 분야는 크게 3가지로 나눌 수 있다. 첫째는 'Web Front-End Development', 둘째는 'ChatGPT Prompt Engineering', 마지막으로는 'Administrative Processing and Data Research'이다. 각각의 내용을 자세히 살펴보자.
+### 3-1. Development Environment
 
-### 3-1. Web Front-End Development
+#### 3-1-1. Front-End: Webpack based React.js
 
-'Web Front-End Development'에서는 기본적으로 인터뷰 서비스를 위한 Web UI를 설계하고, API를 통해 Back-End Server의 역할을 하는 ChatGPT Server와 통신한다. 개발 과정에서의 협업과 일관성을 위한 다양한 도구 및 기술들이 사용된다. 이들은 다음과 같다.
+'Front-End'에서는 기본적으로 인터뷰 서비스를 위한 Web UI를 디자인한다. 디자인을 바탕으로 다양한 기능과 상호작용을 설계하고, RESTful API를 통해 Back-End Server와 통신한다. 개발을 위해 알아야 할 기술들은 다음과 같다.
 
-#### 3-1-1. Editor
+- Editor
+  - VScode
 
-- VScode
+- Language
+  - HTML
+  - Markdown
+  - CSS
+  - SCSS
+  - JavaScript(ES6)
+  - JSON
+  - YAML
 
-#### 3-1-2. Language
+- Library
+  - React.js
 
-- HTML
-- Markdown
-- CSS
-- SCSS
-- JavaScript(ES6)
-- JSON
-- YAML
+- Module Bundler
+  - Webpack
 
-#### 3-1-3. Library
+#### 3-1-2. Back-End: HTTP module based Node.js
 
-- React.js
+'Back-End'는 보안을 위해 Front-End와 OpenAI Server의 중간 다리 역할을 맡는다. Web Server가 아닌 API Server로 활용되며, 기본적으로 RESTful API로 통신한다. Front-End의 요청에 따라 중간에서 OpenAI 서버와 통신한 후, 올바른 데이터를 받아 다시 Front-End에 비동기로 넘겨준다. 개발 환경은 아래와 같다.
 
-#### 3-1-4. API
+- IaaS
+  - Google Cloud Platform Compute Engine
 
-- ChatGPT OpenAI API
+- Environment
+  - Ubuntu 22.04
+  - Node.js 20.12.2
+  - Common JS
 
-#### 3-1-5. Environment
+#### 3-1-3. OpenAI
 
-- Node.js (Node, NPM, Dotenv, ...)
+'OpenAI'에서는 질문에 대한 올바른 답변을 제공하기 위해, Prompt를 조작하고 입ㆍ출력을 연쇄적으로 관리하며, 다양한 Data들을 통해 ChatGPT Model을 학습시킨다. 이를 바탕으로 Back-End에서 요청한 JSON 형식을 확인하고, 다양한 조건 값에 따른 올바른 응답을 제공해야 한다. 개발을 위해 알아야 할 기술들은 다음과 같다.
 
-#### 3-1-6. Module Bundler
+- OpenAI API
+- Prompt Engineering
+- Prompt Chaining
+- Fine Tuning
 
-- Webpack
+### 3-2. GitHub
 
-#### 3-1-7. Configuration Management
+- Configuration Management
+  - GitHub: 협업 및 형상관리를 위해 사용.
 
-- Github: 협업 및 형상관리를 위해 사용.
+- Issues Tracking & Scheduling
+  - GitHub Issues/Projects: 개발 중 발생하는 Issues Tracking과 Scheduling을 위해 사용.
 
-#### 3-1-8. Issues Tracking & Scheduling
+- CI/CD(Continuous Integration/Continuous Deployment)
+  - GitHub Workflows: Convention Check, 자동 배포, Environment Secrets 관리 등을 효율적으로 진행하기 위한 도구로 활용.
+  - GitHub Pages: 개발 완료 후, 웹 페이지 배포를 위해 사용.
 
-- Github Issues/Projects: 개발 중 발생하는 Issues Tracking과 Scheduling을 위해 사용.
+### 3-3. Convention
 
-#### 3-1-9. CI/CD
+개발 간 협업 및 일관성을 위해 다양한 도구 및 규칙들을 활용한다.
 
-- Github Workflows: 배포 및 API Key 관리를 효율적으로 진행하기 위한 CI/CD 도구.
+- Static analysis tool
+  - EditorConfig: Global Convention
+  - esLint: JavaScript Convention
+  - Prettier: JavaScript and misc Convention
+  - markdownlint: Markdown Convention
 
-#### 3-1-10. Distribution
+- Rules
+  - Conventional Commit Message
+  - GitHub Branch Rules: Vincent Driessen의 Git Flow 전략을 일부 따른다. 기본적으로 `main`, `develop`, `hotfix`, `feature` 총 4개의 Branch로 분기하여 개발 진행.
+  - GitHub Branch Protection Rules: `main` 및 `develop` branch에 PR이 아닌 직접 push 및 강제 push 금지 및 이외의 다양한 규칙 설정 진행.
 
-- Github Pages: 개발 완료 후, 웹 페이지 배포를 위해 사용.
+### 3-4. Others
 
-#### 3-1-11. Conventions
-
-- EditorConfig: Global
-- esLint: JS
-- Prettier: JS
-- markdownlint: MD
-
-#### 3-1-12. Rules
-
-- [Github Commit Rules](https://github.com/lumirlumir/Web_GithubBlog_Data/blob/main/Docs/CSE/Tools/Git/Github/GitCommitMessage/index.md)
-- Github Branch Rules: Vincent Driessen의 Git Flow 전략을 일부 따른다. `main`, `develop`, `hotfix`, `feature` 총 4개의 Branch로 분리하여 개발 진행.
-
-#### 3-1-13. Security
-
-- Github Secrets 및 Github Actions를 통한 API Key 관리.
-- `JBNU/docs` 디렉터리 내 모든 개별 문서 암호화.
-
-### 3-2. ChatGPT Prompt Engineering
-
-'ChatGPT Prompt Engineering'에서는 질문에 대한 올바른 답변을 제공하기 위해, 다양한 Data들을 통해 ChatGPT를 학습시킨다. Front-End에서 요청한 JSON 형식을 확인하여 다양한 조건 값에 따른 올바른 응답을 제공해야 한다. 개발을 위해 알아야 할 기술들은 다음과 같다.
-
-- ChatGPT Prompt Engineering
-- ChatGPT OpenAI API
-
-### 3-3. Administrative Processing and Data Research
-
-'Administrative Processing and Data Research'에서는 행정 처리, 재무 관리, 자료 조사 등을 진행한다. 개발 과정에서 필수적인 외적인 요소들을 모두 관리한다.
-
-## 4. Implementation
+- Administrative Processing and Data Research: 행정 처리, 재무 관리, 자료 조사 등 개발 과정에서 필수적인 외적인 요소들을 모두 관리한다.
