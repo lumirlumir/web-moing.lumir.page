@@ -42,4 +42,3 @@ HeaderR.propTypes = {
   scenario: scenarioPropTypes.isRequired,
   interview: interviewPropTypes.isRequired,
 };
-HeaderR.defaultProps = {};

@@ -32,4 +32,3 @@ export default function Heading({ scenario }) {
 Heading.propTypes = {
   scenario: scenarioPropTypes.isRequired,
 };
-Heading.defaultProps = {};

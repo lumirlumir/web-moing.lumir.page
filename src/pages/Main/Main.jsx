@@ -59,4 +59,3 @@ Main.propTypes = {
   interview: interviewPropTypes.isRequired,
   timer: timerPropTypes.isRequired,
 };
-Main.defaultProps = {};

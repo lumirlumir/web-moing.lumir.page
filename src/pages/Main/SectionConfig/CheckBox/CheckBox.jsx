@@ -31,6 +31,3 @@ CheckBox.propTypes = {
   onChange: PropTypes.func.isRequired,
   isChecked: PropTypes.bool.isRequired,
 };
-CheckBox.defaultProps = {
-  children: null,
-};

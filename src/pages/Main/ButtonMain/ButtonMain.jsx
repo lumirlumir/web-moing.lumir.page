@@ -82,4 +82,3 @@ ButtonMain.propTypes = {
   config: configPropTypes.isRequired,
   interview: interviewPropTypes.isRequired,
 };
-ButtonMain.defaultProps = {};

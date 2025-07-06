@@ -32,6 +32,3 @@ ButtonCount.propTypes = {
   onClick: PropTypes.func.isRequired,
   count: PropTypes.number.isRequired,
 };
-ButtonCount.defaultProps = {
-  children: null,
-};

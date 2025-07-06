@@ -25,5 +25,3 @@ export default function SectionResult() {
     </CompDivNeon>
   );
 }
-SectionResult.propTypes = {};
-SectionResult.defaultProps = {};

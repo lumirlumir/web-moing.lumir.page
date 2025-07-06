@@ -33,4 +33,3 @@ SectionClient.propTypes = {
   scenario: scenarioPropTypes.isRequired,
   interview: interviewPropTypes.isRequired,
 };
-SectionClient.defaultProps = {};
