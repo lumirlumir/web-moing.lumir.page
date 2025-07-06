@@ -5,7 +5,7 @@ import scenario from '@/data/scenario';
  * scenario > chapter > section => scenario[chapter][section]
  * @returns
  */
-const useScenario = () => {
+export default function useScenario() {
   /* Hooks */
   // useState
   const [state, setState] = useState({
@@ -57,6 +57,4 @@ const useScenario = () => {
     toNextSection,
     toLastSection,
   };
-};
-
-export default useScenario;
+}

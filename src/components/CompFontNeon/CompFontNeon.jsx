@@ -22,7 +22,7 @@ import './CompFontNeon.scss';
  *   null
  * </CompFontNeon>
  */
-function CompFontNeon({
+export default function CompFontNeon({
   children,
   className,
   neonColor,
@@ -74,5 +74,3 @@ CompFontNeon.defaultProps = {
   fontFamily: 'unset',
   fontSize: 'unset',
 };
-
-export default CompFontNeon;

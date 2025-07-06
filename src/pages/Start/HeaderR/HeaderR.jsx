@@ -11,7 +11,7 @@ import './HeaderR.scss';
  *
  * @returns HeaderR
  */
-function HeaderR({ scenario, interview }) {
+export default function HeaderR({ scenario, interview }) {
   /* Props */
   const { visibility, clickability } = scenario.getSectionObj().HeaderR;
   const { listening, toggleListening } = interview;
@@ -43,5 +43,3 @@ HeaderR.propTypes = {
   interview: interviewPropTypes.isRequired,
 };
 HeaderR.defaultProps = {};
-
-export default HeaderR;

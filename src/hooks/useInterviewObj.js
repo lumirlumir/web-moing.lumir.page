@@ -12,7 +12,7 @@ const INTERVIEW_OBJ = Object.freeze({
  *
  * @returns
  */
-const useInterviewObj = () => {
+export default function useInterviewObj() {
   /* Hooks */
   // useState
   const [interviewObjState, setInterviewObjState] = useState(INTERVIEW_OBJ);
@@ -66,6 +66,4 @@ const useInterviewObj = () => {
     isOnlyFeedbackEmpty,
     getQuestion,
   };
-};
-
-export default useInterviewObj;
+}

@@ -21,7 +21,13 @@ import './CompDivNeon.scss';
  *   null
  * </CompDivNeon>
  */
-function CompDivNeon({ children, className, neonColor, neonSize, borderWidth }) {
+export default function CompDivNeon({
+  children,
+  className,
+  neonColor,
+  neonSize,
+  borderWidth,
+}) {
   const style = {
     borderWidth,
   };
@@ -63,5 +69,3 @@ CompDivNeon.defaultProps = {
   neonSize: 'l',
   borderWidth: null,
 };
-
-export default CompDivNeon;

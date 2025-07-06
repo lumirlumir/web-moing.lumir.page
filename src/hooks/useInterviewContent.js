@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef } from 'react';
 import useContent from '@/hooks/useContent';
 import useSpeechToText from '@/hooks/useSpeechToText';
 
-const useInterviewContent = () => {
+export default function useInterviewContent() {
   /* Hooks */
   // useContent
   const { contentRef, getTextContent, getHTMLContent, setHTMLContent } = useContent();
@@ -36,6 +36,4 @@ const useInterviewContent = () => {
     listening,
     toggleListening,
   };
-};
-
-export default useInterviewContent;
+}

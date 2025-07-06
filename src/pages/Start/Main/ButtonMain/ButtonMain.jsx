@@ -14,7 +14,7 @@ import './ButtonMain.scss';
  *
  * @returns ButtonMain
  */
-function ButtonMain({ scenario, config, interview }) {
+export default function ButtonMain({ scenario, config, interview }) {
   /* Props */
   const { getSectionObj, toNextSection, toLastSection } = scenario;
   const { content, visibility: _visibility } = getSectionObj().Main.ButtonMain;
@@ -83,5 +83,3 @@ ButtonMain.propTypes = {
   interview: interviewPropTypes.isRequired,
 };
 ButtonMain.defaultProps = {};
-
-export default ButtonMain;

@@ -9,7 +9,7 @@ import './FooterM.scss';
  *
  * @returns FooterM
  */
-function FooterM({ scenario, timer }) {
+export default function FooterM({ scenario, timer }) {
   /* Props */
   const { visibility } = scenario.getSectionObj().FooterM;
   const { getTimer } = timer;
@@ -33,5 +33,3 @@ FooterM.propTypes = {
   timer: timerPropTypes.isRequired,
 };
 FooterM.defaultProps = {};
-
-export default FooterM;

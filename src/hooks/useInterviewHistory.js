@@ -6,7 +6,7 @@ import useHistoryRef from '@/hooks/useHistoryRef';
  *
  * @returns
  */
-const useInterviewHistory = () => {
+export default function useInterviewHistory() {
   /* Hooks */
   // useHistoryRef
   const { historyRef, addHistory } = useHistoryRef();
@@ -93,6 +93,4 @@ const useInterviewHistory = () => {
     getInterviewInfo,
     getInterviewHistory,
   };
-};
-
-export default useInterviewHistory;
+}

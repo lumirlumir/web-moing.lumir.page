@@ -9,7 +9,7 @@ import './CheckBox.scss';
  *
  * @returns CheckBox
  */
-function CheckBox({ children, onChange, isChecked }) {
+export default function CheckBox({ children, onChange, isChecked }) {
   /* Return */
   return (
     <CompFontNeon
@@ -34,5 +34,3 @@ CheckBox.propTypes = {
 CheckBox.defaultProps = {
   children: null,
 };
-
-export default CheckBox;

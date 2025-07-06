@@ -4,7 +4,7 @@ import { useCallback, useRef } from 'react';
  *
  * @returns
  */
-const useScroll = () => {
+export default function useScroll() {
   /* Hooks */
   // useRef
   const scrollRef = useRef();
@@ -25,6 +25,4 @@ const useScroll = () => {
     scrollRef,
     scroll,
   };
-};
-
-export default useScroll;
+}

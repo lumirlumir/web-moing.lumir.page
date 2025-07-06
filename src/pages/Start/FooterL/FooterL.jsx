@@ -11,7 +11,7 @@ import './FooterL.scss';
  *
  * @returns FooterL
  */
-function FooterL({ scenario }) {
+export default function FooterL({ scenario }) {
   /* Props */
   const { visibility, clickability } = scenario.getSectionObj().FooterL;
 
@@ -37,5 +37,3 @@ FooterL.propTypes = {
   scenario: scenarioPropTypes.isRequired,
 };
 FooterL.defaultProps = {};
-
-export default FooterL;
