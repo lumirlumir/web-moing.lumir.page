@@ -41,4 +41,3 @@ FooterR.propTypes = {
   interview: interviewPropTypes.isRequired,
   timer: timerPropTypes.isRequired,
 };
-FooterR.defaultProps = {};

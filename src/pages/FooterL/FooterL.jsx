@@ -36,4 +36,3 @@ export default function FooterL({ scenario }) {
 FooterL.propTypes = {
   scenario: scenarioPropTypes.isRequired,
 };
-FooterL.defaultProps = {};

@@ -89,4 +89,3 @@ SectionServer.propTypes = {
   interview: interviewPropTypes.isRequired,
   timer: timerPropTypes.isRequired,
 };
-SectionServer.defaultProps = {};

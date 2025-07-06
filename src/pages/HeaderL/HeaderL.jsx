@@ -38,4 +38,3 @@ HeaderL.propTypes = {
   scenario: scenarioPropTypes.isRequired,
   config: configPropTypes.isRequired,
 };
-HeaderL.defaultProps = {};

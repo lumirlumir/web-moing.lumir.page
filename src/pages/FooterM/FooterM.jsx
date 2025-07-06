@@ -32,4 +32,3 @@ FooterM.propTypes = {
   scenario: scenarioPropTypes.isRequired,
   timer: timerPropTypes.isRequired,
 };
-FooterM.defaultProps = {};

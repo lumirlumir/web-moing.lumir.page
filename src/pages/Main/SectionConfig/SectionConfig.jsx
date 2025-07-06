@@ -76,4 +76,3 @@ export default function SectionConfig({ config }) {
 SectionConfig.propTypes = {
   config: configPropTypes.isRequired,
 };
-SectionConfig.defaultProps = {};
