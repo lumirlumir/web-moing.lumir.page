@@ -17,7 +17,7 @@ import './SectionServer.scss';
  *
  * @returns SectionServer
  */
-function SectionServer({ scenario, config, interview, timer }) {
+export default function SectionServer({ scenario, config, interview, timer }) {
   /* Props */
   const { subsectionState, getSectionObj, toNextSection } = scenario;
   const { auto, api, result } = getSectionObj().global;
@@ -90,5 +90,3 @@ SectionServer.propTypes = {
   timer: timerPropTypes.isRequired,
 };
 SectionServer.defaultProps = {};
-
-export default SectionServer;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useConfig = () => {
+export default function useConfig() {
   /* Hooks */
   // useState
   const [configState, setConfigState] = useState({
@@ -41,6 +41,4 @@ const useConfig = () => {
     handleConfigState,
     isConfigDone,
   };
-};
-
-export default useConfig;
+}

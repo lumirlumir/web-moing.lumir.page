@@ -21,7 +21,13 @@ import './CompButtonLight.scss';
  *   null
  * </CompButtonLight>
  */
-function CompButtonLight({ children, style, onClick, neonSize, hoverEffect }) {
+export default function CompButtonLight({
+  children,
+  style,
+  onClick,
+  neonSize,
+  hoverEffect,
+}) {
   return (
     <div className={`CompButtonLight ${hoverEffect ? 'hover' : ''}`}>
       <span style={{ height: neonSize }} />
@@ -48,5 +54,3 @@ CompButtonLight.defaultProps = {
   neonSize: '2px',
   hoverEffect: false,
 };
-
-export default CompButtonLight;

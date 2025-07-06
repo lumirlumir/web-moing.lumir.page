@@ -18,7 +18,7 @@ import './Start.scss';
  *
  * @returns Start
  */
-function Start() {
+export default function Start() {
   /* Hooks */
   const scenario = useScenario();
   const config = useConfig();
@@ -37,5 +37,3 @@ function Start() {
     </div>
   );
 }
-
-export default Start;

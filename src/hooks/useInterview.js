@@ -12,7 +12,7 @@ import {
   fetchFeedback,
 } from '@/utils/openaiService';
 
-const useInterview = () => {
+export default function useInterview() {
   /* Hooks */
   // useInterviewContent
   const { contentRef, getTextContent, setHTMLContent, listening, toggleListening } =
@@ -143,6 +143,4 @@ const useInterview = () => {
     initInterview,
     submit,
   };
-};
-
-export default useInterview;
+}

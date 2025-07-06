@@ -4,7 +4,7 @@ import { useCallback, useRef } from 'react';
  *
  * @returns
  */
-const useHistoryRef = () => {
+export default function useHistoryRef() {
   /* Hooks */
   // useRef
   const historyRef = useRef([]);
@@ -19,6 +19,4 @@ const useHistoryRef = () => {
     historyRef,
     addHistory,
   };
-};
-
-export default useHistoryRef;
+}

@@ -11,7 +11,7 @@ import './HeaderL.scss';
  *
  * @returns HeaderL
  */
-function HeaderL({ scenario, config }) {
+export default function HeaderL({ scenario, config }) {
   /* Props */
   const { visibility, clickability } = scenario.getSectionObj().HeaderL;
   const { configState, handleConfigState } = config;
@@ -39,5 +39,3 @@ HeaderL.propTypes = {
   config: configPropTypes.isRequired,
 };
 HeaderL.defaultProps = {};
-
-export default HeaderL;

@@ -9,4 +9,4 @@ ReactDOM.createRoot(document.getElementById('App')).render(
   <StrictMode>
     <App />
   </StrictMode>,
-); // React 18 Style
+);

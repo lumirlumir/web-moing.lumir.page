@@ -12,7 +12,7 @@ import './SectionConfig.scss';
  *
  * @returns SectionConfig
  */
-function SectionConfig({ config }) {
+export default function SectionConfig({ config }) {
   /* Props */
   const { configState, handleConfigState } = config;
   const questionTypeKeys = Object.keys(configState.questionType);
@@ -77,5 +77,3 @@ SectionConfig.propTypes = {
   config: configPropTypes.isRequired,
 };
 SectionConfig.defaultProps = {};
-
-export default SectionConfig;

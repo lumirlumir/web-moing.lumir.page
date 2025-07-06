@@ -9,7 +9,7 @@ import './SectionClient.scss';
  *
  * @returns SectionClient
  */
-function SectionClient({ scenario, interview }) {
+export default function SectionClient({ scenario, interview }) {
   /* Props */
   const { visibility } = scenario.getSectionObj().Main.SectionClient;
   const { contentRef } = interview;
@@ -34,5 +34,3 @@ SectionClient.propTypes = {
   interview: interviewPropTypes.isRequired,
 };
 SectionClient.defaultProps = {};
-
-export default SectionClient;

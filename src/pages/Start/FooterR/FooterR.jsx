@@ -11,7 +11,7 @@ import './FooterR.scss';
  *
  * @returns FooterR
  */
-function FooterR({ scenario, interview, timer }) {
+export default function FooterR({ scenario, interview, timer }) {
   /* Props */
   const { visibility, clickability } = scenario.getSectionObj().FooterR;
   const { submit } = interview;
@@ -42,5 +42,3 @@ FooterR.propTypes = {
   timer: timerPropTypes.isRequired,
 };
 FooterR.defaultProps = {};
-
-export default FooterR;

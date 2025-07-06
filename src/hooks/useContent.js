@@ -4,7 +4,7 @@ import { useCallback, useRef } from 'react';
  *
  * @returns
  */
-const useContent = () => {
+export default function useContent() {
   /* Hooks */
   // useRef
   const contentRef = useRef(null);
@@ -23,6 +23,4 @@ const useContent = () => {
     getHTMLContent,
     setHTMLContent,
   };
-};
-
-export default useContent;
+}

@@ -21,7 +21,7 @@ import './Main.scss';
  *
  * @returns Main
  */
-function Main({ scenario, config, interview, timer }) {
+export default function Main({ scenario, config, interview, timer }) {
   /* Props */
   const { subsectionState } = scenario;
 
@@ -60,5 +60,3 @@ Main.propTypes = {
   timer: timerPropTypes.isRequired,
 };
 Main.defaultProps = {};
-
-export default Main;

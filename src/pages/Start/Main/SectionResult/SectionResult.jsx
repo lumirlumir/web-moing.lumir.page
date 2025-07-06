@@ -9,7 +9,7 @@ import './SectionResult.scss';
  *
  * @returns SectionResult
  */
-function SectionResult() {
+export default function SectionResult() {
   /* Return */
   return (
     <CompDivNeon className="SectionResult invisible" neonSize="s" neonColor="violet">
@@ -27,5 +27,3 @@ function SectionResult() {
 }
 SectionResult.propTypes = {};
 SectionResult.defaultProps = {};
-
-export default SectionResult;

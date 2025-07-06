@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
  *
  * @returns
  */
-const useTrigger = () => {
+export default function useTrigger() {
   /* Hooks */
   // useState
   const [triggerState, setTriggerState] = useState(false);
@@ -19,6 +19,4 @@ const useTrigger = () => {
     triggerState,
     trigger,
   };
-};
-
-export default useTrigger;
+}

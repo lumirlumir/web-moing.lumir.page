@@ -9,7 +9,7 @@ import './Heading.scss';
  *
  * @returns Heading
  */
-function Heading({ scenario }) {
+export default function Heading({ scenario }) {
   /* Props */
   const { visibility } = scenario.getSectionObj().Main.Heading;
 
@@ -33,5 +33,3 @@ Heading.propTypes = {
   scenario: scenarioPropTypes.isRequired,
 };
 Heading.defaultProps = {};
-
-export default Heading;

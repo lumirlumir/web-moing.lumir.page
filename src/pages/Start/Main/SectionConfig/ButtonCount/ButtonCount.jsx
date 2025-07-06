@@ -9,7 +9,7 @@ import './ButtonCount.scss';
  *
  * @returns ButtonCount
  */
-function ButtonCount({ children, onClick, count }) {
+export default function ButtonCount({ children, onClick, count }) {
   /* Return */
   return (
     <CompFontNeon
@@ -35,5 +35,3 @@ ButtonCount.propTypes = {
 ButtonCount.defaultProps = {
   children: null,
 };
-
-export default ButtonCount;

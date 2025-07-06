@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
  * @param {function} callbackOnTimerEnd
  * @returns
  */
-const useTimer = callbackOnTimerEnd => {
+export default function useTimer(callbackOnTimerEnd) {
   /* Hooks */
   // useRef
   const callbackOnTimerEndRef = useRef(callbackOnTimerEnd);
@@ -49,6 +49,4 @@ const useTimer = callbackOnTimerEnd => {
     stopTimer,
     getTimer,
   };
-};
-
-export default useTimer;
+}
