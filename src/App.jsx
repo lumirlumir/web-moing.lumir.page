@@ -1,5 +1,5 @@
 import React from 'react';
-import Start from '@/pages/Start';
+import Start from '@/pages';
 import './App.scss';
 
 /**
