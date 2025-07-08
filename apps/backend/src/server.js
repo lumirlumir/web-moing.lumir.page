@@ -1,18 +1,33 @@
-const http = require('node:http');
-const url = require('node:url');
-const qs = require('qs');
-const {
+/**
+ * @fileoverview server.js
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import http from 'node:http';
+import url from 'node:url';
+import qs from 'qs';
+import {
   fetchQuestionMain,
   fetchQuestionSub,
   fetchAnswer,
   fetchFeedback,
-} = require('./services/openaiService');
+} from './services/openaiService.js';
 
-/* Func */
+// --------------------------------------------------------------------------------
+// Helpers
+// --------------------------------------------------------------------------------
+
 const response = (res, code, text) => {
   res.writeHead(code, { 'Content-Type': 'application/json; charset=utf-8' });
   res.end(JSON.stringify({ text }));
 };
+
+// --------------------------------------------------------------------------------
+// Server
+// --------------------------------------------------------------------------------
 
 http
   .createServer((req, res) => {
