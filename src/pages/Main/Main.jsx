@@ -11,7 +11,6 @@ import {
 import ButtonMain from './ButtonMain';
 import Heading from './Heading';
 import SectionConfig from './SectionConfig';
-import SectionResult from './SectionResult';
 import SectionServer from './SectionServer';
 import SectionClient from './SectionClient';
 
@@ -47,7 +46,6 @@ export default function Main({ scenario, config, interview, timer }) {
         />
         <SectionClient scenario={scenario} interview={interview} />
         <SectionConfig config={config} />
-        <SectionResult />
         <ButtonMain scenario={scenario} config={config} interview={interview} />
       </div>
     </main>
