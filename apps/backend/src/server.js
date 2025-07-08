@@ -1,15 +1,12 @@
 const http = require('node:http');
 const url = require('node:url');
 const qs = require('qs');
-const dotenv = require('dotenv');
 const {
   fetchQuestionMain,
   fetchQuestionSub,
   fetchAnswer,
   fetchFeedback,
 } = require('./services/openaiService');
-
-dotenv.config();
 
 /* Func */
 const response = (res, code, text) => {
