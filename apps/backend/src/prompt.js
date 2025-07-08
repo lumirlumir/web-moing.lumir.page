@@ -7,14 +7,14 @@
 // --------------------------------------------------------------------------------
 
 /**
- * @import { CustomChatCompletionMessageParam } from './types.d.ts';
+ * @import { CustomChatCompletionMessageParam, QuestionType } from './types.d.ts';
  */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {Record<'cs' | 'fe' | 'be' | 'db' | 'oop', Record<'messages', Array<CustomChatCompletionMessageParam>>>} */
+/** @type {Record<QuestionType, Record<'messages', Array<CustomChatCompletionMessageParam>>>} */
 export const questionMain = {
   cs: {
     messages: [

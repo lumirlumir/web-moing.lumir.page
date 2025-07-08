@@ -20,10 +20,10 @@ import {
 // Helpers
 // --------------------------------------------------------------------------------
 
-const response = (res, code, text) => {
+function response(res, code, text) {
   res.writeHead(code, { 'Content-Type': 'application/json; charset=utf-8' });
   res.end(JSON.stringify({ text }));
-};
+}
 
 // --------------------------------------------------------------------------------
 // Server

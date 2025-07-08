@@ -14,7 +14,7 @@ import { questionMain, questionSub, answer, feedback } from './prompt.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { CustomChatCompletionMessageParam } from './types.d.ts';
+ * @import { CustomChatCompletionMessageParam, QuestionType } from './types.d.ts';
  */
 
 // --------------------------------------------------------------------------------
@@ -29,6 +29,8 @@ const openaiInstance = new OpenAI({
  * Fetches a response from OpenAI's chat completion API.
  * @param {Array<CustomChatCompletionMessageParam>} messages
  * @returns {Promise<string>}
+ * @async
+ * @private
  */
 async function fetching(messages) {
   const response = await openaiInstance.chat.completions.create({
@@ -50,7 +52,8 @@ async function fetching(messages) {
  * Creates a message object for OpenAI API.
  * @param {'system' | 'assistant' | 'user'} role
  * @param {string} text
- * @returns {OpenAI.ChatCompletionSystemMessageParam | OpenAI.ChatCompletionAssistantMessageParam | OpenAI.ChatCompletionUserMessageParam}
+ * @returns {CustomChatCompletionMessageParam}
+ * @private
  */
 function createMessageObject(role, text) {
   return {
@@ -70,50 +73,58 @@ function createMessageObject(role, text) {
 
 /**
  * Fetches the main question.
- * @param {'cs' | 'fe' | 'be' | 'db' | 'oop'} type
+ * @param {QuestionType} type
  * @param {string[]} history
- * @returns
+ * @returns {Promise<string>}
+ * @async
  */
-export const fetchQuestionMain = async (type, history) =>
-  fetching([
+export async function fetchQuestionMain(type, history) {
+  return fetching([
     ...questionMain[type].messages,
     ...history.map(text => createMessageObject('assistant', text)),
   ]);
+}
 
 /**
  * Fetches the sub question.
  * @param {string} question
  * @param {string} answerUser
- * @returns
+ * @returns {Promise<string>}
+ * @async
  */
-export const fetchQuestionSub = async (question, answerUser) =>
-  fetching([
+export async function fetchQuestionSub(question, answerUser) {
+  return fetching([
     ...questionSub.messages,
     createMessageObject(
       'user',
       `Previous Question\n\n${question}\n\nUSER's Answer\n\n${answerUser}`,
     ),
   ]);
+}
 
 /**
  * Fetches the answer.
  * @param {string} question
- * @returns
+ * @returns {Promise<string>}
+ * @async
  */
-export const fetchAnswer = async question =>
-  fetching([...answer.messages, createMessageObject('user', question)]);
+export async function fetchAnswer(question) {
+  return fetching([...answer.messages, createMessageObject('user', question)]);
+}
 
 /**
  * Fetches the feedback.
  * @param {string} answerSystem
  * @param {string} answerUser
- * @returns
+ * @returns {Promise<string>}
+ * @async
  */
-export const fetchFeedback = async (answerSystem, answerUser) =>
-  fetching([
+export async function fetchFeedback(answerSystem, answerUser) {
+  return fetching([
     ...feedback.messages,
     createMessageObject(
       'user',
       `Correct Answer\n\n${answerSystem}\n\nUSER's Answer\n\n${answerUser}`,
     ),
   ]);
+}
