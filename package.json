@@ -22,7 +22,8 @@
     "lint:eslint": "npx eslint",
     "lint:prettier": "npx prettier . --check --ignore-unknown",
     "lint:editorconfig": "npx editorconfig-checker -config .editorconfig-checker.json",
-    "lint:markdownlint": "npx markdownlint **/*.md"
+    "lint:markdownlint": "npx markdownlint **/*.md",
+    "lint:todo": "npm run test -w apps/backend"
   },
   "dependencies": {
     "prop-types": "^15.8.1",
@@ -55,6 +56,7 @@
     "sass": "^1.89.2",
     "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",
+    "typescript": "^5.8.3",
     "webpack": "^5.99.9",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"
