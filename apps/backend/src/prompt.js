@@ -7,14 +7,14 @@
 // --------------------------------------------------------------------------------
 
 /**
- * @import { OpenAI } from 'openai';
+ * @import { CustomChatCompletionMessageParam } from './types.d.ts';
  */
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/** @type {Record<'cs' | 'fe' | 'be' | 'db' | 'oop', Record<'messages', Array<OpenAI.ChatCompletionSystemMessageParam | OpenAI.ChatCompletionAssistantMessageParam | OpenAI.ChatCompletionUserMessageParam>>>} */
+/** @type {Record<'cs' | 'fe' | 'be' | 'db' | 'oop', Record<'messages', Array<CustomChatCompletionMessageParam>>>} */
 export const questionMain = {
   cs: {
     messages: [
@@ -173,7 +173,7 @@ export const questionMain = {
   },
 };
 
-/** @type {Record<'messages', Array<OpenAI.ChatCompletionSystemMessageParam | OpenAI.ChatCompletionAssistantMessageParam | OpenAI.ChatCompletionUserMessageParam>>} */
+/** @type {Record<'messages', Array<CustomChatCompletionMessageParam>>} */
 export const questionSub = {
   messages: [
     {
@@ -224,7 +224,7 @@ export const questionSub = {
   ],
 };
 
-/** @type {Record<'messages', Array<OpenAI.ChatCompletionSystemMessageParam | OpenAI.ChatCompletionAssistantMessageParam | OpenAI.ChatCompletionUserMessageParam>>} */
+/** @type {Record<'messages', Array<CustomChatCompletionMessageParam>>} */
 export const answer = {
   messages: [
     {
@@ -275,7 +275,7 @@ export const answer = {
   ],
 };
 
-/** @type {Record<'messages', Array<OpenAI.ChatCompletionSystemMessageParam | OpenAI.ChatCompletionAssistantMessageParam | OpenAI.ChatCompletionUserMessageParam>>} */
+/** @type {Record<'messages', Array<CustomChatCompletionMessageParam>>} */
 export const feedback = {
   messages: [
     {

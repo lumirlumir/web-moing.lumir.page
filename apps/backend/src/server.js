@@ -14,7 +14,7 @@ import {
   fetchQuestionSub,
   fetchAnswer,
   fetchFeedback,
-} from './services/openaiService.js';
+} from './fetch.js';
 
 // --------------------------------------------------------------------------------
 // Helpers
@@ -44,6 +44,7 @@ http
         case '/question/main': {
           const { type, history } = queryParsed;
 
+          // @ts-expect-error -- TODO
           fetchQuestionMain(type, typeof history === 'undefined' ? [] : history).then(
             result => response(res, 200, result),
           );
@@ -52,6 +53,7 @@ http
         case '/question/sub': {
           const { question, answerUser } = queryParsed;
 
+          // @ts-expect-error -- TODO
           fetchQuestionSub(question, answerUser).then(result =>
             response(res, 200, result),
           );
@@ -60,12 +62,14 @@ http
         case '/answer': {
           const { question } = queryParsed;
 
+          // @ts-expect-error -- TODO
           fetchAnswer(question).then(result => response(res, 200, result));
           break;
         }
         case '/feedback': {
           const { answerSystem, answerUser } = queryParsed;
 
+          // @ts-expect-error -- TODO
           fetchFeedback(answerSystem, answerUser).then(result =>
             response(res, 200, result),
           );
