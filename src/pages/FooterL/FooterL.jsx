@@ -8,8 +8,9 @@ import { scenarioPropTypes } from '@/utils/propTypes';
 import './FooterL.scss';
 
 /**
- *
- * @returns FooterL
+ * `FooterL` component.
+ * @param {object} props
+ * @returns {React.JSX.Element}
  */
 export default function FooterL({ scenario }) {
   /* Props */
