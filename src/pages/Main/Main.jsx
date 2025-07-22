@@ -1,12 +1,14 @@
+/**
+ * @fileoverview Main.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import React, { useEffect } from 'react';
 
 import useScroll from '@/hooks/useScroll';
-import {
-  scenarioPropTypes,
-  configPropTypes,
-  interviewPropTypes,
-  timerPropTypes,
-} from '@/utils/propTypes';
 
 import ButtonMain from './ButtonMain';
 import Heading from './Heading';
@@ -16,9 +18,26 @@ import SectionClient from './SectionClient';
 
 import './Main.scss';
 
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
 /**
- *
- * @returns Main
+ * @import { Scenario, Config, Interview, Timer } from '@/core/types';
+ */
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+/**
+ * Component `Main`.
+ * @param {object} props
+ * @param {Scenario} props.scenario
+ * @param {Config} props.config
+ * @param {Interview} props.interview
+ * @param {Timer} props.timer
+ * @returns {React.JSX.Element}
  */
 export default function Main({ scenario, config, interview, timer }) {
   /* Props */
@@ -51,9 +70,3 @@ export default function Main({ scenario, config, interview, timer }) {
     </main>
   );
 }
-Main.propTypes = {
-  scenario: scenarioPropTypes.isRequired,
-  config: configPropTypes.isRequired,
-  interview: interviewPropTypes.isRequired,
-  timer: timerPropTypes.isRequired,
-};

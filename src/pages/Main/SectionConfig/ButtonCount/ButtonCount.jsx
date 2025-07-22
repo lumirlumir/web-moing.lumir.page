@@ -1,16 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import CompFontNeon from '@/components/CompFontNeon';
 
 import './ButtonCount.scss';
 
 /**
- *
- * @returns ButtonCount
+ * Component `ButtonCount`.
+ * @param {object} props
+ * @returns {React.JSX.Element}
  */
 export default function ButtonCount({ children, onClick, count }) {
-  /* Return */
   return (
     <CompFontNeon
       className={`ButtonCount ${count >= 1 ? '' : 'off'}`}
@@ -27,8 +26,3 @@ export default function ButtonCount({ children, onClick, count }) {
     </CompFontNeon>
   );
 }
-ButtonCount.propTypes = {
-  children: PropTypes.node,
-  onClick: PropTypes.func.isRequired,
-  count: PropTypes.number.isRequired,
-};

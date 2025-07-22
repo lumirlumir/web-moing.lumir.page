@@ -1,16 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import CompFontNeon from '@/components/CompFontNeon';
 
 import './CheckBox.scss';
 
 /**
- *
- * @returns CheckBox
+ * Component `CheckBox`.
+ * @param {object} props
+ * @returns {React.JSX.Element}
  */
 export default function CheckBox({ children, onChange, isChecked }) {
-  /* Return */
   return (
     <CompFontNeon
       className="CheckBox"
@@ -26,8 +25,3 @@ export default function CheckBox({ children, onChange, isChecked }) {
     </CompFontNeon>
   );
 }
-CheckBox.propTypes = {
-  children: PropTypes.node,
-  onChange: PropTypes.func.isRequired,
-  isChecked: PropTypes.bool.isRequired,
-};

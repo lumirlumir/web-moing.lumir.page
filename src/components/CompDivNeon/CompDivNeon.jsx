@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './CompDivNeon.scss';
 
@@ -8,7 +7,7 @@ import './CompDivNeon.scss';
  *
  * @component React component
  * @param {object} props children, className, neonColor, neonSize, borderWidth
- * @param {node} props.children node
+ * @param {React.ReactNode} props.children node
  * @param {string} props.className string. you can add more class names
  * @param {string} props.neonColor string. select among 'red', 'brightOrange', 'orange', 'banana', 'yellow', 'green', 'sky', 'blue', 'violet', 'purple', 'silver', 'white', 'black'
  * @param {string} props.neonSize string. select among 'xl', 'l', 'm', 's', 'xs'
@@ -22,11 +21,11 @@ import './CompDivNeon.scss';
  * </CompDivNeon>
  */
 export default function CompDivNeon({
-  children,
-  className,
-  neonColor,
-  neonSize,
-  borderWidth,
+  children = null,
+  className = '',
+  neonColor = 'red',
+  neonSize = 'l',
+  borderWidth = null,
 }) {
   const style = {
     borderWidth,
@@ -41,31 +40,3 @@ export default function CompDivNeon({
     </div>
   );
 }
-CompDivNeon.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  neonColor: PropTypes.oneOf([
-    'red',
-    'brightOrange',
-    'orange',
-    'banana',
-    'yellow',
-    'green',
-    'sky',
-    'blue',
-    'violet',
-    'purple',
-    'silver',
-    'white',
-    'black',
-  ]),
-  neonSize: PropTypes.oneOf(['xl', 'l', 'm', 's', 'xs']),
-  borderWidth: PropTypes.string,
-};
-CompDivNeon.defaultProps = {
-  children: null,
-  className: '',
-  neonColor: 'red',
-  neonSize: 'l',
-  borderWidth: null,
-};

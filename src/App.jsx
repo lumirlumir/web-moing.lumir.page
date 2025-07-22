@@ -1,3 +1,11 @@
+/**
+ * @fileoverview App.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import React from 'react';
 
 import useScenario from '@/hooks/useScenario';
@@ -14,18 +22,20 @@ import Main from '@/pages/Main';
 
 import './App.scss';
 
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
 /**
- *
- * @returns App
+ * Compoenent `App`.
+ * @returns {React.JSX.Element}
  */
 export default function App() {
-  /* Hooks */
   const scenario = useScenario();
   const config = useConfig();
   const interview = useInterview();
   const timer = useTimer(interview.submit);
 
-  /* Return */
   return (
     <div className="Start">
       <HeaderL scenario={scenario} config={config} />

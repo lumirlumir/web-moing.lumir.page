@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './CompButtonLight.scss';
 
@@ -7,13 +6,13 @@ import './CompButtonLight.scss';
  * Component Button Light
  *
  * @component React component
- * @param {object} props children, style, onClick, neonSize
- * @param {node} props.children node
- * @param {object} props.style object
- * @param {function} props.onClick function
- * @param {string} props.neonSize string
- * @param {boolean} props.hoverEffect boolean
- * @returns {React.JSX.Element} Component Button Light
+ * @param {object} props
+ * @param {React.ReactNode} props.children
+ * @param {object} props.style
+ * @param {Function} props.onClick
+ * @param {string} props.neonSize
+ * @param {boolean} props.hoverEffect
+ * @returns {React.JSX.Element}
  *
  * @example
  * //Default Values
@@ -22,11 +21,11 @@ import './CompButtonLight.scss';
  * </CompButtonLight>
  */
 export default function CompButtonLight({
-  children,
-  style,
-  onClick,
-  neonSize,
-  hoverEffect,
+  children = null,
+  style = {},
+  onClick = () => {},
+  neonSize = '2px',
+  hoverEffect = false,
 }) {
   return (
     <div className={`CompButtonLight ${hoverEffect ? 'hover' : ''}`}>
@@ -34,23 +33,10 @@ export default function CompButtonLight({
       <span style={{ width: neonSize }} />
       <span style={{ height: neonSize }} />
       <span style={{ width: neonSize }} />
+      {/* @ts-expect-error -- TODO */}
       <button type="button" style={style} onClick={onClick}>
         {children}
       </button>
     </div>
   );
 }
-CompButtonLight.propTypes = {
-  children: PropTypes.node,
-  style: PropTypes.objectOf(PropTypes.string),
-  onClick: PropTypes.func,
-  neonSize: PropTypes.string,
-  hoverEffect: PropTypes.bool,
-};
-CompButtonLight.defaultProps = {
-  children: null,
-  style: null,
-  onClick: () => {},
-  neonSize: '2px',
-  hoverEffect: false,
-};

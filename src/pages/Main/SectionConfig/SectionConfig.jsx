@@ -1,16 +1,37 @@
+/**
+ * @fileoverview SectionConfig.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import React from 'react';
 
 import CompDivNeon from '@/components/CompDivNeon';
-import { configPropTypes } from '@/utils/propTypes';
 
 import ButtonCount from './ButtonCount';
 import CheckBox from './CheckBox';
 
 import './SectionConfig.scss';
 
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
 /**
- *
- * @returns SectionConfig
+ * @import { Config } from '@/core/types';
+ */
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+/**
+ * Component `SectionConfig`.
+ * @param {object} props
+ * @param {Config} props.config
+ * @returns {React.JSX.Element}
  */
 export default function SectionConfig({ config }) {
   /* Props */
@@ -73,6 +94,3 @@ export default function SectionConfig({ config }) {
     </CompDivNeon>
   );
 }
-SectionConfig.propTypes = {
-  config: configPropTypes.isRequired,
-};

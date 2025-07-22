@@ -1,22 +1,42 @@
+/**
+ * @fileoverview HeaderL.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import React from 'react';
 import { GoGear } from 'react-icons/go';
 
 import CompButtonLight from '@/components/CompButtonLight';
 import CompFontNeon from '@/components/CompFontNeon';
-import { scenarioPropTypes, configPropTypes } from '@/utils/propTypes';
 
 import './HeaderL.scss';
 
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
 /**
- *
- * @returns HeaderL
+ * @import { Scenario, Config } from '@/core/types';
+ */
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+/**
+ * Component `HeaderL`.
+ * @param {object} props
+ * @param {Scenario} props.scenario
+ * @param {Config} props.config
+ * @returns {React.JSX.Element}
  */
 export default function HeaderL({ scenario, config }) {
-  /* Props */
   const { visibility, clickability } = scenario.getSectionObj().HeaderL;
   const { configState, handleConfigState } = config;
 
-  /* Return */
   return (
     <header
       className={`HeaderL ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
@@ -34,7 +54,3 @@ export default function HeaderL({ scenario, config }) {
     </header>
   );
 }
-HeaderL.propTypes = {
-  scenario: scenarioPropTypes.isRequired,
-  config: configPropTypes.isRequired,
-};
