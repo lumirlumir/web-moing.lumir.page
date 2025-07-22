@@ -1,27 +1,30 @@
-import React from 'react';
+/**
+ * @fileoverview CompButtonLight.
+ */
 
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import React from 'react';
 import './CompButtonLight.scss';
 
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
 /**
- * Component Button Light
- *
- * @component React component
- * @param {object} props
- * @param {React.ReactNode} [props.children]
- * @param {object} [props.style]
- * @param {Function} [props.onClick]
- * @param {string} [props.neonSize]
- * @param {boolean} [props.hoverEffect]
+ * Component `CompButtonLight`.
+ * @param {React.PropsWithChildren<{style?: React.CSSProperties, onClick?: React.MouseEventHandler<HTMLButtonElement>, neonSize?: string, hoverEffect?: boolean}>} props
  * @returns {React.JSX.Element}
- *
  * @example
  * //Default Values
- * <CompButtonLight style={null} onClick={() => {}} neonSize="2px" hoverEffect={false}>
- *   null
+ * <CompButtonLight style={{}} onClick={() => {}} neonSize="2px" hoverEffect={false}>
+ *   {undefined}
  * </CompButtonLight>
  */
 export default function CompButtonLight({
-  children = null,
+  children = undefined,
   style = {},
   onClick = () => {},
   neonSize = '2px',
@@ -33,7 +36,6 @@ export default function CompButtonLight({
       <span style={{ width: neonSize }} />
       <span style={{ height: neonSize }} />
       <span style={{ width: neonSize }} />
-      {/* @ts-expect-error -- TODO */}
       <button type="button" style={style} onClick={onClick}>
         {children}
       </button>
