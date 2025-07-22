@@ -7,11 +7,11 @@ import './CompButtonLight.scss';
  *
  * @component React component
  * @param {object} props
- * @param {React.ReactNode} props.children
- * @param {object} props.style
- * @param {Function} props.onClick
- * @param {string} props.neonSize
- * @param {boolean} props.hoverEffect
+ * @param {React.ReactNode} [props.children]
+ * @param {object} [props.style]
+ * @param {Function} [props.onClick]
+ * @param {string} [props.neonSize]
+ * @param {boolean} [props.hoverEffect]
  * @returns {React.JSX.Element}
  *
  * @example
@@ -26,7 +26,7 @@ export default function CompButtonLight({
   onClick = () => {},
   neonSize = '2px',
   hoverEffect = false,
-}) {
+} = {}) {
   return (
     <div className={`CompButtonLight ${hoverEffect ? 'hover' : ''}`}>
       <span style={{ height: neonSize }} />

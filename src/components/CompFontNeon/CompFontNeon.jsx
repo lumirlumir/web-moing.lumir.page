@@ -7,12 +7,12 @@ import './CompFontNeon.scss';
  *
  * @component React component
  * @param {object} props children, className, neonColor, neonSize, fontFamily, fontSize
- * @param {React.ReactNode} props.children node. type texts or SVG you want to render
- * @param {string} props.className string. you can add more class names
- * @param {string} props.neonColor string. select among 'red', 'brightOrange', 'orange', 'banana', 'yellow', 'green', 'sky', 'blue', 'violet', 'purple', 'silver', 'white', 'black'
- * @param {string} props.neonSize string. select among 'xl', 'l', 'm', 's', 'xs'
- * @param {string} props.fontFamily string. type fontFamily you want to render
- * @param {string} props.fontSize string. type fontSize you want to render
+ * @param {React.ReactNode} [props.children] node. type texts or SVG you want to render
+ * @param {string} [props.className] string. you can add more class names
+ * @param {string} [props.neonColor] string. select among 'red', 'brightOrange', 'orange', 'banana', 'yellow', 'green', 'sky', 'blue', 'violet', 'purple', 'silver', 'white', 'black'
+ * @param {string} [props.neonSize] string. select among 'xl', 'l', 'm', 's', 'xs'
+ * @param {string} [props.fontFamily] string. type fontFamily you want to render
+ * @param {string} [props.fontSize] string. type fontSize you want to render
  * @returns {React.JSX.Element} Component Font Neon
  *
  * @example
@@ -28,7 +28,7 @@ export default function CompFontNeon({
   neonSize = 'l',
   fontFamily = 'unset',
   fontSize = 'unset',
-}) {
+} = {}) {
   const style = {
     fontFamily,
     fontSize,
