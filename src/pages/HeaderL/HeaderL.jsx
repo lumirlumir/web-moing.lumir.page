@@ -9,7 +9,7 @@
 import React from 'react';
 import { GoGear } from 'react-icons/go';
 
-import CompButtonLight from '@/components/CompButtonLight';
+import NeonButton from '@/components/neon-button';
 import CompFontNeon from '@/components/CompFontNeon';
 
 import './HeaderL.scss';
@@ -41,7 +41,7 @@ export default function HeaderL({ scenario, config }) {
     <header
       className={`HeaderL ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
     >
-      <CompButtonLight
+      <NeonButton
         style={{ width: '60px', height: '60px' }}
         onClick={() => {
           handleConfigState({ visibility: !configState.visibility });
@@ -50,7 +50,7 @@ export default function HeaderL({ scenario, config }) {
         <CompFontNeon neonColor="white">
           <GoGear size="35px" />
         </CompFontNeon>
-      </CompButtonLight>
+      </NeonButton>
     </header>
   );
 }

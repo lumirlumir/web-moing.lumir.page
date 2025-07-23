@@ -1,3 +1,3 @@
-import neonButton from './neon-button';
+import NeonButton from './neon-button';
 
-export default neonButton;
+export default NeonButton;

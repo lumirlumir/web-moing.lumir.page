@@ -9,7 +9,7 @@
 import React from 'react';
 import { GrPowerReset } from 'react-icons/gr';
 
-import CompButtonLight from '@/components/CompButtonLight';
+import NeonButton from '@/components/neon-button';
 import CompFontNeon from '@/components/CompFontNeon';
 
 import './FooterL.scss';
@@ -43,11 +43,11 @@ export default function FooterL({ scenario }) {
     <footer
       className={`FooterL ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
     >
-      <CompButtonLight style={{ width: '60px', height: '60px' }} onClick={reload}>
+      <NeonButton style={{ width: '60px', height: '60px' }} onClick={reload}>
         <CompFontNeon neonColor="white">
           <GrPowerReset size="32px" />
         </CompFontNeon>
-      </CompButtonLight>
+      </NeonButton>
     </footer>
   );
 }

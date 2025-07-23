@@ -9,7 +9,7 @@
 import React from 'react';
 import { CiMicrophoneOn } from 'react-icons/ci';
 
-import CompButtonLight from '@/components/CompButtonLight';
+import NeonButton from '@/components/neon-button';
 import CompFontNeon from '@/components/CompFontNeon';
 
 import './HeaderR.scss';
@@ -45,7 +45,7 @@ export default function HeaderR({ scenario, interview }) {
     <header
       className={`HeaderR ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
     >
-      <CompButtonLight
+      <NeonButton
         style={{ width: '60px', height: '60px' }}
         onClick={onClick}
         hoverEffect={listening}
@@ -53,7 +53,7 @@ export default function HeaderR({ scenario, interview }) {
         <CompFontNeon neonColor="white">
           <CiMicrophoneOn size="40px" />
         </CompFontNeon>
-      </CompButtonLight>
+      </NeonButton>
     </header>
   );
 }

@@ -8,7 +8,7 @@
 
 import React, { useCallback, useMemo } from 'react';
 
-import CompButtonLight from '@/components/CompButtonLight';
+import NeonButton from '@/components/neon-button';
 import CompFontNeon from '@/components/CompFontNeon';
 
 import './ButtonMain.scss';
@@ -82,7 +82,7 @@ export default function ButtonMain({ scenario, config, interview }) {
 
   return (
     <div className={`ButtonMain ${visibility ? '' : 'invisible'}`}>
-      <CompButtonLight style={{ padding: '20px 30px' }} onClick={e => onClick(e)}>
+      <NeonButton style={{ padding: '20px 30px' }} onClick={e => onClick(e)}>
         <CompFontNeon
           neonColor="white"
           neonSize="s"
@@ -91,7 +91,7 @@ export default function ButtonMain({ scenario, config, interview }) {
         >
           {content}
         </CompFontNeon>
-      </CompButtonLight>
+      </NeonButton>
     </div>
   );
 }
