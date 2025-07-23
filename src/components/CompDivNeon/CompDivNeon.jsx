@@ -1,11 +1,20 @@
-import React from 'react';
+/**
+ * @fileoverview CompDivNeon.
+ */
 
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import React from 'react';
 import './CompDivNeon.scss';
 
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
 /**
- * Component Div Neon
- *
- * @component React component
+ * Component `CompDivNeon`.
  * @param {object} props children, className, neonColor, neonSize, borderWidth
  * @param {React.ReactNode} [props.children] node
  * @param {string} [props.className] string. you can add more class names

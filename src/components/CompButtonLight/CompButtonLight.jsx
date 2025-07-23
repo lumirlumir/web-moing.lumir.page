@@ -10,12 +10,24 @@ import React from 'react';
 import './CompButtonLight.scss';
 
 // --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
+/**
+ * @typedef {object} Props
+ * @property {React.CSSProperties} [style] Default: `{}`
+ * @property {React.MouseEventHandler<HTMLButtonElement>} [onClick] Default: `() => {}`
+ * @property {string} [neonSize] Default: `'2px'`
+ * @property {boolean} [hoverEffect] Default: `false`
+ */
+
+// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
 /**
  * Component `CompButtonLight`.
- * @param {React.PropsWithChildren<{style?: React.CSSProperties, onClick?: React.MouseEventHandler<HTMLButtonElement>, neonSize?: string, hoverEffect?: boolean}>} props
+ * @param {React.PropsWithChildren<Props>} props
  * @returns {React.JSX.Element}
  * @example
  * //Default Values
