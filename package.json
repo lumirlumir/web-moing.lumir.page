@@ -12,7 +12,7 @@
   "scripts": {
     "prepare": "husky",
     "dev": "npx webpack serve --mode=development --open",
-    "build": "npx webpack build --mode=production --config ./webpack.config.js",
+    "build": "npx webpack build --mode=production",
     "deploy": "gh-pages -d build",
     "fix": "concurrently \"npm:fix:*\"",
     "fix:eslint": "npx eslint --fix",
