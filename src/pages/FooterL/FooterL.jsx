@@ -1,26 +1,44 @@
+/**
+ * @fileoverview FooterL.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import React from 'react';
 import { GrPowerReset } from 'react-icons/gr';
 
 import CompButtonLight from '@/components/CompButtonLight';
 import CompFontNeon from '@/components/CompFontNeon';
-import { scenarioPropTypes } from '@/utils/propTypes';
 
 import './FooterL.scss';
 
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
 /**
- *
- * @returns FooterL
+ * @import { Scenario } from '@/core/types';
+ */
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+/**
+ * Component `FooterL`.
+ * @param {object} props
+ * @param {Scenario} props.scenario
+ * @returns {React.JSX.Element}
  */
 export default function FooterL({ scenario }) {
-  /* Props */
   const { visibility, clickability } = scenario.getSectionObj().FooterL;
 
-  /* Func */
   const reload = () => {
     window.location.reload();
   };
 
-  /* Return */
   return (
     <footer
       className={`FooterL ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
@@ -33,6 +51,3 @@ export default function FooterL({ scenario }) {
     </footer>
   );
 }
-FooterL.propTypes = {
-  scenario: scenarioPropTypes.isRequired,
-};

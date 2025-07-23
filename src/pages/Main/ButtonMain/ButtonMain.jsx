@@ -1,18 +1,37 @@
+/**
+ * @fileoverview ButtonMain.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import React, { useCallback, useMemo } from 'react';
 
 import CompButtonLight from '@/components/CompButtonLight';
 import CompFontNeon from '@/components/CompFontNeon';
-import {
-  scenarioPropTypes,
-  configPropTypes,
-  interviewPropTypes,
-} from '@/utils/propTypes';
 
 import './ButtonMain.scss';
 
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
 /**
- *
- * @returns ButtonMain
+ * @import { Scenario, Config, Interview } from '@/core/types';
+ */
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+/**
+ * Component `ButtonMain`.
+ * @param {object} props
+ * @param {Scenario} props.scenario
+ * @param {Config} props.config
+ * @param {Interview} props.interview
+ * @returns {React.JSX.Element}
  */
 export default function ButtonMain({ scenario, config, interview }) {
   /* Props */
@@ -61,7 +80,6 @@ export default function ButtonMain({ scenario, config, interview }) {
     ],
   );
 
-  /* Return */
   return (
     <div className={`ButtonMain ${visibility ? '' : 'invisible'}`}>
       <CompButtonLight style={{ padding: '20px 30px' }} onClick={e => onClick(e)}>
@@ -77,8 +95,3 @@ export default function ButtonMain({ scenario, config, interview }) {
     </div>
   );
 }
-ButtonMain.propTypes = {
-  scenario: scenarioPropTypes.isRequired,
-  config: configPropTypes.isRequired,
-  interview: interviewPropTypes.isRequired,
-};

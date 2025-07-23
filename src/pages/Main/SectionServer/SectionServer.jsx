@@ -1,21 +1,40 @@
+/**
+ * @fileoverview SectionServer.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import React, { useEffect, useLayoutEffect, useMemo } from 'react';
 import Typewriter from 'typewriter-effect';
 
 import CompDivNeon from '@/components/CompDivNeon';
 import useScroll from '@/hooks/useScroll';
 import useHistoryState from '@/hooks/useHistoryState';
-import {
-  scenarioPropTypes,
-  configPropTypes,
-  interviewPropTypes,
-  timerPropTypes,
-} from '@/utils/propTypes';
 
 import './SectionServer.scss';
 
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
 /**
- *
- * @returns SectionServer
+ * @import { Scenario, Config, Interview, Timer } from '@/core/types';
+ */
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+/**
+ * Component `SectionServer`.
+ * @param {object} props
+ * @param {Scenario} props.scenario
+ * @param {Config} props.config
+ * @param {Interview} props.interview
+ * @param {Timer} props.timer
+ * @returns {React.JSX.Element}
  */
 export default function SectionServer({ scenario, config, interview, timer }) {
   /* Props */
@@ -83,9 +102,3 @@ export default function SectionServer({ scenario, config, interview, timer }) {
     </CompDivNeon>
   );
 }
-SectionServer.propTypes = {
-  scenario: scenarioPropTypes.isRequired,
-  config: configPropTypes.isRequired,
-  interview: interviewPropTypes.isRequired,
-  timer: timerPropTypes.isRequired,
-};

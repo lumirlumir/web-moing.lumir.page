@@ -7,7 +7,7 @@ import { useCallback, useRef } from 'react';
 export default function useScroll() {
   /* Hooks */
   // useRef
-  const scrollRef = useRef();
+  const scrollRef = useRef(null);
 
   /* Func */
   const scroll = useCallback(

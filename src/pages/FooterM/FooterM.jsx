@@ -1,20 +1,40 @@
+/**
+ * @fileoverview FooterM.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import React from 'react';
 
 import CompFontNeon from '@/components/CompFontNeon';
-import { scenarioPropTypes, timerPropTypes } from '@/utils/propTypes';
 
 import './FooterM.scss';
 
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
 /**
- *
- * @returns FooterM
+ * @import { Scenario, Timer } from '@/core/types';
+ */
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+/**
+ * Component `FooterM`.
+ * @param {object} props
+ * @param {Scenario} props.scenario
+ * @param {Timer} props.timer
+ * @returns {React.JSX.Element}
  */
 export default function FooterM({ scenario, timer }) {
-  /* Props */
   const { visibility } = scenario.getSectionObj().FooterM;
   const { getTimer } = timer;
 
-  /* Return */
   return (
     <footer className={`FooterM ${visibility ? '' : 'invisible'}`}>
       <CompFontNeon
@@ -28,7 +48,3 @@ export default function FooterM({ scenario, timer }) {
     </footer>
   );
 }
-FooterM.propTypes = {
-  scenario: scenarioPropTypes.isRequired,
-  timer: timerPropTypes.isRequired,
-};

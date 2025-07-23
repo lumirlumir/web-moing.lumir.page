@@ -1,19 +1,38 @@
+/**
+ * @fileoverview Heading.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import React from 'react';
 
 import CompFontNeon from '@/components/CompFontNeon';
-import { scenarioPropTypes } from '@/utils/propTypes';
 
 import './Heading.scss';
 
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
 /**
- *
- * @returns Heading
+ * @import { Scenario } from '@/core/types';
+ */
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+/**
+ * Component `Heading`.
+ * @param {object} props
+ * @param {Scenario} props.scenario
+ * @returns {React.JSX.Element}
  */
 export default function Heading({ scenario }) {
-  /* Props */
   const { visibility } = scenario.getSectionObj().Main.Heading;
 
-  /* Return */
   return (
     <div className={`Heading ${visibility ? '' : 'invisible'}`}>
       <div className="mock">
@@ -29,6 +48,3 @@ export default function Heading({ scenario }) {
     </div>
   );
 }
-Heading.propTypes = {
-  scenario: scenarioPropTypes.isRequired,
-};

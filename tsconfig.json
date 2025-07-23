@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "build",
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "skipLibCheck": true,
+    // ---------------------------------------------------------------
+    "baseUrl": ".", // Set the base path to the current root directory.
+    "paths": {
+      "@/*": ["src/*"] // Map the '@' alias to the 'src' directory.
+    },
+    "jsx": "react"
+  },
+  "include": [
+    "src/**/*.js",
+    "src/**/*.mjs",
+    "src/**/*.cjs",
+    "src/**/*.jsx",
+    "src/**/*.ts",
+    "src/**/*.mts",
+    "src/**/*.cts",
+    "src/**/*.tsx"
+  ],
+  "exclude": ["src/**/*.test.js"]
+}

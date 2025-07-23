@@ -1,29 +1,49 @@
+/**
+ * @fileoverview FooterR.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import React from 'react';
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
 import CompButtonLight from '@/components/CompButtonLight';
 import CompFontNeon from '@/components/CompFontNeon';
-import { scenarioPropTypes, interviewPropTypes, timerPropTypes } from '@/utils/propTypes';
 
 import './FooterR.scss';
 
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
 /**
- *
- * @returns FooterR
+ * @import { Scenario, Interview, Timer } from '@/core/types';
+ */
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+/**
+ * Component `FooterR`.
+ * @param {object} props
+ * @param {Scenario} props.scenario
+ * @param {Interview} props.interview
+ * @param {Timer} props.timer
+ * @returns {React.JSX.Element}
  */
 export default function FooterR({ scenario, interview, timer }) {
-  /* Props */
   const { visibility, clickability } = scenario.getSectionObj().FooterR;
   const { submit } = interview;
   const { stopTimer } = timer;
 
-  /* Function */
   const onClick = () => {
     submit();
     stopTimer();
   };
 
-  /* Return */
   return (
     <footer
       className={`FooterR ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
@@ -36,8 +56,3 @@ export default function FooterR({ scenario, interview, timer }) {
     </footer>
   );
 }
-FooterR.propTypes = {
-  scenario: scenarioPropTypes.isRequired,
-  interview: interviewPropTypes.isRequired,
-  timer: timerPropTypes.isRequired,
-};

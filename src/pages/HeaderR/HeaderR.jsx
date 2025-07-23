@@ -1,27 +1,46 @@
+/**
+ * @fileoverview HeaderR.
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import React from 'react';
 import { CiMicrophoneOn } from 'react-icons/ci';
 
 import CompButtonLight from '@/components/CompButtonLight';
 import CompFontNeon from '@/components/CompFontNeon';
-import { scenarioPropTypes, interviewPropTypes } from '@/utils/propTypes';
 
 import './HeaderR.scss';
 
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
 /**
- *
- * @returns HeaderR
+ * @import { Scenario, Interview } from '@/core/types';
+ */
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+/**
+ * Component `HeaderR`.
+ * @param {object} props
+ * @param {Scenario} props.scenario
+ * @param {Interview} props.interview
+ * @returns {React.JSX.Element}
  */
 export default function HeaderR({ scenario, interview }) {
-  /* Props */
   const { visibility, clickability } = scenario.getSectionObj().HeaderR;
   const { listening, toggleListening } = interview;
 
-  /* Function */
   const onClick = () => {
     toggleListening();
   };
 
-  /* Return */
   return (
     <header
       className={`HeaderR ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
@@ -38,7 +57,3 @@ export default function HeaderR({ scenario, interview }) {
     </header>
   );
 }
-HeaderR.propTypes = {
-  scenario: scenarioPropTypes.isRequired,
-  interview: interviewPropTypes.isRequired,
-};

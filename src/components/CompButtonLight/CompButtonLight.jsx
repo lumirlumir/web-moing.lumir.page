@@ -1,33 +1,47 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/**
+ * @fileoverview CompButtonLight.
+ */
 
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import React from 'react';
 import './CompButtonLight.scss';
 
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
+
 /**
- * Component Button Light
- *
- * @component React component
- * @param {object} props children, style, onClick, neonSize
- * @param {node} props.children node
- * @param {object} props.style object
- * @param {function} props.onClick function
- * @param {string} props.neonSize string
- * @param {boolean} props.hoverEffect boolean
- * @returns {React.JSX.Element} Component Button Light
- *
+ * @typedef {object} Props
+ * @property {React.CSSProperties} [style] Default: `{}`
+ * @property {React.MouseEventHandler<HTMLButtonElement>} [onClick] Default: `() => {}`
+ * @property {string} [neonSize] Default: `'2px'`
+ * @property {boolean} [hoverEffect] Default: `false`
+ */
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+/**
+ * Component `CompButtonLight`.
+ * @param {React.PropsWithChildren<Props>} props
+ * @returns {React.JSX.Element}
  * @example
  * //Default Values
- * <CompButtonLight style={null} onClick={() => {}} neonSize="2px" hoverEffect={false}>
- *   null
+ * <CompButtonLight style={{}} onClick={() => {}} neonSize="2px" hoverEffect={false}>
+ *   {undefined}
  * </CompButtonLight>
  */
 export default function CompButtonLight({
-  children,
-  style,
-  onClick,
-  neonSize,
-  hoverEffect,
-}) {
+  children = undefined,
+  style = {},
+  onClick = () => {},
+  neonSize = '2px',
+  hoverEffect = false,
+} = {}) {
   return (
     <div className={`CompButtonLight ${hoverEffect ? 'hover' : ''}`}>
       <span style={{ height: neonSize }} />
@@ -40,17 +54,3 @@ export default function CompButtonLight({
     </div>
   );
 }
-CompButtonLight.propTypes = {
-  children: PropTypes.node,
-  style: PropTypes.objectOf(PropTypes.string),
-  onClick: PropTypes.func,
-  neonSize: PropTypes.string,
-  hoverEffect: PropTypes.bool,
-};
-CompButtonLight.defaultProps = {
-  children: null,
-  style: null,
-  onClick: () => {},
-  neonSize: '2px',
-  hoverEffect: false,
-};
