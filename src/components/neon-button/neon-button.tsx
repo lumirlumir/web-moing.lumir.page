@@ -1,5 +1,5 @@
 /**
- * @fileoverview CompButtonLight.
+ * @fileoverview neon-button
  */
 
 // --------------------------------------------------------------------------------
@@ -7,48 +7,62 @@
 // --------------------------------------------------------------------------------
 
 import React from 'react';
-import './CompButtonLight.scss';
+import './neon-button.scss';
 
 // --------------------------------------------------------------------------------
 // Typedefs
 // --------------------------------------------------------------------------------
 
-/**
- * @typedef {object} Props
- * @property {React.CSSProperties} [style] Default: `{}`
- * @property {React.MouseEventHandler<HTMLButtonElement>} [onClick] Default: `() => {}`
- * @property {string} [neonSize] Default: `'2px'`
- * @property {boolean} [hoverEffect] Default: `false`
- */
+interface Props {
+  /**
+   * Style for the button.
+   * @default {}
+   */
+  style?: React.CSSProperties;
+  /**
+   * Click event handler for the button.
+   * @default () => {}
+   */
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  /**
+   * Size of the neon effect.
+   * @default '2px'
+   */
+  neonSize?: string;
+  /**
+   * Whether to apply a hover effect.
+   * @default false
+   */
+  hoverEffect?: boolean;
+}
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
 /**
- * Component `CompButtonLight`.
- * @param {React.PropsWithChildren<Props>} props
- * @returns {React.JSX.Element}
+ * Component `NeonButton`.
  * @example
  * //Default Values
- * <CompButtonLight style={{}} onClick={() => {}} neonSize="2px" hoverEffect={false}>
+ * <NeonButton style={{}} onClick={() => {}} neonSize="2px" hoverEffect={false}>
  *   {undefined}
- * </CompButtonLight>
+ * </NeonButton>
  */
-export default function CompButtonLight({
-  children = undefined,
+export default function NeonButton({
+  children,
   style = {},
   onClick = () => {},
   neonSize = '2px',
   hoverEffect = false,
-} = {}) {
+  ...props
+}: React.PropsWithChildren<Props> = {}): React.JSX.Element {
   return (
-    <div className={`CompButtonLight ${hoverEffect ? 'hover' : ''}`}>
+    <div className={`neon-button ${hoverEffect ? 'hover' : ''}`}>
       <span style={{ height: neonSize }} />
       <span style={{ width: neonSize }} />
       <span style={{ height: neonSize }} />
       <span style={{ width: neonSize }} />
-      <button type="button" style={style} onClick={onClick}>
+      <button type="button" style={style} onClick={onClick} {...props}>
         {children}
       </button>
     </div>
