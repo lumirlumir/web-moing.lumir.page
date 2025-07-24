@@ -47,7 +47,5 @@ lumirlumir/lumirlumir-configs:
     dest: ./configs/CODE_OF_CONDUCT.md
   - source: ./VScode.code-workspace
     dest: ./configs/VScode.code-workspace
-  - source: ./jsconfig.json
-    dest: ./configs/jsconfig.json
   - source: ./prettier.config.mjs
     dest: ./configs/prettier.config.mjs
