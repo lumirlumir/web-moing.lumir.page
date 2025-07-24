@@ -13,10 +13,10 @@
   "compilerOptions": {
     /* Type Checking */
     "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
 
     // ----------------------------
 
-    "allowUnusedLabels": false,
     // "alwaysStrict": true,
     // "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
