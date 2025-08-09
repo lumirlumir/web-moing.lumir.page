@@ -7,7 +7,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 try {
   loadEnvFile(new URL('./.env', import.meta.url));
 } catch (e) {
-  console.error(`Cannot find \`.env\` file\n${e.message}\n`); // eslint-disable-line -- CLI
+  console.error(`Cannot find \`.env\` file.\n${e.message}\n`); // eslint-disable-line -- CLI
 }
 
 /**
