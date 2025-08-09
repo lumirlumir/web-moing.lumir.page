@@ -65,9 +65,6 @@ export default function ButtonMain({ scenario, config, interview }) {
         }
         toNextSection();
       }
-      if (content === 'DOWNLOAD') {
-        // TODO
-      }
     },
     [
       toNextSection,

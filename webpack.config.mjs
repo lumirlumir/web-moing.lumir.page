@@ -1,11 +1,14 @@
-/* eslint-disable import/no-extraneous-dependencies -- TODO */
+import { resolve } from 'node:path';
+import { loadEnvFile } from 'node:process';
 
-import path from 'node:path';
 import webpack from 'webpack';
-import dotenv from 'dotenv';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-dotenv.config();
+try {
+  loadEnvFile(new URL('./.env', import.meta.url));
+} catch (e) {
+  console.error(`Cannot find \`.env\` file.\n${e.message}\n`); // eslint-disable-line -- CLI
+}
 
 /**
  * @import { Configuration as WebpackConfig } from 'webpack';
@@ -16,13 +19,13 @@ export default {
   mode: 'development',
   resolve: {
     alias: {
-      '@': path.resolve(import.meta.dirname, 'src'),
+      '@': resolve(import.meta.dirname, 'src'),
     },
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss', '.sass'],
   },
-  entry: path.resolve(import.meta.dirname, 'src', 'index.jsx'),
+  entry: resolve(import.meta.dirname, 'src', 'index.jsx'),
   output: {
-    path: path.resolve(import.meta.dirname, 'build'),
+    path: resolve(import.meta.dirname, 'build'),
     filename: 'bundle.js',
   },
   module: {
@@ -65,7 +68,7 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(import.meta.dirname, 'public', 'index.html'),
+      template: resolve(import.meta.dirname, 'public', 'index.html'),
       filename: 'index.html',
     }),
     new webpack.DefinePlugin({
