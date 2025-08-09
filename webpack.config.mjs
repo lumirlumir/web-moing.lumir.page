@@ -4,7 +4,11 @@ import { loadEnvFile } from 'node:process';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-loadEnvFile(new URL('./.env', import.meta.url));
+try {
+  loadEnvFile(new URL('./.env', import.meta.url));
+} catch (e) {
+  console.error(e.message); // eslint-disable-line -- CLI
+}
 
 /**
  * @import { Configuration as WebpackConfig } from 'webpack';
