@@ -1,6 +1,4 @@
-import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
-
+import { resolve } from 'node:path';
 import bananass from 'eslint-config-bananass';
 import mark from 'eslint-plugin-mark';
 
@@ -18,9 +16,8 @@ export default [
       node: {
         resolverConfig: {
           // `eslint-plugin-n` uses webpack's `enhanced-resolve` under the hood.
-          // TODO: Sync with `webpack.config.js`.
           alias: {
-            '@': resolve(dirname(fileURLToPath(import.meta.url)), 'src'),
+            '@': resolve(import.meta.dirname, 'src'),
           },
         },
       },

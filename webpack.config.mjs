@@ -1,22 +1,48 @@
+/**
+ * @fileoverview Webpack Dev Server and Build.
+ * @see https://webpack.js.org/api/node/#stats-object
+ */
+
+/* eslint-disable no-console -- CLI */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import { resolve } from 'node:path';
 import { loadEnvFile } from 'node:process';
 
 import webpack from 'webpack';
+import WebpackDevServer from 'webpack-dev-server';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-try {
-  loadEnvFile(new URL('./.env', import.meta.url));
-} catch (e) {
-  console.error(`Cannot find \`.env\` file.\n${e.message}\n`); // eslint-disable-line -- CLI
-}
+// --------------------------------------------------------------------------------
+// Typedefs
+// --------------------------------------------------------------------------------
 
 /**
  * @import { Configuration as WebpackConfig } from 'webpack';
  */
 
+// --------------------------------------------------------------------------------
+// Load Env
+// --------------------------------------------------------------------------------
+
+const arg = process.argv[2];
+
+try {
+  loadEnvFile(new URL('./.env', import.meta.url));
+} catch (e) {
+  console.error(`Cannot find \`.env\` file.\n${e.message}\n`);
+}
+
+// --------------------------------------------------------------------------------
+// Webpack Config
+// --------------------------------------------------------------------------------
+
 /** @type {WebpackConfig} */
-export default {
-  mode: 'development',
+const webpackConfig = {
+  mode: arg === 'dev' ? 'development' : 'production',
   resolve: {
     alias: {
       '@': resolve(import.meta.dirname, 'src'),
@@ -75,4 +101,33 @@ export default {
       'process.env': JSON.stringify(process.env),
     }),
   ],
+  devServer: {
+    open: true,
+  },
 };
+
+// --------------------------------------------------------------------------------
+// Dev Server
+// --------------------------------------------------------------------------------
+
+if (arg === 'dev') {
+  const server = new WebpackDevServer(webpackConfig.devServer, webpack(webpackConfig));
+
+  server.startCallback(() => {
+    console.log('Successfully started server on http://localhost:8080');
+  });
+}
+
+// --------------------------------------------------------------------------------
+// Build
+// --------------------------------------------------------------------------------
+
+if (arg === 'build') {
+  webpack(webpackConfig, (err, stats) => {
+    if (err || stats.hasErrors()) {
+      throw new Error(err || stats.toString());
+    } else {
+      console.warn(stats.hasWarnings() ? stats.toString({ colors: true }) : '');
+    }
+  });
+}
