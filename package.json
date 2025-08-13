@@ -11,8 +11,8 @@
   "repository": "https://github.com/lumirlumir/web-moing.lumir.page",
   "scripts": {
     "prepare": "husky",
-    "dev": "npx webpack serve --mode=development --open",
-    "build": "npx webpack build --mode=production",
+    "dev": "node ./webpack.config.mjs dev",
+    "build": "node ./webpack.config.mjs build",
     "deploy": "gh-pages -d build",
     "fix": "concurrently \"npm:fix:*\"",
     "fix:eslint": "npx eslint --fix",
@@ -59,7 +59,6 @@
     "style-loader": "^4.0.0",
     "typescript": "^5.9.2",
     "webpack": "^5.101.0",
-    "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"
   }
 }
