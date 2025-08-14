@@ -52,7 +52,7 @@ $neonColor: (
 $neonSize: ('xl', 'l', 'm', 's', 'xs');
 
 /* Selector */
-.CompDivNeon {
+.neon-div {
   @each $name, $color in $neonColor {
     @each $size in $neonSize {
       &.#{$name}.#{$size} {
