@@ -19,16 +19,19 @@ interface Props {
    * @default {}
    */
   style?: React.CSSProperties;
+
   /**
    * Click event handler for the button.
    * @default () => {}
    */
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+
   /**
    * Size of the neon effect.
    * @default '2px'
    */
   neonSize?: string;
+
   /**
    * Whether to apply a hover effect.
    * @default false
