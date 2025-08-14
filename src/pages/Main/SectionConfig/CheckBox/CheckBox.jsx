@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CompFontNeon from '@/components/CompFontNeon';
+import NeonFont from '@/components/neon-font';
 
 import './CheckBox.scss';
 
@@ -11,7 +11,7 @@ import './CheckBox.scss';
  */
 export default function CheckBox({ children, onChange, isChecked }) {
   return (
-    <CompFontNeon
+    <NeonFont
       className="CheckBox"
       neonColor={isChecked ? 'banana' : 'black'}
       neonSize="s"
@@ -22,6 +22,6 @@ export default function CheckBox({ children, onChange, isChecked }) {
         <input type="checkbox" onChange={onChange} />
         <span>{children}</span>
       </label>
-    </CompFontNeon>
+    </NeonFont>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CompFontNeon from '@/components/CompFontNeon';
+import NeonFont from '@/components/neon-font';
 
 import './ButtonCount.scss';
 
@@ -11,7 +11,7 @@ import './ButtonCount.scss';
  */
 export default function ButtonCount({ children, onClick, count }) {
   return (
-    <CompFontNeon
+    <NeonFont
       className={`ButtonCount ${count >= 1 ? '' : 'off'}`}
       neonColor={count >= 1 ? 'banana' : 'black'}
       neonSize="s"
@@ -23,6 +23,6 @@ export default function ButtonCount({ children, onClick, count }) {
         <span>{children}</span>
         <span>{count}</span>
       </label>
-    </CompFontNeon>
+    </NeonFont>
   );
 }

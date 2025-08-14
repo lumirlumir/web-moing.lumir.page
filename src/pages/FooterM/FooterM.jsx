@@ -8,7 +8,7 @@
 
 import React from 'react';
 
-import CompFontNeon from '@/components/CompFontNeon';
+import NeonFont from '@/components/neon-font';
 
 import './FooterM.scss';
 
@@ -37,14 +37,14 @@ export default function FooterM({ scenario, timer }) {
 
   return (
     <footer className={`FooterM ${visibility ? '' : 'invisible'}`}>
-      <CompFontNeon
+      <NeonFont
         neonColor={getTimer().minute === 0 ? 'red' : 'white'}
         neonSize="s"
         fontFamily="audiowide"
         fontSize="35px"
       >
         {getTimer().timer}
-      </CompFontNeon>
+      </NeonFont>
     </footer>
   );
 }

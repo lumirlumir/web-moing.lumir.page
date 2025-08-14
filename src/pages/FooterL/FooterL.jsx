@@ -10,7 +10,7 @@ import React from 'react';
 import { GrPowerReset } from 'react-icons/gr';
 
 import NeonButton from '@/components/neon-button';
-import CompFontNeon from '@/components/CompFontNeon';
+import NeonFont from '@/components/neon-font';
 
 import './FooterL.scss';
 
@@ -44,9 +44,9 @@ export default function FooterL({ scenario }) {
       className={`FooterL ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
     >
       <NeonButton style={{ width: '60px', height: '60px' }} onClick={reload}>
-        <CompFontNeon neonColor="white">
+        <NeonFont neonColor="white">
           <GrPowerReset size="32px" />
-        </CompFontNeon>
+        </NeonFont>
       </NeonButton>
     </footer>
   );
