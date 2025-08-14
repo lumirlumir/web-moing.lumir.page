@@ -105,7 +105,7 @@ $neonColor: (
 $neonSize: ('xl', 'l', 'm', 's', 'xs');
 
 /* Selector */
-.CompFontNeon {
+.neon-font {
   @each $name, $color in $neonColor {
     @each $size in $neonSize {
       &.#{$name}.#{$size} {
