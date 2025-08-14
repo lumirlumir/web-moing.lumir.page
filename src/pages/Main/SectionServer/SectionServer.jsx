@@ -9,7 +9,7 @@
 import React, { useEffect, useLayoutEffect, useMemo } from 'react';
 import Typewriter from 'typewriter-effect';
 
-import CompDivNeon from '@/components/CompDivNeon';
+import NeonDiv from '@/components/neon-div';
 import useScroll from '@/hooks/useScroll';
 import useHistoryState from '@/hooks/useHistoryState';
 
@@ -72,7 +72,7 @@ export default function SectionServer({ scenario, config, interview, timer }) {
 
   /* Return */
   return (
-    <CompDivNeon
+    <NeonDiv
       className={`SectionServer ${visibility && !configState.visibility ? '' : 'invisible'} ${result ? 'wide' : ''}`}
       neonColor="black"
     >
@@ -99,6 +99,6 @@ export default function SectionServer({ scenario, config, interview, timer }) {
         />
       </div>
       <div className="ref" ref={scrollRef} />
-    </CompDivNeon>
+    </NeonDiv>
   );
 }
