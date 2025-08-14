@@ -1,5 +1,5 @@
 /**
- * @fileoverview App.
+ * @fileoverview app.
  */
 
 // --------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ import HeaderL from '@/pages/HeaderL';
 import HeaderR from '@/pages/HeaderR';
 import Main from '@/pages/Main';
 
-import './App.scss';
+import './app.scss';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -37,7 +37,7 @@ export default function App() {
   const timer = useTimer(interview.submit);
 
   return (
-    <div className="Start">
+    <div className="start">
       <HeaderL scenario={scenario} config={config} />
       <HeaderR scenario={scenario} interview={interview} />
       <Main scenario={scenario} config={config} interview={interview} timer={timer} />
