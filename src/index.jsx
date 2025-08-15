@@ -9,7 +9,7 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 
-import App from './App';
+import App from './app';
 
 import '@/styles/index.scss';
 
@@ -17,7 +17,7 @@ import '@/styles/index.scss';
 // Render
 // --------------------------------------------------------------------------------
 
-ReactDOM.createRoot(document.getElementById('App')).render(
+ReactDOM.createRoot(document.getElementById('app')).render(
   <StrictMode>
     <App />
   </StrictMode>,

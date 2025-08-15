@@ -1,16 +1,41 @@
+/**
+ * @fileoverview use-interview
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import { useCallback, useEffect } from 'react';
+import qs from 'qs';
 
-import useInterviewContent from '@/hooks/useInterviewContent';
-import useInterviewHistory from '@/hooks/useInterviewHistory';
-import useInterviewObj from '@/hooks/useInterviewObj';
-import useTrigger from '@/hooks/useTrigger';
+import useInterviewContent from '@/hooks/use-interview-content';
+import useInterviewHistory from '@/hooks/use-interview-history';
+import useInterviewObj from '@/hooks/use-interview-obj';
+import useTrigger from '@/hooks/use-trigger';
 
-import {
-  fetchQuestionMain,
-  fetchQuestionSub,
-  fetchAnswer,
-  fetchFeedback,
-} from '@/utils/openaiService';
+// --------------------------------------------------------------------------------
+// Helpers
+// --------------------------------------------------------------------------------
+
+const url = (path, obj) =>
+  `http://${process.env.BACKEND_IP}:${process.env.BACKEND_PORT}/${path}?${qs.stringify(obj)}`;
+
+const fetchQuestionMain = async (type, history) =>
+  (await (await fetch(url('question/main', { type, history }))).json())?.text;
+
+const fetchQuestionSub = async (question, answerUser) =>
+  (await (await fetch(url('question/sub', { question, answerUser }))).json())?.text;
+
+const fetchAnswer = async question =>
+  (await (await fetch(url('answer', { question }))).json())?.text;
+
+const fetchFeedback = async (answerSystem, answerUser) =>
+  (await (await fetch(url('feedback', { answerSystem, answerUser }))).json())?.text;
+
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
 
 export default function useInterview() {
   /* Hooks */

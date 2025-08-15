@@ -1,19 +1,19 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-import useContent from '@/hooks/useContent';
-import useSpeechToText from '@/hooks/useSpeechToText';
+import useContent from '@/hooks/use-content';
+import useSpeechRecognition from '@/hooks/use-speech-recognition';
 
 export default function useInterviewContent() {
   /* Hooks */
   // useContent
   const { contentRef, getTextContent, getHTMLContent, setHTMLContent } = useContent();
-  // useSpeechToText
+  // useSpeechRecognition
   const {
     transcript,
     listening,
     resetTranscript,
     toggleListening: toggle,
-  } = useSpeechToText();
+  } = useSpeechRecognition();
   // useRef
   const prevContent = useRef(null);
   // useEffect

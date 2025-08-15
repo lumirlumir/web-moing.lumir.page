@@ -8,7 +8,7 @@
 
 import React from 'react';
 
-import CompDivNeon from '@/components/CompDivNeon';
+import NeonDiv from '@/components/neon-div';
 
 import './SectionClient.scss';
 
@@ -36,7 +36,7 @@ export default function SectionClient({ scenario, interview }) {
   const { contentRef } = interview;
 
   return (
-    <CompDivNeon
+    <NeonDiv
       className={`SectionClient ${visibility ? '' : 'invisible'}`}
       neonColor="black"
     >
@@ -47,6 +47,6 @@ export default function SectionClient({ scenario, interview }) {
         spellCheck="false"
         placeholder="$ Interviewee"
       />
-    </CompDivNeon>
+    </NeonDiv>
   );
 }

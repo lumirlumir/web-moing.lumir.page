@@ -10,7 +10,7 @@ import React from 'react';
 import { CiMicrophoneOn } from 'react-icons/ci';
 
 import NeonButton from '@/components/neon-button';
-import CompFontNeon from '@/components/CompFontNeon';
+import NeonFont from '@/components/neon-font';
 
 import './HeaderR.scss';
 
@@ -50,9 +50,9 @@ export default function HeaderR({ scenario, interview }) {
         onClick={onClick}
         hoverEffect={listening}
       >
-        <CompFontNeon neonColor="white">
+        <NeonFont neonColor="white">
           <CiMicrophoneOn size="40px" />
-        </CompFontNeon>
+        </NeonFont>
       </NeonButton>
     </header>
   );
