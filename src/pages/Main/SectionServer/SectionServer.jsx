@@ -10,8 +10,8 @@ import React, { useEffect, useLayoutEffect, useMemo } from 'react';
 import Typewriter from 'typewriter-effect';
 
 import NeonDiv from '@/components/neon-div';
-import useScroll from '@/hooks/useScroll';
-import useHistoryState from '@/hooks/useHistoryState';
+import useScroll from '@/hooks/use-scroll';
+import useHistoryState from '@/hooks/use-history-state';
 
 import './SectionServer.scss';
 

@@ -8,10 +8,10 @@
 
 import React from 'react';
 
-import useScenario from '@/hooks/useScenario';
-import useConfig from '@/hooks/useConfig';
-import useInterview from '@/hooks/useInterview';
-import useTimer from '@/hooks/useTimer';
+import useScenario from '@/hooks/use-scenario';
+import useConfig from '@/hooks/use-config';
+import useInterview from '@/hooks/use-interview';
+import useTimer from '@/hooks/use-timer';
 
 import FooterL from '@/pages/FooterL';
 import FooterM from '@/pages/FooterM';

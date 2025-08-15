@@ -9,10 +9,10 @@
 import { useCallback, useEffect } from 'react';
 import qs from 'qs';
 
-import useInterviewContent from '@/hooks/useInterviewContent';
-import useInterviewHistory from '@/hooks/useInterviewHistory';
-import useInterviewObj from '@/hooks/useInterviewObj';
-import useTrigger from '@/hooks/useTrigger';
+import useInterviewContent from '@/hooks/use-interview-content';
+import useInterviewHistory from '@/hooks/use-interview-history';
+import useInterviewObj from '@/hooks/use-interview-obj';
+import useTrigger from '@/hooks/use-trigger';
 
 // --------------------------------------------------------------------------------
 // Helpers

@@ -1,10 +1,12 @@
 import { useCallback } from 'react';
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import SpeechRecognition, {
+  useSpeechRecognition as _useSpeechRecognition,
+} from 'react-speech-recognition';
 
-export default function useSpeechToText() {
+export default function useSpeechRecognition() {
   /* Hooks */
   // useSpeechRecognition
-  const { transcript, listening, resetTranscript } = useSpeechRecognition();
+  const { transcript, listening, resetTranscript } = _useSpeechRecognition();
 
   /* Func */
   const toggleListening = useCallback(() => {
