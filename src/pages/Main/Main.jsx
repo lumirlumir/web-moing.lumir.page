@@ -8,7 +8,7 @@
 
 import React, { useEffect } from 'react';
 
-import useScroll from '@/hooks/useScroll';
+import useScroll from '@/hooks/use-scroll';
 
 import ButtonMain from './ButtonMain';
 import Heading from './Heading';

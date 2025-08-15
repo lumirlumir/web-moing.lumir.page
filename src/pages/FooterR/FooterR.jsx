@@ -10,7 +10,7 @@ import React from 'react';
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
 import NeonButton from '@/components/neon-button';
-import CompFontNeon from '@/components/CompFontNeon';
+import NeonFont from '@/components/neon-font';
 
 import './FooterR.scss';
 
@@ -49,9 +49,9 @@ export default function FooterR({ scenario, interview, timer }) {
       className={`FooterR ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
     >
       <NeonButton style={{ width: '60px', height: '60px' }} onClick={onClick}>
-        <CompFontNeon neonColor="white">
+        <NeonFont neonColor="white">
           <IoIosCheckmarkCircleOutline size="39px" />
-        </CompFontNeon>
+        </NeonFont>
       </NeonButton>
     </footer>
   );

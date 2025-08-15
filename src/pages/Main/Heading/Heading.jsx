@@ -8,7 +8,7 @@
 
 import React from 'react';
 
-import CompFontNeon from '@/components/CompFontNeon';
+import NeonFont from '@/components/neon-font';
 
 import './Heading.scss';
 
@@ -36,14 +36,14 @@ export default function Heading({ scenario }) {
   return (
     <div className={`Heading ${visibility ? '' : 'invisible'}`}>
       <div className="mock">
-        <CompFontNeon neonColor="blue" neonSize="m" fontFamily="Pacifico" fontSize="50px">
+        <NeonFont neonColor="blue" neonSize="m" fontFamily="Pacifico" fontSize="50px">
           <h1>Mock</h1>
-        </CompFontNeon>
+        </NeonFont>
       </div>
       <div className="interview">
-        <CompFontNeon neonColor="purple" fontFamily="Audiowide" fontSize="100px">
+        <NeonFont neonColor="purple" fontFamily="Audiowide" fontSize="100px">
           <h1>Interview</h1>
-        </CompFontNeon>
+        </NeonFont>
       </div>
     </div>
   );

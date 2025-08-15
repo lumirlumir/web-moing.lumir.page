@@ -8,7 +8,7 @@
 
 import React from 'react';
 
-import CompDivNeon from '@/components/CompDivNeon';
+import NeonDiv from '@/components/neon-div';
 
 import ButtonCount from './ButtonCount';
 import CheckBox from './CheckBox';
@@ -49,7 +49,7 @@ export default function SectionConfig({ config }) {
 
   /* Return */
   return (
-    <CompDivNeon
+    <NeonDiv
       className={`SectionConfig ${configState.visibility ? '' : 'invisible'}`}
       neonSize="m"
       neonColor="banana"
@@ -91,6 +91,6 @@ export default function SectionConfig({ config }) {
           </ButtonCount>
         </div>
       </div>
-    </CompDivNeon>
+    </NeonDiv>
   );
 }

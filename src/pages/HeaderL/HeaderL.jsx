@@ -10,7 +10,7 @@ import React from 'react';
 import { GoGear } from 'react-icons/go';
 
 import NeonButton from '@/components/neon-button';
-import CompFontNeon from '@/components/CompFontNeon';
+import NeonFont from '@/components/neon-font';
 
 import './HeaderL.scss';
 
@@ -47,9 +47,9 @@ export default function HeaderL({ scenario, config }) {
           handleConfigState({ visibility: !configState.visibility });
         }}
       >
-        <CompFontNeon neonColor="white">
+        <NeonFont neonColor="white">
           <GoGear size="35px" />
-        </CompFontNeon>
+        </NeonFont>
       </NeonButton>
     </header>
   );
