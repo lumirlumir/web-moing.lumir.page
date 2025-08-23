@@ -9,9 +9,9 @@
 import React from 'react';
 
 import NeonDiv from '@/components/neon-div';
+import NeonFont from '@/components/neon-font';
 import useConfig from '@/hooks/use-config';
 
-import ButtonCount from './ButtonCount';
 import CheckBox from './CheckBox';
 
 import './SectionConfig.scss';
@@ -22,6 +22,28 @@ import './SectionConfig.scss';
 
 interface Props {
   config: ReturnType<typeof useConfig>;
+}
+
+// --------------------------------------------------------------------------------
+// Helpers
+// --------------------------------------------------------------------------------
+
+function ButtonCount({ children, onClick, count }) {
+  return (
+    <NeonFont
+      className={`ButtonCount ${count >= 1 ? '' : 'off'}`}
+      neonColor={count >= 1 ? 'banana' : 'black'}
+      neonSize="s"
+      fontFamily="Audiowide"
+      fontSize="40px"
+    >
+      <label>
+        <input type="button" onClick={onClick} />
+        <span>{children}</span>
+        <span>{count}</span>
+      </label>
+    </NeonFont>
+  );
 }
 
 // --------------------------------------------------------------------------------
