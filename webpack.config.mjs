@@ -65,7 +65,7 @@ const webpackConfig = {
             loader: 'sass-loader',
             options: {
               additionalData:
-                "@import '@/styles/utils/mixins.scss';\n@import '@/styles/utils/variables.scss';",
+                "@import '@/styles/mixins.scss';\n@import '@/styles/variables.scss';",
             },
           },
         ],
