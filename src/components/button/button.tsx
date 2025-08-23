@@ -1,5 +1,5 @@
 /**
- * @fileoverview footer-l
+ * @fileoverview button
  */
 
 // --------------------------------------------------------------------------------
@@ -7,13 +7,12 @@
 // --------------------------------------------------------------------------------
 
 import React from 'react';
-import { GrPowerReset } from 'react-icons/gr';
 
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
 import useScenario from '@/hooks/use-scenario';
 
-import './footer-l.scss';
+import './button.scss';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -21,29 +20,30 @@ import './footer-l.scss';
 
 interface Props {
   scenario: ReturnType<typeof useScenario>;
+  type: 'HeaderL' | 'HeaderR' | 'FooterL' | 'FooterR';
+  Icon: React.ReactElement;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-export default function FooterL({ scenario }: Props): React.JSX.Element {
-  const { visibility, clickability } = scenario.getSectionObj().FooterL;
+export default function Button({
+  scenario,
+  type,
+  Icon,
+  onClick,
+}: Props): React.JSX.Element {
+  const { visibility, clickability } = scenario.getSectionObj()[type];
 
   return (
-    <footer
-      className={`footer-l ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
+    <div
+      className={`${type} button ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
     >
-      <NeonButton
-        style={{ width: '60px', height: '60px' }}
-        onClick={() => {
-          window.location.reload();
-        }}
-      >
-        <NeonFont neonColor="white">
-          <GrPowerReset size="32px" />
-        </NeonFont>
+      <NeonButton style={{ width: '60px', height: '60px' }} onClick={onClick}>
+        <NeonFont neonColor="white">{Icon}</NeonFont>
       </NeonButton>
-    </footer>
+    </div>
   );
 }

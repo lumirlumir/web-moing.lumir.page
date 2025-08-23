@@ -16,4 +16,8 @@
   display: grid;
   grid-template-columns: $grid-width 1fr $grid-width;
   grid-template-rows: $grid-height 1fr $grid-height;
+
+  .FooterL {
+    grid-area: 3 / 1 / 4 / 2;
+  }
 }
