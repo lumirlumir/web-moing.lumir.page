@@ -41,10 +41,10 @@ export default function SectionClient({ scenario, interview }) {
       neonColor="black"
     >
       <div
-        // @ts-expect-error -- TODO: Fix type error
         ref={contentRef}
         contentEditable="true"
         spellCheck="false"
+        // @ts-expect-error -- TODO: Fix type error
         placeholder="$ Interviewee"
       />
     </NeonDiv>
