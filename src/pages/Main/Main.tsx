@@ -8,7 +8,10 @@
 
 import React, { useEffect } from 'react';
 
+import useScenario from '@/hooks/use-scenario';
 import useConfig from '@/hooks/use-config';
+import useInterview from '@/hooks/use-interview';
+import useTimer from '@/hooks/use-timer';
 import useScroll from '@/hooks/use-scroll';
 
 import ButtonMain from './ButtonMain';
@@ -17,8 +20,6 @@ import SectionConfig from './SectionConfig';
 import SectionServer from './SectionServer';
 import SectionClient from './SectionClient';
 
-import type { Scenario, Interview, Timer } from '@/core/types';
-
 import './Main.scss';
 
 // --------------------------------------------------------------------------------
@@ -26,10 +27,10 @@ import './Main.scss';
 // --------------------------------------------------------------------------------
 
 interface Props {
-  scenario: Scenario;
+  scenario: ReturnType<typeof useScenario>;
   config: ReturnType<typeof useConfig>;
-  interview: Interview;
-  timer: Timer;
+  interview: ReturnType<typeof useInterview>;
+  timer: ReturnType<typeof useTimer>;
 }
 
 // --------------------------------------------------------------------------------

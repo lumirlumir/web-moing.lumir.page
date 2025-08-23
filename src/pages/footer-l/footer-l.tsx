@@ -11,8 +11,7 @@ import { GrPowerReset } from 'react-icons/gr';
 
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
-
-import type { Scenario } from '@/core/types';
+import useScenario from '@/hooks/use-scenario';
 
 import './footer-l.scss';
 
@@ -21,7 +20,7 @@ import './footer-l.scss';
 // --------------------------------------------------------------------------------
 
 interface Props {
-  scenario: Scenario;
+  scenario: ReturnType<typeof useScenario>;
 }
 
 // --------------------------------------------------------------------------------

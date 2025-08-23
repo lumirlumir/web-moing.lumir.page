@@ -11,6 +11,9 @@ import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
+import useScenario from '@/hooks/use-scenario';
+import useInterview from '@/hooks/use-interview';
+import useTimer from '@/hooks/use-timer';
 
 import './FooterR.scss';
 
@@ -18,23 +21,21 @@ import './FooterR.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-/**
- * @import { Scenario, Interview, Timer } from '@/core/types';
- */
+interface Props {
+  scenario: ReturnType<typeof useScenario>;
+  interview: ReturnType<typeof useInterview>;
+  timer: ReturnType<typeof useTimer>;
+}
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/**
- * Component `FooterR`.
- * @param {object} props
- * @param {Scenario} props.scenario
- * @param {Interview} props.interview
- * @param {Timer} props.timer
- * @returns {React.JSX.Element}
- */
-export default function FooterR({ scenario, interview, timer }) {
+export default function FooterR({
+  scenario,
+  interview,
+  timer,
+}: Props): React.JSX.Element {
   const { visibility, clickability } = scenario.getSectionObj().FooterR;
   const { submit } = interview;
   const { stopTimer } = timer;

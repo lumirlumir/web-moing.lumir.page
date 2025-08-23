@@ -9,6 +9,8 @@
 import React from 'react';
 
 import NeonDiv from '@/components/neon-div';
+import useScenario from '@/hooks/use-scenario';
+import useInterview from '@/hooks/use-interview';
 
 import './SectionClient.scss';
 
@@ -16,22 +18,16 @@ import './SectionClient.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-/**
- * @import { Scenario, Interview } from '@/core/types';
- */
+interface Props {
+  scenario: ReturnType<typeof useScenario>;
+  interview: ReturnType<typeof useInterview>;
+}
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/**
- * Component `SectionClient`.
- * @param {object} props
- * @param {Scenario} props.scenario
- * @param {Interview} props.interview
- * @returns {React.JSX.Element}
- */
-export default function SectionClient({ scenario, interview }) {
+export default function SectionClient({ scenario, interview }: Props): React.JSX.Element {
   const { visibility } = scenario.getSectionObj().Main.SectionClient;
   const { contentRef } = interview;
 

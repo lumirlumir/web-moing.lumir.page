@@ -11,8 +11,8 @@ import React, { useCallback, useMemo } from 'react';
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
 import useConfig from '@/hooks/use-config';
-
-import type { Scenario, Interview } from '@/core/types';
+import useScenario from '@/hooks/use-scenario';
+import useInterview from '@/hooks/use-interview';
 
 import './ButtonMain.scss';
 
@@ -21,9 +21,9 @@ import './ButtonMain.scss';
 // --------------------------------------------------------------------------------
 
 interface Props {
-  scenario: Scenario;
+  scenario: ReturnType<typeof useScenario>;
   config: ReturnType<typeof useConfig>;
-  interview: Interview;
+  interview: ReturnType<typeof useInterview>;
 }
 
 // --------------------------------------------------------------------------------

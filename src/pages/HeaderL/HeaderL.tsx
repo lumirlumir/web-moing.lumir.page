@@ -12,8 +12,7 @@ import { GoGear } from 'react-icons/go';
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
 import useConfig from '@/hooks/use-config';
-
-import type { Scenario } from '@/core/types';
+import useScenario from '@/hooks/use-scenario';
 
 import './HeaderL.scss';
 
@@ -22,7 +21,7 @@ import './HeaderL.scss';
 // --------------------------------------------------------------------------------
 
 interface Props {
-  scenario: Scenario;
+  scenario: ReturnType<typeof useScenario>;
   config: ReturnType<typeof useConfig>;
 }
 
