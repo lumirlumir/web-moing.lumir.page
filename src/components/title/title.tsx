@@ -11,7 +11,7 @@ import React from 'react';
 import NeonFont from '@/components/neon-font';
 import useScenario from '@/hooks/use-scenario';
 
-import './Heading.scss';
+import './title.scss';
 
 // --------------------------------------------------------------------------------
 // Typedefs

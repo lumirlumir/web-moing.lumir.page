@@ -14,7 +14,7 @@ import useConfig from '@/hooks/use-config';
 import useScenario from '@/hooks/use-scenario';
 import useInterview from '@/hooks/use-interview';
 
-import './ButtonMain.scss';
+import './main-button.scss';
 
 // --------------------------------------------------------------------------------
 // Typedefs

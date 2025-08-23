@@ -12,7 +12,7 @@ import NeonDiv from '@/components/neon-div';
 import useScenario from '@/hooks/use-scenario';
 import useInterview from '@/hooks/use-interview';
 
-import './SectionClient.scss';
+import './section-client.scss';
 
 // --------------------------------------------------------------------------------
 // Typedefs
