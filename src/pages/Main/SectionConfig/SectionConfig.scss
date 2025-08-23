@@ -48,3 +48,25 @@
     }
   }
 }
+
+.CheckBox {
+  /* Property */
+  margin: 0 20px;
+
+  /* Selector */
+  > label {
+    /* Property */
+    cursor: pointer;
+
+    /* Selector */
+    > input[type='checkbox'] {
+      display: none;
+    }
+    > input[type='checkbox'] + span {
+      color: $color-text-inversion;
+    }
+    > input[type='checkbox']:checked + span {
+      color: $color-text;
+    }
+  }
+}

@@ -12,8 +12,6 @@ import NeonDiv from '@/components/neon-div';
 import NeonFont from '@/components/neon-font';
 import useConfig from '@/hooks/use-config';
 
-import CheckBox from './CheckBox';
-
 import './SectionConfig.scss';
 
 // --------------------------------------------------------------------------------
@@ -41,6 +39,23 @@ function ButtonCount({ children, onClick, count }) {
         <input type="button" onClick={onClick} />
         <span>{children}</span>
         <span>{count}</span>
+      </label>
+    </NeonFont>
+  );
+}
+
+function CheckBox({ children, onChange, isChecked }) {
+  return (
+    <NeonFont
+      className="CheckBox"
+      neonColor={isChecked ? 'banana' : 'black'}
+      neonSize="s"
+      fontFamily="Audiowide"
+      fontSize="40px"
+    >
+      <label>
+        <input type="checkbox" onChange={onChange} />
+        <span>{children}</span>
       </label>
     </NeonFont>
   );
