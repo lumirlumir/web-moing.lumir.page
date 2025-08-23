@@ -40,8 +40,7 @@ const fetchFeedback = async (answerSystem, answerUser) =>
 export default function useInterview() {
   /* Hooks */
   // useInterviewContent
-  const { contentRef, getTextContent, setHTMLContent, listening, toggleListening } =
-    useInterviewContent();
+  const { contentRef, listening, toggleListening } = useInterviewContent();
   // useInterviewHistory
   const {
     interviewHistoryRef,
@@ -148,9 +147,10 @@ export default function useInterview() {
     [initInterviewHistory, trigger],
   );
   const submit = useCallback(() => {
-    addInterviewObj({ answerUser: getTextContent() });
-    setHTMLContent('');
-  }, [getTextContent, setHTMLContent, addInterviewObj]);
+    addInterviewObj({ answerUser: contentRef.current.innerText });
+    // eslint-disable-next-line react-hooks/react-compiler -- TODO: It's Ref so safe.
+    contentRef.current.innerHTML = '';
+  }, [contentRef, addInterviewObj]);
 
   /* Return */
   return {
