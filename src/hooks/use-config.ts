@@ -75,6 +75,8 @@ export interface Config {
 // Export
 // --------------------------------------------------------------------------------
 
+export const questionTypes = ['cs', 'fe', 'be', 'db', 'oop'] as const;
+
 export default function useConfig() {
   const [configState, setConfigState] = useState<Config>({
     visibility: false,

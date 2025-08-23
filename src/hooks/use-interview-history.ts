@@ -1,6 +1,5 @@
 import { useCallback, useRef } from 'react';
-
-import type { Config } from '@/hooks/use-config';
+import { questionTypes, type Config } from '@/hooks/use-config';
 
 /**
  *
@@ -14,10 +13,9 @@ export default function useInterviewHistory() {
 
   /* Func */
   const initInterviewHistory = useCallback((configState: Config) => {
-    const { cs, fe, be, db, oop, main, sub } = configState;
-    const questionType = { cs, fe, be, db, oop };
+    const { main, sub } = configState;
 
-    questionTypeRef.current = Object.keys(questionType).filter(key => questionType[key]); // Extract only the keys with true values
+    questionTypeRef.current = questionTypes.filter(key => configState[key]); // Extract only the keys with true values
     rowRef.current = main;
     colRef.current = sub + 1;
   }, []);

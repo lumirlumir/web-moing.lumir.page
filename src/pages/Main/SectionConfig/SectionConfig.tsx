@@ -10,7 +10,7 @@ import React from 'react';
 
 import NeonDiv from '@/components/neon-div';
 import NeonFont from '@/components/neon-font';
-import useConfig from '@/hooks/use-config';
+import useConfig, { questionTypes } from '@/hooks/use-config';
 
 import './SectionConfig.scss';
 
@@ -67,7 +67,6 @@ function CheckBox({ children, onChange, isChecked }) {
 
 export default function SectionConfig({ config }: Props): React.JSX.Element {
   const { configState, handleConfigState } = config;
-  const questionTypeKeys = ['cs', 'fe', 'be', 'db', 'oop'];
 
   /* Func */
   const handleButtonCount = (e, key) => {
@@ -87,7 +86,7 @@ export default function SectionConfig({ config }: Props): React.JSX.Element {
     >
       <div>
         <div>
-          {questionTypeKeys.map(key => (
+          {questionTypes.map(key => (
             <CheckBox
               key={key}
               onChange={() =>
