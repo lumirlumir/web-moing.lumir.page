@@ -13,7 +13,7 @@ import useConfig from '@/hooks/use-config';
 import useInterview from '@/hooks/use-interview';
 import useTimer from '@/hooks/use-timer';
 
-import FooterL from '@/pages/FooterL';
+import FooterL from '@/pages/footer-l';
 import FooterM from '@/pages/FooterM';
 import FooterR from '@/pages/FooterR';
 import HeaderL from '@/pages/HeaderL';
