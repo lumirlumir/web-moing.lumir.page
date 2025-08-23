@@ -10,7 +10,8 @@ import React from 'react';
 
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
-import useScenario from '@/hooks/use-scenario';
+
+import type useScenario from '@/hooks/use-scenario';
 
 import './button.scss';
 
@@ -19,9 +20,9 @@ import './button.scss';
 // --------------------------------------------------------------------------------
 
 interface Props {
-  scenario: ReturnType<typeof useScenario>;
   type: 'HeaderL' | 'HeaderR' | 'FooterL' | 'FooterR';
-  Icon: React.ReactElement;
+  icon: React.ReactElement;
+  scenario: ReturnType<typeof useScenario>;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -30,9 +31,9 @@ interface Props {
 // --------------------------------------------------------------------------------
 
 export default function Button({
-  scenario,
   type,
-  Icon,
+  icon,
+  scenario,
   onClick,
 }: Props): React.JSX.Element {
   const { visibility, clickability } = scenario.getSectionObj()[type];
@@ -42,7 +43,7 @@ export default function Button({
       className={`${type} button ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
     >
       <NeonButton style={{ width: '60px', height: '60px' }} onClick={onClick}>
-        <NeonFont neonColor="white">{Icon}</NeonFont>
+        <NeonFont neonColor="white">{icon}</NeonFont>
       </NeonButton>
     </div>
   );

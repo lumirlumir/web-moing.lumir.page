@@ -39,9 +39,9 @@ export default function App(): React.JSX.Element {
       <HeaderR scenario={scenario} interview={interview} />
       <Main scenario={scenario} config={config} interview={interview} timer={timer} />
       <Button
-        scenario={scenario}
         type="FooterL"
-        Icon={<GrPowerReset size="32px" />}
+        icon={<GrPowerReset size="32px" />}
+        scenario={scenario}
         onClick={() => {
           window.location.reload();
         }}
