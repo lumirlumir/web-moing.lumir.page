@@ -1,5 +1,5 @@
 /**
- * @fileoverview FooterM.
+ * @fileoverview timer
  */
 
 // --------------------------------------------------------------------------------
@@ -12,7 +12,7 @@ import NeonFont from '@/components/neon-font';
 import useScenario from '@/hooks/use-scenario';
 import useTimer from '@/hooks/use-timer';
 
-import './FooterM.scss';
+import './timer.scss';
 
 // --------------------------------------------------------------------------------
 // Typedefs
@@ -32,7 +32,7 @@ export default function FooterM({ scenario, timer }: Props): React.JSX.Element {
   const { getTimer } = timer;
 
   return (
-    <footer className={`FooterM ${visibility ? '' : 'invisible'}`}>
+    <footer className={`timer ${visibility ? '' : 'invisible'}`}>
       <NeonFont
         neonColor={getTimer().minute === 0 ? 'red' : 'white'}
         neonSize="s"

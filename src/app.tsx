@@ -13,12 +13,12 @@ import { GrPowerReset } from 'react-icons/gr';
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
 import Button from '@/components/button';
+import Timer from '@/components/timer';
 import useScenario from '@/hooks/use-scenario';
 import useConfig from '@/hooks/use-config';
 import useInterview from '@/hooks/use-interview';
 import useTimer from '@/hooks/use-timer';
 
-import FooterM from '@/pages/FooterM';
 import Main from '@/pages/Main';
 
 import './app.scss';
@@ -70,7 +70,7 @@ export default function App(): React.JSX.Element {
         }}
       />
 
-      <FooterM scenario={scenario} timer={timer} />
+      <Timer scenario={scenario} timer={timer} />
 
       <Main scenario={scenario} config={config} interview={interview} timer={timer} />
     </div>

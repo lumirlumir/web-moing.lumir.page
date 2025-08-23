@@ -1,7 +1,5 @@
-footer.FooterM {
+.timer {
   @include prop-flex;
   @include prop-transition;
   @include selector-invisible;
-
-  grid-area: 3 / 2 / 4 / 3;
 }
