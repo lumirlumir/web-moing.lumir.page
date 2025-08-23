@@ -48,7 +48,7 @@ export default function SectionServer({ scenario, config, interview, timer }) {
 
   /* Hooks */
   // custom
-  const { scrollRef, scroll } = useScroll();
+  const { scrollRef, scroll } = useScroll<HTMLDivElement>();
   const { historyState, addHistory } = useHistoryState();
   // useMemo
   const text = useMemo(() => {
