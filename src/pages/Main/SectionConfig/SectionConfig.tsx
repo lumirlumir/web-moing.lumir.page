@@ -9,6 +9,7 @@
 import React from 'react';
 
 import NeonDiv from '@/components/neon-div';
+import useConfig from '@/hooks/use-config';
 
 import ButtonCount from './ButtonCount';
 import CheckBox from './CheckBox';
@@ -19,24 +20,17 @@ import './SectionConfig.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-/**
- * @import { Config } from '@/core/types';
- */
+interface Props {
+  config: ReturnType<typeof useConfig>;
+}
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/**
- * Component `SectionConfig`.
- * @param {object} props
- * @param {Config} props.config
- * @returns {React.JSX.Element}
- */
-export default function SectionConfig({ config }) {
-  /* Props */
+export default function SectionConfig({ config }: Props): React.JSX.Element {
   const { configState, handleConfigState } = config;
-  const questionTypeKeys = Object.keys(configState.questionType);
+  const questionTypeKeys = ['cs', 'fe', 'be', 'db', 'oop'];
 
   /* Func */
   const handleButtonCount = (e, key) => {
@@ -61,10 +55,10 @@ export default function SectionConfig({ config }) {
               key={key}
               onChange={() =>
                 handleConfigState({
-                  questionType: { [key]: !configState.questionType[key] },
+                  [key]: !configState[key],
                 })
               }
-              isChecked={configState.questionType[key]}
+              isChecked={configState[key]}
             >
               {key.toUpperCase()}
             </CheckBox>
@@ -72,20 +66,17 @@ export default function SectionConfig({ config }) {
         </div>
         <div>
           <ButtonCount
-            onClick={e => handleButtonCount(e, 'questionMain')}
-            count={configState.questionMain}
+            onClick={e => handleButtonCount(e, 'main')}
+            count={configState.main}
           >
             QUESTION-MAIN:
           </ButtonCount>
-          <ButtonCount
-            onClick={e => handleButtonCount(e, 'questionSub')}
-            count={configState.questionSub}
-          >
+          <ButtonCount onClick={e => handleButtonCount(e, 'sub')} count={configState.sub}>
             QUESTION-SUB:
           </ButtonCount>
           <ButtonCount
-            onClick={e => handleButtonCount(e, 'timeLimit')}
-            count={configState.timeLimit}
+            onClick={e => handleButtonCount(e, 'time')}
+            count={configState.time}
           >
             TIME-LIMIT:
           </ButtonCount>

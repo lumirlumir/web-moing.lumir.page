@@ -11,29 +11,26 @@ import { GoGear } from 'react-icons/go';
 
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
+import useConfig from '@/hooks/use-config';
+
+import type { Scenario } from '@/core/types';
 
 import './HeaderL.scss';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Import
 // --------------------------------------------------------------------------------
 
-/**
- * @import { Scenario, Config } from '@/core/types';
- */
+interface Props {
+  scenario: Scenario;
+  config: ReturnType<typeof useConfig>;
+}
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/**
- * Component `HeaderL`.
- * @param {object} props
- * @param {Scenario} props.scenario
- * @param {Config} props.config
- * @returns {React.JSX.Element}
- */
-export default function HeaderL({ scenario, config }) {
+export default function HeaderL({ scenario, config }: Props): React.JSX.Element {
   const { visibility, clickability } = scenario.getSectionObj().HeaderL;
   const { configState, handleConfigState } = config;
 

@@ -8,6 +8,7 @@
 
 import React, { useEffect } from 'react';
 
+import useConfig from '@/hooks/use-config';
 import useScroll from '@/hooks/use-scroll';
 
 import ButtonMain from './ButtonMain';
@@ -16,43 +17,39 @@ import SectionConfig from './SectionConfig';
 import SectionServer from './SectionServer';
 import SectionClient from './SectionClient';
 
+import type { Scenario, Interview, Timer } from '@/core/types';
+
 import './Main.scss';
 
 // --------------------------------------------------------------------------------
 // Typedefs
 // --------------------------------------------------------------------------------
 
-/**
- * @import { Scenario, Config, Interview, Timer } from '@/core/types';
- */
+interface Props {
+  scenario: Scenario;
+  config: ReturnType<typeof useConfig>;
+  interview: Interview;
+  timer: Timer;
+}
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/**
- * Component `Main`.
- * @param {object} props
- * @param {Scenario} props.scenario
- * @param {Config} props.config
- * @param {Interview} props.interview
- * @param {Timer} props.timer
- * @returns {React.JSX.Element}
- */
-export default function Main({ scenario, config, interview, timer }) {
-  /* Props */
+export default function Main({
+  scenario,
+  config,
+  interview,
+  timer,
+}: Props): React.JSX.Element {
   const { subsectionState } = scenario;
-
-  /* Hooks */
-  // useScroll
   const { scrollRef, scroll } = useScroll<HTMLDivElement>();
-  // useEffect
+
   useEffect(() => {
     const timeout = setTimeout(scroll, 2000);
     return () => clearTimeout(timeout);
   }, [subsectionState, scroll]);
 
-  /* Return */
   return (
     <main className="Main">
       <div ref={scrollRef}>

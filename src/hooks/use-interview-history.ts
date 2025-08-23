@@ -2,26 +2,26 @@ import { useCallback, useRef } from 'react';
 
 import useHistoryRef from '@/hooks/use-history-ref';
 
+import type { Config } from '@/hooks/use-config';
+
 /**
  *
  * @returns
  */
 export default function useInterviewHistory() {
-  /* Hooks */
-  // useHistoryRef
   const { historyRef, addHistory } = useHistoryRef();
-  // useRef
-  const questionTypeRef = useRef([]); // array
-  const rowRef = useRef(null); // number
-  const colRef = useRef(null); // number
+  const questionTypeRef = useRef<string[]>([]);
+  const rowRef = useRef<number | null>(null);
+  const colRef = useRef<number | null>(null);
 
   /* Func */
-  const initInterviewHistory = useCallback(configState => {
-    const { questionType, questionMain, questionSub } = configState;
+  const initInterviewHistory = useCallback((configState: Config) => {
+    const { cs, fe, be, db, oop, main, sub } = configState;
+    const questionType = { cs, fe, be, db, oop };
 
     questionTypeRef.current = Object.keys(questionType).filter(key => questionType[key]); // Extract only the keys with true values
-    rowRef.current = questionMain;
-    colRef.current = questionSub + 1;
+    rowRef.current = main;
+    colRef.current = sub + 1;
   }, []);
   const isQuestionMain = useCallback(
     () => historyRef.current.length % colRef.current === 0,

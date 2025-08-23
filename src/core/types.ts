@@ -9,24 +9,6 @@ export interface Scenario {
   toLastSection: Function;
 }
 
-export interface Config {
-  configState: {
-    visibility: boolean;
-    questionType: {
-      cs: boolean;
-      fe: boolean;
-      be: boolean;
-      db: boolean;
-      oop: boolean;
-    };
-    questionMain: number;
-    questionSub: number;
-    timeLimit: number;
-  };
-  handleConfigState: Function;
-  isConfigDone: Function;
-}
-
 export interface Interview {
   contentRef: React.RefObject<HTMLElement>;
   listening: boolean;
