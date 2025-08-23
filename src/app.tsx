@@ -12,14 +12,13 @@ import { CiMicrophoneOn } from 'react-icons/ci';
 import { GrPowerReset } from 'react-icons/gr';
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
+import ButtonMain from '@/components/ButtonMain';
+import Heading from '@/components/Heading';
+import SectionClient from '@/components/SectionClient';
+import SectionConfig from '@/components/SectionConfig';
+import SectionServer from '@/components/SectionServer';
 import Button from '@/components/button';
 import Timer from '@/components/timer';
-
-import ButtonMain from '@/main/ButtonMain';
-import Heading from '@/main/Heading';
-import SectionClient from '@/main/SectionClient';
-import SectionConfig from '@/main/SectionConfig';
-import SectionServer from '@/main/SectionServer';
 
 import useScenario from '@/hooks/use-scenario';
 import useConfig from '@/hooks/use-config';
