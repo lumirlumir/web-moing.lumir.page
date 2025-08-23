@@ -15,9 +15,9 @@ import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 import ButtonMain from '@/components/ButtonMain';
 import Heading from '@/components/Heading';
 import SectionClient from '@/components/SectionClient';
-import SectionConfig from '@/components/SectionConfig';
 
 import Button from '@/components/button';
+import SectionConfig from '@/components/section-config';
 import SectionServer from '@/components/section-server';
 import Timer from '@/components/timer';
 

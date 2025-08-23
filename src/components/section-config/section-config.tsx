@@ -12,7 +12,7 @@ import NeonDiv from '@/components/neon-div';
 import NeonFont from '@/components/neon-font';
 import useConfig, { questionTypes } from '@/hooks/use-config';
 
-import './SectionConfig.scss';
+import './section-config.scss';
 
 // --------------------------------------------------------------------------------
 // Typedefs
