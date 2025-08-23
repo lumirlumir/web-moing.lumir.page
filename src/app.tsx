@@ -16,8 +16,9 @@ import ButtonMain from '@/components/ButtonMain';
 import Heading from '@/components/Heading';
 import SectionClient from '@/components/SectionClient';
 import SectionConfig from '@/components/SectionConfig';
-import SectionServer from '@/components/section-server';
+
 import Button from '@/components/button';
+import SectionServer from '@/components/section-server';
 import Timer from '@/components/timer';
 
 import useScenario from '@/hooks/use-scenario';
