@@ -8,6 +8,7 @@
 
 import React from 'react';
 import { GoGear } from 'react-icons/go';
+import { CiMicrophoneOn } from 'react-icons/ci';
 import { GrPowerReset } from 'react-icons/gr';
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
@@ -18,7 +19,6 @@ import useInterview from '@/hooks/use-interview';
 import useTimer from '@/hooks/use-timer';
 
 import FooterM from '@/pages/FooterM';
-import HeaderR from '@/pages/HeaderR';
 import Main from '@/pages/Main';
 
 import './app.scss';
@@ -43,7 +43,15 @@ export default function App(): React.JSX.Element {
           config.handleConfigState({ visibility: !config.configState.visibility });
         }}
       />
-      <HeaderR scenario={scenario} interview={interview} />
+      <Button
+        type="HeaderR"
+        icon={<CiMicrophoneOn size="40px" />}
+        hoverEffect={interview.listening}
+        scenario={scenario}
+        onClick={() => {
+          interview.toggleListening();
+        }}
+      />
       <Button
         type="FooterL"
         icon={<GrPowerReset size="32px" />}

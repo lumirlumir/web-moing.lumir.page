@@ -22,6 +22,7 @@ import './button.scss';
 interface Props {
   type: 'HeaderL' | 'HeaderR' | 'FooterL' | 'FooterR';
   icon: React.ReactElement;
+  hoverEffect?: boolean;
   scenario: ReturnType<typeof useScenario>;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
@@ -33,6 +34,7 @@ interface Props {
 export default function Button({
   type,
   icon,
+  hoverEffect,
   scenario,
   onClick,
 }: Props): React.JSX.Element {
@@ -42,7 +44,11 @@ export default function Button({
     <div
       className={`${type} button ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
     >
-      <NeonButton style={{ width: '60px', height: '60px' }} onClick={onClick}>
+      <NeonButton
+        style={{ width: '60px', height: '60px' }}
+        onClick={onClick}
+        hoverEffect={hoverEffect}
+      >
         <NeonFont neonColor="white">{icon}</NeonFont>
       </NeonButton>
     </div>
