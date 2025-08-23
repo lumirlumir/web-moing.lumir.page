@@ -1,0 +1,72 @@
+.section-config {
+  @include prop-flex;
+  @include prop-transition;
+  @include prop-undraggable;
+  @include prop-main-section(1.5);
+  @include selector-invisible-section;
+  @include selector-scrollbar;
+
+  /* Selector */
+  > div {
+    /* Property */
+    letter-spacing: 4px;
+
+    /* Selector */
+    > div:nth-child(1) {
+      //box
+      margin-bottom: 20px;
+      //flex-container
+      display: flex;
+      justify-content: space-between;
+    }
+    > div:nth-child(2) {
+      margin-top: 20px;
+    }
+  }
+}
+
+.ButtonCount {
+  /* Property */
+  margin: 0 20px;
+  display: flex;
+
+  /* Selector */
+  &.off {
+    color: $color-text-inversion;
+  }
+  > label {
+    /* Property */
+    cursor: pointer;
+    //flex-container
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    /* Selector */
+    > input[type='button'] {
+      display: none;
+    }
+  }
+}
+
+.CheckBox {
+  /* Property */
+  margin: 0 20px;
+
+  /* Selector */
+  > label {
+    /* Property */
+    cursor: pointer;
+
+    /* Selector */
+    > input[type='checkbox'] {
+      display: none;
+    }
+    > input[type='checkbox'] + span {
+      color: $color-text-inversion;
+    }
+    > input[type='checkbox']:checked + span {
+      color: $color-text;
+    }
+  }
+}

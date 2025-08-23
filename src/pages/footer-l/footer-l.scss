@@ -1,8 +1,0 @@
-footer.footer-l {
-  @include prop-flex;
-  @include prop-transition;
-  @include selector-invisible;
-  @include selector-unclickable;
-
-  grid-area: 3 / 1 / 4 / 2;
-}

@@ -1,7 +1,4 @@
-//base
-@import './base/reset';
-@import './base/typography';
-
-//utils
-@import './utils/mixins';
-@import './utils/variables';
+@import './mixins';
+@import './reset';
+@import './typography';
+@import './variables';

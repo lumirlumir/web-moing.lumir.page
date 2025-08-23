@@ -1,8 +1,0 @@
-header.HeaderR {
-  @include prop-flex;
-  @include prop-transition;
-  @include selector-invisible;
-  @include selector-unclickable;
-
-  grid-area: 1 / 3 / 2 / 4;
-}
