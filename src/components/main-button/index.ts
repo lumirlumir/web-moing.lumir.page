@@ -1,3 +1,3 @@
-import ButtonMain from './main-button';
+import MainButton from './main-button';
 
-export default ButtonMain;
+export default MainButton;

@@ -80,7 +80,7 @@ export default function SectionConfig({ config }: Props): React.JSX.Element {
   /* Return */
   return (
     <NeonDiv
-      className={`SectionConfig ${configState.visibility ? '' : 'invisible'}`}
+      className={`section-config ${configState.visibility ? '' : 'invisible'}`}
       neonSize="m"
       neonColor="banana"
     >

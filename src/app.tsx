@@ -1,5 +1,5 @@
 /**
- * @fileoverview app
+ * @fileoverview app.
  */
 
 // --------------------------------------------------------------------------------
@@ -13,12 +13,12 @@ import { GrPowerReset } from 'react-icons/gr';
 import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
 import Button from '@/components/button';
-import ButtonMain from '@/components/main-button';
+import MainButton from '@/components/main-button';
 import SectionClient from '@/components/section-client';
 import SectionConfig from '@/components/section-config';
 import SectionServer from '@/components/section-server';
 import Timer from '@/components/timer';
-import Heading from '@/components/title';
+import Title from '@/components/title';
 
 import useScenario from '@/hooks/use-scenario';
 import useConfig from '@/hooks/use-config';
@@ -85,7 +85,7 @@ export default function App(): React.JSX.Element {
 
       <main className="Main">
         <div ref={scrollRef}>
-          <Heading scenario={scenario} />
+          <Title scenario={scenario} />
           <SectionServer
             scenario={scenario}
             config={config}
@@ -94,7 +94,7 @@ export default function App(): React.JSX.Element {
           />
           <SectionClient scenario={scenario} interview={interview} />
           <SectionConfig config={config} />
-          <ButtonMain scenario={scenario} config={config} interview={interview} />
+          <MainButton scenario={scenario} config={config} interview={interview} />
         </div>
       </main>
     </div>

@@ -33,7 +33,7 @@ export default function SectionClient({ scenario, interview }: Props): React.JSX
 
   return (
     <NeonDiv
-      className={`SectionClient ${visibility ? '' : 'invisible'}`}
+      className={`section-client ${visibility ? '' : 'invisible'}`}
       neonColor="black"
     >
       <div
