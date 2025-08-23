@@ -45,7 +45,6 @@ export default function useInterview() {
   const {
     interviewHistoryRef,
     initInterviewHistory,
-    addInterviewHistory,
     isQuestionMain,
     isInterviewDone,
     getQuestionMainHistory,
@@ -121,12 +120,12 @@ export default function useInterview() {
     }
     if (isInterviewObjFull()) {
       // console.log('addInterviewHistory()');
-      addInterviewHistory(interviewObjState);
+      interviewHistoryRef.current.push(interviewObjState);
       // console.log('initInterviewObj()');
       initInterviewObj();
     }
   }, [
-    addInterviewHistory,
+    interviewHistoryRef,
     isInterviewDone,
     interviewObjState,
     initInterviewObj,
