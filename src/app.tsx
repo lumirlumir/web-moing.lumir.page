@@ -16,7 +16,7 @@ import ButtonMain from '@/components/ButtonMain';
 import Heading from '@/components/Heading';
 import SectionClient from '@/components/SectionClient';
 import SectionConfig from '@/components/SectionConfig';
-import SectionServer from '@/components/SectionServer';
+import SectionServer from '@/components/section-server';
 import Button from '@/components/button';
 import Timer from '@/components/timer';
 

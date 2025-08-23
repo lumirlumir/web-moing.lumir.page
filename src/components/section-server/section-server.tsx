@@ -17,7 +17,7 @@ import useTimer from '@/hooks/use-timer';
 import useScroll from '@/hooks/use-scroll';
 import useHistoryState from '@/hooks/use-history-state';
 
-import './SectionServer.scss';
+import './section-server.scss';
 
 // --------------------------------------------------------------------------------
 // Typedefs
