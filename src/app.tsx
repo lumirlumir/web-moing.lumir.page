@@ -7,8 +7,9 @@
 // --------------------------------------------------------------------------------
 
 import React from 'react';
-import { GrPowerReset } from 'react-icons/gr';
 import { GoGear } from 'react-icons/go';
+import { GrPowerReset } from 'react-icons/gr';
+import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
 import Button from '@/components/button';
 import useScenario from '@/hooks/use-scenario';
@@ -17,7 +18,6 @@ import useInterview from '@/hooks/use-interview';
 import useTimer from '@/hooks/use-timer';
 
 import FooterM from '@/pages/FooterM';
-import FooterR from '@/pages/FooterR';
 import HeaderR from '@/pages/HeaderR';
 import Main from '@/pages/Main';
 
@@ -52,7 +52,16 @@ export default function App(): React.JSX.Element {
           window.location.reload();
         }}
       />
-      <FooterR scenario={scenario} interview={interview} timer={timer} />
+      <Button
+        type="FooterR"
+        icon={<IoIosCheckmarkCircleOutline size="39px" />}
+        scenario={scenario}
+        onClick={() => {
+          interview.submit();
+          timer.stopTimer();
+        }}
+      />
+
       <FooterM scenario={scenario} timer={timer} />
 
       <Main scenario={scenario} config={config} interview={interview} timer={timer} />

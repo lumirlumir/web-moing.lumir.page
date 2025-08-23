@@ -20,7 +20,9 @@
   .HeaderL {
     grid-area: 1 / 1 / 2 / 2;
   }
-
+  .FooterR {
+    grid-area: 3 / 3 / 4 / 4;
+  }
   .FooterL {
     grid-area: 3 / 1 / 4 / 2;
   }
