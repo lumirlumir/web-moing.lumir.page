@@ -1,5 +1,5 @@
 /**
- * @fileoverview app.
+ * @fileoverview app
  */
 
 // --------------------------------------------------------------------------------
@@ -26,9 +26,6 @@ import './app.scss';
 // Export
 // --------------------------------------------------------------------------------
 
-/**
- * Compoenent `App`.
- */
 export default function App(): React.JSX.Element {
   const scenario = useScenario();
   const config = useConfig();

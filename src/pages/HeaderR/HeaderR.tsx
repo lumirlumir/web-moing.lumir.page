@@ -11,6 +11,8 @@ import { CiMicrophoneOn } from 'react-icons/ci';
 
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
+import useScenario from '@/hooks/use-scenario';
+import useInterview from '@/hooks/use-interview';
 
 import './HeaderR.scss';
 
@@ -18,22 +20,16 @@ import './HeaderR.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-/**
- * @import { Scenario, Interview } from '@/core/types';
- */
+interface Props {
+  scenario: ReturnType<typeof useScenario>;
+  interview: ReturnType<typeof useInterview>;
+}
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/**
- * Component `HeaderR`.
- * @param {object} props
- * @param {Scenario} props.scenario
- * @param {Interview} props.interview
- * @returns {React.JSX.Element}
- */
-export default function HeaderR({ scenario, interview }) {
+export default function HeaderR({ scenario, interview }: Props): React.JSX.Element {
   const { visibility, clickability } = scenario.getSectionObj().HeaderR;
   const { listening, toggleListening } = interview;
 

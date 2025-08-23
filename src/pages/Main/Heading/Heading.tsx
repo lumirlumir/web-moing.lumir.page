@@ -9,6 +9,7 @@
 import React from 'react';
 
 import NeonFont from '@/components/neon-font';
+import useScenario from '@/hooks/use-scenario';
 
 import './Heading.scss';
 
@@ -16,21 +17,15 @@ import './Heading.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-/**
- * @import { Scenario } from '@/core/types';
- */
+interface Props {
+  scenario: ReturnType<typeof useScenario>;
+}
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/**
- * Component `Heading`.
- * @param {object} props
- * @param {Scenario} props.scenario
- * @returns {React.JSX.Element}
- */
-export default function Heading({ scenario }) {
+export default function Heading({ scenario }: Props): React.JSX.Element {
   const { visibility } = scenario.getSectionObj().Main.Heading;
 
   return (

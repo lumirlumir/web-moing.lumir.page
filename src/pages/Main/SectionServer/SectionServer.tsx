@@ -10,6 +10,10 @@ import React, { useEffect, useLayoutEffect, useMemo } from 'react';
 import Typewriter from 'typewriter-effect';
 
 import NeonDiv from '@/components/neon-div';
+import useScenario from '@/hooks/use-scenario';
+import useConfig from '@/hooks/use-config';
+import useInterview from '@/hooks/use-interview';
+import useTimer from '@/hooks/use-timer';
 import useScroll from '@/hooks/use-scroll';
 import useHistoryState from '@/hooks/use-history-state';
 
@@ -19,25 +23,23 @@ import './SectionServer.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-/**
- * @import { Scenario, Config, Interview, Timer } from '@/core/types';
- */
+interface Props {
+  scenario: ReturnType<typeof useScenario>;
+  config: ReturnType<typeof useConfig>;
+  interview: ReturnType<typeof useInterview>;
+  timer: ReturnType<typeof useTimer>;
+}
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/**
- * Component `SectionServer`.
- * @param {object} props
- * @param {Scenario} props.scenario
- * @param {Config} props.config
- * @param {Interview} props.interview
- * @param {Timer} props.timer
- * @returns {React.JSX.Element}
- */
-export default function SectionServer({ scenario, config, interview, timer }) {
-  /* Props */
+export default function SectionServer({
+  scenario,
+  config,
+  interview,
+  timer,
+}: Props): React.JSX.Element {
   const { subsectionState, getSectionObj, toNextSection } = scenario;
   const { auto, api, result } = getSectionObj().global;
   const { visibility, content } = getSectionObj().Main.SectionServer;
@@ -45,12 +47,9 @@ export default function SectionServer({ scenario, config, interview, timer }) {
   const { getInterviewInfo, getQuestion, isInterviewDone, getInterviewHistory } =
     interview;
   const { resetTimer } = timer;
-
-  /* Hooks */
-  // custom
   const { scrollRef, scroll } = useScroll<HTMLDivElement>();
   const { historyState, addHistory } = useHistoryState();
-  // useMemo
+
   const text = useMemo(() => {
     if (api)
       return getQuestion() === null
@@ -61,16 +60,15 @@ export default function SectionServer({ scenario, config, interview, timer }) {
 
     return content;
   }, [api, content, result, getInterviewInfo, getQuestion, getInterviewHistory]);
-  // useLayoutEffect
+
   useLayoutEffect(() => {
     addHistory(text);
   }, [subsectionState, text, addHistory]);
-  // useEffect
+
   useEffect(() => {
     if (api && isInterviewDone()) toNextSection();
   }, [getQuestion, isInterviewDone, toNextSection, api]);
 
-  /* Return */
   return (
     <NeonDiv
       className={`SectionServer ${visibility && !configState.visibility ? '' : 'invisible'} ${result ? 'wide' : ''}`}
@@ -92,7 +90,7 @@ export default function SectionServer({ scenario, config, interview, timer }) {
               .start()
               .callFunction(() => {
                 if (auto) toNextSection();
-                if (api && text !== '') resetTimer(configState.timeLimit);
+                if (api && text !== '') resetTimer(configState.time);
                 scroll();
               });
           }}

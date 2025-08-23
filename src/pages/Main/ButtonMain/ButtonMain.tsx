@@ -10,6 +10,9 @@ import React, { useCallback, useMemo } from 'react';
 
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
+import useConfig from '@/hooks/use-config';
+import useScenario from '@/hooks/use-scenario';
+import useInterview from '@/hooks/use-interview';
 
 import './ButtonMain.scss';
 
@@ -17,38 +20,33 @@ import './ButtonMain.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-/**
- * @import { Scenario, Config, Interview } from '@/core/types';
- */
+interface Props {
+  scenario: ReturnType<typeof useScenario>;
+  config: ReturnType<typeof useConfig>;
+  interview: ReturnType<typeof useInterview>;
+}
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/**
- * Component `ButtonMain`.
- * @param {object} props
- * @param {Scenario} props.scenario
- * @param {Config} props.config
- * @param {Interview} props.interview
- * @returns {React.JSX.Element}
- */
-export default function ButtonMain({ scenario, config, interview }) {
-  /* Props */
+export default function ButtonMain({
+  scenario,
+  config,
+  interview,
+}: Props): React.JSX.Element {
   const { getSectionObj, toNextSection, toLastSection } = scenario;
   const { content, visibility: _visibility } = getSectionObj().Main.ButtonMain;
   const { configState, handleConfigState, isConfigDone } = config;
   const { initInterview } = interview;
 
-  /* Hooks */
-  // useMemo
   const visibility = useMemo(() => {
     if (_visibility === null) {
       return isConfigDone();
     }
     return _visibility;
   }, [_visibility, isConfigDone]);
-  // useCallback
+
   const onClick = useCallback(
     e => {
       if (content === 'PRESS') {

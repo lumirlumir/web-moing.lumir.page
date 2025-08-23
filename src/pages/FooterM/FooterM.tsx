@@ -9,6 +9,8 @@
 import React from 'react';
 
 import NeonFont from '@/components/neon-font';
+import useScenario from '@/hooks/use-scenario';
+import useTimer from '@/hooks/use-timer';
 
 import './FooterM.scss';
 
@@ -16,22 +18,16 @@ import './FooterM.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-/**
- * @import { Scenario, Timer } from '@/core/types';
- */
+interface Props {
+  scenario: ReturnType<typeof useScenario>;
+  timer: ReturnType<typeof useTimer>;
+}
 
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
-/**
- * Component `FooterM`.
- * @param {object} props
- * @param {Scenario} props.scenario
- * @param {Timer} props.timer
- * @returns {React.JSX.Element}
- */
-export default function FooterM({ scenario, timer }) {
+export default function FooterM({ scenario, timer }: Props): React.JSX.Element {
   const { visibility } = scenario.getSectionObj().FooterM;
   const { getTimer } = timer;
 

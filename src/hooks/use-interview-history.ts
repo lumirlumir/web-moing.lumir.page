@@ -1,37 +1,33 @@
 import { useCallback, useRef } from 'react';
-
-import useHistoryRef from '@/hooks/use-history-ref';
+import { questionTypes, type Config } from '@/hooks/use-config';
 
 /**
  *
  * @returns
  */
 export default function useInterviewHistory() {
-  /* Hooks */
-  // useHistoryRef
-  const { historyRef, addHistory } = useHistoryRef();
-  // useRef
-  const questionTypeRef = useRef([]); // array
-  const rowRef = useRef(null); // number
-  const colRef = useRef(null); // number
+  const historyRef = useRef([]);
+  const questionTypeRef = useRef<string[]>([]);
+  const rowRef = useRef<number | null>(null);
+  const colRef = useRef<number | null>(null);
 
   /* Func */
-  const initInterviewHistory = useCallback(configState => {
-    const { questionType, questionMain, questionSub } = configState;
+  const initInterviewHistory = useCallback((configState: Config) => {
+    const { main, sub } = configState;
 
-    questionTypeRef.current = Object.keys(questionType).filter(key => questionType[key]); // Extract only the keys with true values
-    rowRef.current = questionMain;
-    colRef.current = questionSub + 1;
+    questionTypeRef.current = questionTypes.filter(key => configState[key]); // Extract only the keys with true values
+    rowRef.current = main;
+    colRef.current = sub + 1;
   }, []);
   const isQuestionMain = useCallback(
     () => historyRef.current.length % colRef.current === 0,
-    [historyRef],
+    [],
   );
   const isInterviewDone = useCallback(
     () =>
       historyRef.current.length ===
       questionTypeRef.current.length * rowRef.current * colRef.current,
-    [historyRef],
+    [],
   );
   const getQuestionMainHistory = useCallback(() => {
     const questionMainHistory = [];
@@ -41,7 +37,7 @@ export default function useInterviewHistory() {
     }
 
     return questionMainHistory;
-  }, [historyRef]);
+  }, []);
   const getInterviewInfo = useCallback(
     () => ({
       questionType:
@@ -52,7 +48,7 @@ export default function useInterviewHistory() {
         (Math.floor(historyRef.current.length / colRef.current) % rowRef.current) + 1,
       questionSub: (historyRef.current.length % colRef.current) + 1,
     }),
-    [historyRef],
+    [],
   );
   const getInterviewHistory = useCallback(() => {
     let str = '';
@@ -80,13 +76,12 @@ export default function useInterviewHistory() {
     }
 
     return str;
-  }, [historyRef]);
+  }, []);
 
   /* Return */
   return {
     interviewHistoryRef: historyRef,
     initInterviewHistory,
-    addInterviewHistory: addHistory,
     isQuestionMain,
     isInterviewDone,
     getQuestionMainHistory,
