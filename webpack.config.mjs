@@ -49,7 +49,7 @@ const webpackConfig = {
     },
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss', '.sass'],
   },
-  entry: resolve(import.meta.dirname, 'src', 'index.jsx'),
+  entry: resolve(import.meta.dirname, 'src', 'index.tsx'),
   output: {
     path: resolve(import.meta.dirname, 'build'),
     filename: 'bundle.js',

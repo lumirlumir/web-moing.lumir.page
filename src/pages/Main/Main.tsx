@@ -45,7 +45,7 @@ export default function Main({ scenario, config, interview, timer }) {
 
   /* Hooks */
   // useScroll
-  const { scrollRef, scroll } = useScroll();
+  const { scrollRef, scroll } = useScroll<HTMLDivElement>();
   // useEffect
   useEffect(() => {
     const timeout = setTimeout(scroll, 2000);
