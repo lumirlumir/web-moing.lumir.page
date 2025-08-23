@@ -28,16 +28,15 @@ import './app.scss';
 
 /**
  * Compoenent `App`.
- * @returns {React.JSX.Element}
  */
-export default function App() {
+export default function App(): React.JSX.Element {
   const scenario = useScenario();
   const config = useConfig();
   const interview = useInterview();
   const timer = useTimer(interview.submit);
 
   return (
-    <div className="start">
+    <div className="app">
       <HeaderL scenario={scenario} config={config} />
       <HeaderR scenario={scenario} interview={interview} />
       <Main scenario={scenario} config={config} interview={interview} timer={timer} />
