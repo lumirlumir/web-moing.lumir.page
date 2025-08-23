@@ -19,7 +19,7 @@ import useConfig from '@/hooks/use-config';
 import useInterview from '@/hooks/use-interview';
 import useTimer from '@/hooks/use-timer';
 
-import Main from '@/pages/Main';
+import Main from '@/main';
 
 import './app.scss';
 
