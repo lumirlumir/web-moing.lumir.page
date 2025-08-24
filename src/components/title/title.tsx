@@ -1,5 +1,5 @@
 /**
- * @fileoverview Heading.
+ * @fileoverview title.
  */
 
 // --------------------------------------------------------------------------------
@@ -25,11 +25,11 @@ interface Props {
 // Export
 // --------------------------------------------------------------------------------
 
-export default function Heading({ scenario }: Props): React.JSX.Element {
+export default function Title({ scenario }: Props): React.JSX.Element {
   const { visibility } = scenario.getSectionObj().Heading;
 
   return (
-    <div className={`Heading select-none ${visibility ? '' : 'invisible'}`}>
+    <div className={`title select-none ${visibility ? '' : 'invisible'}`}>
       <div className="mock">
         <NeonFont
           neonColor="blue"
