@@ -3,6 +3,7 @@
 @import './typography';
 @import './variables';
 
-.unclickable {
+// https://tailwindcss.com/docs/pointer-events
+.pointer-events-none {
   pointer-events: none;
 }

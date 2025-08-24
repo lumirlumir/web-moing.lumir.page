@@ -41,7 +41,7 @@ export default function Button({
 
   return (
     <div
-      className={`${type} button ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
+      className={`${type} button ${visibility ? '' : 'invisible'} ${clickability ? '' : 'pointer-events-none'}`}
     >
       <NeonButton
         hoverEffect={hoverEffect}
