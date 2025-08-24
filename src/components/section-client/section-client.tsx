@@ -1,5 +1,5 @@
 /**
- * @fileoverview SectionClient.
+ * @fileoverview section-client.
  */
 
 // --------------------------------------------------------------------------------
@@ -28,20 +28,19 @@ interface Props {
 // --------------------------------------------------------------------------------
 
 export default function SectionClient({ scenario, interview }: Props): React.JSX.Element {
-  const { visibility } = scenario.getSectionObj().Main.SectionClient;
+  const { visibility } = scenario.getSectionObj().SectionClient;
   const { contentRef } = interview;
 
   return (
     <NeonDiv
-      className={`section-client ${visibility ? '' : 'invisible'}`}
+      className={`section-client transition ${visibility ? '' : 'invisible'}`}
       neonColor="black"
     >
       <div
         ref={contentRef}
         contentEditable="true"
         spellCheck="false"
-        // @ts-expect-error -- TODO: Fix type error
-        placeholder="$ Interviewee"
+        data-placeholder="$ Interviewee"
       />
     </NeonDiv>
   );

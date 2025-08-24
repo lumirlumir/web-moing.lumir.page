@@ -1,3 +1,3 @@
-import Heading from './title';
+import Title from './title';
 
-export default Heading;
+export default Title;

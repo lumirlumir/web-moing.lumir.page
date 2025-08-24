@@ -1,5 +1,5 @@
 /**
- * @fileoverview SectionConfig.
+ * @fileoverview section-config.
  */
 
 // --------------------------------------------------------------------------------
@@ -26,36 +26,40 @@ interface Props {
 // Helpers
 // --------------------------------------------------------------------------------
 
-function ButtonCount({ children, onClick, count }) {
+function ButtonCount({ onClick, count, label }) {
   return (
     <NeonFont
-      className={`ButtonCount ${count >= 1 ? '' : 'off'}`}
       neonColor={count >= 1 ? 'banana' : 'black'}
       neonSize="s"
-      fontFamily="Audiowide"
-      fontSize="40px"
+      className={`button-count ${count >= 1 ? '' : 'off'}`}
+      style={{
+        fontFamily: 'Audiowide',
+        fontSize: '40px',
+      }}
     >
       <label>
         <input type="button" onClick={onClick} />
-        <span>{children}</span>
+        <span>{label}</span>
         <span>{count}</span>
       </label>
     </NeonFont>
   );
 }
 
-function CheckBox({ children, onChange, isChecked }) {
+function Checkbox({ onChange, isChecked, label }) {
   return (
     <NeonFont
-      className="CheckBox"
       neonColor={isChecked ? 'banana' : 'black'}
       neonSize="s"
-      fontFamily="Audiowide"
-      fontSize="40px"
+      className="checkbox"
+      style={{
+        fontFamily: 'Audiowide',
+        fontSize: '40px',
+      }}
     >
       <label>
         <input type="checkbox" onChange={onChange} />
-        <span>{children}</span>
+        <span>{label}</span>
       </label>
     </NeonFont>
   );
@@ -68,7 +72,6 @@ function CheckBox({ children, onChange, isChecked }) {
 export default function SectionConfig({ config }: Props): React.JSX.Element {
   const { configState, handleConfigState } = config;
 
-  /* Func */
   const handleButtonCount = (e, key) => {
     if (e.ctrlKey && configState[key] - 1 >= 0) {
       handleConfigState({ [key]: configState[key] - 1 });
@@ -77,17 +80,16 @@ export default function SectionConfig({ config }: Props): React.JSX.Element {
     }
   };
 
-  /* Return */
   return (
     <NeonDiv
-      className={`section-config ${configState.visibility ? '' : 'invisible'}`}
+      className={`section-config transition select-none ${configState.visibility ? '' : 'invisible'}`}
       neonSize="m"
       neonColor="banana"
     >
       <div>
         <div>
           {questionTypes.map(key => (
-            <CheckBox
+            <Checkbox
               key={key}
               onChange={() =>
                 handleConfigState({
@@ -95,27 +97,26 @@ export default function SectionConfig({ config }: Props): React.JSX.Element {
                 })
               }
               isChecked={configState[key]}
-            >
-              {key.toUpperCase()}
-            </CheckBox>
+              label={key.toUpperCase()}
+            />
           ))}
         </div>
         <div>
           <ButtonCount
             onClick={e => handleButtonCount(e, 'main')}
             count={configState.main}
-          >
-            QUESTION-MAIN:
-          </ButtonCount>
-          <ButtonCount onClick={e => handleButtonCount(e, 'sub')} count={configState.sub}>
-            QUESTION-SUB:
-          </ButtonCount>
+            label="QUESTION-MAIN:"
+          />
+          <ButtonCount
+            onClick={e => handleButtonCount(e, 'sub')}
+            count={configState.sub}
+            label="QUESTION-SUB:"
+          />
           <ButtonCount
             onClick={e => handleButtonCount(e, 'time')}
             count={configState.time}
-          >
-            TIME-LIMIT:
-          </ButtonCount>
+            label="TIME-LIMIT:"
+          />
         </div>
       </div>
     </NeonDiv>

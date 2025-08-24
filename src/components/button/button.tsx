@@ -1,5 +1,5 @@
 /**
- * @fileoverview button
+ * @fileoverview button.
  */
 
 // --------------------------------------------------------------------------------
@@ -19,10 +19,9 @@ import './button.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-interface Props {
+interface Props extends Pick<Parameters<typeof NeonButton>[0], 'hoverEffect'> {
   type: 'HeaderL' | 'HeaderR' | 'FooterL' | 'FooterR';
   icon: React.ReactElement;
-  hoverEffect?: boolean;
   scenario: ReturnType<typeof useScenario>;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
@@ -34,20 +33,20 @@ interface Props {
 export default function Button({
   type,
   icon,
-  hoverEffect,
   scenario,
   onClick,
+  hoverEffect,
 }: Props): React.JSX.Element {
   const { visibility, clickability } = scenario.getSectionObj()[type];
 
   return (
     <div
-      className={`${type} button ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
+      className={`button transition ${type} ${visibility ? '' : 'invisible'} ${clickability ? '' : 'pointer-events-none'}`}
     >
       <NeonButton
+        hoverEffect={hoverEffect}
         style={{ width: '60px', height: '60px' }}
         onClick={onClick}
-        hoverEffect={hoverEffect}
       >
         <NeonFont neonColor="white">{icon}</NeonFont>
       </NeonButton>

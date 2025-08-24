@@ -1,5 +1,5 @@
 /**
- * @fileoverview neon-font
+ * @fileoverview neon-font.
  */
 
 // --------------------------------------------------------------------------------
@@ -13,13 +13,7 @@ import './neon-font.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-interface Props {
-  /**
-   * Additional class names for the component.
-   * @default ''
-   */
-  className?: string;
-
+interface Props extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * Neon color for the component.
    * @default 'red'
@@ -44,18 +38,6 @@ interface Props {
    * @default 'l'
    */
   neonSize?: 'xl' | 'l' | 'm' | 's' | 'xs';
-
-  /**
-   * Font family for the component.
-   * @default 'unset'
-   */
-  fontFamily?: string;
-
-  /**
-   * Font size for the component.
-   * @default 'unset'
-   */
-  fontSize?: string;
 }
 
 // --------------------------------------------------------------------------------
@@ -65,29 +47,20 @@ interface Props {
 /**
  * Component `NeonFont`.
  * @example
- * //Default Values
- * <NeonFont className="" neonColor="red" neonSize='l' fontFamily="unset" fontSize="unset">
+ * // Default Values
+ * <NeonFont neonColor="red" neonSize='l'>
  *   {undefined}
  * </NeonFont>
  */
 export default function NeonFont({
-  children,
-  className = '',
   neonColor = 'red',
   neonSize = 'l',
-  fontFamily = 'unset',
-  fontSize = 'unset',
+  className = '',
+  children,
   ...props
 }: React.PropsWithChildren<Props> = {}): React.JSX.Element {
   return (
-    <span
-      className={`${className} neon-font ${neonColor}Color ${neonSize}`}
-      style={{
-        fontFamily,
-        fontSize,
-      }}
-      {...props}
-    >
+    <span className={`${className} neon-font ${neonColor} ${neonSize}`} {...props}>
       {children}
     </span>
   );

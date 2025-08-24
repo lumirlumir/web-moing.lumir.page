@@ -1,5 +1,5 @@
 /**
- * @fileoverview SectionServer.
+ * @fileoverview section-server.
  */
 
 // --------------------------------------------------------------------------------
@@ -41,8 +41,7 @@ export default function SectionServer({
   timer,
 }: Props): React.JSX.Element {
   const { subsectionState, getSectionObj, toNextSection } = scenario;
-  const { auto, api, result } = getSectionObj().global;
-  const { visibility, content } = getSectionObj().Main.SectionServer;
+  const { visibility, content, mode } = getSectionObj().SectionServer;
   const { configState } = config;
   const { getInterviewInfo, getQuestion, isInterviewDone, getInterviewHistory } =
     interview;
@@ -51,27 +50,27 @@ export default function SectionServer({
   const { historyState, addHistory } = useHistoryState();
 
   const text = useMemo(() => {
-    if (api)
+    if (mode === 'test')
       return getQuestion() === null
         ? ''
         : `> ${getInterviewInfo().questionType.toUpperCase()}분야 ${getInterviewInfo().questionMain}-${getInterviewInfo().questionSub}번 문제입니다. ${getQuestion()}\n\n`;
 
-    if (result) return getInterviewHistory();
+    if (mode === 'result') return getInterviewHistory();
 
     return content;
-  }, [api, content, result, getInterviewInfo, getQuestion, getInterviewHistory]);
+  }, [mode, content, getInterviewInfo, getQuestion, getInterviewHistory]);
 
   useLayoutEffect(() => {
     addHistory(text);
   }, [subsectionState, text, addHistory]);
 
   useEffect(() => {
-    if (api && isInterviewDone()) toNextSection();
-  }, [getQuestion, isInterviewDone, toNextSection, api]);
+    if (mode === 'test' && isInterviewDone()) toNextSection();
+  }, [getQuestion, isInterviewDone, toNextSection, mode]);
 
   return (
     <NeonDiv
-      className={`SectionServer ${visibility && !configState.visibility ? '' : 'invisible'} ${result ? 'wide' : ''}`}
+      className={`section-server transition ${visibility && !configState.visibility ? '' : 'invisible'} ${mode === 'result' ? 'wide' : ''}`}
       neonColor="black"
     >
       <div>{historyState.slice(0, -1)}</div>
@@ -80,7 +79,7 @@ export default function SectionServer({
           key={text}
           options={{
             cursor: '_',
-            delay: result ? 1 : 30, // original: 30
+            delay: mode === 'result' ? 1 : 30, // original: 30
           }}
           onInit={typewriter => {
             typewriter
@@ -89,8 +88,8 @@ export default function SectionServer({
               .pauseFor(1000) // original: 1000
               .start()
               .callFunction(() => {
-                if (auto) toNextSection();
-                if (api && text !== '') resetTimer(configState.time);
+                if (mode === 'auto' || mode === 'result') toNextSection();
+                if (mode === 'test' && text !== '') resetTimer(configState.time);
                 scroll();
               });
           }}

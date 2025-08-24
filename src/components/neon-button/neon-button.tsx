@@ -1,5 +1,5 @@
 /**
- * @fileoverview neon-button
+ * @fileoverview neon-button.
  */
 
 // --------------------------------------------------------------------------------
@@ -13,24 +13,12 @@ import './neon-button.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-interface Props {
-  /**
-   * Style for the button.
-   * @default {}
-   */
-  style?: React.CSSProperties;
-
-  /**
-   * Click event handler for the button.
-   * @default () => {}
-   */
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Size of the neon effect.
    * @default '2px'
    */
-  neonSize?: string;
+  neonSize?: React.CSSProperties['width'] & React.CSSProperties['height'];
 
   /**
    * Whether to apply a hover effect.
@@ -46,17 +34,15 @@ interface Props {
 /**
  * Component `NeonButton`.
  * @example
- * //Default Values
- * <NeonButton style={{}} onClick={() => {}} neonSize="2px" hoverEffect={false}>
+ * // Default Values
+ * <NeonButton neonSize="2px" hoverEffect={false}>
  *   {undefined}
  * </NeonButton>
  */
 export default function NeonButton({
-  children,
-  style = {},
-  onClick = () => {},
   neonSize = '2px',
   hoverEffect = false,
+  children,
   ...props
 }: React.PropsWithChildren<Props> = {}): React.JSX.Element {
   return (
@@ -65,7 +51,7 @@ export default function NeonButton({
       <span style={{ width: neonSize }} />
       <span style={{ height: neonSize }} />
       <span style={{ width: neonSize }} />
-      <button type="button" style={style} onClick={onClick} {...props}>
+      <button type="button" {...props}>
         {children}
       </button>
     </div>

@@ -1,6 +1,4 @@
-.Heading {
-  @include prop-transition;
-  @include prop-undraggable;
+.title {
   @include prop-main-others;
   @include selector-invisible;
 

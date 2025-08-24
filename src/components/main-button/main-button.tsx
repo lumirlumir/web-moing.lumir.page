@@ -1,12 +1,12 @@
 /**
- * @fileoverview ButtonMain.
+ * @fileoverview main-button.
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback } from 'react';
 
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
@@ -35,17 +35,10 @@ export default function ButtonMain({
   config,
   interview,
 }: Props): React.JSX.Element {
-  const { getSectionObj, toNextSection, toLastSection } = scenario;
-  const { content, visibility: _visibility } = getSectionObj().Main.ButtonMain;
+  const { getSectionObj, toNextSection, toLastSection, isLastSection } = scenario;
+  const { content, visibility } = getSectionObj().ButtonMain;
   const { configState, handleConfigState, isConfigDone } = config;
   const { initInterview } = interview;
-
-  const visibility = useMemo(() => {
-    if (_visibility === null) {
-      return isConfigDone();
-    }
-    return _visibility;
-  }, [_visibility, isConfigDone]);
 
   const onClick = useCallback(
     e => {
@@ -76,9 +69,15 @@ export default function ButtonMain({
   );
 
   return (
-    <div className={`main-button ${visibility ? '' : 'invisible'}`}>
+    <div
+      className={`main-button transition ${(isLastSection() && isConfigDone()) || visibility ? '' : 'invisible'}`}
+    >
       <NeonButton style={{ padding: '20px 30px' }} onClick={e => onClick(e)}>
-        <NeonFont neonColor="white" neonSize="s" fontFamily="Audiowide" fontSize="40px">
+        <NeonFont
+          neonColor="white"
+          neonSize="s"
+          style={{ fontFamily: 'Audiowide', fontSize: '40px' }}
+        >
           {content}
         </NeonFont>
       </NeonButton>
