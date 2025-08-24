@@ -29,11 +29,13 @@ interface Props {
 function ButtonCount({ children, onClick, count }) {
   return (
     <NeonFont
-      className={`ButtonCount ${count >= 1 ? '' : 'off'}`}
       neonColor={count >= 1 ? 'banana' : 'black'}
       neonSize="s"
-      fontFamily="Audiowide"
-      fontSize="40px"
+      className={`ButtonCount ${count >= 1 ? '' : 'off'}`}
+      style={{
+        fontFamily: 'Audiowide',
+        fontSize: '40px',
+      }}
     >
       <label>
         <input type="button" onClick={onClick} />
@@ -47,11 +49,13 @@ function ButtonCount({ children, onClick, count }) {
 function CheckBox({ children, onChange, isChecked }) {
   return (
     <NeonFont
-      className="CheckBox"
       neonColor={isChecked ? 'banana' : 'black'}
       neonSize="s"
-      fontFamily="Audiowide"
-      fontSize="40px"
+      className="CheckBox"
+      style={{
+        fontFamily: 'Audiowide',
+        fontSize: '40px',
+      }}
     >
       <label>
         <input type="checkbox" onChange={onChange} />

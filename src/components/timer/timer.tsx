@@ -36,8 +36,10 @@ export default function FooterM({ scenario, timer }: Props): React.JSX.Element {
       <NeonFont
         neonColor={getTimer().minute === 0 ? 'red' : 'white'}
         neonSize="s"
-        fontFamily="audiowide"
-        fontSize="35px"
+        style={{
+          fontFamily: 'Audiowide',
+          fontSize: '35px',
+        }}
       >
         {getTimer().timer}
       </NeonFont>

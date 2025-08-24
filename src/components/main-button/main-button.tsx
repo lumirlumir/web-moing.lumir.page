@@ -78,7 +78,11 @@ export default function ButtonMain({
   return (
     <div className={`main-button ${visibility ? '' : 'invisible'}`}>
       <NeonButton style={{ padding: '20px 30px' }} onClick={e => onClick(e)}>
-        <NeonFont neonColor="white" neonSize="s" fontFamily="Audiowide" fontSize="40px">
+        <NeonFont
+          neonColor="white"
+          neonSize="s"
+          style={{ fontFamily: 'Audiowide', fontSize: '40px' }}
+        >
           {content}
         </NeonFont>
       </NeonButton>
