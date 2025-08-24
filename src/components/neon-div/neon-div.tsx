@@ -1,5 +1,5 @@
 /**
- * @fileoverview neon-div
+ * @fileoverview neon-div.
  */
 
 // --------------------------------------------------------------------------------
@@ -13,13 +13,7 @@ import './neon-div.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-interface Props {
-  /**
-   * Additional class names for the component.
-   * @default ''
-   */
-  className?: string;
-
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Neon color for the component.
    * @default 'red'
@@ -44,12 +38,6 @@ interface Props {
    * @default 'l'
    */
   neonSize?: 'xl' | 'l' | 'm' | 's' | 'xs';
-
-  /**
-   * Border width for the component.
-   * @default null
-   */
-  borderWidth?: string | null;
 }
 
 // --------------------------------------------------------------------------------
@@ -59,27 +47,20 @@ interface Props {
 /**
  * Component `NeonDiv`.
  * @example
- * //Default Values
- * <NeonDiv className="" neonColor="red" neonSize="l" borderWidth="2px">
+ * // Default Values
+ * <NeonDiv neonColor="red" neonSize="l">
  *   {undefined}
  * </NeonDiv>
  */
 export default function NeonDiv({
-  children,
-  className = '',
   neonColor = 'red',
   neonSize = 'l',
-  borderWidth = null,
+  className = '',
+  children,
   ...props
 }: React.PropsWithChildren<Props> = {}): React.JSX.Element {
   return (
-    <div
-      className={`${className} neon-div ${neonColor}Color ${neonSize}`}
-      style={{
-        borderWidth,
-      }}
-      {...props}
-    >
+    <div className={`${className} neon-div ${neonColor} ${neonSize}`} {...props}>
       {children}
     </div>
   );

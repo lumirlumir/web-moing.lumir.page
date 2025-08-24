@@ -35,19 +35,19 @@
 
 /* Variables */
 $neonColor: (
-  redColor: #ff1177,
-  brightOrangeColor: #f8b734,
-  orangeColor: #ff9900,
-  bananaColor: #f5e3a7,
-  yellowColor: #ffdd1b,
-  greenColor: #a2ff37,
-  skyColor: #b7e7f7,
-  blueColor: #3b8de4,
-  violetColor: #e785d2,
-  purpleColor: #ad0096,
-  silverColor: #c4c4c6,
-  whiteColor: #bbbbbb,
-  blackColor: darken(#202020, 7%),
+  red: #ff1177,
+  brightOrange: #f8b734,
+  orange: #ff9900,
+  banana: #f5e3a7,
+  yellow: #ffdd1b,
+  green: #a2ff37,
+  sky: #b7e7f7,
+  blue: #3b8de4,
+  violet: #e785d2,
+  purple: #ad0096,
+  silver: #c4c4c6,
+  white: #bbbbbb,
+  black: darken(#202020, 7%),
 );
 $neonSize: ('xl', 'l', 'm', 's', 'xs');
 
