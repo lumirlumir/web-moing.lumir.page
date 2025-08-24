@@ -1,22 +1,5 @@
 @import './mixins';
 @import './reset';
 @import './typography';
+@import './utilities';
 @import './variables';
-
-// https://tailwindcss.com/docs/transition-property
-.transition {
-  transition: all 2s ease-in-out;
-}
-
-// https://tailwindcss.com/docs/pointer-events
-.pointer-events-none {
-  pointer-events: none;
-}
-
-// https://tailwindcss.com/docs/user-select
-.select-none {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
