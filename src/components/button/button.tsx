@@ -45,9 +45,9 @@ export default function Button({
       className={`${type} button ${visibility ? '' : 'invisible'} ${clickability ? '' : 'unclickable'}`}
     >
       <NeonButton
+        hoverEffect={hoverEffect}
         style={{ width: '60px', height: '60px' }}
         onClick={onClick}
-        hoverEffect={hoverEffect}
       >
         <NeonFont neonColor="white">{icon}</NeonFont>
       </NeonButton>
