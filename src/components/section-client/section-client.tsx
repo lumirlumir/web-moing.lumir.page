@@ -1,5 +1,5 @@
 /**
- * @fileoverview SectionClient.
+ * @fileoverview section-client.
  */
 
 // --------------------------------------------------------------------------------
@@ -40,8 +40,7 @@ export default function SectionClient({ scenario, interview }: Props): React.JSX
         ref={contentRef}
         contentEditable="true"
         spellCheck="false"
-        // @ts-expect-error -- TODO: Fix type error
-        placeholder="$ Interviewee"
+        data-placeholder="$ Interviewee"
       />
     </NeonDiv>
   );
