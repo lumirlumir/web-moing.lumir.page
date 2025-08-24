@@ -49,6 +49,10 @@ export default function useScenario() {
       };
     });
   }, [state]);
+  const isLastSection = useCallback(
+    () => state.section === scenario[state.chapter].length - 1,
+    [state],
+  );
 
   /* Return */
   return {
@@ -56,5 +60,6 @@ export default function useScenario() {
     getSectionObj,
     toNextSection,
     toLastSection,
+    isLastSection,
   };
 }

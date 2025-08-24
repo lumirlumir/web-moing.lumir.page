@@ -6,43 +6,31 @@
 // Typedefs
 // --------------------------------------------------------------------------------
 
+interface Visibility {
+  visibility: boolean;
+}
+
+interface Clickability {
+  clickability: boolean;
+}
+
 interface Scenario {
   global: {
     auto: boolean;
     api: boolean;
     result: boolean;
   };
-  FooterL: {
-    visibility: boolean;
-    clickability: boolean;
-  };
-  FooterM: {
-    visibility: boolean;
-  };
-  FooterR: {
-    visibility: boolean;
-    clickability: boolean;
-  };
-  HeaderL: {
-    visibility: boolean;
-    clickability: boolean;
-  };
-  HeaderR: {
-    visibility: boolean;
-    clickability: boolean;
-  };
-  ButtonMain: {
-    visibility: boolean | null;
+  FooterL: Visibility & Clickability;
+  FooterM: Visibility;
+  FooterR: Visibility & Clickability;
+  HeaderL: Visibility & Clickability;
+  HeaderR: Visibility & Clickability;
+  ButtonMain: Visibility & {
     content: 'PRESS' | 'START';
   };
-  Heading: {
-    visibility: boolean;
-  };
-  SectionClient: {
-    visibility: boolean;
-  };
-  SectionServer: {
-    visibility: boolean;
+  Heading: Visibility;
+  SectionClient: Visibility;
+  SectionServer: Visibility & {
     content: string;
   };
 }
@@ -691,7 +679,7 @@ const scenario: Scenario[][] = [
         clickability: false,
       },
       ButtonMain: {
-        visibility: null,
+        visibility: false,
         content: 'START',
       },
       Heading: {
