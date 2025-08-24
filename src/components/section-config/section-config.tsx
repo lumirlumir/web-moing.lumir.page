@@ -31,7 +31,7 @@ function ButtonCount({ onClick, count, label }) {
     <NeonFont
       neonColor={count >= 1 ? 'banana' : 'black'}
       neonSize="s"
-      className={`ButtonCount ${count >= 1 ? '' : 'off'}`}
+      className={`button-count ${count >= 1 ? '' : 'off'}`}
       style={{
         fontFamily: 'Audiowide',
         fontSize: '40px',
@@ -46,12 +46,12 @@ function ButtonCount({ onClick, count, label }) {
   );
 }
 
-function CheckBox({ onChange, isChecked, label }) {
+function Checkbox({ onChange, isChecked, label }) {
   return (
     <NeonFont
       neonColor={isChecked ? 'banana' : 'black'}
       neonSize="s"
-      className="CheckBox"
+      className="checkbox"
       style={{
         fontFamily: 'Audiowide',
         fontSize: '40px',
@@ -89,7 +89,7 @@ export default function SectionConfig({ config }: Props): React.JSX.Element {
       <div>
         <div>
           {questionTypes.map(key => (
-            <CheckBox
+            <Checkbox
               key={key}
               onChange={() =>
                 handleConfigState({
