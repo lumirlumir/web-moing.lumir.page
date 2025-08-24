@@ -26,7 +26,7 @@ interface Props {
 // --------------------------------------------------------------------------------
 
 export default function Heading({ scenario }: Props): React.JSX.Element {
-  const { visibility } = scenario.getSectionObj().Main.Heading;
+  const { visibility } = scenario.getSectionObj().Heading;
 
   return (
     <div className={`Heading ${visibility ? '' : 'invisible'}`}>

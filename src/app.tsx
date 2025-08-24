@@ -83,7 +83,7 @@ export default function App(): React.JSX.Element {
 
       <Timer scenario={scenario} timer={timer} />
 
-      <main className="Main">
+      <main className="main">
         <div ref={scrollRef}>
           <Title scenario={scenario} />
           <SectionServer

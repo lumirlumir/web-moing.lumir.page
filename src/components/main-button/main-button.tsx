@@ -36,7 +36,7 @@ export default function ButtonMain({
   interview,
 }: Props): React.JSX.Element {
   const { getSectionObj, toNextSection, toLastSection } = scenario;
-  const { content, visibility: _visibility } = getSectionObj().Main.ButtonMain;
+  const { content, visibility: _visibility } = getSectionObj().ButtonMain;
   const { configState, handleConfigState, isConfigDone } = config;
   const { initInterview } = interview;
 
