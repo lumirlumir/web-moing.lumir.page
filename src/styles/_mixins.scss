@@ -6,13 +6,6 @@
 @mixin prop-transition {
   transition: all 2s ease-in-out;
 }
-@mixin prop-undraggable {
-  // Change it to global property
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 @mixin prop-main-others {
   width: $main-section-width;
   margin: 20px auto;

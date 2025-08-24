@@ -29,7 +29,7 @@ export default function Heading({ scenario }: Props): React.JSX.Element {
   const { visibility } = scenario.getSectionObj().Heading;
 
   return (
-    <div className={`Heading ${visibility ? '' : 'invisible'}`}>
+    <div className={`Heading select-none ${visibility ? '' : 'invisible'}`}>
       <div className="mock">
         <NeonFont
           neonColor="blue"
