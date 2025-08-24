@@ -32,7 +32,7 @@ export default function FooterM({ scenario, timer }: Props): React.JSX.Element {
   const { getTimer } = timer;
 
   return (
-    <footer className={`timer ${visibility ? '' : 'invisible'}`}>
+    <footer className={`timer transition ${visibility ? '' : 'invisible'}`}>
       <NeonFont
         neonColor={getTimer().minute === 0 ? 'red' : 'white'}
         neonSize="s"

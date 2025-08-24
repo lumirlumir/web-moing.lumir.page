@@ -70,7 +70,7 @@ export default function ButtonMain({
 
   return (
     <div
-      className={`main-button ${(isLastSection() && isConfigDone()) || visibility ? '' : 'invisible'}`}
+      className={`main-button transition ${(isLastSection() && isConfigDone()) || visibility ? '' : 'invisible'}`}
     >
       <NeonButton style={{ padding: '20px 30px' }} onClick={e => onClick(e)}>
         <NeonFont

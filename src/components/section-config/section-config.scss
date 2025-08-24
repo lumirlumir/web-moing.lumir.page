@@ -1,6 +1,5 @@
 .section-config {
   @include prop-flex;
-  @include prop-transition;
   @include prop-main-section(1.5);
   @include selector-invisible-section;
   @include selector-scrollbar;

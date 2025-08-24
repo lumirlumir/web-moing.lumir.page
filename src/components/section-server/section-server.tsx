@@ -70,7 +70,7 @@ export default function SectionServer({
 
   return (
     <NeonDiv
-      className={`section-server ${visibility && !configState.visibility ? '' : 'invisible'} ${mode === 'result' ? 'wide' : ''}`}
+      className={`section-server transition ${visibility && !configState.visibility ? '' : 'invisible'} ${mode === 'result' ? 'wide' : ''}`}
       neonColor="black"
     >
       <div>{historyState.slice(0, -1)}</div>

@@ -3,6 +3,11 @@
 @import './typography';
 @import './variables';
 
+// https://tailwindcss.com/docs/transition-property
+.transition {
+  transition: all 2s ease-in-out;
+}
+
 // https://tailwindcss.com/docs/pointer-events
 .pointer-events-none {
   pointer-events: none;
