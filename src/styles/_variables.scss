@@ -1,6 +1,6 @@
 /* color */
 $color-text: white;
-$color-text-inversion: darken(#252b37, 4%);
+$color-text-inversion: #1d212b;
 $color-background: repeating-linear-gradient(
   135deg,
   #202020 0%,
@@ -8,7 +8,7 @@ $color-background: repeating-linear-gradient(
   #202020 0%,
   #222222 50%
 );
-$color-background-dark: darken(#202020, 7%);
+$color-background-dark: #0e0e0e;
 
 /* string */
 $font-ngc: (Nanum Gothic Coding);
