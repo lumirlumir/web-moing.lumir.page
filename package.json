@@ -44,7 +44,7 @@
     "concurrently": "^9.2.0",
     "css-loader": "^7.1.2",
     "editorconfig-checker": "^6.1.0",
-    "eslint": "^9.33.0",
+    "eslint": "^9.34.0",
     "eslint-config-bananass": "^0.4.0",
     "eslint-plugin-mark": "^0.1.0-canary.7",
     "gh-pages": "^6.3.0",
