@@ -41,7 +41,7 @@
     "@types/react": "^19.1.11",
     "@types/react-dom": "^19.1.7",
     "babel-loader": "^10.0.0",
-    "concurrently": "^9.2.0",
+    "concurrently": "^9.2.1",
     "css-loader": "^7.1.2",
     "editorconfig-checker": "^6.1.0",
     "eslint": "^9.34.0",
