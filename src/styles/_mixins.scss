@@ -1,0 +1,49 @@
+@mixin prop-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin prop-main-others {
+  width: $main-section-width;
+  margin: 20px auto;
+}
+@mixin prop-main-section($height-mul: 1) {
+  //box
+  width: $main-section-width;
+  height: calc($main-section-height * $height-mul);
+  margin: 40px auto;
+  padding: $main-section-padding;
+  //text
+  line-height: 1.5;
+}
+@mixin prop-main-section-bash {
+  //background
+  background-color: $color-background-dark;
+  //text
+  font-family: $font-ngc;
+  white-space: pre-line;
+}
+
+@mixin selector-invisible {
+  &.invisible {
+    pointer-events: none;
+    opacity: 0;
+    @content;
+  }
+}
+@mixin selector-invisible-section {
+  @include selector-invisible {
+    height: 0;
+    margin: 0 auto;
+    padding: 0 $main-section-padding;
+    border-width: 0 !important;
+  }
+}
+@mixin selector-scrollbar {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    // Change &::webkit-scrollbar to *::webkit-scrollbar
+    display: none;
+  }
+}

@@ -1,0 +1,91 @@
+import { useCallback, useRef } from 'react';
+import { questionTypes, type Config } from '@/hooks/use-config';
+
+/**
+ *
+ * @returns
+ */
+export default function useInterviewHistory() {
+  const historyRef = useRef([]);
+  const questionTypeRef = useRef<string[]>([]);
+  const rowRef = useRef<number | null>(null);
+  const colRef = useRef<number | null>(null);
+
+  /* Func */
+  const initInterviewHistory = useCallback((configState: Config) => {
+    const { main, sub } = configState;
+
+    questionTypeRef.current = questionTypes.filter(key => configState[key]); // Extract only the keys with true values
+    rowRef.current = main;
+    colRef.current = sub + 1;
+  }, []);
+  const isQuestionMain = useCallback(
+    () => historyRef.current.length % colRef.current === 0,
+    [],
+  );
+  const isInterviewDone = useCallback(
+    () =>
+      historyRef.current.length ===
+      questionTypeRef.current.length * rowRef.current * colRef.current,
+    [],
+  );
+  const getQuestionMainHistory = useCallback(() => {
+    const questionMainHistory = [];
+
+    for (let i = 0; i < historyRef.current.length; i += colRef.current) {
+      questionMainHistory.push(historyRef.current[i].question);
+    }
+
+    return questionMainHistory;
+  }, []);
+  const getInterviewInfo = useCallback(
+    () => ({
+      questionType:
+        questionTypeRef.current[
+          Math.floor(historyRef.current.length / (rowRef.current * colRef.current))
+        ],
+      questionMain:
+        (Math.floor(historyRef.current.length / colRef.current) % rowRef.current) + 1,
+      questionSub: (historyRef.current.length % colRef.current) + 1,
+    }),
+    [],
+  );
+  const getInterviewHistory = useCallback(() => {
+    let str = '';
+
+    const printAllStrings = obj => {
+      Object.values(obj).map(val => {
+        if (typeof val === 'string') {
+          str += `---\n\n${val}\n\n`;
+        } else if (typeof val === 'object') {
+          printAllStrings(val);
+        }
+        return null;
+      });
+    };
+
+    for (let i = 0; i < historyRef.current.length; i += 1) {
+      const questionType =
+        questionTypeRef.current[Math.floor(i / (rowRef.current * colRef.current))];
+      const questionMain = (Math.floor(i / colRef.current) % rowRef.current) + 1;
+      const questionSub = (i % colRef.current) + 1;
+
+      str += `> ${questionType.toUpperCase()}분야 ${questionMain}-${questionSub}번 문제, 해설, 사용자 답변, 피드백, 성적입니다.\n\n`;
+      printAllStrings(historyRef.current[i]);
+      str += '----------------------------------------\n\n';
+    }
+
+    return str;
+  }, []);
+
+  /* Return */
+  return {
+    interviewHistoryRef: historyRef,
+    initInterviewHistory,
+    isQuestionMain,
+    isInterviewDone,
+    getQuestionMainHistory,
+    getInterviewInfo,
+    getInterviewHistory,
+  };
+}

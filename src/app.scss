@@ -1,0 +1,41 @@
+#app {
+  //box
+  width: 100%;
+  height: 100%;
+  //background
+  background: $color-background 0 / 15px 20px;
+  //text
+  color: $color-text;
+}
+
+.app {
+  //box
+  width: 100%;
+  height: 100%;
+  //grid-container
+  display: grid;
+  grid-template-columns: $grid-width 1fr $grid-width;
+  grid-template-rows: $grid-height 1fr $grid-height;
+
+  .HeaderL {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .HeaderR {
+    grid-area: 1 / 3 / 2 / 4;
+  }
+  .FooterL {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  .FooterR {
+    grid-area: 3 / 3 / 4 / 4;
+  }
+  .timer {
+    grid-area: 3 / 2 / 4 / 3;
+  }
+  main.main {
+    @include prop-flex;
+    @include selector-scrollbar;
+
+    grid-area: 1 / 2 / 4 / 3;
+  }
+}

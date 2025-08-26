@@ -1,0 +1,63 @@
+/* Function */
+@function size($size) {
+  @if ($size == 'xl') {
+    @return 2;
+  } @else if($size == 'l') {
+    @return 1.5;
+  } @else if($size == 'm') {
+    @return 1;
+  } @else if($size == 's') {
+    @return 0.75;
+  } @else if($size == 'xs') {
+    @return 0.5;
+  }
+}
+
+/* Mixin */
+@mixin neon($size, $color) {
+  border-radius: 12px;
+  border: 2px solid $color;
+  filter: brightness(120%);
+  box-shadow:
+    // glass tube inside
+    0 0 0 2px rgba(0, 0, 0, 0.2) inset,
+    // glass tube outside
+    0 0 0 2px rgba(0, 0, 0, 0.2),
+    // glow inside
+    0 0 $size $color inset,
+    // glow outside
+    0 0 $size $color;
+
+  * {
+    filter: none;
+  }
+}
+
+/* Variables */
+$neonColor: (
+  'red': #ff1177,
+  'brightOrange': #f8b734,
+  'orange': #ff9900,
+  'banana': #f5e3a7,
+  'yellow': #ffdd1b,
+  'green': #a2ff37,
+  'sky': #b7e7f7,
+  'blue': #3b8de4,
+  'violet': #e785d2,
+  'purple': #ad0096,
+  'silver': #c4c4c6,
+  'white': #bbbbbb,
+  'black': #0e0e0e,
+);
+$neonSize: ('xl', 'l', 'm', 's', 'xs');
+
+/* Selector */
+.neon-div {
+  @each $name, $color in $neonColor {
+    @each $size in $neonSize {
+      &.#{$name}.#{$size} {
+        @include neon(calc(16px * #{size($size)}), $color);
+      }
+    }
+  }
+}
