@@ -15,23 +15,23 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "alwaysStrict": true,
-    // "exactOptionalPropertyTypes": true,
+    "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
-    // "noImplicitAny": true,
+    "noImplicitAny": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    // "noPropertyAccessFromIndexSignature": false,
-    // "noUncheckedIndexedAccess": true,
-    // "noUnusedLocals": false, // Buggy: Does not recognize JSDoc `@import` statements.
+    "noPropertyAccessFromIndexSignature": false, // Off: Prefer ESLint rule
+    "noUncheckedIndexedAccess": false, // Off: Too tight
+    "noUnusedLocals": false, // Off: Does not recognize JSDoc `@import` statements
     "noUnusedParameters": true,
-    // "strict": true,
+    "strict": true,
     "strictBindCallApply": true,
     "strictBuiltinIteratorReturn": true,
-
-    // ----------------------------
-
-    // "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
 
     /* Modules */
     "baseUrl": ".", // Set the base path to the current root directory.
