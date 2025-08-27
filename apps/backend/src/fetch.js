@@ -14,7 +14,7 @@ import { questionMain, questionSub, answer, feedback } from './prompt.js';
 // --------------------------------------------------------------------------------
 
 /**
- * @import { CustomChatCompletionMessageParam, QuestionType } from './types.d.ts';
+ * @import { CustomChatCompletionMessageParam, QuestionType } from './types.js';
  */
 
 // --------------------------------------------------------------------------------
