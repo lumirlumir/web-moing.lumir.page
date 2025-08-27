@@ -5,7 +5,7 @@
     "apps/*"
   ],
   "engines": {
-    "node": ">=20.18.0"
+    "node": ">=20.19.4"
   },
   "homepage": "https://lumirlumir.github.io/web-moing.lumir.page",
   "repository": "https://github.com/lumirlumir/web-moing.lumir.page",
