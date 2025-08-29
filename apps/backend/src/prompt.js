@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------------
 
 /**
- * @import { CustomChatCompletionMessageParam, QuestionType } from './types.d.ts';
+ * @import { CustomChatCompletionMessageParam, QuestionType } from './types.js';
  */
 
 // --------------------------------------------------------------------------------
