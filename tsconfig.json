@@ -34,9 +34,8 @@
     "useUnknownInCatchVariables": true,
 
     /* Modules */
-    "baseUrl": ".", // Set the base path to the current root directory.
     "paths": {
-      "@/*": ["src/*"] // Map the '@' alias to the 'src' directory.
+      "@/*": ["./src/*"] // Map the '@' alias to the 'src' directory.
     },
     "module": "NodeNext",
     "moduleResolution": "nodenext",
