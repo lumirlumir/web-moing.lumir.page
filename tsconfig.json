@@ -1,22 +1,4 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "allowJs": true,
-    "checkJs": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "outDir": "build",
-    "target": "ESNext",
-    "module": "NodeNext",
-    "moduleResolution": "nodenext",
-    "skipLibCheck": true,
-    // ---------------------------------------------------------------
-    "baseUrl": ".", // Set the base path to the current root directory.
-    "paths": {
-      "@/*": ["src/*"] // Map the '@' alias to the 'src' directory.
-    },
-    "jsx": "react"
-  },
   "include": [
     "src/**/*.js",
     "src/**/*.mjs",
@@ -27,5 +9,54 @@
     "src/**/*.cts",
     "src/**/*.tsx"
   ],
-  "exclude": ["src/**/*.test.js"]
+  "exclude": ["src/**/*.test.js", "src/**/*.test.ts"],
+  "compilerOptions": {
+    /* Type Checking */
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    // "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    // "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": false, // Off: Prefer ESLint rule
+    "noUncheckedIndexedAccess": false, // Off: Too tight
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    // "strict": true,
+    "strictBindCallApply": true,
+    "strictBuiltinIteratorReturn": true,
+    "strictFunctionTypes": true,
+    // "strictNullChecks": true,
+    // "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+
+    /* Modules */
+    "paths": {
+      "@/*": ["./src/*"] // Map the '@' alias to the 'src' directory.
+    },
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+
+    /* Emit */
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "build",
+
+    /* JavaScript Support */
+    "allowJs": true,
+    "checkJs": true,
+
+    /* Interop Constraints */
+    "allowSyntheticDefaultImports": true,
+
+    /* Language and Environment */
+    "jsx": "react",
+    "target": "ESNext",
+
+    /* Completeness */
+    "skipLibCheck": true
+  }
 }
