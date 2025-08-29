@@ -23,7 +23,7 @@
     "noImplicitThis": true,
     "noPropertyAccessFromIndexSignature": false, // Off: Prefer ESLint rule
     "noUncheckedIndexedAccess": false, // Off: Too tight
-    "noUnusedLocals": false, // Off: Does not recognize JSDoc `@import` statements
+    "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,
     "strictBindCallApply": true,
