@@ -20,7 +20,7 @@ import './button.scss';
 // --------------------------------------------------------------------------------
 
 interface Props extends Pick<Parameters<typeof NeonButton>[0], 'hoverEffect'> {
-  type: 'HeaderL' | 'HeaderR' | 'FooterL' | 'FooterR';
+  type: 'header-l' | 'header-r' | 'footer-l' | 'footer-r';
   icon: React.ReactElement;
   scenario: ReturnType<typeof useScenario>;
   onClick: React.MouseEventHandler<HTMLButtonElement>;

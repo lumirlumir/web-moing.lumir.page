@@ -47,7 +47,7 @@ export default function App(): React.JSX.Element {
   return (
     <div className="app">
       <Button
-        type="HeaderL"
+        type="header-l"
         icon={<GoGear size="35px" />}
         scenario={scenario}
         onClick={() => {
@@ -55,7 +55,7 @@ export default function App(): React.JSX.Element {
         }}
       />
       <Button
-        type="HeaderR"
+        type="header-r"
         icon={<CiMicrophoneOn size="40px" />}
         hoverEffect={interview.listening}
         scenario={scenario}
@@ -64,7 +64,7 @@ export default function App(): React.JSX.Element {
         }}
       />
       <Button
-        type="FooterL"
+        type="footer-l"
         icon={<GrPowerReset size="32px" />}
         scenario={scenario}
         onClick={() => {
@@ -72,7 +72,7 @@ export default function App(): React.JSX.Element {
         }}
       />
       <Button
-        type="FooterR"
+        type="footer-r"
         icon={<IoIosCheckmarkCircleOutline size="39px" />}
         scenario={scenario}
         onClick={() => {

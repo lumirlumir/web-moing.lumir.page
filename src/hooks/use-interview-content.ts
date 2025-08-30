@@ -22,7 +22,6 @@ export default function useInterviewContent() {
     if (!listening) resetTranscript();
   }, [listening, resetTranscript, toggle]);
 
-  /* Return */
   return {
     contentRef,
     listening,
