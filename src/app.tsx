@@ -45,7 +45,7 @@ export default function App(): React.JSX.Element {
   }, [scenario.subsectionState, scroll]);
 
   return (
-    <div className="app">
+    <>
       <Button
         type="header-l"
         icon={<GoGear size="35px" />}
@@ -97,6 +97,6 @@ export default function App(): React.JSX.Element {
           <MainButton scenario={scenario} config={config} interview={interview} />
         </div>
       </main>
-    </div>
+    </>
   );
 }
