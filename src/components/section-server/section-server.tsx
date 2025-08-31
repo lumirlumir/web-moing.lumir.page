@@ -41,7 +41,7 @@ export default function SectionServer({
   timer,
 }: Props): React.JSX.Element {
   const { subsectionState, getSectionObj, toNextSection } = scenario;
-  const { visibility, content, mode } = getSectionObj().SectionServer;
+  const { visibility, content, mode } = getSectionObj()['section-server'];
   const { configState } = config;
   const { getInterviewInfo, getQuestion, isInterviewDone, getInterviewHistory } =
     interview;

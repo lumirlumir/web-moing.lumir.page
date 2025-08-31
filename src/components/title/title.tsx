@@ -26,7 +26,7 @@ interface Props {
 // --------------------------------------------------------------------------------
 
 export default function Title({ scenario }: Props): React.JSX.Element {
-  const { visibility } = scenario.getSectionObj().Heading;
+  const { visibility } = scenario.getSectionObj().title;
 
   return (
     <div className={`title transition select-none ${visibility ? '' : 'invisible'}`}>
