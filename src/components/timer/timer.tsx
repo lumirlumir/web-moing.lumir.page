@@ -28,7 +28,7 @@ interface Props {
 // --------------------------------------------------------------------------------
 
 export default function Timer({ scenario, timer }: Props): React.JSX.Element {
-  const { visibility } = scenario.getSectionObj().FooterM;
+  const { visibility } = scenario.getSectionObj().timer;
   const { getTimer } = timer;
 
   return (

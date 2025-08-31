@@ -28,7 +28,7 @@ interface Props {
 // --------------------------------------------------------------------------------
 
 export default function SectionClient({ scenario, interview }: Props): React.JSX.Element {
-  const { visibility } = scenario.getSectionObj().SectionClient;
+  const { visibility } = scenario.getSectionObj()['section-client'];
   const { contentRef } = interview;
 
   return (
