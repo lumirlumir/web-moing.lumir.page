@@ -6,13 +6,10 @@ import { useCallback, useEffect, useRef, useState } from 'react';
  * @returns
  */
 export default function useTimer(callbackOnTimerEnd) {
-  /* Hooks */
-  // useRef
   const callbackOnTimerEndRef = useRef(callbackOnTimerEnd);
   const intervalRef = useRef(null);
-  // useState
   const [secondState, setSecondState] = useState(null);
-  // useEffect
+
   useEffect(() => {
     if (secondState < 0) {
       clearInterval(intervalRef.current);
@@ -21,7 +18,6 @@ export default function useTimer(callbackOnTimerEnd) {
     }
   }, [secondState]);
 
-  /* Func */
   const resetTimer = useCallback(minute => {
     setSecondState(minute * 60);
 
@@ -43,7 +39,6 @@ export default function useTimer(callbackOnTimerEnd) {
     };
   }, [secondState]);
 
-  /* Return */
   return {
     resetTimer,
     stopTimer,

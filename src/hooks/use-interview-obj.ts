@@ -13,11 +13,8 @@ const INTERVIEW_OBJ = Object.freeze({
  * @returns
  */
 export default function useInterviewObj() {
-  /* Hooks */
-  // useState
   const [interviewObjState, setInterviewObjState] = useState(INTERVIEW_OBJ);
 
-  /* Func */
   const initInterviewObj = useCallback(() => {
     setInterviewObjState(prevState => ({
       ...prevState,
@@ -56,7 +53,6 @@ export default function useInterviewObj() {
   );
   const getQuestion = useCallback(() => interviewObjState.question, [interviewObjState]);
 
-  /* Return */
   return {
     interviewObjState,
     initInterviewObj,

@@ -151,7 +151,6 @@ export default function useInterview() {
     contentRef.current.innerHTML = '';
   }, [contentRef, addInterviewObj]);
 
-  /* Return */
   return {
     // useInterviewContent
     contentRef,
