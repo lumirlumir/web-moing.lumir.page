@@ -106,14 +106,13 @@ export default function Typewriter({
   const [isErasing, setIsErasing] = useState<boolean>(false);
   const [eraseCharIndex, setEraseCharIndex] = useState<number>(0);
 
-  // Notify when line typed
+  // Notify when char typed
   useEffect(() => {
     if (charIndex > 0) {
       onLineTyped?.(charIndex - 1);
     }
   }, [charIndex, onLineTyped]);
 
-  // Typing effect
   useEffect(() => {
     if (pause) {
       if (timeoutRef.current) {
@@ -124,69 +123,45 @@ export default function Typewriter({
       return undefined;
     }
 
-    if (isErasing) return undefined;
-
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
     }
 
-    if (charIndex >= string.length) {
-      if (loop) {
-        timeoutRef.current = setTimeout(() => setIsErasing(true), eraseDelay);
+    // Typing effect
+    if (!isErasing) {
+      if (charIndex >= string.length) {
+        if (loop) {
+          timeoutRef.current = setTimeout(() => setIsErasing(true), eraseDelay);
+        } else {
+          return undefined;
+        }
       } else {
-        return undefined;
+        timeoutRef.current = setTimeout(() => {
+          setCurrentLine(prev => prev + string[charIndex]);
+          setCharIndex(prev => prev + 1);
+        }, speed);
       }
-    } else if (charIndex < string.length) {
-      timeoutRef.current = setTimeout(() => {
-        setCurrentLine(prev => prev + string[charIndex]);
-        setCharIndex(prev => prev + 1);
-      }, speed);
-    }
-
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
-      }
-    };
-  }, [charIndex, currentLine, isErasing, string, speed, eraseDelay, pause, loop]);
-
-  // Erasing effect
-  useEffect(() => {
-    if (pause) {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
-      }
-
-      return undefined;
-    }
-
-    if (!isErasing) return undefined;
-
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
-
-    if (eraseCharIndex < currentLine.length) {
-      timeoutRef.current = setTimeout(() => {
-        const newLine = currentLine.slice(0, currentLine.length - eraseCharIndex - 1);
-        setCurrentLine(newLine);
-        setEraseCharIndex(prev => prev + 1);
-      }, eraseSpeed);
     } else {
-      timeoutRef.current = setTimeout(() => {
-        setEraseCharIndex(0);
-      }, eraseSpeed);
+      // eslint-disable-next-line no-lonely-if -- TODO
+      if (eraseCharIndex < currentLine.length) {
+        timeoutRef.current = setTimeout(() => {
+          const newLine = currentLine.slice(0, currentLine.length - eraseCharIndex - 1);
+          setCurrentLine(newLine);
+          setEraseCharIndex(prev => prev + 1);
+        }, eraseSpeed);
+      } else {
+        timeoutRef.current = setTimeout(() => {
+          setEraseCharIndex(0);
+        }, eraseSpeed);
 
-      if (loop) {
-        onLoopComplete?.();
-        setCharIndex(0);
-        setIsErasing(false);
-        setEraseCharIndex(0);
-        setCurrentLine('');
+        if (loop) {
+          onLoopComplete?.();
+          setCharIndex(0);
+          setIsErasing(false);
+          setEraseCharIndex(0);
+          setCurrentLine('');
+        }
       }
     }
 
@@ -197,14 +172,17 @@ export default function Typewriter({
       }
     };
   }, [
+    charIndex,
+    eraseCharIndex,
     currentLine,
     isErasing,
-    eraseCharIndex,
+    speed,
     eraseSpeed,
     string,
+    eraseDelay,
+    pause,
     loop,
     onLoopComplete,
-    pause,
   ]);
 
   return (
