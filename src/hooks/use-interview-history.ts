@@ -1,17 +1,24 @@
+/**
+ * @fileoverview use-interview-history
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import { useCallback, useRef } from 'react';
 import { questionTypes, type Config } from '@/hooks/use-config';
 
-/**
- *
- * @returns
- */
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
 export default function useInterviewHistory() {
   const historyRef = useRef([]);
   const questionTypeRef = useRef<string[]>([]);
   const rowRef = useRef<number | null>(null);
   const colRef = useRef<number | null>(null);
 
-  /* Func */
   const initInterviewHistory = useCallback((configState: Config) => {
     const { main, sub } = configState;
 
@@ -78,7 +85,6 @@ export default function useInterviewHistory() {
     return str;
   }, []);
 
-  /* Return */
   return {
     interviewHistoryRef: historyRef,
     initInterviewHistory,

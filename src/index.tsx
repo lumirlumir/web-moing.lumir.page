@@ -17,7 +17,7 @@ import '@/styles/index.scss';
 // Render
 // --------------------------------------------------------------------------------
 
-ReactDOM.createRoot(document.getElementById('app')).render(
+ReactDOM.createRoot(document.getElementById('app') as HTMLDivElement).render(
   <StrictMode>
     <App />
   </StrictMode>,

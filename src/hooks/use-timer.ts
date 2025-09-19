@@ -1,13 +1,22 @@
+/**
+ * @fileoverview use-timer
+ */
+
+/* global NodeJS */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-/**
- *
- * @param {function} callbackOnTimerEnd
- * @returns
- */
-export default function useTimer(callbackOnTimerEnd) {
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+export default function useTimer(callbackOnTimerEnd: Function) {
   const callbackOnTimerEndRef = useRef(callbackOnTimerEnd);
-  const intervalRef = useRef(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [secondState, setSecondState] = useState(null);
 
   useEffect(() => {

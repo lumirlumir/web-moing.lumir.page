@@ -1,14 +1,23 @@
+/**
+ * @fileoverview use-speech-recognition
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import { useCallback } from 'react';
 import SpeechRecognition, {
   useSpeechRecognition as _useSpeechRecognition,
 } from 'react-speech-recognition';
 
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
 export default function useSpeechRecognition() {
-  /* Hooks */
-  // useSpeechRecognition
   const { transcript, listening, resetTranscript } = _useSpeechRecognition();
 
-  /* Func */
   const toggleListening = useCallback(() => {
     if (listening) {
       SpeechRecognition.stopListening();
@@ -17,7 +26,6 @@ export default function useSpeechRecognition() {
     }
   }, [listening]);
 
-  /* Return */
   return {
     transcript,
     listening,

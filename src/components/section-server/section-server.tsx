@@ -47,7 +47,7 @@ export default function SectionServer({
     interview;
   const { resetTimer } = timer;
   const { scrollRef, scroll } = useScroll<HTMLDivElement>();
-  const { historyState, addHistory } = useHistoryState();
+  const { historyState, addHistory } = useHistoryState<string>();
 
   const text = useMemo(() => {
     if (mode === 'test')

@@ -1,9 +1,20 @@
-import { useCallback, useEffect, useRef } from 'react';
+/**
+ * @fileoverview use-interview-content
+ */
 
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
+import { useCallback, useEffect, useRef } from 'react';
 import useSpeechRecognition from '@/hooks/use-speech-recognition';
 
-export default function useInterviewContent() {
-  const contentRef = useRef(null);
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+export default function useInterviewContent<T extends HTMLElement>() {
+  const contentRef = useRef<T>(null);
   const prevContent = useRef(null);
   const {
     transcript,
