@@ -11,10 +11,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
-export interface TypewriterProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface Props extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * Text to type out.
    */
@@ -98,8 +98,32 @@ export interface TypewriterProps extends React.HTMLAttributes<HTMLSpanElement> {
 // --------------------------------------------------------------------------------
 
 /**
- * TIP
+ * Simple Typewriter Effect component.
+ *
+ * TIP:
  * - Use `style={{ whiteSpace: 'pre' }}` to support multiline text.
+ * - Use `cursorClassName` to style the cursor (e.g., blinking effect).
+ *
+ * @example
+ * import Typewriter from 'path/to/typewriter';
+ * import type { Props as TypewriterProps } from 'path/to/typewriter';
+ *
+ * // Default Values
+ * <Typewriter
+ *   text="Hello, World!"
+ *   cursor="|"
+ *   cursorClassName="cursor"
+ *   writeSpeed={50}
+ *   eraseSpeed={50}
+ *   writePreDelay={0}
+ *   erasePreDelay={0}
+ *   writePostDelay={1500}
+ *   erasePostDelay={1500}
+ *   loop={false}
+ *   pause={false}
+ *   onWriteComplete={undefined}
+ *   onEraseComplete={undefined}
+ * />
  */
 export default function Typewriter({
   text,
@@ -116,7 +140,7 @@ export default function Typewriter({
   onWriteComplete = undefined,
   onEraseComplete = undefined,
   ...props
-}: TypewriterProps): React.JSX.Element {
+}: Props): React.JSX.Element {
   const [currentText, setCurrentText] = useState<string>('');
   const [mode, setMode] = useState<'write' | 'erase'>('write');
 
