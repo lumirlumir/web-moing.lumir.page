@@ -1,13 +1,21 @@
+/**
+ * @fileoverview use-history-state
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import { useCallback, useState } from 'react';
 
-/**
- *
- * @returns
- */
-export default function useHistoryState() {
-  const [historyState, setHistoryState] = useState([]);
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
 
-  const addHistory = useCallback(val => {
+export default function useHistoryState<T>() {
+  const [historyState, setHistoryState] = useState<T[]>([]);
+
+  const addHistory = useCallback((val: T) => {
     setHistoryState(prevState => [...prevState, val]);
   }, []);
 

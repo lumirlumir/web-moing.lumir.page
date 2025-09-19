@@ -38,10 +38,7 @@ const fetchFeedback = async (answerSystem, answerUser) =>
 // --------------------------------------------------------------------------------
 
 export default function useInterview() {
-  /* Hooks */
-  // useInterviewContent
   const { contentRef, listening, toggleListening } = useInterviewContent();
-  // useInterviewHistory
   const {
     interviewHistoryRef,
     initInterviewHistory,
@@ -51,7 +48,6 @@ export default function useInterview() {
     getInterviewInfo,
     getInterviewHistory,
   } = useInterviewHistory();
-  // useInterviewObj
   const {
     interviewObjState,
     initInterviewObj,
@@ -61,10 +57,8 @@ export default function useInterview() {
     isOnlyFeedbackEmpty,
     getQuestion,
   } = useInterviewObj();
-  // useTrigger
   const { triggerState, trigger } = useTrigger();
 
-  /* Func Private */
   // generateChain
   const fetchChainFirst = useCallback(() => {
     const generateQuestion = isQuestionMain()
@@ -100,16 +94,10 @@ export default function useInterview() {
     );
   }, [interviewObjState, addInterviewObj]);
 
-  /* Hooks - useEffect */
   useEffect(() => {
-    /* Return */
     if (!triggerState) return; // before init.
     if (isInterviewDone()) return; // interview done.
 
-    /* Test */
-    // console.log('hello useEffect');
-
-    /* ... */
     if (isInterviewObjEmpty()) {
       // console.log('fetchChainFirst()');
       fetchChainFirst();
@@ -137,7 +125,6 @@ export default function useInterview() {
     triggerState,
   ]);
 
-  /* Func Public */
   const initInterview = useCallback(
     configState => {
       initInterviewHistory(configState);
@@ -151,19 +138,14 @@ export default function useInterview() {
     contentRef.current.innerHTML = '';
   }, [contentRef, addInterviewObj]);
 
-  /* Return */
   return {
-    // useInterviewContent
     contentRef,
     listening,
     toggleListening,
-    // useInterviewHistory
     isInterviewDone,
     getInterviewInfo,
     getInterviewHistory,
-    // useInterviewObject
     getQuestion,
-    // useInterview
     initInterview,
     submit,
   };

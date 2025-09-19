@@ -1,6 +1,17 @@
+/**
+ * @fileoverview use-interview-obj
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import { useCallback, useState } from 'react';
 
-/* Constants */
+// --------------------------------------------------------------------------------
+// Helper
+// --------------------------------------------------------------------------------
+
 const INTERVIEW_OBJ = Object.freeze({
   question: null,
   answerSystem: null,
@@ -8,16 +19,13 @@ const INTERVIEW_OBJ = Object.freeze({
   feedback: null,
 });
 
-/**
- *
- * @returns
- */
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
 export default function useInterviewObj() {
-  /* Hooks */
-  // useState
   const [interviewObjState, setInterviewObjState] = useState(INTERVIEW_OBJ);
 
-  /* Func */
   const initInterviewObj = useCallback(() => {
     setInterviewObjState(prevState => ({
       ...prevState,
@@ -56,7 +64,6 @@ export default function useInterviewObj() {
   );
   const getQuestion = useCallback(() => interviewObjState.question, [interviewObjState]);
 
-  /* Return */
   return {
     interviewObjState,
     initInterviewObj,

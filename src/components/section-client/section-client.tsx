@@ -37,6 +37,7 @@ export default function SectionClient({ scenario, interview }: Props): React.JSX
       neonColor="black"
     >
       <div
+        // @ts-expect-error -- TODO
         ref={contentRef}
         contentEditable="true"
         spellCheck="false"

@@ -1,20 +1,24 @@
+/**
+ * @fileoverview use-trigger
+ */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import { useCallback, useState } from 'react';
 
-/**
- *
- * @returns
- */
-export default function useTrigger() {
-  /* Hooks */
-  // useState
-  const [triggerState, setTriggerState] = useState(false);
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
 
-  /* Func */
+export default function useTrigger() {
+  const [triggerState, setTriggerState] = useState<boolean>(false);
+
   const trigger = useCallback(() => {
     setTriggerState(true);
   }, []);
 
-  /* Return */
   return {
     triggerState,
     trigger,

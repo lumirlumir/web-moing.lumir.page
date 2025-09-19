@@ -1,18 +1,24 @@
+/**
+ * @fileoverview use-timer
+ */
+
+/* global NodeJS */
+
+// --------------------------------------------------------------------------------
+// Import
+// --------------------------------------------------------------------------------
+
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-/**
- *
- * @param {function} callbackOnTimerEnd
- * @returns
- */
-export default function useTimer(callbackOnTimerEnd) {
-  /* Hooks */
-  // useRef
+// --------------------------------------------------------------------------------
+// Export
+// --------------------------------------------------------------------------------
+
+export default function useTimer(callbackOnTimerEnd: Function) {
   const callbackOnTimerEndRef = useRef(callbackOnTimerEnd);
-  const intervalRef = useRef(null);
-  // useState
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [secondState, setSecondState] = useState(null);
-  // useEffect
+
   useEffect(() => {
     if (secondState < 0) {
       clearInterval(intervalRef.current);
@@ -21,7 +27,6 @@ export default function useTimer(callbackOnTimerEnd) {
     }
   }, [secondState]);
 
-  /* Func */
   const resetTimer = useCallback(minute => {
     setSecondState(minute * 60);
 
@@ -43,7 +48,6 @@ export default function useTimer(callbackOnTimerEnd) {
     };
   }, [secondState]);
 
-  /* Return */
   return {
     resetTimer,
     stopTimer,
