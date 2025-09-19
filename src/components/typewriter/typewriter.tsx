@@ -101,8 +101,8 @@ export interface Props extends React.HTMLAttributes<HTMLSpanElement> {
  * Simple Typewriter Effect component.
  *
  * TIP:
- * - Use `style={{ whiteSpace: 'pre' }}` to support multiline text.
  * - Use `cursorClassName` to style the cursor (e.g., blinking effect).
+ * - Use `style={{ whiteSpace: 'pre' }}` to support multiline text.
  *
  * @example
  * import Typewriter from 'path/to/typewriter';
