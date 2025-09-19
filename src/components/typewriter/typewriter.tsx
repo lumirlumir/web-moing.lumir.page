@@ -106,14 +106,6 @@ export default function Typewriter({
   const [isErasing, setIsErasing] = useState<boolean>(false);
   const [eraseCharIndex, setEraseCharIndex] = useState<number>(0);
 
-  // Reset when `string` prop changes
-  useEffect(() => {
-    setCurrentLine('');
-    setCharIndex(0);
-    setIsErasing(false);
-    setEraseCharIndex(0);
-  }, [string]);
-
   // Notify when line typed
   useEffect(() => {
     if (charIndex > 0) {
