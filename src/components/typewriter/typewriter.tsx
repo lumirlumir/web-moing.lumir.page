@@ -2,8 +2,6 @@
  * @fileoverview typewriter.
  */
 
-// TODO: RAF(requestAnimationFrame)
-
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
@@ -144,21 +142,38 @@ export default function Typewriter({
   const [currentText, setCurrentText] = useState<string>('');
   const [mode, setMode] = useState<'write' | 'erase'>('write');
 
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
     }
 
     if (pause) {
       return undefined;
     }
 
+    /** Minimal helper to emulate `setTimeout` with RAF */
+    const setTimeoutRaf = (callback: () => void, delay: number) => {
+      const base = performance.now();
+
+      const step = (timestamp: number) => {
+        if (timestamp - base >= delay) {
+          rafRef.current = null;
+          callback();
+          return;
+        }
+
+        rafRef.current = requestAnimationFrame(step);
+      };
+
+      rafRef.current = requestAnimationFrame(step);
+    };
+
     if (mode === 'write') {
       if (currentText.length === text.length) {
-        timeoutRef.current = setTimeout(() => {
+        setTimeoutRaf(() => {
           if (loop) {
             setMode('erase');
           }
@@ -166,7 +181,7 @@ export default function Typewriter({
           onWriteComplete?.();
         }, writePostDelay);
       } else {
-        timeoutRef.current = setTimeout(
+        setTimeoutRaf(
           () => {
             setCurrentText(prev => prev + text[currentText.length]);
           },
@@ -175,7 +190,7 @@ export default function Typewriter({
       }
     } else if (mode === 'erase') {
       if (currentText.length === 0) {
-        timeoutRef.current = setTimeout(() => {
+        setTimeoutRaf(() => {
           if (loop) {
             setMode('write');
           }
@@ -183,7 +198,7 @@ export default function Typewriter({
           onEraseComplete?.();
         }, erasePostDelay);
       } else {
-        timeoutRef.current = setTimeout(
+        setTimeoutRaf(
           () => {
             setCurrentText(prev => prev.slice(0, prev.length - 1));
           },
@@ -193,9 +208,9 @@ export default function Typewriter({
     }
 
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
       }
     };
   }, [
