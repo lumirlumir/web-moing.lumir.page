@@ -119,9 +119,7 @@ export default function Typewriter({
     if (!isErasing) {
       if (charIndex >= string.length) {
         if (loop) {
-          timeoutRef.current = setTimeout(() => setIsErasing(true), eraseDelay);
-        } else {
-          return undefined;
+          timeoutRef.current = setTimeout(() => setIsErasing(prev => !prev), eraseDelay);
         }
       } else {
         timeoutRef.current = setTimeout(() => {
@@ -132,14 +130,10 @@ export default function Typewriter({
     } else {
       // eslint-disable-next-line no-lonely-if -- TODO
       if (eraseCharIndex >= string.length) {
-        timeoutRef.current = setTimeout(() => {
-          setEraseCharIndex(0);
-        }, eraseSpeed);
-
         if (loop) {
           onLoopComplete?.();
           setCharIndex(0);
-          setIsErasing(false);
+          setIsErasing(prev => !prev);
           setEraseCharIndex(0);
           setCurrentLine('');
         }
