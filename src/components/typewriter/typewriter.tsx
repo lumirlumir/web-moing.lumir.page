@@ -21,45 +21,62 @@ export interface TypewriterProps extends React.HTMLAttributes<HTMLDivElement> {
   string: string;
 
   /**
-   * The delay between each key when typing in milliseconds.
-   * @default 50
+   * The value to use as the cursor. Set to `null` to disable.
+   * @default '|'
    */
-  speed?: number;
+  cursor?: string | null;
 
   /**
-   * Erasing speed in milliseconds per character.
+   * The delay between each character when writing (milliseconds).
+   * @default 50
+   */
+  writeSpeed?: number;
+
+  /**
+   * The delay between each character when erasing (milliseconds).
+   * @default 50
    */
   eraseSpeed?: number;
 
   /**
-   * Delay before starting to erase (in ms).
+   * Delay before starting to write (milliseconds).
+   * @default 1500
+   */
+  writeDelay?: number;
+
+  /**
+   * Delay before starting to erase (milliseconds).
+   * @default 1500
    */
   eraseDelay?: number;
 
   /**
-   * Whether to erase and restart after finishing all lines.
+   * Whether to keep looping or not.
+   * @default false
    */
   loop?: boolean;
 
   /**
-   * The value to use as the cursor. Set to `null` to disable.
-   * @default '|'
-   */
-  cursor?: React.ReactNode;
-
-  /**
-   * Temporarily pauses typing or erasing.
+   * Temporarily pauses writing/erasing when set to `true`.
+   * @default false
    */
   pause?: boolean;
 
   /**
-   * Callback fired after a full cycle when loop is enabled.
+   * Callback function that is called when writing is complete.
+   * @default undefined
    */
-  onLoopComplete?: () => void;
+  onWriteComplete?: () => void;
+
+  /**
+   * Callback function that is called when erasing is complete.
+   * @default undefined
+   */
+  onEraseComplete?: () => void;
 }
 
 // --------------------------------------------------------------------------------
-// Helpers
+// Helper
 // --------------------------------------------------------------------------------
 
 const css = `
@@ -79,17 +96,19 @@ const css = `
 
 export default function Typewriter({
   string,
-  speed = 50,
-  eraseSpeed = 30,
-  eraseDelay = 1000,
-  loop = true,
   cursor = '|',
+  writeSpeed = 50,
+  eraseSpeed = 50,
+  writeDelay = 1_500,
+  eraseDelay = 1_500,
+  loop = false,
   pause = false,
-  onLoopComplete = undefined,
+  onWriteComplete = undefined,
+  onEraseComplete = undefined,
   ...props
 }: TypewriterProps) {
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [currentLine, setCurrentLine] = useState<string>('');
+  const [currentString, setCurrentString] = useState<string>('');
   const [isErasing, setIsErasing] = useState<boolean>(false);
 
   useEffect(() => {
@@ -109,27 +128,26 @@ export default function Typewriter({
 
     // Typing effect
     if (!isErasing) {
-      if (currentLine.length === string.length) {
-        if (loop) {
-          timeoutRef.current = setTimeout(() => {
-            setIsErasing(prev => !prev);
-          }, eraseDelay);
-        }
+      if (currentString.length === string.length && loop) {
+        timeoutRef.current = setTimeout(() => {
+          setIsErasing(prev => !prev);
+          onWriteComplete?.();
+        }, eraseDelay);
       } else {
         timeoutRef.current = setTimeout(() => {
-          setCurrentLine(prev => prev + string[currentLine.length]);
-        }, speed);
+          setCurrentString(prev => prev + string[currentString.length]);
+        }, writeSpeed);
       }
     } else {
-      // eslint-disable-next-line no-lonely-if -- TODO
-      if (currentLine.length === 0) {
-        if (loop) {
+      // eslint-disable-next-line no-lonely-if
+      if (currentString.length === 0 && loop) {
+        timeoutRef.current = setTimeout(() => {
           setIsErasing(prev => !prev);
-          onLoopComplete?.();
-        }
+          onEraseComplete?.();
+        }, writeDelay);
       } else {
         timeoutRef.current = setTimeout(() => {
-          setCurrentLine(prev => prev.slice(0, prev.length - 1));
+          setCurrentString(prev => prev.slice(0, prev.length - 1));
         }, eraseSpeed);
       }
     }
@@ -141,20 +159,22 @@ export default function Typewriter({
       }
     };
   }, [
-    currentLine,
-    isErasing,
-    speed,
-    eraseSpeed,
     string,
+    writeSpeed,
+    eraseSpeed,
+    writeDelay,
     eraseDelay,
-    pause,
     loop,
-    onLoopComplete,
+    pause,
+    onWriteComplete,
+    onEraseComplete,
+    currentString,
+    isErasing,
   ]);
 
   return (
     <div style={{ whiteSpace: 'pre' }} {...props}>
-      {currentLine}
+      {currentString}
       <span className="cursor">{cursor}</span>
       <style>{css}</style>
     </div>
