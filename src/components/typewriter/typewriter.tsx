@@ -131,13 +131,7 @@ export default function Typewriter({
       }
     } else {
       // eslint-disable-next-line no-lonely-if -- TODO
-      if (eraseCharIndex < currentLine.length) {
-        timeoutRef.current = setTimeout(() => {
-          const newLine = currentLine.slice(0, currentLine.length - eraseCharIndex - 1);
-          setCurrentLine(newLine);
-          setEraseCharIndex(prev => prev + 1);
-        }, eraseSpeed);
-      } else {
+      if (eraseCharIndex >= string.length) {
         timeoutRef.current = setTimeout(() => {
           setEraseCharIndex(0);
         }, eraseSpeed);
@@ -149,6 +143,11 @@ export default function Typewriter({
           setEraseCharIndex(0);
           setCurrentLine('');
         }
+      } else {
+        timeoutRef.current = setTimeout(() => {
+          setCurrentLine(prev => prev.slice(0, prev.length - eraseCharIndex - 1));
+          setEraseCharIndex(prev => prev + 1);
+        }, eraseSpeed);
       }
     }
 
