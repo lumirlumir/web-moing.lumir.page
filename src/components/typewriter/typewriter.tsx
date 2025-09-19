@@ -25,7 +25,7 @@ export interface TypewriterProps extends React.HTMLAttributes<HTMLDivElement> {
    * The delay between each key when typing in milliseconds.
    * @default 50
    */
-  delay?: number;
+  speed?: number;
 
   /**
    * The delay before moving to the next line in milliseconds.
@@ -95,7 +95,7 @@ const css = `
 
 export default function Typewriter({
   strings,
-  delay = 50,
+  speed = 50,
   lineDelay = 500,
   eraseSpeed = 30,
   eraseDelay = 1000,
@@ -164,7 +164,7 @@ export default function Typewriter({
       timeoutRef.current = setTimeout(() => {
         setCurrentLine(prev => prev + strings[lineIndex][charIndex]);
         setCharIndex(prev => prev + 1);
-      }, delay);
+      }, speed);
     } else {
       timeoutRef.current = setTimeout(() => {
         setDisplayedLines(prev => [...prev, currentLine]);
@@ -186,7 +186,7 @@ export default function Typewriter({
     currentLine,
     isErasing,
     strings,
-    delay,
+    speed,
     lineDelay,
     eraseDelay,
     pause,
