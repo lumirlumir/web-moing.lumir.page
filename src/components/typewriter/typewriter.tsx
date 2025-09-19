@@ -46,15 +46,27 @@ export interface TypewriterProps extends React.HTMLAttributes<HTMLSpanElement> {
 
   /**
    * Delay before starting to write (milliseconds).
+   * @default 0
+   */
+  writePreDelay?: number;
+
+  /**
+   * Delay after finishing to write (milliseconds).
    * @default 1500
    */
-  writeDelay?: number;
+  writePostDelay?: number;
 
   /**
    * Delay before starting to erase (milliseconds).
+   * @default 0
+   */
+  erasePreDelay?: number;
+
+  /**
+   * Delay after finishing to erase (milliseconds).
    * @default 1500
    */
-  eraseDelay?: number;
+  erasePostDelay?: number;
 
   /**
    * Whether to keep looping or not.
@@ -95,8 +107,10 @@ export default function Typewriter({
   cursorClassName = 'cursor',
   writeSpeed = 50,
   eraseSpeed = 50,
-  writeDelay = 1_500,
-  eraseDelay = 1_500,
+  writePreDelay = 0,
+  erasePreDelay = 0,
+  writePostDelay = 1_500,
+  erasePostDelay = 1_500,
   loop = false,
   pause = false,
   onWriteComplete = undefined,
@@ -131,11 +145,14 @@ export default function Typewriter({
           }
 
           onWriteComplete?.();
-        }, eraseDelay);
+        }, writePostDelay);
       } else {
-        timeoutRef.current = setTimeout(() => {
-          setCurrentText(prev => prev + text[currentText.length]);
-        }, writeSpeed);
+        timeoutRef.current = setTimeout(
+          () => {
+            setCurrentText(prev => prev + text[currentText.length]);
+          },
+          currentText.length === 0 ? writePreDelay : writeSpeed,
+        );
       }
     } else if (mode === 'erase') {
       if (currentText.length === 0) {
@@ -145,11 +162,14 @@ export default function Typewriter({
           }
 
           onEraseComplete?.();
-        }, writeDelay);
+        }, erasePostDelay);
       } else {
-        timeoutRef.current = setTimeout(() => {
-          setCurrentText(prev => prev.slice(0, prev.length - 1));
-        }, eraseSpeed);
+        timeoutRef.current = setTimeout(
+          () => {
+            setCurrentText(prev => prev.slice(0, prev.length - 1));
+          },
+          currentText.length === text.length ? erasePreDelay : eraseSpeed,
+        );
       }
     }
 
@@ -163,8 +183,10 @@ export default function Typewriter({
     text,
     writeSpeed,
     eraseSpeed,
-    writeDelay,
-    eraseDelay,
+    writePreDelay,
+    erasePreDelay,
+    writePostDelay,
+    erasePostDelay,
     loop,
     pause,
     onWriteComplete,
