@@ -28,12 +28,6 @@ export interface TypewriterProps extends React.HTMLAttributes<HTMLDivElement> {
   speed?: number;
 
   /**
-   * The delay before moving to the next line in milliseconds.
-   * @default 500
-   */
-  lineDelay?: number;
-
-  /**
    * Erasing speed in milliseconds per character.
    */
   eraseSpeed?: number;
@@ -96,7 +90,6 @@ const css = `
 export default function Typewriter({
   strings,
   speed = 50,
-  lineDelay = 500,
   eraseSpeed = 30,
   eraseDelay = 1000,
   loop = true,
@@ -174,7 +167,6 @@ export default function Typewriter({
     isErasing,
     strings,
     speed,
-    lineDelay,
     eraseDelay,
     pause,
     loop,
