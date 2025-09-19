@@ -80,7 +80,8 @@ export default function SectionServer({
           text={text}
           cursor="_"
           writeSpeed={mode === 'result' ? 1 : 30} // original: 30
-          eraseDelay={2000}
+          writePreDelay={2000}
+          writePostDelay={1000}
           onWriteComplete={() => {
             if (mode === 'auto' || mode === 'result') toNextSection();
             if (mode === 'test' && text !== '') resetTimer(configState.time);

@@ -123,18 +123,13 @@ export default function Typewriter({
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    if (pause) {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
-      }
-
-      return undefined;
-    }
-
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
+    }
+
+    if (pause) {
+      return undefined;
     }
 
     if (mode === 'write') {
