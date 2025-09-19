@@ -108,22 +108,18 @@ export default function Typewriter({
   ...props
 }: TypewriterProps) {
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [displayedLines, setDisplayedLines] = useState<string[]>([]);
   const [currentLine, setCurrentLine] = useState<string>('');
   const [lineIndex, setLineIndex] = useState<number>(0);
   const [charIndex, setCharIndex] = useState<number>(0);
   const [isErasing, setIsErasing] = useState<boolean>(false);
-  const [eraseLineIndex, setEraseLineIndex] = useState<number>(strings.length - 1);
   const [eraseCharIndex, setEraseCharIndex] = useState<number>(0);
 
   // Reset when `strings` prop changes
   useEffect(() => {
-    setDisplayedLines([]);
     setCurrentLine('');
     setLineIndex(0);
     setCharIndex(0);
     setIsErasing(false);
-    setEraseLineIndex(strings.length - 1);
     setEraseCharIndex(0);
   }, [strings]);
 
@@ -152,12 +148,10 @@ export default function Typewriter({
       timeoutRef.current = null;
     }
 
-    if (lineIndex >= strings.length) {
+    if (charIndex >= strings[lineIndex].length) {
       if (loop) {
         timeoutRef.current = setTimeout(() => setIsErasing(true), eraseDelay);
       } else {
-        setDisplayedLines(strings);
-        setCurrentLine('');
         return undefined;
       }
     } else if (charIndex < strings[lineIndex].length) {
@@ -165,13 +159,6 @@ export default function Typewriter({
         setCurrentLine(prev => prev + strings[lineIndex][charIndex]);
         setCharIndex(prev => prev + 1);
       }, speed);
-    } else {
-      timeoutRef.current = setTimeout(() => {
-        setDisplayedLines(prev => [...prev, currentLine]);
-        setCurrentLine('');
-        setLineIndex(prev => prev + 1);
-        setCharIndex(0);
-      }, lineDelay);
     }
 
     return () => {
@@ -211,40 +198,25 @@ export default function Typewriter({
       timeoutRef.current = null;
     }
 
-    const currentEraseLine = displayedLines[eraseLineIndex] || '';
-
-    if (eraseLineIndex < 0) {
-      if (loop) {
-        onLoopComplete?.();
-        setDisplayedLines([]);
-        setLineIndex(0);
-        setCharIndex(0);
-        setIsErasing(false);
-        setEraseLineIndex(strings.length - 1);
-        setEraseCharIndex(0);
-        setCurrentLine('');
-      }
-      return undefined;
-    }
-
-    if (eraseCharIndex < currentEraseLine.length) {
+    if (eraseCharIndex < currentLine.length) {
       timeoutRef.current = setTimeout(() => {
-        const newLine = currentEraseLine.slice(
-          0,
-          currentEraseLine.length - eraseCharIndex - 1,
-        );
-        setDisplayedLines(prev => {
-          const copy = [...prev];
-          copy[eraseLineIndex] = newLine;
-          return copy;
-        });
+        const newLine = currentLine.slice(0, currentLine.length - eraseCharIndex - 1);
+        setCurrentLine(newLine);
         setEraseCharIndex(prev => prev + 1);
       }, eraseSpeed);
     } else {
       timeoutRef.current = setTimeout(() => {
-        setEraseLineIndex(prev => prev - 1);
         setEraseCharIndex(0);
       }, eraseSpeed);
+
+      if (loop) {
+        onLoopComplete?.();
+        setLineIndex(0);
+        setCharIndex(0);
+        setIsErasing(false);
+        setEraseCharIndex(0);
+        setCurrentLine('');
+      }
     }
 
     return () => {
@@ -254,10 +226,9 @@ export default function Typewriter({
       }
     };
   }, [
+    currentLine,
     isErasing,
-    eraseLineIndex,
     eraseCharIndex,
-    displayedLines,
     eraseSpeed,
     strings.length,
     loop,
@@ -266,15 +237,9 @@ export default function Typewriter({
   ]);
 
   return (
-    <div {...props}>
-      {displayedLines.map((line, i) => (
-        // eslint-disable-next-line -- TODO
-        <div key={i}>{line}</div>
-      ))}
-      <div style={{ whiteSpace: 'pre' }}>
-        {currentLine}
-        {showCursor ? <span className="cursor">{cursor}</span> : null}
-      </div>
+    <div style={{ whiteSpace: 'pre' }} {...props}>
+      {currentLine}
+      {showCursor ? <span className="cursor">{cursor}</span> : null}
       <style>{css}</style>
     </div>
   );
