@@ -98,7 +98,6 @@ export default function Typewriter({
   const [currentLine, setCurrentLine] = useState<string>('');
   const [charIndex, setCharIndex] = useState<number>(0);
   const [isErasing, setIsErasing] = useState<boolean>(false);
-  const [eraseCharIndex, setEraseCharIndex] = useState<number>(0);
 
   useEffect(() => {
     if (pause) {
@@ -119,7 +118,10 @@ export default function Typewriter({
     if (!isErasing) {
       if (charIndex >= string.length) {
         if (loop) {
-          timeoutRef.current = setTimeout(() => setIsErasing(prev => !prev), eraseDelay);
+          timeoutRef.current = setTimeout(() => {
+            setIsErasing(prev => !prev);
+            setCharIndex(string.length - 1);
+          }, eraseDelay);
         }
       } else {
         timeoutRef.current = setTimeout(() => {
@@ -129,18 +131,17 @@ export default function Typewriter({
       }
     } else {
       // eslint-disable-next-line no-lonely-if -- TODO
-      if (eraseCharIndex >= string.length) {
+      if (charIndex < 0) {
         if (loop) {
-          onLoopComplete?.();
           setCharIndex(0);
           setIsErasing(prev => !prev);
-          setEraseCharIndex(0);
           setCurrentLine('');
+          onLoopComplete?.();
         }
       } else {
         timeoutRef.current = setTimeout(() => {
-          setCurrentLine(prev => prev.slice(0, prev.length - eraseCharIndex - 1));
-          setEraseCharIndex(prev => prev + 1);
+          setCurrentLine(prev => prev.slice(0, prev.length - 1));
+          setCharIndex(prev => prev - 1);
         }, eraseSpeed);
       }
     }
@@ -153,7 +154,6 @@ export default function Typewriter({
     };
   }, [
     charIndex,
-    eraseCharIndex,
     currentLine,
     isErasing,
     speed,
