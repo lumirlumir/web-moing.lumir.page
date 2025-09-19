@@ -58,11 +58,6 @@ export interface TypewriterProps extends React.HTMLAttributes<HTMLDivElement> {
   pause?: boolean;
 
   /**
-   * Callback fired when a line is completely typed.
-   */
-  onLineTyped?: (lineIndex: number) => void;
-
-  /**
    * Callback fired after a full cycle when loop is enabled.
    */
   onLoopComplete?: () => void;
@@ -96,7 +91,6 @@ export default function Typewriter({
   showCursor = true,
   cursor = '|',
   pause = false,
-  onLineTyped = undefined,
   onLoopComplete = undefined,
   ...props
 }: TypewriterProps) {
@@ -105,13 +99,6 @@ export default function Typewriter({
   const [charIndex, setCharIndex] = useState<number>(0);
   const [isErasing, setIsErasing] = useState<boolean>(false);
   const [eraseCharIndex, setEraseCharIndex] = useState<number>(0);
-
-  // Notify when char typed
-  useEffect(() => {
-    if (charIndex > 0) {
-      onLineTyped?.(charIndex - 1);
-    }
-  }, [charIndex, onLineTyped]);
 
   useEffect(() => {
     if (pause) {
