@@ -128,9 +128,12 @@ export default function Typewriter({
 
     // Typing effect
     if (!isErasing) {
-      if (currentString.length === string.length && loop) {
+      if (currentString.length === string.length) {
         timeoutRef.current = setTimeout(() => {
-          setIsErasing(prev => !prev);
+          if (loop) {
+            setIsErasing(prev => !prev);
+          }
+
           onWriteComplete?.();
         }, eraseDelay);
       } else {
@@ -140,9 +143,12 @@ export default function Typewriter({
       }
     } else {
       // eslint-disable-next-line no-lonely-if
-      if (currentString.length === 0 && loop) {
+      if (currentString.length === 0) {
         timeoutRef.current = setTimeout(() => {
-          setIsErasing(prev => !prev);
+          if (loop) {
+            setIsErasing(prev => !prev);
+          }
+
           onEraseComplete?.();
         }, writeDelay);
       } else {
