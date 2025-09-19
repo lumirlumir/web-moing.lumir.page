@@ -102,15 +102,13 @@ export default function Typewriter({
 }: TypewriterProps) {
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [currentLine, setCurrentLine] = useState<string>('');
-  const [lineIndex, setLineIndex] = useState<number>(0);
   const [charIndex, setCharIndex] = useState<number>(0);
   const [isErasing, setIsErasing] = useState<boolean>(false);
   const [eraseCharIndex, setEraseCharIndex] = useState<number>(0);
 
-  // Reset when `strings` prop changes
+  // Reset when `string` prop changes
   useEffect(() => {
     setCurrentLine('');
-    setLineIndex(0);
     setCharIndex(0);
     setIsErasing(false);
     setEraseCharIndex(0);
@@ -118,10 +116,10 @@ export default function Typewriter({
 
   // Notify when line typed
   useEffect(() => {
-    if (lineIndex > 0) {
-      onLineTyped?.(lineIndex - 1);
+    if (charIndex > 0) {
+      onLineTyped?.(charIndex - 1);
     }
-  }, [lineIndex, onLineTyped]);
+  }, [charIndex, onLineTyped]);
 
   // Typing effect
   useEffect(() => {
@@ -160,17 +158,7 @@ export default function Typewriter({
         timeoutRef.current = null;
       }
     };
-  }, [
-    charIndex,
-    lineIndex,
-    currentLine,
-    isErasing,
-    string,
-    speed,
-    eraseDelay,
-    pause,
-    loop,
-  ]);
+  }, [charIndex, currentLine, isErasing, string, speed, eraseDelay, pause, loop]);
 
   // Erasing effect
   useEffect(() => {
@@ -203,7 +191,6 @@ export default function Typewriter({
 
       if (loop) {
         onLoopComplete?.();
-        setLineIndex(0);
         setCharIndex(0);
         setIsErasing(false);
         setEraseCharIndex(0);
