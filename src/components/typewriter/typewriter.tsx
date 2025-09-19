@@ -1,6 +1,5 @@
 /**
  * @fileoverview typewriter.
- * @see https://github.com/shrestha-bishal/react-typewriter
  */
 
 // TODO: RAF(requestAnimationFrame)
@@ -17,7 +16,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 export interface TypewriterProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Array of strings to type line-by-line.
+   * String to type out.
    */
   string: string;
 
@@ -43,12 +42,8 @@ export interface TypewriterProps extends React.HTMLAttributes<HTMLDivElement> {
   loop?: boolean;
 
   /**
-   * Whether to display the blinking cursor.
-   */
-  showCursor?: boolean;
-
-  /**
-   * The cursor character.
+   * The value to use as the cursor. Set to `null` to disable.
+   * @default '|'
    */
   cursor?: React.ReactNode;
 
@@ -88,7 +83,6 @@ export default function Typewriter({
   eraseSpeed = 30,
   eraseDelay = 1000,
   loop = true,
-  showCursor = true,
   cursor = '|',
   pause = false,
   onLoopComplete = undefined,
@@ -161,7 +155,7 @@ export default function Typewriter({
   return (
     <div style={{ whiteSpace: 'pre' }} {...props}>
       {currentLine}
-      {showCursor ? <span className="cursor">{cursor}</span> : null}
+      <span className="cursor">{cursor}</span>
       <style>{css}</style>
     </div>
   );
