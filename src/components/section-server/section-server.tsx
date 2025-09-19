@@ -79,7 +79,7 @@ export default function SectionServer({
           key={text}
           text={text}
           cursor="_"
-          writeSpeed={mode === 'result' ? 1 : 30} // original: 30
+          writeSpeed={mode === 'result' ? 1 : 25} // original: 30
           writePreDelay={2000}
           writePostDelay={1000}
           onWriteComplete={() => {

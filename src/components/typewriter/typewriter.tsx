@@ -154,7 +154,7 @@ export default function Typewriter({
       return undefined;
     }
 
-    /** Minimal helper to emulate `setTimeout` with RAF(RequestAnimationFrame) */
+    /** Minimal helper to emulate `setTimeout` with rAF(requestAnimationFrame) */
     const setTimeoutRaf = (callback: () => void, delay: number) => {
       const base = performance.now();
 

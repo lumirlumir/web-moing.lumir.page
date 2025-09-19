@@ -33,6 +33,6 @@
     "typescriptreact",
     "markdown"
   ],
-  "stylelint.validate": [],
+  "stylelint.validate": ["css", "scss"],
   "C_Cpp.clang_format_fallbackStyle": "Google"
 }
