@@ -14,17 +14,23 @@ import React, { useEffect, useRef, useState } from 'react';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-export interface TypewriterProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TypewriterProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
-   * String to type out.
+   * Text to type out.
    */
-  string: string;
+  text: string;
 
   /**
    * The value to use as the cursor. Set to `null` to disable.
    * @default '|'
    */
   cursor?: string | null;
+
+  /**
+   * The class name to apply to the cursor element.
+   * @default 'cursor'
+   */
+  cursorClassName?: string;
 
   /**
    * The delay between each character when writing (milliseconds).
@@ -76,27 +82,17 @@ export interface TypewriterProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 // --------------------------------------------------------------------------------
-// Helper
-// --------------------------------------------------------------------------------
-
-const css = `
-.cursor {
-  display: inline;
-  animation: blink 1s steps(1, end) infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-`;
-
-// --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
 
+/**
+ * TIP
+ * - Use `style={{ whiteSpace: 'pre' }}` to support multiline text.
+ */
 export default function Typewriter({
-  string,
+  text,
   cursor = '|',
+  cursorClassName = 'cursor',
   writeSpeed = 50,
   eraseSpeed = 50,
   writeDelay = 1_500,
@@ -106,10 +102,11 @@ export default function Typewriter({
   onWriteComplete = undefined,
   onEraseComplete = undefined,
   ...props
-}: TypewriterProps) {
+}: TypewriterProps): React.JSX.Element {
+  const [currentText, setCurrentText] = useState<string>('');
+  const [mode, setMode] = useState<'write' | 'erase'>('write');
+
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [currentString, setCurrentString] = useState<string>('');
-  const [isErasing, setIsErasing] = useState<boolean>(false);
 
   useEffect(() => {
     if (pause) {
@@ -126,34 +123,32 @@ export default function Typewriter({
       timeoutRef.current = null;
     }
 
-    // Typing effect
-    if (!isErasing) {
-      if (currentString.length === string.length) {
+    if (mode === 'write') {
+      if (currentText.length === text.length) {
         timeoutRef.current = setTimeout(() => {
           if (loop) {
-            setIsErasing(prev => !prev);
+            setMode('erase');
           }
 
           onWriteComplete?.();
         }, eraseDelay);
       } else {
         timeoutRef.current = setTimeout(() => {
-          setCurrentString(prev => prev + string[currentString.length]);
+          setCurrentText(prev => prev + text[currentText.length]);
         }, writeSpeed);
       }
-    } else {
-      // eslint-disable-next-line no-lonely-if
-      if (currentString.length === 0) {
+    } else if (mode === 'erase') {
+      if (currentText.length === 0) {
         timeoutRef.current = setTimeout(() => {
           if (loop) {
-            setIsErasing(prev => !prev);
+            setMode('write');
           }
 
           onEraseComplete?.();
         }, writeDelay);
       } else {
         timeoutRef.current = setTimeout(() => {
-          setCurrentString(prev => prev.slice(0, prev.length - 1));
+          setCurrentText(prev => prev.slice(0, prev.length - 1));
         }, eraseSpeed);
       }
     }
@@ -165,7 +160,7 @@ export default function Typewriter({
       }
     };
   }, [
-    string,
+    text,
     writeSpeed,
     eraseSpeed,
     writeDelay,
@@ -174,15 +169,14 @@ export default function Typewriter({
     pause,
     onWriteComplete,
     onEraseComplete,
-    currentString,
-    isErasing,
+    currentText,
+    mode,
   ]);
 
   return (
-    <div style={{ whiteSpace: 'pre' }} {...props}>
-      {currentString}
-      <span className="cursor">{cursor}</span>
-      <style>{css}</style>
-    </div>
+    <span {...props}>
+      {currentText}
+      <span className={cursorClassName}>{cursor}</span>
+    </span>
   );
 }
