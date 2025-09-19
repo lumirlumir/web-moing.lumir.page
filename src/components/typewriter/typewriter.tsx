@@ -141,9 +141,11 @@ export default function Typewriter({
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
       }
-      return;
+
+      return undefined;
     }
-    if (isErasing) return;
+
+    if (isErasing) return undefined;
 
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -156,7 +158,7 @@ export default function Typewriter({
       } else {
         setDisplayedLines(strings);
         setCurrentLine('');
-        return;
+        return undefined;
       }
     } else if (charIndex < strings[lineIndex].length) {
       timeoutRef.current = setTimeout(() => {
@@ -172,7 +174,6 @@ export default function Typewriter({
       }, lineDelay);
     }
 
-    // eslint-disable-next-line -- TODO
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
@@ -199,9 +200,11 @@ export default function Typewriter({
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
       }
-      return;
+
+      return undefined;
     }
-    if (!isErasing) return;
+
+    if (!isErasing) return undefined;
 
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -221,7 +224,7 @@ export default function Typewriter({
         setEraseCharIndex(0);
         setCurrentLine('');
       }
-      return;
+      return undefined;
     }
 
     if (eraseCharIndex < currentEraseLine.length) {
@@ -244,7 +247,6 @@ export default function Typewriter({
       }, eraseSpeed);
     }
 
-    // eslint-disable-next-line -- TODO
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
