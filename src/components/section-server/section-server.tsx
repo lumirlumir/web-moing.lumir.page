@@ -7,9 +7,9 @@
 // --------------------------------------------------------------------------------
 
 import React, { useEffect, useLayoutEffect, useMemo } from 'react';
-import Typewriter from 'typewriter-effect';
 
 import NeonDiv from '@/components/neon-div';
+import Typewriter from '@/components/typewriter';
 import useScenario from '@/hooks/use-scenario';
 import useConfig from '@/hooks/use-config';
 import useInterview from '@/hooks/use-interview';
@@ -40,7 +40,7 @@ export default function SectionServer({
   interview,
   timer,
 }: Props): React.JSX.Element {
-  const { subsectionState, getSectionObj, toNextSection } = scenario;
+  const { getSectionObj, toNextSection } = scenario;
   const { visibility, content, mode } = getSectionObj()['section-server'];
   const { configState } = config;
   const { getInterviewInfo, getQuestion, isInterviewDone, getInterviewHistory } =
@@ -62,7 +62,7 @@ export default function SectionServer({
 
   useLayoutEffect(() => {
     addHistory(text);
-  }, [subsectionState, text, addHistory]);
+  }, [text, addHistory]);
 
   useEffect(() => {
     if (mode === 'test' && isInterviewDone()) toNextSection();
@@ -77,21 +77,15 @@ export default function SectionServer({
       <div>
         <Typewriter
           key={text}
-          options={{
-            cursor: '_',
-            delay: mode === 'result' ? 1 : 30, // original: 30
-          }}
-          onInit={typewriter => {
-            typewriter
-              .pauseFor(2000) // original: 2000
-              .typeString(text)
-              .pauseFor(1000) // original: 1000
-              .start()
-              .callFunction(() => {
-                if (mode === 'auto' || mode === 'result') toNextSection();
-                if (mode === 'test' && text !== '') resetTimer(configState.time);
-                scroll();
-              });
+          text={text}
+          cursor="_"
+          writeSpeed={mode === 'result' ? 1 : 25} // original: 30
+          writePreDelay={2000}
+          writePostDelay={1000}
+          onWriteComplete={() => {
+            if (mode === 'auto' || mode === 'result') toNextSection();
+            if (mode === 'test' && text !== '') resetTimer(configState.time);
+            scroll();
           }}
         />
       </div>

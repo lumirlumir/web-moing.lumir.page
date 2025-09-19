@@ -839,7 +839,6 @@ export default function useScenario() {
   );
 
   return {
-    subsectionState: state.section,
     getSectionObj,
     toNextSection,
     toLastSection,
