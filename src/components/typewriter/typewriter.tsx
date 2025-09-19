@@ -19,7 +19,7 @@ export interface TypewriterProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Array of strings to type line-by-line.
    */
-  strings: string[];
+  string: string;
 
   /**
    * The delay between each key when typing in milliseconds.
@@ -88,7 +88,7 @@ const css = `
 // --------------------------------------------------------------------------------
 
 export default function Typewriter({
-  strings,
+  string,
   speed = 50,
   eraseSpeed = 30,
   eraseDelay = 1000,
@@ -114,7 +114,7 @@ export default function Typewriter({
     setCharIndex(0);
     setIsErasing(false);
     setEraseCharIndex(0);
-  }, [strings]);
+  }, [string]);
 
   // Notify when line typed
   useEffect(() => {
@@ -141,15 +141,15 @@ export default function Typewriter({
       timeoutRef.current = null;
     }
 
-    if (charIndex >= strings[lineIndex].length) {
+    if (charIndex >= string.length) {
       if (loop) {
         timeoutRef.current = setTimeout(() => setIsErasing(true), eraseDelay);
       } else {
         return undefined;
       }
-    } else if (charIndex < strings[lineIndex].length) {
+    } else if (charIndex < string.length) {
       timeoutRef.current = setTimeout(() => {
-        setCurrentLine(prev => prev + strings[lineIndex][charIndex]);
+        setCurrentLine(prev => prev + string[charIndex]);
         setCharIndex(prev => prev + 1);
       }, speed);
     }
@@ -165,7 +165,7 @@ export default function Typewriter({
     lineIndex,
     currentLine,
     isErasing,
-    strings,
+    string,
     speed,
     eraseDelay,
     pause,
@@ -222,7 +222,7 @@ export default function Typewriter({
     isErasing,
     eraseCharIndex,
     eraseSpeed,
-    strings.length,
+    string,
     loop,
     onLoopComplete,
     pause,
