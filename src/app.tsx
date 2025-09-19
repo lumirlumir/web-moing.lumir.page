@@ -42,7 +42,7 @@ export default function App(): React.JSX.Element {
   useEffect(() => {
     const timeout = setTimeout(scroll, 2000);
     return () => clearTimeout(timeout);
-  }, [scenario.subsectionState, scroll]);
+  }, [scenario.getSectionObj, scroll]);
 
   return (
     <>

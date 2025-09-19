@@ -40,7 +40,7 @@ export default function SectionServer({
   interview,
   timer,
 }: Props): React.JSX.Element {
-  const { subsectionState, getSectionObj, toNextSection } = scenario;
+  const { getSectionObj, toNextSection } = scenario;
   const { visibility, content, mode } = getSectionObj()['section-server'];
   const { configState } = config;
   const { getInterviewInfo, getQuestion, isInterviewDone, getInterviewHistory } =
@@ -62,7 +62,7 @@ export default function SectionServer({
 
   useLayoutEffect(() => {
     addHistory(text);
-  }, [subsectionState, text, addHistory]);
+  }, [text, addHistory]);
 
   useEffect(() => {
     if (mode === 'test' && isInterviewDone()) toNextSection();
