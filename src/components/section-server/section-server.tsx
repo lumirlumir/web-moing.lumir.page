@@ -7,9 +7,9 @@
 // --------------------------------------------------------------------------------
 
 import React, { useEffect, useLayoutEffect, useMemo } from 'react';
-import Typewriter from 'typewriter-effect';
 
 import NeonDiv from '@/components/neon-div';
+import Typewriter from '@/components/typewriter';
 import useScenario from '@/hooks/use-scenario';
 import useConfig from '@/hooks/use-config';
 import useInterview from '@/hooks/use-interview';
@@ -77,21 +77,14 @@ export default function SectionServer({
       <div>
         <Typewriter
           key={text}
-          options={{
-            cursor: '_',
-            delay: mode === 'result' ? 1 : 30, // original: 30
-          }}
-          onInit={typewriter => {
-            typewriter
-              .pauseFor(2000) // original: 2000
-              .typeString(text)
-              .pauseFor(1000) // original: 1000
-              .start()
-              .callFunction(() => {
-                if (mode === 'auto' || mode === 'result') toNextSection();
-                if (mode === 'test' && text !== '') resetTimer(configState.time);
-                scroll();
-              });
+          text={text}
+          cursor="_"
+          writeSpeed={mode === 'result' ? 1 : 30} // original: 30
+          eraseDelay={2000}
+          onWriteComplete={() => {
+            if (mode === 'auto' || mode === 'result') toNextSection();
+            if (mode === 'test' && text !== '') resetTimer(configState.time);
+            scroll();
           }}
         />
       </div>
