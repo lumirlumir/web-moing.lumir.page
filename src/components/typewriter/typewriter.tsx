@@ -116,7 +116,7 @@ export default function Typewriter({
   const [eraseLineIndex, setEraseLineIndex] = useState<number>(strings.length - 1);
   const [eraseCharIndex, setEraseCharIndex] = useState<number>(0);
 
-  // Reset when lines prop changes
+  // Reset when `strings` prop changes
   useEffect(() => {
     setDisplayedLines([]);
     setCurrentLine('');
