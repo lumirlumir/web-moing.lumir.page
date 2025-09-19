@@ -96,7 +96,6 @@ export default function Typewriter({
 }: TypewriterProps) {
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [currentLine, setCurrentLine] = useState<string>('');
-  const [charIndex, setCharIndex] = useState<number>(0);
   const [isErasing, setIsErasing] = useState<boolean>(false);
 
   useEffect(() => {
@@ -116,32 +115,27 @@ export default function Typewriter({
 
     // Typing effect
     if (!isErasing) {
-      if (charIndex >= string.length) {
+      if (currentLine.length === string.length) {
         if (loop) {
           timeoutRef.current = setTimeout(() => {
             setIsErasing(prev => !prev);
-            setCharIndex(string.length - 1);
           }, eraseDelay);
         }
       } else {
         timeoutRef.current = setTimeout(() => {
-          setCurrentLine(prev => prev + string[charIndex]);
-          setCharIndex(prev => prev + 1);
+          setCurrentLine(prev => prev + string[currentLine.length]);
         }, speed);
       }
     } else {
       // eslint-disable-next-line no-lonely-if -- TODO
-      if (charIndex < 0) {
+      if (currentLine.length === 0) {
         if (loop) {
-          setCharIndex(0);
           setIsErasing(prev => !prev);
-          setCurrentLine('');
           onLoopComplete?.();
         }
       } else {
         timeoutRef.current = setTimeout(() => {
           setCurrentLine(prev => prev.slice(0, prev.length - 1));
-          setCharIndex(prev => prev - 1);
         }, eraseSpeed);
       }
     }
@@ -153,7 +147,6 @@ export default function Typewriter({
       }
     };
   }, [
-    charIndex,
     currentLine,
     isErasing,
     speed,
