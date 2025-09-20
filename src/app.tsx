@@ -7,10 +7,6 @@
 // --------------------------------------------------------------------------------
 
 import React, { useEffect } from 'react';
-import { GoGear } from 'react-icons/go';
-import { CiMicrophoneOn } from 'react-icons/ci';
-import { GrPowerReset } from 'react-icons/gr';
-import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 
 import Button from '@/components/button';
 import MainButton from '@/components/main-button';
@@ -19,6 +15,12 @@ import SectionConfig from '@/components/section-config';
 import SectionServer from '@/components/section-server';
 import Timer from '@/components/timer';
 import Title from '@/components/title';
+import {
+  GoGear,
+  CiMicrophoneOn,
+  GrPowerReset,
+  IoIosCheckmarkCircleOutline,
+} from '@/components/svg';
 
 import useScenario from '@/hooks/use-scenario';
 import useConfig from '@/hooks/use-config';
