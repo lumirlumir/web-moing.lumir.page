@@ -232,7 +232,9 @@ export default function Typewriter({
   return (
     <span {...props}>
       {currentText}
-      <span className={cursorClassName}>{cursor}</span>
+      <span className={cursorClassName} aria-hidden="true">
+        {cursor}
+      </span>
     </span>
   );
 }
