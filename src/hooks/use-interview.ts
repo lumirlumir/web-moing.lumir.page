@@ -173,7 +173,7 @@ export default function useInterview() {
   const submit = useCallback(() => {
     addInterviewObj({ answerUser: contentRef.current.innerText });
 
-    // eslint-disable-next-line -- TODO
+    // eslint-disable-next-line react-hooks/react-compiler -- TODO: It's Ref so safe.
     contentRef.current.innerHTML = '';
   }, [contentRef, addInterviewObj]);
 
