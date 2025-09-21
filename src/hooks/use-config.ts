@@ -71,6 +71,8 @@ export interface Config {
   time: number;
 }
 
+export type QuestionType = (typeof questionTypes)[number];
+
 // --------------------------------------------------------------------------------
 // Export
 // --------------------------------------------------------------------------------
