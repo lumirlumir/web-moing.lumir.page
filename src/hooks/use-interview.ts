@@ -7,31 +7,68 @@
 // --------------------------------------------------------------------------------
 
 import { useCallback, useEffect } from 'react';
-import qs from 'qs';
 
 import useInterviewContent from '@/hooks/use-interview-content';
 import useInterviewHistory from '@/hooks/use-interview-history';
 import useInterviewObj from '@/hooks/use-interview-obj';
 import useTrigger from '@/hooks/use-trigger';
 
+import type { QuestionType } from '@/hooks/use-config';
+
 // --------------------------------------------------------------------------------
 // Helpers
 // --------------------------------------------------------------------------------
 
-const url = (path, obj) =>
-  `http://${process.env.BACKEND_IP}:${process.env.BACKEND_PORT}/${path}?${qs.stringify(obj)}`;
+function createURL(pathname: string, urlSearchParams: URLSearchParams): string {
+  const url = `http://${process.env.BACKEND_IP}:${process.env.BACKEND_PORT}/${pathname}?${urlSearchParams.toString()}`;
 
-const fetchQuestionMain = async (type, history) =>
-  (await (await fetch(url('question/main', { type, history }))).json())?.text;
+  return url;
+}
 
-const fetchQuestionSub = async (question, answerUser) =>
-  (await (await fetch(url('question/sub', { question, answerUser }))).json())?.text;
+async function fetchQuestionMain(type: QuestionType, history: string[]) {
+  const urlSearchParams = new URLSearchParams([
+    ['type', type],
+    ...history.map(item => ['history', item]),
+  ]);
 
-const fetchAnswer = async question =>
-  (await (await fetch(url('answer', { question }))).json())?.text;
+  const res = await fetch(createURL('question/main', urlSearchParams));
+  const data = await res.json();
 
-const fetchFeedback = async (answerSystem, answerUser) =>
-  (await (await fetch(url('feedback', { answerSystem, answerUser }))).json())?.text;
+  return data?.text;
+}
+
+async function fetchQuestionSub(question: string, answerUser: string) {
+  const urlSearchParams = new URLSearchParams([
+    ['question', question],
+    ['answerUser', answerUser],
+  ]);
+
+  const res = await fetch(createURL('question/sub', urlSearchParams));
+  const data = await res.json();
+
+  return data?.text;
+}
+
+async function fetchAnswer(question: string) {
+  const urlSearchParams = new URLSearchParams([['question', question]]);
+
+  const res = await fetch(createURL('answer', urlSearchParams));
+  const data = await res.json();
+
+  return data?.text;
+}
+
+async function fetchFeedback(answerSystem: string, answerUser: string) {
+  const urlSearchParams = new URLSearchParams([
+    ['answerSystem', answerSystem],
+    ['answerUser', answerUser],
+  ]);
+
+  const res = await fetch(createURL('feedback', urlSearchParams));
+  const data = await res.json();
+
+  return data?.text;
+}
 
 // --------------------------------------------------------------------------------
 // Export
@@ -62,7 +99,8 @@ export default function useInterview() {
   // generateChain
   const fetchChainFirst = useCallback(() => {
     const generateQuestion = isQuestionMain()
-      ? fetchQuestionMain(getInterviewInfo().questionType, getQuestionMainHistory())
+      ? // @ts-expect-error -- TODO
+        fetchQuestionMain(getInterviewInfo().questionType, getQuestionMainHistory())
       : fetchQuestionSub(
           interviewHistoryRef.current.at(-1).question,
           interviewHistoryRef.current.at(-1).answerUser,
@@ -134,7 +172,8 @@ export default function useInterview() {
   );
   const submit = useCallback(() => {
     addInterviewObj({ answerUser: contentRef.current.innerText });
-    // eslint-disable-next-line react-hooks/react-compiler -- TODO: It's Ref so safe.
+
+    // eslint-disable-next-line -- TODO
     contentRef.current.innerHTML = '';
   }, [contentRef, addInterviewObj]);
 

@@ -8,7 +8,6 @@
 
 import http from 'node:http';
 import url from 'node:url';
-import qs from 'qs';
 import {
   fetchQuestionMain,
   fetchQuestionSub,
@@ -34,42 +33,40 @@ http
     res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL); // CORS
 
     const { pathname, query } = url.parse(req.url); // eslint-disable-line n/no-deprecated-api -- TODO: delete it later.
-    const queryParsed = qs.parse(query); // for array
+    const urlSearchParams = new URLSearchParams(query); // for array
 
     console.log(`TIME: ${new Date()}\nMETHOD: ${req.method}\nURL: ${req.url}`); // eslint-disable-line no-console -- for debugging.
-    console.log(queryParsed, '\n'); // eslint-disable-line no-console -- for debugging.
+    console.log(urlSearchParams, '\n'); // eslint-disable-line no-console -- for debugging.
 
     if (req.method === 'GET') {
       switch (pathname) {
         case '/question/main': {
-          const { type, history } = queryParsed;
+          const type = urlSearchParams.get('type');
+          const history = urlSearchParams.getAll('history');
 
           // @ts-expect-error -- TODO
-          fetchQuestionMain(type, typeof history === 'undefined' ? [] : history).then(
-            result => response(res, 200, result),
-          );
+          fetchQuestionMain(type, history).then(result => response(res, 200, result));
           break;
         }
         case '/question/sub': {
-          const { question, answerUser } = queryParsed;
+          const question = urlSearchParams.get('question');
+          const answerUser = urlSearchParams.get('answerUser');
 
-          // @ts-expect-error -- TODO
           fetchQuestionSub(question, answerUser).then(result =>
             response(res, 200, result),
           );
           break;
         }
         case '/answer': {
-          const { question } = queryParsed;
+          const question = urlSearchParams.get('question');
 
-          // @ts-expect-error -- TODO
           fetchAnswer(question).then(result => response(res, 200, result));
           break;
         }
         case '/feedback': {
-          const { answerSystem, answerUser } = queryParsed;
+          const answerSystem = urlSearchParams.get('answerSystem');
+          const answerUser = urlSearchParams.get('answerUser');
 
-          // @ts-expect-error -- TODO
           fetchFeedback(answerSystem, answerUser).then(result =>
             response(res, 200, result),
           );
