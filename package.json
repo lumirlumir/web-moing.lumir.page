@@ -30,10 +30,10 @@
     "react-speech-recognition": "^4.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.4",
-    "@babel/preset-env": "^7.28.3",
-    "@babel/preset-react": "^7.27.1",
-    "@babel/preset-typescript": "^7.27.1",
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
     "@types/node": "^20.19.23",
     "@types/react": "^19.1.15",
     "@types/react-dom": "^19.1.9",
