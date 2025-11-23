@@ -28,4 +28,16 @@ export default defineConfig([
       },
     },
   },
+  {
+    name: 'md/global',
+    files: ['**/*.md'],
+    rules: {
+      'mark/allow-link-url': [
+        'error',
+        {
+          disallowUrls: [/^\.\//],
+        },
+      ],
+    },
+  },
 ]);
