@@ -19,11 +19,17 @@ import './button.scss';
 // Typedefs
 // --------------------------------------------------------------------------------
 
-interface Props extends Pick<Parameters<typeof NeonButton>[0], 'hoverEffect'> {
+interface Props {
   type: 'header-l' | 'header-r' | 'footer-l' | 'footer-r';
   icon: React.ReactElement;
   scenario: ReturnType<typeof useScenario>;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
+
+  /**
+   * Whether to apply a hover effect.
+   * @default false
+   */
+  hoverEffect?: boolean;
 }
 
 // --------------------------------------------------------------------------------

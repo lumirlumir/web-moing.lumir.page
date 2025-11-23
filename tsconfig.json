@@ -29,7 +29,7 @@
     "strictBindCallApply": true,
     "strictBuiltinIteratorReturn": true,
     "strictFunctionTypes": true,
-    // "strictNullChecks": true,
+    "strictNullChecks": true,
     // "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true,
 

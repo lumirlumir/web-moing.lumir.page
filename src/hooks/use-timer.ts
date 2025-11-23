@@ -20,7 +20,9 @@ export default function useTimer(callbackOnTimerEnd: Function) {
   const [secondState, setSecondState] = useState(null);
 
   useEffect(() => {
+    // @ts-expect-error -- TODO
     if (secondState < 0) {
+      // @ts-expect-error -- TODO
       clearInterval(intervalRef.current);
       setSecondState(null);
       if (callbackOnTimerEndRef.current) callbackOnTimerEndRef.current();
@@ -28,18 +30,24 @@ export default function useTimer(callbackOnTimerEnd: Function) {
   }, [secondState]);
 
   const resetTimer = useCallback(minute => {
+    // @ts-expect-error -- TODO
     setSecondState(minute * 60);
 
+    // @ts-expect-error -- TODO
     clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
+      // @ts-expect-error -- TODO
       setSecondState(prevSecond => prevSecond - 1);
     }, 1000);
   }, []);
   const stopTimer = useCallback(() => {
+    // @ts-expect-error -- TODO
     clearInterval(intervalRef.current);
   }, []);
   const getTimer = useCallback(() => {
+    // @ts-expect-error -- TODO
     const minute = String(Math.floor((secondState / 60) % 60)).padStart(2, '0');
+    // @ts-expect-error -- TODO
     const second = String(Math.floor(secondState % 60)).padStart(2, '0');
     return {
       minute: Number(minute),

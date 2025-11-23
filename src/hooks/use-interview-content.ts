@@ -24,10 +24,12 @@ export default function useInterviewContent<T extends HTMLElement>() {
   } = useSpeechRecognition();
 
   useEffect(() => {
+    // @ts-expect-error -- TODO
     if (listening) contentRef.current.innerHTML = `${prevContent.current}${transcript}`;
   }, [transcript, listening]);
 
   const toggleListening = useCallback(() => {
+    // @ts-expect-error -- TODO
     if (!listening) prevContent.current = contentRef.current.innerHTML;
     toggle();
     if (!listening) resetTranscript();
