@@ -102,7 +102,9 @@ export default function useInterview() {
       ? // @ts-expect-error -- TODO
         fetchQuestionMain(getInterviewInfo().questionType, getQuestionMainHistory())
       : fetchQuestionSub(
+          // @ts-expect-error -- TODO
           interviewHistoryRef.current.at(-1).question,
+          // @ts-expect-error -- TODO
           interviewHistoryRef.current.at(-1).answerUser,
         );
 
@@ -125,6 +127,7 @@ export default function useInterview() {
     addInterviewObj,
   ]);
   const fetchChainSecond = useCallback(() => {
+    // @ts-expect-error -- TODO
     fetchFeedback(interviewObjState.answerSystem, interviewObjState.answerUser).then(
       result => {
         addInterviewObj({ feedback: JSON.parse(result) });
@@ -146,6 +149,7 @@ export default function useInterview() {
     }
     if (isInterviewObjFull()) {
       // console.log('addInterviewHistory()');
+      // @ts-expect-error -- TODO
       interviewHistoryRef.current.push(interviewObjState);
       // console.log('initInterviewObj()');
       initInterviewObj();
@@ -171,10 +175,11 @@ export default function useInterview() {
     [initInterviewHistory, trigger],
   );
   const submit = useCallback(() => {
+    // @ts-expect-error -- TODO
     addInterviewObj({ answerUser: contentRef.current.innerText });
 
-    // eslint-disable-next-line react-hooks/react-compiler -- TODO: It's Ref so safe.
-    contentRef.current.innerHTML = '';
+    // @ts-expect-error -- TODO
+    contentRef.current.innerHTML = ''; // eslint-disable-line react-hooks/react-compiler -- TODO: It's Ref so safe.
   }, [contentRef, addInterviewObj]);
 
   return {

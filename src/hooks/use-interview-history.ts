@@ -27,19 +27,23 @@ export default function useInterviewHistory() {
     colRef.current = sub + 1;
   }, []);
   const isQuestionMain = useCallback(
+    // @ts-expect-error -- TODO
     () => historyRef.current.length % colRef.current === 0,
     [],
   );
   const isInterviewDone = useCallback(
     () =>
       historyRef.current.length ===
+      // @ts-expect-error -- TODO
       questionTypeRef.current.length * rowRef.current * colRef.current,
     [],
   );
   const getQuestionMainHistory = useCallback(() => {
     const questionMainHistory = [];
 
+    // @ts-expect-error -- TODO
     for (let i = 0; i < historyRef.current.length; i += colRef.current) {
+      // @ts-expect-error -- TODO
       questionMainHistory.push(historyRef.current[i].question);
     }
 
@@ -49,10 +53,13 @@ export default function useInterviewHistory() {
     () => ({
       questionType:
         questionTypeRef.current[
+          // @ts-expect-error -- TODO
           Math.floor(historyRef.current.length / (rowRef.current * colRef.current))
         ],
       questionMain:
+        // @ts-expect-error -- TODO
         (Math.floor(historyRef.current.length / colRef.current) % rowRef.current) + 1,
+      // @ts-expect-error -- TODO
       questionSub: (historyRef.current.length % colRef.current) + 1,
     }),
     [],
@@ -73,8 +80,11 @@ export default function useInterviewHistory() {
 
     for (let i = 0; i < historyRef.current.length; i += 1) {
       const questionType =
+        // @ts-expect-error -- TODO
         questionTypeRef.current[Math.floor(i / (rowRef.current * colRef.current))];
+      // @ts-expect-error -- TODO
       const questionMain = (Math.floor(i / colRef.current) % rowRef.current) + 1;
+      // @ts-expect-error -- TODO
       const questionSub = (i % colRef.current) + 1;
 
       str += `> ${questionType.toUpperCase()}분야 ${questionMain}-${questionSub}번 문제, 해설, 사용자 답변, 피드백, 성적입니다.\n\n`;

@@ -29,7 +29,7 @@
     "strictBindCallApply": true,
     "strictBuiltinIteratorReturn": true,
     "strictFunctionTypes": true,
-    // "strictNullChecks": true,
+    "strictNullChecks": true,
     // "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true,
 
@@ -54,6 +54,7 @@
 
     /* Language and Environment */
     "jsx": "react",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "target": "ESNext",
 
     /* Completeness */
