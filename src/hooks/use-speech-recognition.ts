@@ -2,17 +2,92 @@
  * @fileoverview use-speech-recognition
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API
  * @see https://github.com/mdn/dom-examples/blob/main/web-speech-api/speech-color-changer/script.js
- * @see https://stackoverflow.com/questions/75420503/how-to-detect-speech-to-text-support-and-what-is-the-meaning-of-mozspeechrecogni
  */
 
 // --------------------------------------------------------------------------------
 // Import
 // --------------------------------------------------------------------------------
 
-import { useCallback } from 'react';
-import SpeechRecognition, {
-  useSpeechRecognition as _useSpeechRecognition,
-} from 'react-speech-recognition'; // eslint-disable-line -- TODO
+import { /* useCallback, */ useEffect } from 'react';
+
+// --------------------------------------------------------------------------------
+// Typedef
+// --------------------------------------------------------------------------------
+
+/**
+ * The `SpeechRecognition` interface of the Web Speech API
+ * is the controller interface for the recognition service
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
+ */
+interface SpeechRecognition extends EventTarget {
+  /**
+   * Returns and sets the language of the current `SpeechRecognition`.
+   * If not specified, this defaults to the HTML `lang` attribute value,
+   * or the user agent's language setting if that isn't set either.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/lang
+   */
+  lang: string;
+
+  /**
+   * Controls whether continuous results are returned for each recognition, or only a single result.
+   * Defaults to single. (`false`).
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/continuous
+   * @default false
+   */
+  continuous: boolean;
+
+  /**
+   * Controls whether interim results should be returned (`true`) or not (`false`).
+   * Interim results are results that are not yet final (e.g., the `SpeechRecognitionResult.isFinal` property is `false`.)
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/interimResults
+   * @default false
+   */
+  interimResults: boolean;
+
+  /**
+   * Sets the maximum number of `SpeechRecognitionAlternatives` provided per result. The default value is `1`.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/maxAlternatives
+   * @default 1
+   */
+  maxAlternatives: number;
+
+  /**
+   * Stops the speech recognition service from listening to incoming audio,
+   * and doesn't attempt to return a `SpeechRecognitionResult`.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/abort
+   */
+  abort(): () => void;
+
+  /**
+   * Starts the speech recognition service to listen for incoming audio (from a microphone or an audio track)
+   * and returns the results of that recognition.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/start
+   */
+  start(): () => void;
+
+  /**
+   * Stops the speech recognition service from listening for incoming audio
+   * and attempts to return a `SpeechRecognitionResult` based on the results captured so far.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/stop
+   */
+  stop(): () => void;
+}
+
+declare global {
+  interface Window {
+    /**
+     * Creates a new `SpeechRecognition` object.
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/SpeechRecognition
+     */
+    SpeechRecognition?: new () => SpeechRecognition;
+
+    /**
+     * Creates a new `SpeechRecognition` object.
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/SpeechRecognition
+     */
+    webkitSpeechRecognition?: new () => SpeechRecognition;
+  }
+}
 
 // --------------------------------------------------------------------------------
 // Helpers
@@ -20,23 +95,11 @@ import SpeechRecognition, {
 
 /*
 
-const NativeSpeechRecognition =
-  typeof window !== 'undefined' &&
-  (window.SpeechRecognition ||
-    window.webkitSpeechRecognition ||
-    window.mozSpeechRecognition ||
-    window.msSpeechRecognition ||
-    window.oSpeechRecognition);
-
-const isNative = SpeechRecognition => SpeechRecognition === NativeSpeechRecognition;
-
 const isAndroid = /(android)/i.test(
   typeof navigator !== 'undefined' ? navigator.userAgent : '',
 );
 
-let _browserSupportsSpeechRecognition = !!NativeSpeechRecognition;
-let _browserSupportsContinuousListening =
-  _browserSupportsSpeechRecognition && !isAndroid();
+const browserSupportsContinuousListening = isSpeechRecognitionSupported() && !isAndroid;
 
 */
 
@@ -45,7 +108,27 @@ let _browserSupportsContinuousListening =
 // --------------------------------------------------------------------------------
 
 export default function useSpeechRecognition() {
-  const { transcript, listening, resetTranscript } = _useSpeechRecognition();
+  useEffect(() => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      // eslint-disable-next-line no-console -- Needed for user awareness.
+      console.warn(
+        'Web Speech API (`SpeechRecognition` or `webkitSpeechRecognition`) is not supported in this browser.',
+      );
+      return undefined;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'ko-KR';
+    recognition.continuous = true;
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    return () => {};
+  }, []);
+
+  /*
 
   const toggleListening = useCallback(() => {
     if (listening) {
@@ -61,4 +144,6 @@ export default function useSpeechRecognition() {
     resetTranscript,
     toggleListening,
   };
+
+  */
 }
