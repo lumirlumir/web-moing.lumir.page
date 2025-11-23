@@ -54,6 +54,7 @@
 
     /* Language and Environment */
     "jsx": "react",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "target": "ESNext",
 
     /* Completeness */

@@ -8,7 +8,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { /* useCallback, */ useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 // --------------------------------------------------------------------------------
 // Typedef
@@ -71,6 +71,11 @@ interface SpeechRecognition extends EventTarget {
    * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/stop
    */
   stop(): () => void;
+
+  onend: ((event: Event) => void) | null;
+  onerror: ((event: Event) => void) | null;
+  onresult: ((event: Event /* TODO */) => void) | null;
+  onstart: ((event: Event /* TODO */) => void) | null;
 }
 
 declare global {
@@ -108,6 +113,10 @@ const browserSupportsContinuousListening = isSpeechRecognitionSupported() && !is
 // --------------------------------------------------------------------------------
 
 export default function useSpeechRecognition() {
+  const [isListening, setIsListening] = useState<boolean>(false);
+  const [transcript, setTranscript] = useState<string>('');
+  const recognitionRef = useRef<SpeechRecognition | null>(null);
+
   useEffect(() => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -125,25 +134,46 @@ export default function useSpeechRecognition() {
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
-    return () => {};
+    recognition.onstart = () => setIsListening(true);
+    recognition.onend = () => setIsListening(false);
+    recognition.onresult = event => {
+      // TODO
+      console.log(event);
+    };
+    recognition.onerror = err => {
+      // eslint-disable-next-line no-console -- Needed for user awareness.
+      console.warn('Speech recognition error:', err);
+      setIsListening(false);
+    };
+
+    recognitionRef.current = recognition;
+
+    return () => {
+      recognition.onstart = null;
+      recognition.onend = null;
+      recognition.onresult = null;
+      recognition.onerror = null;
+      recognitionRef.current?.stop();
+      recognitionRef.current = null;
+    };
+  }, [isListening]);
+
+  const resetTranscript = useCallback(() => {
+    setTranscript('');
   }, []);
 
-  /*
-
   const toggleListening = useCallback(() => {
-    if (listening) {
-      SpeechRecognition.stopListening();
+    if (isListening) {
+      recognitionRef.current?.stop();
     } else {
-      SpeechRecognition.startListening({ language: 'ko-KR', continuous: true });
+      recognitionRef.current?.start();
     }
-  }, [listening]);
+  }, [isListening]);
 
   return {
     transcript,
-    listening,
+    listening: isListening,
     resetTranscript,
     toggleListening,
   };
-
-  */
 }
