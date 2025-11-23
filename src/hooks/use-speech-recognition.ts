@@ -137,8 +137,10 @@ export default function useSpeechRecognition() {
     recognition.onstart = () => setIsListening(true);
     recognition.onend = () => setIsListening(false);
     recognition.onresult = event => {
-      // TODO
-      console.log(event);
+      // @ts-expect-error -- TODO
+      const text = event.results[event.results.length - 1][0].transcript;
+
+      setTranscript(prev => `${prev} ${text}`);
     };
     recognition.onerror = err => {
       // eslint-disable-next-line no-console -- Needed for user awareness.
@@ -156,13 +158,17 @@ export default function useSpeechRecognition() {
       recognitionRef.current?.stop();
       recognitionRef.current = null;
     };
-  }, [isListening]);
+  }, []);
 
   const resetTranscript = useCallback(() => {
     setTranscript('');
   }, []);
 
   const toggleListening = useCallback(() => {
+    if (!recognitionRef.current) {
+      return;
+    }
+
     if (isListening) {
       recognitionRef.current?.stop();
     } else {
