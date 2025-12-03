@@ -53,7 +53,7 @@
     "allowSyntheticDefaultImports": true,
 
     /* Language and Environment */
-    "jsx": "react",
+    "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "target": "ESNext",
 

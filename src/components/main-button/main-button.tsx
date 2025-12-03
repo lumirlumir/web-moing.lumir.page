@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
@@ -17,7 +17,7 @@ import useInterview from '@/hooks/use-interview';
 import './main-button.scss';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
 interface Props {
@@ -30,11 +30,7 @@ interface Props {
 // Export
 // --------------------------------------------------------------------------------
 
-export default function ButtonMain({
-  scenario,
-  config,
-  interview,
-}: Props): React.JSX.Element {
+export default function ButtonMain({ scenario, config, interview }: Props) {
   const { getSectionObj, toNextSection, toLastSection, isLastSection } = scenario;
   const { content, visibility } = getSectionObj()['main-button'];
   const { configState, handleConfigState, isConfigDone } = config;

@@ -16,7 +16,7 @@ import useTrigger from '@/hooks/use-trigger';
 import type { QuestionType } from '@/hooks/use-config';
 
 // --------------------------------------------------------------------------------
-// Helpers
+// Helper
 // --------------------------------------------------------------------------------
 
 function createURL(pathname: string, urlSearchParams: URLSearchParams): string {

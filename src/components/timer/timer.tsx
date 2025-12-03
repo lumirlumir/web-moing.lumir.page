@@ -6,8 +6,6 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import React from 'react';
-
 import NeonFont from '@/components/neon-font';
 import useScenario from '@/hooks/use-scenario';
 import useTimer from '@/hooks/use-timer';
@@ -15,7 +13,7 @@ import useTimer from '@/hooks/use-timer';
 import './timer.scss';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
 interface Props {
@@ -27,7 +25,7 @@ interface Props {
 // Export
 // --------------------------------------------------------------------------------
 
-export default function Timer({ scenario, timer }: Props): React.JSX.Element {
+export default function Timer({ scenario, timer }: Props) {
   const { visibility } = scenario.getSectionObj().timer;
   const { getTimer } = timer;
 

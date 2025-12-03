@@ -6,14 +6,14 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import React from 'react';
+import { type HTMLAttributes, type PropsWithChildren } from 'react';
 import './neon-font.scss';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
-interface Props extends React.HTMLAttributes<HTMLSpanElement> {
+interface Props extends HTMLAttributes<HTMLSpanElement> {
   /**
    * Neon color for the component.
    * @default 'red'
@@ -58,7 +58,7 @@ export default function NeonFont({
   className = '',
   children,
   ...props
-}: React.PropsWithChildren<Props> = {}): React.JSX.Element {
+}: PropsWithChildren<Props> = {}) {
   return (
     <span className={`${className} neon-font ${neonColor} ${neonSize}`} {...props}>
       {children}

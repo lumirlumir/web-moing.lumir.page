@@ -6,8 +6,6 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import React from 'react';
-
 import NeonDiv from '@/components/neon-div';
 import NeonFont from '@/components/neon-font';
 import useConfig, { questionTypes } from '@/hooks/use-config';
@@ -15,7 +13,7 @@ import useConfig, { questionTypes } from '@/hooks/use-config';
 import './section-config.scss';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
 interface Props {
@@ -69,7 +67,7 @@ function Checkbox({ onChange, isChecked, label }) {
 // Export
 // --------------------------------------------------------------------------------
 
-export default function SectionConfig({ config }: Props): React.JSX.Element {
+export default function SectionConfig({ config }: Props) {
   const { configState, handleConfigState } = config;
 
   const handleButtonCount = (e, key) => {

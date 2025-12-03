@@ -16,7 +16,7 @@ import type useScenario from '@/hooks/use-scenario';
 import './button.scss';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
 interface Props {
@@ -36,13 +36,7 @@ interface Props {
 // Export
 // --------------------------------------------------------------------------------
 
-export default function Button({
-  type,
-  icon,
-  scenario,
-  onClick,
-  hoverEffect,
-}: Props): React.JSX.Element {
+export default function Button({ type, icon, scenario, onClick, hoverEffect }: Props) {
   const { visibility, clickability } = scenario.getSectionObj()[type];
 
   return (

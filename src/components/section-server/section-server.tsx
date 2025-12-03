@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import React, { useEffect, useLayoutEffect, useMemo } from 'react';
+import { useEffect, useLayoutEffect, useMemo } from 'react';
 
 import NeonDiv from '@/components/neon-div';
 import Typewriter from '@/components/typewriter';
@@ -20,7 +20,7 @@ import useHistoryState from '@/hooks/use-history-state';
 import './section-server.scss';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
 interface Props {
@@ -34,12 +34,7 @@ interface Props {
 // Export
 // --------------------------------------------------------------------------------
 
-export default function SectionServer({
-  scenario,
-  config,
-  interview,
-  timer,
-}: Props): React.JSX.Element {
+export default function SectionServer({ scenario, config, interview, timer }: Props) {
   const { getSectionObj, toNextSection } = scenario;
   const { visibility, content, mode } = getSectionObj()['section-server'];
   const { configState } = config;

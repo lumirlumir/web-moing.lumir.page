@@ -10,7 +10,7 @@ import React from 'react';
 import './neon-button.scss';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -44,7 +44,7 @@ export default function NeonButton({
   hoverEffect = false,
   children,
   ...props
-}: React.PropsWithChildren<Props> = {}): React.JSX.Element {
+}: React.PropsWithChildren<Props> = {}) {
   return (
     <div className={`neon-button ${hoverEffect ? 'hover' : ''}`}>
       <span style={{ height: neonSize }} />

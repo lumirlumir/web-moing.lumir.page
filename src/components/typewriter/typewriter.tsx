@@ -6,13 +6,13 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type HTMLAttributes } from 'react';
 
 // --------------------------------------------------------------------------------
 // Typedef
 // --------------------------------------------------------------------------------
 
-export interface Props extends React.HTMLAttributes<HTMLSpanElement> {
+export interface Props extends HTMLAttributes<HTMLSpanElement> {
   /**
    * Text to type out.
    */
@@ -138,7 +138,7 @@ export default function Typewriter({
   onWriteComplete = undefined,
   onEraseComplete = undefined,
   ...props
-}: Props): React.JSX.Element {
+}: Props) {
   const [currentText, setCurrentText] = useState<string>('');
   const [mode, setMode] = useState<'write' | 'erase'>('write');
 
