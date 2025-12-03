@@ -7,7 +7,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import React from 'react';
+import { type ReactElement, type SVGAttributes } from 'react';
 
 // --------------------------------------------------------------------------------
 // Typedef
@@ -18,10 +18,10 @@ export interface SVGWrapperProps {
     viewBox: string;
     [key: string]: string;
   };
-  children: React.ReactElement;
+  children: ReactElement;
 }
 
-export interface SVGProps extends React.SVGAttributes<SVGElement> {
+export interface SVGProps extends SVGAttributes<SVGElement> {
   size?: string | number;
   color?: string;
 }

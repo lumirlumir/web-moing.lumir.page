@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 import Button from '@/components/button';
 import MainButton from '@/components/main-button';
@@ -34,7 +34,7 @@ import './app.scss';
 // Export
 // --------------------------------------------------------------------------------
 
-export default function App(): React.JSX.Element {
+export default function App() {
   const scenario = useScenario();
   const config = useConfig();
   const interview = useInterview();

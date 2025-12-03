@@ -6,15 +6,13 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import React from 'react';
-
 import NeonFont from '@/components/neon-font';
 import useScenario from '@/hooks/use-scenario';
 
 import './title.scss';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
 interface Props {
@@ -25,7 +23,7 @@ interface Props {
 // Export
 // --------------------------------------------------------------------------------
 
-export default function Title({ scenario }: Props): React.JSX.Element {
+export default function Title({ scenario }: Props) {
   const { visibility } = scenario.getSectionObj().title;
 
   return (

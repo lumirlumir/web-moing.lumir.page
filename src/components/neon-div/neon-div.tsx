@@ -6,14 +6,14 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import React from 'react';
+import { type HTMLAttributes, type PropsWithChildren } from 'react';
 import './neon-div.scss';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   /**
    * Neon color for the component.
    * @default 'red'
@@ -58,7 +58,7 @@ export default function NeonDiv({
   className = '',
   children,
   ...props
-}: React.PropsWithChildren<Props> = {}): React.JSX.Element {
+}: PropsWithChildren<Props> = {}) {
   return (
     <div className={`${className} neon-div ${neonColor} ${neonSize}`} {...props}>
       {children}

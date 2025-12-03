@@ -78,7 +78,12 @@ const webpackConfig = {
             options: {
               presets: [
                 '@babel/preset-env',
-                '@babel/preset-react',
+                [
+                  '@babel/preset-react',
+                  {
+                    runtime: 'automatic', // Enable the new JSX transform
+                  },
+                ],
                 '@babel/preset-typescript',
               ],
             },

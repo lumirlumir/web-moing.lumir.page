@@ -6,8 +6,8 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import React, { StrictMode } from 'react';
-import ReactDOM from 'react-dom/client';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
 import App from './app';
 
@@ -17,7 +17,7 @@ import '@/styles/index.scss';
 // Render
 // --------------------------------------------------------------------------------
 
-ReactDOM.createRoot(document.getElementById('app') as HTMLDivElement).render(
+createRoot(document.getElementById('app') as HTMLDivElement).render(
   <StrictMode>
     <App />
   </StrictMode>,
