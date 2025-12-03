@@ -10,7 +10,7 @@ import OpenAI from 'openai';
 import { questionMain, questionSub, answer, feedback } from './prompt.js';
 
 // --------------------------------------------------------------------------------
-// Typedefs
+// Typedef
 // --------------------------------------------------------------------------------
 
 /**
