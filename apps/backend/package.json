@@ -9,6 +9,6 @@
     "test": "tsc --noEmit"
   },
   "dependencies": {
-    "openai": "^6.9.1"
+    "openai": "^6.10.0"
   }
 }
