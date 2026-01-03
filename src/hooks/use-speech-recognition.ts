@@ -16,7 +16,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 /**
  * The `SpeechRecognition` interface of the Web Speech API
- * is the controller interface for the recognition service
+ * is the controller interface for the recognition service.
  * @see https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
  */
 interface SpeechRecognition extends EventTarget {
