@@ -1,6 +1,6 @@
 :root {
-  --color-text: #ffffff;
-  --color-text-inversion: #1d212b;
+  --color-primary-white: #ffffff;
+  --color-primary-black: #1d212b;
   --color-background: repeating-linear-gradient(
     135deg,
     #202020 0%,

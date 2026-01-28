@@ -1,8 +1,6 @@
 .neon-button {
   /* Variables */
-  $color-main: #ffffff;
-  $color-main-transparent: rgba($color-main, 0.1);
-  $color-sub: #1d212b;
+  $color-main-transparent: rgba(#ffffff, 0.1);
 
   /* Property */
   position: relative;
@@ -14,20 +12,20 @@
   &:hover,
   &.hover {
     /* Property */
-    background: $color-main;
+    background: var(--color-primary-white);
     border-radius: 15px;
     box-shadow:
-      0 0 5px $color-main,
-      0 0 25px $color-main,
-      0 0 50px $color-main,
-      0 0 100px $color-main;
+      0 0 5px var(--color-primary-white),
+      0 0 25px var(--color-primary-white),
+      0 0 50px var(--color-primary-white),
+      0 0 100px var(--color-primary-white);
 
     /* Selector */
     > button {
-      color: $color-sub;
+      color: var(--color-primary-black);
 
       svg {
-        fill: $color-sub;
+        fill: var(--color-primary-black);
       }
     }
   }
