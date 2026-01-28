@@ -12,8 +12,9 @@
   "repository": "https://github.com/lumirlumir/web-moing.lumir.page",
   "scripts": {
     "prepare": "husky",
-    "dev": "node ./webpack.config.mjs dev",
-    "build": "node ./webpack.config.mjs build",
+    "dev": "vite dev --open",
+    "build": "vite build",
+    "start": "vite preview",
     "fix": "npm-run-all -c -l -p fix:*",
     "fix:eslint": "npx eslint --fix",
     "fix:prettier": "npx prettier . --write --ignore-unknown",
@@ -37,6 +38,7 @@
     "@types/node": "^20.19.30",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.2",
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",
     "editorconfig-checker": "^6.1.1",
@@ -53,6 +55,7 @@
     "sass-loader": "^16.0.6",
     "style-loader": "^4.0.0",
     "typescript": "^5.9.3",
+    "vite": "^7.3.1",
     "webpack": "^5.104.1",
     "webpack-dev-server": "^5.2.2"
   }
