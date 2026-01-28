@@ -5,7 +5,14 @@ import md from 'eslint-markdown';
 
 /** @type {import("eslint").Linter.Config[]} */
 export default defineConfig([
-  globalIgnores(['**/build/', '**/coverage/'], 'global/ignores'),
+  globalIgnores(
+    [
+      '**/build/',
+      '**/coverage/',
+      'webpack.config.mjs', // TODO
+    ],
+    'global/ignores',
+  ),
 
   bananass.configs.jsxReact,
   bananass.configs.tsxReact,
@@ -30,6 +37,7 @@ export default defineConfig([
     rules: {
       'react/jsx-uses-react': 'off', // TODO: Remove
       'react/react-in-jsx-scope': 'off', // TODO: Remove
+      'react-hooks/react-compiler': 'off', // TODO
     },
   },
   {

@@ -179,7 +179,7 @@ export default function useInterview() {
     addInterviewObj({ answerUser: contentRef.current.innerText });
 
     // @ts-expect-error -- TODO
-    contentRef.current.innerHTML = ''; // eslint-disable-line react-hooks/react-compiler -- TODO: It's Ref so safe.
+    contentRef.current.innerHTML = '';
   }, [contentRef, addInterviewObj]);
 
   return {
