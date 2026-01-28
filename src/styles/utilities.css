@@ -1,14 +1,14 @@
-/* https://tailwindcss.com/docs/transition-property */
+/* Transitions & Animation: https://tailwindcss.com/docs/transition-property */
 .transition {
   transition: all 2s ease-in-out;
 }
 
-/* https://tailwindcss.com/docs/pointer-events */
+/* Interactivity: https://tailwindcss.com/docs/pointer-events */
 .pointer-events-none {
   pointer-events: none;
 }
 
-/* https://tailwindcss.com/docs/user-select */
+/* Interactivity: https://tailwindcss.com/docs/user-select */
 .select-none {
   -webkit-user-select: none;
   -moz-user-select: none;
