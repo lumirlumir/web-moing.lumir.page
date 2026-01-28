@@ -25,7 +25,7 @@
       content: '';
       display: block;
       cursor: text;
-      height: $main-section-padding;
+      height: var(--main-section-padding);
     }
   }
 }

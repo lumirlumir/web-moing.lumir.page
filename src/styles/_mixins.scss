@@ -4,23 +4,23 @@
   align-items: center;
 }
 @mixin prop-main-others {
-  width: $main-section-width;
+  width: var(--main-section-width);
   margin: 20px auto;
 }
 @mixin prop-main-section($height-mul: 1) {
   //box
-  width: $main-section-width;
-  height: calc($main-section-height * $height-mul);
+  width: var(--main-section-width);
+  height: calc(var(--main-section-height) * $height-mul);
   margin: 40px auto;
-  padding: $main-section-padding;
+  padding: var(--main-section-padding);
   //text
   line-height: 1.5;
 }
 @mixin prop-main-section-bash {
   //background
-  background-color: $color-background-dark;
+  background-color: var(--color-background-dark);
   //text
-  font-family: $font-ngc;
+  font-family: var(--font-ngc);
   white-space: pre-line;
 }
 
@@ -35,7 +35,7 @@
   @include selector-invisible {
     height: 0;
     margin: 0 auto;
-    padding: 0 $main-section-padding;
+    padding: 0 var(--main-section-padding);
     border-width: 0 !important;
   }
 }
