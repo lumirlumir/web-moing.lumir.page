@@ -43,6 +43,7 @@
     /* Emit */
     "declaration": true,
     "emitDeclarationOnly": true,
+    "noEmit": true,
     "outDir": "build",
 
     /* JavaScript Support */

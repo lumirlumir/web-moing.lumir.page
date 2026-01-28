@@ -8,23 +8,23 @@
   "engines": {
     "node": ">=20.19.6"
   },
-  "homepage": "https://lumirlumir.github.io/web-moing.lumir.page",
-  "repository": "https://github.com/lumirlumir/web-moing.lumir.page",
   "scripts": {
     "prepare": "husky",
     "dev": "vite dev --open",
     "build": "vite build",
     "start": "vite preview --open",
+    "coverage": "npm run test",
+    "test": "npm run test:types",
+    "test:types": "tsc && npm run test -w apps/backend",
     "fix": "npm-run-all -c -l -p fix:*",
-    "fix:eslint": "npx eslint --fix",
-    "fix:prettier": "npx prettier . --write --ignore-unknown",
-    "fix:markdownlint": "npx markdownlint **/*.md --fix",
+    "fix:eslint": "eslint --fix",
+    "fix:prettier": "prettier . --write --ignore-unknown",
+    "fix:markdownlint": "markdownlint **/*.md --fix",
     "lint": "npm-run-all -c -l -p lint:*",
-    "lint:eslint": "npx eslint",
-    "lint:prettier": "npx prettier . --check --ignore-unknown",
-    "lint:editorconfig": "npx editorconfig-checker -config .editorconfig-checker.json",
-    "lint:markdownlint": "npx markdownlint **/*.md",
-    "lint:todo": "npx tsc --noEmit && npm run test -w apps/backend"
+    "lint:eslint": "eslint",
+    "lint:prettier": "prettier . --check --ignore-unknown",
+    "lint:editorconfig": "editorconfig-checker -config .editorconfig-checker.json",
+    "lint:markdownlint": "markdownlint **/*.md"
   },
   "dependencies": {
     "react": "^19.2.4",

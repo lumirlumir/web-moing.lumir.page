@@ -28,9 +28,9 @@ export default defineConfig([
       },
     },
     rules: {
-      'react/jsx-uses-react': 'off', // TODO: Remove
-      'react/react-in-jsx-scope': 'off', // TODO: Remove
-      'react-hooks/react-compiler': 'off', // TODO
+      'react/jsx-uses-react': 'off', // TODO: Should be handled in `eslint-config-bananass`.
+      'react/react-in-jsx-scope': 'off', // TODO: Should be handled in `eslint-config-bananass`.
+      'react-hooks/react-compiler': 'off', // TODO: Should be handled in `eslint-config-bananass`.
     },
   },
   {
