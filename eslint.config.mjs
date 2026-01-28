@@ -5,14 +5,7 @@ import md from 'eslint-markdown';
 
 /** @type {import("eslint").Linter.Config[]} */
 export default defineConfig([
-  globalIgnores(
-    [
-      '**/build/',
-      '**/coverage/',
-      'webpack.config.mjs', // TODO
-    ],
-    'global/ignores',
-  ),
+  globalIgnores(['**/build/', '**/coverage/'], 'global/ignores'),
 
   bananass.configs.jsxReact,
   bananass.configs.tsxReact,
