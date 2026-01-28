@@ -1,9 +1,7 @@
-/* eslint-disable import/no-extraneous-dependencies -- TODO */
-
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { loadEnvFile } from 'node:process';
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'; // eslint-disable-line import/no-extraneous-dependencies -- TODO: Should be fixed in `eslint-config-bananass`.
 import react from '@vitejs/plugin-react';
 
 if (existsSync(resolve(import.meta.dirname, '.env'))) {
