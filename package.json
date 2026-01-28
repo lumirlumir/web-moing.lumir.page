@@ -10,9 +10,9 @@
   },
   "scripts": {
     "prepare": "husky",
-    "dev": "vite dev --open",
+    "dev": "vite dev",
     "build": "vite build",
-    "start": "vite preview --open",
+    "start": "vite preview",
     "coverage": "npm run test",
     "test": "npm run test:types",
     "test:types": "tsc && npm run test -w apps/backend",
