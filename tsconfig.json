@@ -39,6 +39,7 @@
     },
     "module": "NodeNext",
     "moduleResolution": "nodenext",
+    // "types": ["node", "react", "react-dom", "vite/client"],
 
     /* Emit */
     "declaration": true,

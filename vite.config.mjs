@@ -24,9 +24,15 @@ export default defineConfig({
     'process.env.BACKEND_IP': JSON.stringify(process.env.BACKEND_IP),
   },
   plugins: [react()],
+  preview: {
+    open: true,
+  },
   resolve: {
     alias: {
       '@': resolve(import.meta.dirname, 'src'),
     },
+  },
+  server: {
+    open: true,
   },
 });

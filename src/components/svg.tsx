@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import SVGWrapper from '../svg-wrapper/svg-wrapper';
+import SVGWrapper from '@/components/svg-wrapper';
 
 // --------------------------------------------------------------------------------
 // Export
