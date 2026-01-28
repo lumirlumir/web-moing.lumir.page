@@ -12,8 +12,9 @@
   "repository": "https://github.com/lumirlumir/web-moing.lumir.page",
   "scripts": {
     "prepare": "husky",
-    "dev": "node ./webpack.config.mjs dev",
-    "build": "node ./webpack.config.mjs build",
+    "dev": "vite dev --open",
+    "build": "vite build",
+    "start": "vite preview --open",
     "fix": "npm-run-all -c -l -p fix:*",
     "fix:eslint": "npx eslint --fix",
     "fix:prettier": "npx prettier . --write --ignore-unknown",
@@ -26,34 +27,25 @@
     "lint:todo": "npx tsc --noEmit && npm run test -w apps/backend"
   },
   "dependencies": {
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.6",
-    "@babel/preset-env": "^7.28.6",
-    "@babel/preset-react": "^7.28.5",
-    "@babel/preset-typescript": "^7.28.5",
     "@types/node": "^20.19.30",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
-    "babel-loader": "^10.0.0",
-    "css-loader": "^7.1.2",
+    "@vitejs/plugin-react": "^5.1.2",
     "editorconfig-checker": "^6.1.1",
     "eslint": "^9.39.2",
     "eslint-config-bananass": "^0.5.2",
     "eslint-markdown": "^0.3.0",
-    "html-webpack-plugin": "^5.6.6",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "markdownlint-cli": "^0.47.0",
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.8.1",
     "sass": "^1.97.3",
-    "sass-loader": "^16.0.6",
-    "style-loader": "^4.0.0",
     "typescript": "^5.9.3",
-    "webpack": "^5.104.1",
-    "webpack-dev-server": "^5.2.2"
+    "vite": "^7.3.1"
   }
 }

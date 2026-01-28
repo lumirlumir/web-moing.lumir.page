@@ -30,6 +30,7 @@ export default defineConfig([
     rules: {
       'react/jsx-uses-react': 'off', // TODO: Remove
       'react/react-in-jsx-scope': 'off', // TODO: Remove
+      'react-hooks/react-compiler': 'off', // TODO
     },
   },
   {
