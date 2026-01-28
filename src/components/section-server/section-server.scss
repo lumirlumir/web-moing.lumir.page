@@ -10,7 +10,7 @@
   }
 
   > .ref {
-    height: calc($main-section-height * 0.75);
+    height: calc(var(--main-section-height) * 0.75);
   }
 
   .cursor {

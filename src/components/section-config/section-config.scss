@@ -30,7 +30,7 @@
 
   /* Selector */
   &.off {
-    color: $color-text-inversion;
+    color: var(--color-primary-black);
   }
   > label {
     /* Property */
@@ -61,10 +61,10 @@
       display: none;
     }
     > input[type='checkbox'] + span {
-      color: $color-text-inversion;
+      color: var(--color-primary-black);
     }
     > input[type='checkbox']:checked + span {
-      color: $color-text;
+      color: var(--color-primary-white);
     }
   }
 }
