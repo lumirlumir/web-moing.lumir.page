@@ -19,7 +19,6 @@
 
 .custom-main-section {
   width: var(--main-section-width);
-  height: var(--main-section-height);
   margin: 40px auto;
   padding: var(--main-section-padding);
   line-height: 1.5;

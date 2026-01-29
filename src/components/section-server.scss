@@ -1,4 +1,6 @@
 .section-server {
+  height: var(--main-section-height);
+
   /* Selector */
   &.wide {
     height: 600px;
