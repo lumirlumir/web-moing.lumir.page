@@ -11,7 +11,7 @@ import useScenario from '@/hooks/use-scenario';
 import useInterview from '@/hooks/use-interview';
 import { cn } from '@/utils';
 
-import './section-client.scss';
+import './section-client.css';
 
 // --------------------------------------------------------------------------------
 // Typedef

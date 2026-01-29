@@ -2,19 +2,18 @@
   height: calc(var(--main-section-height) * 1.5);
 
   /* Selector */
-  > div {
+  & > div {
     /* Property */
     letter-spacing: 4px;
 
     /* Selector */
-    > div:nth-child(1) {
-      //box
+    & > div:nth-child(1) {
       margin-bottom: 20px;
-      //flex-container
+
       display: flex;
       justify-content: space-between;
     }
-    > div:nth-child(2) {
+    & > div:nth-child(2) {
       margin-top: 20px;
     }
   }
@@ -29,16 +28,16 @@
   &.off {
     color: var(--color-primary-black);
   }
-  > label {
+  & > label {
     /* Property */
     cursor: pointer;
-    //flex-container
+
     width: 100%;
     display: flex;
     justify-content: space-between;
 
     /* Selector */
-    > input[type='button'] {
+    & > input[type='button'] {
       display: none;
     }
   }
@@ -49,18 +48,18 @@
   margin: 0 20px;
 
   /* Selector */
-  > label {
+  & > label {
     /* Property */
     cursor: pointer;
 
     /* Selector */
-    > input[type='checkbox'] {
+    & > input[type='checkbox'] {
       display: none;
     }
-    > input[type='checkbox'] + span {
+    & > input[type='checkbox'] + span {
       color: var(--color-primary-black);
     }
-    > input[type='checkbox']:checked + span {
+    & > input[type='checkbox']:checked + span {
       color: var(--color-primary-white);
     }
   }

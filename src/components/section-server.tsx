@@ -18,7 +18,7 @@ import useScroll from '@/hooks/use-scroll';
 import useHistoryState from '@/hooks/use-history-state';
 import { cn } from '@/utils';
 
-import './section-server.scss';
+import './section-server.css';
 
 // --------------------------------------------------------------------------------
 // Typedef

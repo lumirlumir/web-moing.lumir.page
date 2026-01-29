@@ -1,12 +1,12 @@
 .section-client {
   height: var(--main-section-height);
 
-  > div {
+  & > div {
     width: 100%;
     height: 100%;
     outline: none;
 
-    div::before {
+    & div::before {
       content: '\000A>\00a0';
     }
 

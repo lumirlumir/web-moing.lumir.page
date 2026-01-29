@@ -11,7 +11,7 @@ import NeonFont from '@/components/neon-font';
 import useConfig, { questionTypes } from '@/hooks/use-config';
 import { cn } from '@/utils';
 
-import './section-config.scss';
+import './section-config.css';
 
 // --------------------------------------------------------------------------------
 // Typedef
