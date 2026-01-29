@@ -4,6 +4,14 @@
   align-items: center;
 }
 
+.custom-scrollbar {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* Filters: https://tailwindcss.com/docs/opacity */
 .opacity-0 {
   opacity: 0;

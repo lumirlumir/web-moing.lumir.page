@@ -30,7 +30,7 @@ import useScroll from '@/hooks/use-scroll';
 
 import { cn } from '@/utils';
 
-import './app.scss';
+import './app.css';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -87,7 +87,7 @@ export default function App() {
 
       <Timer scenario={scenario} timer={timer} />
 
-      <main className={cn('main', 'custom-flex-center')}>
+      <main className={cn('main', 'custom-flex-center', 'custom-scrollbar')}>
         <div ref={scrollRef}>
           <Title scenario={scenario} />
           <SectionServer
