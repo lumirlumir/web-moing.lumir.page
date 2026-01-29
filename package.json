@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "web-moing.lumir.page",
+  "type": "module",
   "packageManager": "npm@10.9.2",
   "workspaces": [
     "apps/*"
