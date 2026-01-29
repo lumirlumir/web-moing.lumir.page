@@ -17,6 +17,14 @@
   margin: 20px auto;
 }
 
+.custom-main-section {
+  width: var(--main-section-width);
+  height: var(--main-section-height);
+  margin: 40px auto;
+  padding: var(--main-section-padding);
+  line-height: 1.5;
+}
+
 .custom-main-section-bash {
   background-color: var(--color-background-dark);
   font-family: var(--font-ngc);

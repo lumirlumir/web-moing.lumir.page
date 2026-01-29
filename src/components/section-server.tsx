@@ -69,6 +69,7 @@ export default function SectionServer({ scenario, config, interview, timer }: Pr
       className={cn(
         'section-server',
         'custom-scrollbar',
+        'custom-main-section',
         'custom-main-section-bash',
         'transition',
         visibility && !configState.visibility ? '' : 'custom-invisible-section',

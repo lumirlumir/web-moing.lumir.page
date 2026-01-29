@@ -1,9 +1,0 @@
-@mixin prop-main-section($height-mul: 1) {
-  //box
-  width: var(--main-section-width);
-  height: calc(var(--main-section-height) * $height-mul);
-  margin: 40px auto;
-  padding: var(--main-section-padding);
-  //text
-  line-height: 1.5;
-}

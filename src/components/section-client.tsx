@@ -36,6 +36,7 @@ export default function SectionClient({ scenario, interview }: Props) {
         'section-client',
         'transition',
         'custom-scrollbar',
+        'custom-main-section',
         'custom-main-section-bash',
         visibility || 'custom-invisible-section',
       )}

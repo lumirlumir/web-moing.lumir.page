@@ -1,5 +1,5 @@
 .section-config {
-  @include prop-main-section(1.5);
+  height: calc(var(--main-section-height) * 2);
 
   /* Selector */
   > div {
