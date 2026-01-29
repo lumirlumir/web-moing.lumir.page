@@ -8,6 +8,7 @@
 
 import NeonFont from '@/components/neon-font';
 import useScenario from '@/hooks/use-scenario';
+import { cn } from '@/utils';
 
 import './title.scss';
 
@@ -27,7 +28,7 @@ export default function Title({ scenario }: Props) {
   const { visibility } = scenario.getSectionObj().title;
 
   return (
-    <div className={`title transition select-none ${visibility ? '' : 'invisible'}`}>
+    <div className={cn('title', 'transition', 'select-none', visibility || 'invisible')}>
       <div className="mock">
         <NeonFont
           neonColor="blue"

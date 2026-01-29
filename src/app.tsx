@@ -28,6 +28,8 @@ import useInterview from '@/hooks/use-interview';
 import useTimer from '@/hooks/use-timer';
 import useScroll from '@/hooks/use-scroll';
 
+import { cn } from '@/utils';
+
 import './app.scss';
 
 // --------------------------------------------------------------------------------
@@ -85,7 +87,7 @@ export default function App() {
 
       <Timer scenario={scenario} timer={timer} />
 
-      <main className="main custom-flex-center">
+      <main className={cn('main', 'custom-flex-center')}>
         <div ref={scrollRef}>
           <Title scenario={scenario} />
           <SectionServer

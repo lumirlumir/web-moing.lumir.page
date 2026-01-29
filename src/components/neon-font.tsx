@@ -7,6 +7,7 @@
 // --------------------------------------------------------------------------------
 
 import { type HTMLAttributes, type PropsWithChildren } from 'react';
+import { cn } from '@/utils';
 import './neon-font.scss';
 
 // --------------------------------------------------------------------------------
@@ -60,7 +61,7 @@ export default function NeonFont({
   ...props
 }: PropsWithChildren<Props> = {}) {
   return (
-    <span className={`${className} neon-font ${neonColor} ${neonSize}`} {...props}>
+    <span className={cn('neon-font', className, neonColor, neonSize)} {...props}>
       {children}
     </span>
   );

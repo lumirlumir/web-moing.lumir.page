@@ -10,8 +10,8 @@ import React from 'react';
 
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
-
-import type useScenario from '@/hooks/use-scenario';
+import useScenario from '@/hooks/use-scenario';
+import { cn } from '@/utils';
 
 import './button.scss';
 
@@ -41,7 +41,14 @@ export default function Button({ type, icon, scenario, onClick, hoverEffect }: P
 
   return (
     <div
-      className={`button custom-flex-center transition ${type} ${visibility ? '' : 'invisible'} ${clickability ? '' : 'pointer-events-none'}`}
+      className={cn(
+        'button',
+        'custom-flex-center',
+        'transition',
+        type,
+        visibility || 'invisible',
+        clickability || 'pointer-events-none',
+      )}
     >
       <NeonButton
         hoverEffect={hoverEffect}

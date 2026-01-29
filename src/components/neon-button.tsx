@@ -7,6 +7,7 @@
 // --------------------------------------------------------------------------------
 
 import React from 'react';
+import { cn } from '@/utils';
 import './neon-button.scss';
 
 // --------------------------------------------------------------------------------
@@ -46,7 +47,7 @@ export default function NeonButton({
   ...props
 }: React.PropsWithChildren<Props> = {}) {
   return (
-    <div className={`neon-button ${hoverEffect ? 'hover' : ''}`}>
+    <div className={cn('neon-button', hoverEffect && 'hover')}>
       <span style={{ height: neonSize }} />
       <span style={{ width: neonSize }} />
       <span style={{ height: neonSize }} />

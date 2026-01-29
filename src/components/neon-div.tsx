@@ -7,6 +7,7 @@
 // --------------------------------------------------------------------------------
 
 import { type HTMLAttributes, type PropsWithChildren } from 'react';
+import { cn } from '@/utils';
 import './neon-div.scss';
 
 // --------------------------------------------------------------------------------
@@ -60,7 +61,7 @@ export default function NeonDiv({
   ...props
 }: PropsWithChildren<Props> = {}) {
   return (
-    <div className={`${className} neon-div ${neonColor} ${neonSize}`} {...props}>
+    <div className={cn('neon-div', className, neonColor, neonSize)} {...props}>
       {children}
     </div>
   );

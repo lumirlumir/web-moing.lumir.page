@@ -13,6 +13,7 @@ import NeonFont from '@/components/neon-font';
 import useConfig from '@/hooks/use-config';
 import useScenario from '@/hooks/use-scenario';
 import useInterview from '@/hooks/use-interview';
+import { cn } from '@/utils';
 
 import './main-button.scss';
 
@@ -66,7 +67,12 @@ export default function ButtonMain({ scenario, config, interview }: Props) {
 
   return (
     <div
-      className={`main-button custom-flex-center transition ${(isLastSection() && isConfigDone()) || visibility ? '' : 'invisible'}`}
+      className={cn(
+        'main-button',
+        'custom-flex-center',
+        'transition',
+        (isLastSection() && isConfigDone()) || visibility ? '' : 'invisible',
+      )}
     >
       <NeonButton style={{ padding: '20px 30px' }} onClick={e => onClick(e)}>
         <NeonFont

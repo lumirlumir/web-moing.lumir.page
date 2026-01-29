@@ -9,6 +9,7 @@
 import NeonDiv from '@/components/neon-div';
 import useScenario from '@/hooks/use-scenario';
 import useInterview from '@/hooks/use-interview';
+import { cn } from '@/utils';
 
 import './section-client.scss';
 
@@ -31,7 +32,7 @@ export default function SectionClient({ scenario, interview }: Props) {
 
   return (
     <NeonDiv
-      className={`section-client transition ${visibility ? '' : 'invisible'}`}
+      className={cn('section-client', 'transition', visibility || 'invisible')}
       neonColor="black"
     >
       <div
