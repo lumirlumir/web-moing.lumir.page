@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "web-moing.lumir.page",
+  "type": "module",
   "packageManager": "npm@10.9.2",
   "workspaces": [
     "apps/*"
@@ -14,8 +15,9 @@
     "build": "vite build",
     "start": "vite preview",
     "coverage": "npm run test",
-    "test": "npm run test:types",
+    "test": "npm run test:types && npm run test:unit",
     "test:types": "tsc && npm run test -w apps/backend",
+    "test:unit": "node --test",
     "fix": "npm-run-all -c -l -p fix:*",
     "fix:eslint": "eslint --fix",
     "fix:prettier": "prettier . --write --ignore-unknown",

@@ -28,7 +28,9 @@ import useInterview from '@/hooks/use-interview';
 import useTimer from '@/hooks/use-timer';
 import useScroll from '@/hooks/use-scroll';
 
-import './app.scss';
+import { cn } from '@/utils';
+
+import './app.css';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -85,7 +87,7 @@ export default function App() {
 
       <Timer scenario={scenario} timer={timer} />
 
-      <main className="main">
+      <main className={cn('main', 'custom-flex-center', 'custom-scrollbar')}>
         <div ref={scrollRef}>
           <Title scenario={scenario} />
           <SectionServer

@@ -16,8 +16,9 @@ import useInterview from '@/hooks/use-interview';
 import useTimer from '@/hooks/use-timer';
 import useScroll from '@/hooks/use-scroll';
 import useHistoryState from '@/hooks/use-history-state';
+import { cn } from '@/utils';
 
-import './section-server.scss';
+import './section-server.css';
 
 // --------------------------------------------------------------------------------
 // Typedef
@@ -65,7 +66,15 @@ export default function SectionServer({ scenario, config, interview, timer }: Pr
 
   return (
     <NeonDiv
-      className={`section-server transition ${visibility && !configState.visibility ? '' : 'invisible'} ${mode === 'result' ? 'wide' : ''}`}
+      className={cn(
+        'section-server',
+        'custom-scrollbar',
+        'custom-main-section',
+        'custom-main-section-bash',
+        'transition',
+        visibility && !configState.visibility ? '' : 'custom-invisible-section',
+        mode === 'result' && 'wide',
+      )}
       neonColor="black"
     >
       <div>{historyState.slice(0, -1)}</div>

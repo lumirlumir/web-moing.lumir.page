@@ -1,15 +1,12 @@
 .section-client {
-  @include prop-main-section;
-  @include prop-main-section-bash;
-  @include selector-invisible-section;
-  @include selector-scrollbar;
+  height: var(--main-section-height);
 
-  > div {
+  & > div {
     width: 100%;
     height: 100%;
     outline: none;
 
-    div::before {
+    & div::before {
       content: '\000A>\00a0';
     }
 

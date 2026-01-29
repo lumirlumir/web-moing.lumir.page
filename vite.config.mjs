@@ -12,13 +12,6 @@ export default defineConfig({
   build: {
     outDir: 'build',
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: "@import '@/styles/mixins.scss';",
-      },
-    },
-  },
   define: {
     'process.env.BACKEND_PORT': JSON.stringify(process.env.BACKEND_PORT),
     'process.env.BACKEND_IP': JSON.stringify(process.env.BACKEND_IP),

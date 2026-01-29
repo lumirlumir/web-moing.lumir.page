@@ -9,8 +9,9 @@
 import NeonDiv from '@/components/neon-div';
 import NeonFont from '@/components/neon-font';
 import useConfig, { questionTypes } from '@/hooks/use-config';
+import { cn } from '@/utils';
 
-import './section-config.scss';
+import './section-config.css';
 
 // --------------------------------------------------------------------------------
 // Typedef
@@ -29,7 +30,7 @@ function ButtonCount({ onClick, count, label }) {
     <NeonFont
       neonColor={count >= 1 ? 'banana' : 'black'}
       neonSize="s"
-      className={`button-count ${count >= 1 ? '' : 'off'}`}
+      className={cn('button-count', count >= 1 || 'off')}
       style={{
         fontFamily: 'Audiowide',
         fontSize: '40px',
@@ -80,7 +81,15 @@ export default function SectionConfig({ config }: Props) {
 
   return (
     <NeonDiv
-      className={`section-config transition select-none ${configState.visibility ? '' : 'invisible'}`}
+      className={cn(
+        'section-config',
+        'custom-flex-center',
+        'custom-scrollbar',
+        'custom-main-section',
+        'transition',
+        'select-none',
+        configState.visibility || 'custom-invisible-section',
+      )}
       neonSize="m"
       neonColor="banana"
     >

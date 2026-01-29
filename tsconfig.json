@@ -37,8 +37,8 @@
     "paths": {
       "@/*": ["./src/*"] // Map the '@' alias to the 'src' directory.
     },
-    "module": "NodeNext",
-    "moduleResolution": "nodenext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     // "types": ["node", "react", "react-dom", "vite/client"],
 
     /* Emit */

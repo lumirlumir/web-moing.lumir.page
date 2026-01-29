@@ -9,8 +9,9 @@
 import NeonDiv from '@/components/neon-div';
 import useScenario from '@/hooks/use-scenario';
 import useInterview from '@/hooks/use-interview';
+import { cn } from '@/utils';
 
-import './section-client.scss';
+import './section-client.css';
 
 // --------------------------------------------------------------------------------
 // Typedef
@@ -31,7 +32,14 @@ export default function SectionClient({ scenario, interview }: Props) {
 
   return (
     <NeonDiv
-      className={`section-client transition ${visibility ? '' : 'invisible'}`}
+      className={cn(
+        'section-client',
+        'transition',
+        'custom-scrollbar',
+        'custom-main-section',
+        'custom-main-section-bash',
+        visibility || 'custom-invisible-section',
+      )}
       neonColor="black"
     >
       <div

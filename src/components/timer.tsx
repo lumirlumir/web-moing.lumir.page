@@ -9,8 +9,7 @@
 import NeonFont from '@/components/neon-font';
 import useScenario from '@/hooks/use-scenario';
 import useTimer from '@/hooks/use-timer';
-
-import './timer.scss';
+import { cn } from '@/utils';
 
 // --------------------------------------------------------------------------------
 // Typedef
@@ -30,7 +29,14 @@ export default function Timer({ scenario, timer }: Props) {
   const { getTimer } = timer;
 
   return (
-    <footer className={`timer transition ${visibility ? '' : 'invisible'}`}>
+    <footer
+      className={cn(
+        'timer',
+        'custom-flex-center',
+        'transition',
+        visibility || 'pointer-events-none opacity-0',
+      )}
+    >
       <NeonFont
         neonColor={getTimer().minute === 0 ? 'red' : 'white'}
         neonSize="s"
