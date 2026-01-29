@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { cn } from '@/utils';
-import './neon-button.scss';
+import './neon-button.css';
 
 // --------------------------------------------------------------------------------
 // Typedef

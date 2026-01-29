@@ -10,7 +10,7 @@ import NeonFont from '@/components/neon-font';
 import useScenario from '@/hooks/use-scenario';
 import { cn } from '@/utils';
 
-import './title.scss';
+import './title.css';
 
 // --------------------------------------------------------------------------------
 // Typedef

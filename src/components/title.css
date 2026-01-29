@@ -1,19 +1,19 @@
 .title {
-  //visual
+  /* visual */
   position: sticky;
   top: 0;
   z-index: 100;
-  //ui
+  /* ui */
   pointer-events: none;
 
   /* Selector */
-  > .mock {
-    //box
+  & > .mock {
+    /* box */
     margin-bottom: 15px;
     margin-left: 0px;
-    //others
+    /* others */
     transform: rotate(-10deg);
-    //loading effects
+    /* loading effects */
     animation: 2s ease-in-out loadEffect1;
     @keyframes loadEffect1 {
       0% {
@@ -24,12 +24,12 @@
       }
     }
   }
-  > .interview {
-    //box
+  & > .interview {
+    /* box */
     margin-left: 30px;
-    //text
+    /* text */
     text-align: center;
-    //loading effects
+    /* loading effects */
     animation: 4s ease-in-out loadEffect1;
     @keyframes loadEffect1 {
       0% {
