@@ -85,7 +85,7 @@ export default function App() {
 
       <Timer scenario={scenario} timer={timer} />
 
-      <main className="main">
+      <main className="main custom-flex-center">
         <div ref={scrollRef}>
           <Title scenario={scenario} />
           <SectionServer

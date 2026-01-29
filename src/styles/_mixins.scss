@@ -1,8 +1,3 @@
-@mixin prop-flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 @mixin prop-main-others {
   width: var(--main-section-width);
   margin: 20px auto;

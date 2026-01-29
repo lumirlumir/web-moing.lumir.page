@@ -30,7 +30,9 @@ export default function Timer({ scenario, timer }: Props) {
   const { getTimer } = timer;
 
   return (
-    <footer className={`timer transition ${visibility ? '' : 'invisible'}`}>
+    <footer
+      className={`timer custom-flex-center transition ${visibility ? '' : 'invisible'}`}
+    >
       <NeonFont
         neonColor={getTimer().minute === 0 ? 'red' : 'white'}
         neonSize="s"

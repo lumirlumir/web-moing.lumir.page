@@ -27,7 +27,6 @@
     grid-area: 3 / 2 / 4 / 3;
   }
   main.main {
-    @include prop-flex;
     @include selector-scrollbar;
 
     grid-area: 1 / 2 / 4 / 3;

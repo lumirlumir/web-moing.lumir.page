@@ -80,7 +80,7 @@ export default function SectionConfig({ config }: Props) {
 
   return (
     <NeonDiv
-      className={`section-config transition select-none ${configState.visibility ? '' : 'invisible'}`}
+      className={`section-config custom-flex-center transition select-none ${configState.visibility ? '' : 'invisible'}`}
       neonSize="m"
       neonColor="banana"
     >

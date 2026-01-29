@@ -66,7 +66,7 @@ export default function ButtonMain({ scenario, config, interview }: Props) {
 
   return (
     <div
-      className={`main-button transition ${(isLastSection() && isConfigDone()) || visibility ? '' : 'invisible'}`}
+      className={`main-button custom-flex-center transition ${(isLastSection() && isConfigDone()) || visibility ? '' : 'invisible'}`}
     >
       <NeonButton style={{ padding: '20px 30px' }} onClick={e => onClick(e)}>
         <NeonFont

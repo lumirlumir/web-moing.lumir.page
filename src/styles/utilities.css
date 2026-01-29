@@ -1,3 +1,9 @@
+.custom-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Transitions & Animation: https://tailwindcss.com/docs/transition-property */
 .transition {
   transition: all 2s ease-in-out;

@@ -41,7 +41,7 @@ export default function Button({ type, icon, scenario, onClick, hoverEffect }: P
 
   return (
     <div
-      className={`button transition ${type} ${visibility ? '' : 'invisible'} ${clickability ? '' : 'pointer-events-none'}`}
+      className={`button custom-flex-center transition ${type} ${visibility ? '' : 'invisible'} ${clickability ? '' : 'pointer-events-none'}`}
     >
       <NeonButton
         hoverEffect={hoverEffect}
