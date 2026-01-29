@@ -84,6 +84,7 @@ export default function SectionConfig({ config }: Props) {
       className={cn(
         'section-config',
         'custom-flex-center',
+        'custom-scrollbar',
         'transition',
         'select-none',
         configState.visibility || 'invisible',

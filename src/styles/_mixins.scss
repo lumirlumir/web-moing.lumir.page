@@ -29,11 +29,3 @@
     border-width: 0 !important;
   }
 }
-@mixin selector-scrollbar {
-  overflow-y: auto;
-
-  &::-webkit-scrollbar {
-    // Change &::webkit-scrollbar to *::webkit-scrollbar
-    display: none;
-  }
-}

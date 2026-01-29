@@ -32,7 +32,12 @@ export default function SectionClient({ scenario, interview }: Props) {
 
   return (
     <NeonDiv
-      className={cn('section-client', 'transition', visibility || 'invisible')}
+      className={cn(
+        'section-client',
+        'transition',
+        'custom-scrollbar',
+        visibility || 'invisible',
+      )}
       neonColor="black"
     >
       <div

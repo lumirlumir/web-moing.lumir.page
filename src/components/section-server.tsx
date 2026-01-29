@@ -68,6 +68,7 @@ export default function SectionServer({ scenario, config, interview, timer }: Pr
     <NeonDiv
       className={cn(
         'section-server',
+        'custom-scrollbar',
         'transition',
         visibility && !configState.visibility ? '' : 'invisible',
         mode === 'result' && 'wide',
