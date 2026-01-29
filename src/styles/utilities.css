@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+/* Filters: https://tailwindcss.com/docs/opacity */
+.opacity-0 {
+  opacity: 0;
+}
+
 /* Transitions & Animation: https://tailwindcss.com/docs/transition-property */
 .transition {
   transition: all 2s ease-in-out;

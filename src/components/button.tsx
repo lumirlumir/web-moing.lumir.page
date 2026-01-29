@@ -13,8 +13,6 @@ import NeonFont from '@/components/neon-font';
 import useScenario from '@/hooks/use-scenario';
 import { cn } from '@/utils';
 
-import './button.scss';
-
 // --------------------------------------------------------------------------------
 // Typedef
 // --------------------------------------------------------------------------------
@@ -46,7 +44,7 @@ export default function Button({ type, icon, scenario, onClick, hoverEffect }: P
         'custom-flex-center',
         'transition',
         type,
-        visibility || 'invisible',
+        visibility || 'pointer-events-none opacity-0',
         clickability || 'pointer-events-none',
       )}
     >

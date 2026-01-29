@@ -11,8 +11,6 @@ import useScenario from '@/hooks/use-scenario';
 import useTimer from '@/hooks/use-timer';
 import { cn } from '@/utils';
 
-import './timer.scss';
-
 // --------------------------------------------------------------------------------
 // Typedef
 // --------------------------------------------------------------------------------
@@ -36,7 +34,7 @@ export default function Timer({ scenario, timer }: Props) {
         'timer',
         'custom-flex-center',
         'transition',
-        visibility || 'invisible',
+        visibility || 'pointer-events-none opacity-0',
       )}
     >
       <NeonFont

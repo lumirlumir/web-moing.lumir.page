@@ -28,7 +28,14 @@ export default function Title({ scenario }: Props) {
   const { visibility } = scenario.getSectionObj().title;
 
   return (
-    <div className={cn('title', 'transition', 'select-none', visibility || 'invisible')}>
+    <div
+      className={cn(
+        'title',
+        'transition',
+        'select-none',
+        visibility || 'pointer-events-none opacity-0',
+      )}
+    >
       <div className="mock">
         <NeonFont
           neonColor="blue"

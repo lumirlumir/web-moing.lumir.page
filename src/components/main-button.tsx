@@ -71,7 +71,9 @@ export default function ButtonMain({ scenario, config, interview }: Props) {
         'main-button',
         'custom-flex-center',
         'transition',
-        (isLastSection() && isConfigDone()) || visibility ? '' : 'invisible',
+        (isLastSection() && isConfigDone()) || visibility
+          ? ''
+          : 'pointer-events-none opacity-0',
       )}
     >
       <NeonButton style={{ padding: '20px 30px' }} onClick={e => onClick(e)}>

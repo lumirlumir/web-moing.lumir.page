@@ -19,15 +19,10 @@
   white-space: pre-line;
 }
 
-@mixin selector-invisible {
+@mixin selector-invisible-section {
   &.invisible {
     pointer-events: none;
     opacity: 0;
-    @content;
-  }
-}
-@mixin selector-invisible-section {
-  @include selector-invisible {
     height: 0;
     margin: 0 auto;
     padding: 0 var(--main-section-padding);
