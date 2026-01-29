@@ -19,7 +19,7 @@ describe('cn', () => {
     strictEqual(cn(false && 'foo', 'bar', 'baz', ''), 'bar baz');
   });
 
-  it('emptys', () => {
+  it('empties', () => {
     strictEqual(cn(''), '');
     strictEqual(cn(undefined), '');
     strictEqual(cn(null), '');
