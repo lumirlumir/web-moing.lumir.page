@@ -1,6 +1,5 @@
 .section-client {
   @include prop-main-section;
-  @include prop-main-section-bash;
   @include selector-invisible-section;
 
   > div {

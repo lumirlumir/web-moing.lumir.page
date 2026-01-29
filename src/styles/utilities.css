@@ -12,6 +12,17 @@
   }
 }
 
+.custom-main-others {
+  width: var(--main-section-width);
+  margin: 20px auto;
+}
+
+.custom-main-section-bash {
+  background-color: var(--color-background-dark);
+  font-family: var(--font-ngc);
+  white-space: pre-line;
+}
+
 /* Filters: https://tailwindcss.com/docs/opacity */
 .opacity-0 {
   opacity: 0;

@@ -1,7 +1,3 @@
-@mixin prop-main-others {
-  width: var(--main-section-width);
-  margin: 20px auto;
-}
 @mixin prop-main-section($height-mul: 1) {
   //box
   width: var(--main-section-width);
@@ -10,13 +6,6 @@
   padding: var(--main-section-padding);
   //text
   line-height: 1.5;
-}
-@mixin prop-main-section-bash {
-  //background
-  background-color: var(--color-background-dark);
-  //text
-  font-family: var(--font-ngc);
-  white-space: pre-line;
 }
 
 @mixin selector-invisible-section {

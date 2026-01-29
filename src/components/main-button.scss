@@ -1,7 +1,4 @@
 .main-button {
-  @include prop-main-others;
-
-  /* Property */
   //loading effects
   animation: 8s ease-in-out;
   animation-name: loadEffect1, loadEffect2;

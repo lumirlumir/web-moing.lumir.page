@@ -33,6 +33,7 @@ export default function Title({ scenario }: Props) {
         'title',
         'transition',
         'select-none',
+        'custom-main-others',
         visibility || 'pointer-events-none opacity-0',
       )}
     >

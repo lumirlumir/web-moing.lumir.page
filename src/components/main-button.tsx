@@ -70,6 +70,7 @@ export default function ButtonMain({ scenario, config, interview }: Props) {
       className={cn(
         'main-button',
         'custom-flex-center',
+        'custom-main-others',
         'transition',
         (isLastSection() && isConfigDone()) || visibility
           ? ''
