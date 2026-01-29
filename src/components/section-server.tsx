@@ -71,7 +71,7 @@ export default function SectionServer({ scenario, config, interview, timer }: Pr
         'custom-scrollbar',
         'custom-main-section-bash',
         'transition',
-        visibility && !configState.visibility ? '' : 'invisible',
+        visibility && !configState.visibility ? '' : 'custom-invisible-section',
         mode === 'result' && 'wide',
       )}
       neonColor="black"

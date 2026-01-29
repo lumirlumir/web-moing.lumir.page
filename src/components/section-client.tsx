@@ -37,7 +37,7 @@ export default function SectionClient({ scenario, interview }: Props) {
         'transition',
         'custom-scrollbar',
         'custom-main-section-bash',
-        visibility || 'invisible',
+        visibility || 'custom-invisible-section',
       )}
       neonColor="black"
     >

@@ -87,7 +87,7 @@ export default function SectionConfig({ config }: Props) {
         'custom-scrollbar',
         'transition',
         'select-none',
-        configState.visibility || 'invisible',
+        configState.visibility || 'custom-invisible-section',
       )}
       neonSize="m"
       neonColor="banana"

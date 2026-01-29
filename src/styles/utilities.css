@@ -23,6 +23,15 @@
   white-space: pre-line;
 }
 
+.custom-invisible-section {
+  pointer-events: none;
+  opacity: 0;
+  height: 0;
+  margin: 0 auto;
+  padding: 0 var(--main-section-padding);
+  border-width: 0 !important;
+}
+
 /* Filters: https://tailwindcss.com/docs/opacity */
 .opacity-0 {
   opacity: 0;
