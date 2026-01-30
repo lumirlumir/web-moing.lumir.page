@@ -33,20 +33,20 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 // --------------------------------------------------------------------------------
 
 /**
- * Size map for neon effect. It's multiplied by `16px` to get the final size in pixels.
+ * Size map for neon effect.
  */
-const sizeMap = Object.freeze({
+const sizeMap = {
   xl: 2,
   l: 1.5,
   m: 1,
   s: 0.75,
   xs: 0.5,
-});
+} as const;
 
 /**
  * Color map for neon effect.
  */
-const colorMap = Object.freeze({
+const colorMap = {
   red: '#ff1177',
   brightOrange: '#f8b734',
   orange: '#ff9900',
@@ -60,7 +60,7 @@ const colorMap = Object.freeze({
   silver: '#c4c4c6',
   white: '#bbbbbb',
   black: '#0e0e0e',
-});
+} as const;
 
 // --------------------------------------------------------------------------------
 // Export
