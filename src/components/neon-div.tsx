@@ -33,17 +33,6 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 // --------------------------------------------------------------------------------
 
 /**
- * Size map for neon effect.
- */
-const sizeMap = {
-  xl: 2,
-  l: 1.5,
-  m: 1,
-  s: 0.75,
-  xs: 0.5,
-} as const;
-
-/**
  * Color map for neon effect.
  */
 const colorMap = {
@@ -60,6 +49,17 @@ const colorMap = {
   silver: '#c4c4c6',
   white: '#bbbbbb',
   black: '#0e0e0e',
+} as const;
+
+/**
+ * Size map for neon effect.
+ */
+const sizeMap = {
+  xl: 2,
+  l: 1.5,
+  m: 1,
+  s: 0.75,
+  xs: 0.5,
 } as const;
 
 // --------------------------------------------------------------------------------
