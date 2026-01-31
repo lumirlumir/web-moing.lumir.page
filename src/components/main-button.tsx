@@ -6,8 +6,6 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { useCallback } from 'react';
-
 import NeonButton from '@/components/neon-button';
 import NeonFont from '@/components/neon-font';
 import useConfig from '@/hooks/use-config';
@@ -37,33 +35,22 @@ export default function ButtonMain({ scenario, config, interview }: Props) {
   const { configState, handleConfigState, isConfigDone } = config;
   const { initInterview } = interview;
 
-  const onClick = useCallback(
-    e => {
-      if (content === 'PRESS') {
-        toNextSection();
+  const onClick = e => {
+    if (content === 'PRESS') {
+      toNextSection();
+    }
+    if (content === 'START') {
+      if (e.ctrlKey) {
+        toLastSection();
+        return;
       }
-      if (content === 'START') {
-        if (e.ctrlKey) {
-          toLastSection();
-          return;
-        }
-        if (isConfigDone()) {
-          handleConfigState({ visibility: false });
-          initInterview(configState);
-        }
-        toNextSection();
+      if (isConfigDone()) {
+        handleConfigState({ visibility: false });
+        initInterview(configState);
       }
-    },
-    [
-      toNextSection,
-      toLastSection,
-      content,
-      configState,
-      handleConfigState,
-      isConfigDone,
-      initInterview,
-    ],
-  );
+      toNextSection();
+    }
+  };
 
   return (
     <div
