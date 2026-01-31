@@ -8,7 +8,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -17,7 +17,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 export default function useTimer(callbackOnTimerEnd: Function) {
   const callbackOnTimerEndRef = useRef(callbackOnTimerEnd);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const [secondState, setSecondState] = useState(null);
+  const [secondState, setSecondState] = useState<number | null>(null);
 
   useEffect(() => {
     // @ts-expect-error -- TODO
@@ -29,8 +29,7 @@ export default function useTimer(callbackOnTimerEnd: Function) {
     }
   }, [secondState]);
 
-  const resetTimer = useCallback(minute => {
-    // @ts-expect-error -- TODO
+  const resetTimer = (minute: number) => {
     setSecondState(minute * 60);
 
     // @ts-expect-error -- TODO
@@ -39,12 +38,12 @@ export default function useTimer(callbackOnTimerEnd: Function) {
       // @ts-expect-error -- TODO
       setSecondState(prevSecond => prevSecond - 1);
     }, 1000);
-  }, []);
-  const stopTimer = useCallback(() => {
+  };
+  const stopTimer = () => {
     // @ts-expect-error -- TODO
     clearInterval(intervalRef.current);
-  }, []);
-  const getTimer = useCallback(() => {
+  };
+  const getTimer = () => {
     // @ts-expect-error -- TODO
     const minute = String(Math.floor((secondState / 60) % 60)).padStart(2, '0');
     // @ts-expect-error -- TODO
@@ -54,7 +53,7 @@ export default function useTimer(callbackOnTimerEnd: Function) {
       second: Number(second),
       timer: `${minute} : ${second}`,
     };
-  }, [secondState]);
+  };
 
   return {
     resetTimer,

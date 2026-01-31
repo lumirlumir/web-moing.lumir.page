@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -15,9 +15,9 @@ import { useCallback, useState } from 'react';
 export default function useTrigger() {
   const [triggerState, setTriggerState] = useState<boolean>(false);
 
-  const trigger = useCallback(() => {
+  const trigger = () => {
     setTriggerState(true);
-  }, []);
+  };
 
   return {
     triggerState,

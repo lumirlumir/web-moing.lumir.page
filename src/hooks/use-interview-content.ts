@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import useSpeechRecognition from '@/hooks/use-speech-recognition';
 
 // --------------------------------------------------------------------------------
@@ -28,12 +28,12 @@ export default function useInterviewContent<T extends HTMLElement>() {
     if (listening) contentRef.current.innerHTML = `${prevContent.current}${transcript}`;
   }, [transcript, listening]);
 
-  const toggleListening = useCallback(() => {
+  const toggleListening = () => {
     // @ts-expect-error -- TODO
     if (!listening) prevContent.current = contentRef.current.innerHTML;
     toggle();
     if (!listening) resetTranscript();
-  }, [listening, resetTranscript, toggle]);
+  };
 
   return {
     contentRef,

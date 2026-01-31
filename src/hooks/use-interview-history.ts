@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { useCallback, useRef } from 'react';
+import { useRef } from 'react';
 import { questionTypes, type Config } from '@/hooks/use-config';
 
 // --------------------------------------------------------------------------------
@@ -19,26 +19,20 @@ export default function useInterviewHistory() {
   const rowRef = useRef<number | null>(null);
   const colRef = useRef<number | null>(null);
 
-  const initInterviewHistory = useCallback((configState: Config) => {
+  const initInterviewHistory = (configState: Config) => {
     const { main, sub } = configState;
 
     questionTypeRef.current = questionTypes.filter(key => configState[key]); // Extract only the keys with true values
     rowRef.current = main;
     colRef.current = sub + 1;
-  }, []);
-  const isQuestionMain = useCallback(
+  };
+  // @ts-expect-error -- TODO
+  const isQuestionMain = () => historyRef.current.length % colRef.current === 0;
+  const isInterviewDone = () =>
+    historyRef.current.length ===
     // @ts-expect-error -- TODO
-    () => historyRef.current.length % colRef.current === 0,
-    [],
-  );
-  const isInterviewDone = useCallback(
-    () =>
-      historyRef.current.length ===
-      // @ts-expect-error -- TODO
-      questionTypeRef.current.length * rowRef.current * colRef.current,
-    [],
-  );
-  const getQuestionMainHistory = useCallback(() => {
+    questionTypeRef.current.length * rowRef.current * colRef.current;
+  const getQuestionMainHistory = () => {
     const questionMainHistory = [];
 
     // @ts-expect-error -- TODO
@@ -48,23 +42,20 @@ export default function useInterviewHistory() {
     }
 
     return questionMainHistory;
-  }, []);
-  const getInterviewInfo = useCallback(
-    () => ({
-      questionType:
-        questionTypeRef.current[
-          // @ts-expect-error -- TODO
-          Math.floor(historyRef.current.length / (rowRef.current * colRef.current))
-        ],
-      questionMain:
+  };
+  const getInterviewInfo = () => ({
+    questionType:
+      questionTypeRef.current[
         // @ts-expect-error -- TODO
-        (Math.floor(historyRef.current.length / colRef.current) % rowRef.current) + 1,
+        Math.floor(historyRef.current.length / (rowRef.current * colRef.current))
+      ],
+    questionMain:
       // @ts-expect-error -- TODO
-      questionSub: (historyRef.current.length % colRef.current) + 1,
-    }),
-    [],
-  );
-  const getInterviewHistory = useCallback(() => {
+      (Math.floor(historyRef.current.length / colRef.current) % rowRef.current) + 1,
+    // @ts-expect-error -- TODO
+    questionSub: (historyRef.current.length % colRef.current) + 1,
+  });
+  const getInterviewHistory = () => {
     let str = '';
 
     const printAllStrings = obj => {
@@ -93,7 +84,7 @@ export default function useInterviewHistory() {
     }
 
     return str;
-  }, []);
+  };
 
   return {
     interviewHistoryRef: historyRef,

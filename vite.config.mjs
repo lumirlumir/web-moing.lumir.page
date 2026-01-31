@@ -16,7 +16,20 @@ export default defineConfig({
     'process.env.BACKEND_PORT': JSON.stringify(process.env.BACKEND_PORT),
     'process.env.BACKEND_IP': JSON.stringify(process.env.BACKEND_IP),
   },
-  plugins: [react()],
+  plugins: [
+    react({
+      babel: {
+        plugins: [
+          [
+            'babel-plugin-react-compiler',
+            {
+              panicThreshold: 'critical_errors',
+            },
+          ],
+        ],
+      },
+    }),
+  ],
   preview: {
     open: true,
   },

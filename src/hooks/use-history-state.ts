@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -15,9 +15,9 @@ import { useCallback, useState } from 'react';
 export default function useHistoryState<T>() {
   const [historyState, setHistoryState] = useState<T[]>([]);
 
-  const addHistory = useCallback((val: T) => {
+  const addHistory = (val: T) => {
     setHistoryState(prevState => [...prevState, val]);
-  }, []);
+  };
 
   return {
     historyState,
