@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { useCallback, useRef } from 'react';
+import { useRef } from 'react';
 
 // --------------------------------------------------------------------------------
 // Export
@@ -34,15 +34,12 @@ import { useCallback, useRef } from 'react';
 export default function useScroll<T extends HTMLElement>() {
   const scrollRef = useRef<T | null>(null);
 
-  const scroll = useCallback(
-    () =>
-      scrollRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'end',
-        inline: 'nearest',
-      }),
-    [],
-  );
+  const scroll = () =>
+    scrollRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+      inline: 'nearest',
+    });
 
   return {
     scrollRef,

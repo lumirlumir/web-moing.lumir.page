@@ -167,20 +167,16 @@ export default function useInterview() {
     triggerState,
   ]);
 
-  const initInterview = useCallback(
-    configState => {
-      initInterviewHistory(configState);
-      trigger();
-    },
-    [initInterviewHistory, trigger],
-  );
-  const submit = useCallback(() => {
+  const initInterview = configState => {
+    initInterviewHistory(configState);
+    trigger();
+  };
+  const submit = () => {
     // @ts-expect-error -- TODO
     addInterviewObj({ answerUser: contentRef.current.innerText });
-
     // @ts-expect-error -- TODO
     contentRef.current.innerHTML = '';
-  }, [contentRef, addInterviewObj]);
+  };
 
   return {
     contentRef,

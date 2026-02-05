@@ -6,7 +6,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 // --------------------------------------------------------------------------------
 // Typedef
@@ -798,11 +798,8 @@ export default function useScenario() {
     section: 0,
   });
 
-  const getSectionObj = useCallback(
-    () => scenario[state.chapter][state.section],
-    [state],
-  );
-  const toNextSection = useCallback(() => {
+  const getSectionObj = () => scenario[state.chapter][state.section];
+  const toNextSection = () => {
     setState(prevState => {
       const newSectionState = state.chapter + 1;
       const newSubsectionState = state.section + 1;
@@ -822,8 +819,8 @@ export default function useScenario() {
       }
       return prevState;
     });
-  }, [state]);
-  const toLastSection = useCallback(() => {
+  };
+  const toLastSection = () => {
     setState(prevState => {
       const newSubsectionState = scenario[state.chapter].length - 1;
 
@@ -832,11 +829,8 @@ export default function useScenario() {
         section: newSubsectionState,
       };
     });
-  }, [state]);
-  const isLastSection = useCallback(
-    () => state.section === scenario[state.chapter].length - 1,
-    [state],
-  );
+  };
+  const isLastSection = () => state.section === scenario[state.chapter].length - 1;
 
   return {
     getSectionObj,

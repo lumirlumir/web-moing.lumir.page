@@ -8,7 +8,7 @@
 // Import
 // --------------------------------------------------------------------------------
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 // --------------------------------------------------------------------------------
 // Typedef
@@ -160,11 +160,11 @@ export default function useSpeechRecognition() {
     };
   }, []);
 
-  const resetTranscript = useCallback(() => {
+  const resetTranscript = () => {
     setTranscript('');
-  }, []);
+  };
 
-  const toggleListening = useCallback(() => {
+  const toggleListening = () => {
     if (!recognitionRef.current) {
       return;
     }
@@ -174,7 +174,7 @@ export default function useSpeechRecognition() {
     } else {
       recognitionRef.current?.start();
     }
-  }, [isListening]);
+  };
 
   return {
     transcript,
